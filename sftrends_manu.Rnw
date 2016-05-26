@@ -92,7 +92,7 @@ writeLines(refs, con = file('refs.bib'))
 \renewcommand\refname{References \vspace{12pt}}
 
 \begin{singlespace}
-\title{{\bf {\Large Four decades of water quality changes in the upper San Francisco Estuary}}}
+\title{{\bf {\Large Four decades of water quality change in the upper San Francisco Estuary}}}
 \author{
   {\bf {\normalsize Marcus W. Beck$^1$, David Senn$^2$, Phil Bresnahan$^2$, Emily Novick$^2$, James D. Hagy III$^1$,}}
   \\{\bf {\normalsize Thomas Jabusch$^2$}}
@@ -113,44 +113,53 @@ writeLines(refs, con = file('refs.bib'))
 \clearpage
 
 \begin{abstract}
-\noindent Recent methods for trend analysis have been developed that leverage the descriptive potential of long-term time series.  Combined with these methods, multi-decadal datasets of water quality in coastal systems can provide valuable opportunities to gain insight into ecosystem properties and drivers of change.  This study describes the application of an estuarine adaptation of the \ac{wrtds} approach to describe water quality trends in the upper region of the \ac{sfe}, a primary source of nutrients into the system.  This statistical technique is data-driven where the parameterization of the functional model changes smoothly over time following dynamic patterns of season and flow.  By doing so, changes over time that have not been previously quantified can be described, including variation in flow-normalized concentrations, frequency occurrence of extreme events, and response to historical changes in the watershed, all of which are important needs for understanding trends in the \ac{sfe}.  The goal of the analysis is to apply the WRTDS model at multiple stations in the Delta and Suisun Bay regions of \ac{sfe} to provide novel descriptions of water quality changes over time and relationships between key species of dissolved inorganic nitrogen (ammonium, nitrate/nitrite, total).  This variation is considered in the context of varying contributions of input flows from the Sacramento and San Joaquin rivers, as well as tidal exchange with the central \ac{sfe}.  The results are described in the context of conceptual relationships between water quality and drivers of change to generate hypotheses of mechanistic relationships using selected examples from the trend descriptions. Overall, this analysis provides an ecological and management-based understanding of historical trends in the \ac{sfe} as a means to interpret potential impacts of recent changes and expected trends in this dynamic system.  An argument is also made for more comprehensive evaluations of long-term monitoring datasets to understand relationships between response endpoints and causal mechanisms in coastal waters.
+\noindent Recent methods for trend analysis have been developed that leverage the descriptive potential of long-term time series.  Combined with these methods, multi-decadal datasets of water quality in coastal systems can provide valuable opportunities to gain insight into ecosystem properties and drivers of change.  This study describes use of an estuarine adaptation of the \ac{wrtds} model to describe water quality trends over four decades in the Delta region of the \ac{sfe}. This region is a complex mosaic of inflows that are primary sources of nutrients into the larger Bay.  To date, a comprehensive evaluation of the long-term monitoring dataset at multiple stations in the Delta has not been conducted despite the importance of nutrient transport from the region for water quality in the entire bay.  The \ac{wrtds} technique is data-driven where the parameterization of the functional model changes smoothly over time following dynamic patterns of season and flow.  Water quality trends that have not been previously quantified can be described, including variation in flow-normalized concentrations, frequency occurrence of extreme events, and response to historical changes in the watershed, all of which are important needs for understanding changes in the \ac{sfe}.  Model results from multiple stations in the Delta provided novel descriptions of historical trends and relationships between key species of dissolved inorganic nitrogen (ammonium, nitrate/nitrite, total).  This variation was described in the context of varying contributions of input flows from the Sacramento and San Joaquin rivers, as well as tidal exchange with the central \ac{sfe}.  Conceptual relationships between water quality and drivers of change were used to generate and test hypotheses of mechanistic relationships using selected examples from the trend descriptions. Overall, this analysis provides an ecological and management-based understanding of historical trends in the \ac{sfe} as a means to interpret potential impacts of recent changes and expected trends in this dynamic system.  An argument is also made for more comprehensive evaluations of long-term monitoring datasets to understand relationships between response endpoints and causal mechanisms in coastal waters.
 \end{abstract}
 \acresetall
 
 \section{Introduction}
 
-\begin{itemize}
-\item Paragraph 1 - how and why are trends interpreted - raw data, surrogates, various methods, what have been implications of using different approaches
-\item Paragraph 2 - WRTDS for estuaries, application to Tampa Bay as test set, further validation in Patuxent
-\item Paragraph 3 - SF estuary, unique and prominent location, full story is not known (historical context and recent changes), no one has empirically described the data, how is this related to the delta (a vigorous biogeochemical reactor)
-\item Paragraph 4 - Study goal and objectives
+\begin{enumerate}
+\item How and why are trends interpreted - assessment of raw data, surrogates, various methods (kendall, GAM, WRTDS), what have been implications of using different approaches
+\item WRTDS, original method
+\item WRTDS application to Tampa Bay as test set, further validation in Patuxent
+\item SF estuary, unique and prominent location, full story is eomplex (historical context and recent changes), no one has empirically described the data, how is this related to the delta (a vigorous biogeochemical reactor)
+\item Study goal and objectives
 \begin{itemize}
 \item Provide a description of trends - annual, seasonal, spatial, response to flow, change by analytes
-\item Detailed description of selected sites in the context of conceptual relationships - 1) nonlinear or extreme quantile changes site TBD, 2) P8 and WWTP improvements, 3) Suisun DIN, SiO2, Chla, and clams
+\item Detailed description of selected sites in the context of conceptual relationships - 1) nonlinear or extreme quantile changes, site TBD, 2) P8 and WWTP improvements, 3) Suisun DIN, SiO2, Chla, and clams
 \item What this means for understanding other systems
 \end{itemize}
-\end{itemize}
+\end{enumerate}
 
 \section{Methods}
 
 \begin{itemize}
-\item Study location and data - describe conceptual relationships
-\item WRTDS method - estuarine adaptation, how was it applied to \ac{sfe}
+\item Study location and data
+\item WRTDS method - conceptual diagram
+\item WRTDS application to delta
+\item case studies and why
+\begin{itemize}
+\item Hypothesis 1: Because multiple factors influence nutrient concentrations at different times, relationships between nutrients, time, and flow/salinity are non-linear, so we expect 1) annual trend independent of seasonal trend, 2) changes in seasonal amplitudes and quantile trends over time, 3) varying flow contribution, either as difference between predicted/flow-normalized results or changes in nutrient v flow scatterplots at different annual periods.
+\item Hypothesis 2: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) shift in the flow/nutrient relatinship before and after upgrade related to change in load contributions.
+\item Hypothesis 3: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in stoichiometric ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
+\end{itemize}
 \end{itemize}
 
 \section{Results}
 
-\section{Discussuion}
+\begin{itemize}
+\item Trend descriptions
+\item Case studies
+\end{itemize}
 
-What additional information is needed?
-
-method leads to hypothesis generation or mechanistic explanations of change, verification of conceptual links
+\section{Discussion}
 
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/schematic.pdf}
 \caption{schematic}
-\label{fig:schematic}
+\label{fig:schematic}   
 \end{figure}
 
 \end{document}

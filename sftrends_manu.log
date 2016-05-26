@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  25 MAY 2016 16:36
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  26 MAY 2016 14:00
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -539,11 +539,7 @@ LaTeX Info: Redefining \bm on input line 204.
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
-(M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux
-
-LaTeX Warning: Label `acro:sfe@cref' multiply defined.
-
-)
+(M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
 LaTeX Font Info:    ... okay on input line 119.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
@@ -561,7 +557,8 @@ LaTeX Font Info:    ... okay on input line 119.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 119.
 
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 119.
@@ -675,53 +672,48 @@ Package acronym Info: Label `acro:sfe' newly defined as it shall be overridden
 although it is yet undefined on input line 150.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 154.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 157.
+ [2
+
+]
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 163.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [2
-
-]
-Package acronym Info: Label `acro:sfe' overridden on input line 172.
-
-<figs/schematic.pdf, id=42, page=1, 722.7pt x 722.7pt>
+) [3]
+<figs/schematic.pdf, id=51, page=1, 722.7pt x 722.7pt>
 File: figs/schematic.pdf Graphic file (type pdf)
 
 <use figs/schematic.pdf, page 1>
-Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 185.
+Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 194.
 (pdftex.def)             Requested size: 469.75502pt x 469.76045pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 190.
- [3] [4 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 190.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 199.
+ [4] [5 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 199.
  (M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 190.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 190.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 199.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 199.
 Package rerunfilecheck Info: File `sftrends_manu.out' has not changed.
-(rerunfilecheck)             Checksum: 0A57B457714D92550DD5ACF043847930;181.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 190.
+(rerunfilecheck)             Checksum: BCD99F16AC9AD431C6E1FB6DF1F08B2D;180.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 199.
  ) 
 Here is how much of TeX's memory you used:
- 11456 strings out of 493921
- 181461 string characters out of 3147282
+ 11463 strings out of 493921
+ 181513 string characters out of 3147282
  297285 words of memory out of 3000000
- 14553 multiletter control sequences out of 15000+200000
+ 14555 multiletter control sequences out of 15000+200000
  30946 words of font info for 69 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 44i,7n,42p,2169b,445s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,7n,42p,2331b,503s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2
 .9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 /urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8
 a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sftrends_manu.pdf (4 pages, 205890 bytes).
+Output written on sftrends_manu.pdf (5 pages, 208152 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 13 named destinations out of 1000 (max. 500000)
+ 114 PDF objects out of 1000 (max. 8388607)
+ 18 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
