@@ -120,7 +120,7 @@ writeLines(refs, con = file('refs.bib'))
 \section{Introduction}
 
 \begin{enumerate}
-\item How and why are trends interpreted - assessment of raw data, surrogates, various methods (kendall, GAM, WRTDS), what have been implications of using different approaches
+\item How and why are trends interpreted - assessment of raw data, surrogates, various methods (kendall, GAM, WRTDS), what have been implications of using different approaches, see Kratzer USGS report http://pubs.usgs.gov/sir/2010/5228/pdf/sir20105228.pdf and data http://pubs.usgs.gov/sir/2010/5228/
 \item WRTDS, original method
 \item WRTDS application to Tampa Bay as test set, further validation in Patuxent
 \item SF estuary, unique and prominent location, full story is eomplex (historical context and recent changes), no one has empirically described the data, how is this related to the delta (a vigorous biogeochemical reactor)
