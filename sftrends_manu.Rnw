@@ -66,6 +66,12 @@ options(replace.assign = TRUE, width = 90, digits = 1)
 
 source('R/funcs.r')
 library(WRTDStidal)
+library(ggplot2)
+library(dplyr)
+library(gridExtra)
+library(grid)
+library(purrr)
+library(tidyr)
 @
 
 % get the version based on commit date
@@ -113,7 +119,7 @@ writeLines(refs, con = file('refs.bib'))
 \clearpage
 
 \begin{abstract}
-\noindent Recent methods for trend analysis have been developed that leverage the descriptive potential of long-term time series.  Combined with these methods, multi-decadal datasets of water quality in coastal systems can provide valuable opportunities to gain insight into ecosystem properties and drivers of change.  This study describes use of an estuarine adaptation of the \ac{wrtds} model to describe water quality trends over four decades in the Delta region of the \ac{sfe}. This region is a complex mosaic of inflows that are primary sources of nutrients into the larger Bay.  To date, a comprehensive evaluation of the long-term monitoring dataset at multiple stations in the Delta has not been conducted despite the importance of nutrient transport from the region for water quality in the entire bay.  The \ac{wrtds} technique is data-driven where the parameterization of the functional model changes smoothly over time following dynamic patterns of season and flow.  Water quality trends that have not been previously quantified can be described, including variation in flow-normalized concentrations, frequency occurrence of extreme events, and response to historical changes in the watershed, all of which are important needs for understanding changes in the \ac{sfe}.  Model results from multiple stations in the Delta provided novel descriptions of historical trends and relationships between key species of dissolved inorganic nitrogen (ammonium, nitrate/nitrite, total).  This variation was described in the context of varying contributions of input flows from the Sacramento and San Joaquin rivers, as well as tidal exchange with the central \ac{sfe}.  Conceptual relationships between water quality and drivers of change were used to generate and test hypotheses of mechanistic relationships using selected examples from the trend descriptions. Overall, this analysis provides an ecological and management-based understanding of historical trends in the \ac{sfe} as a means to interpret potential impacts of recent changes and expected trends in this dynamic system.  An argument is also made for more comprehensive evaluations of long-term monitoring datasets to understand relationships between response endpoints and causal mechanisms in coastal waters.
+\noindent Recent methods for trend analysis have been developed that leverage the descriptive potential of long-term time series.  Combined with these methods, multi-decadal datasets of water quality in coastal systems can provide valuable opportunities to gain insights into ecosystem properties and drivers of change.  This study describes use of an estuarine adaptation of the \ac{wrtds} model to describe water quality trends over four decades in the Delta region of the \ac{sfe}. This region is a complex mosaic of inflows that are primary sources of nutrients into the larger Bay.  To date, a comprehensive evaluation of the long-term monitoring dataset at multiple stations in the Delta has not been conducted despite the importance of nutrient transport from the region for water quality in the entire bay.  The \ac{wrtds} technique is data-driven where the parameterization of the functional model changes smoothly over time following dynamic patterns of season and flow.  Water quality trends that have not been previously quantified can be described, including variation in flow-normalized concentrations, frequency occurrence of extreme events, and response to historical changes in the watershed, all of which are important needs for understanding changes in the \ac{sfe}.  Model results from multiple stations in the Delta provided novel descriptions of historical trends and relationships between key species of dissolved inorganic nitrogen (ammonium, nitrate/nitrite, total).  This variation was described in the context of varying contributions of input flows from the Sacramento and San Joaquin rivers, as well as tidal exchange with the central \ac{sfe}.  Conceptual relationships between water quality and drivers of change were used to generate and test hypotheses of mechanistic relationships using selected examples from the trend descriptions. Overall, this analysis provides an ecological and management-based understanding of historical trends in the \ac{sfe} as a means to interpret potential impacts of recent changes and expected trends in this dynamic system.  An argument is also made for more comprehensive evaluations of long-term monitoring datasets to understand relationships between response endpoints and causal mechanisms in coastal waters.
 \end{abstract}
 \acresetall
 
@@ -135,8 +141,8 @@ writeLines(refs, con = file('refs.bib'))
 \section{Methods}
 
 \begin{itemize}
-\item Study location and data
-\item WRTDS method - conceptual diagram
+\item Study location (Bay and Delta) and data
+\item WRTDS method - conceptual diagram \cref{fig:schematic}
 \item WRTDS application to delta
 \item case studies and why
 \begin{itemize}
@@ -155,11 +161,147 @@ writeLines(refs, con = file('refs.bib'))
 
 \section{Discussion}
 
+\clearpage
+\begin{singlespace}
+\bibliographystyle{apalike_mine}
+\bibliography{refs}
+\end{singlespace}
+\clearpage
+
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/schematic.pdf}
-\caption{schematic}
+\caption{Conceptual diagram illustrating use of \ac{wrtds} to decompose trends in observed nitrogen time series and potential forcing factors that can explain model output.  Results from the model are described as annual and seasonal trends, changes in flow-nutrient dynamics for different time periods, and residual variation independent of time, flow, and season. Relationships between environmental factors (climate, local, regional/historical) and nitrogen trends are more easily related to the separate components of the observed time series using results from the model. }
 \label{fig:schematic}   
 \end{figure}
+
+<<clmchl, fig.height = 6, fig.width = 10, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and chlorophyll concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula} clams in 1987 and displacement of \\textit{Corbicula sp.} was shown by changes in clam density (top left, annual means).  A coincident decrease in chloropyll concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and chlorophyll concentration was observed (right).'>>=
+# clam and model data at D7
+data(clams)
+data(diat_dat)
+
+# format chl data and clam data for first two plots
+chldat <- filter(diat_dat, resvar %in% 'chl') %>% 
+  .$mod %>% 
+  .[[1]] %>% 
+  annual_agg %>% 
+  select(date, year, res, norm0.5) %>% 
+  mutate(res = exp(res), norm0.5 = exp(norm0.5)) %>% 
+  rename(yr = date)
+
+clmdat <- group_by(clams, yr, species) %>% 
+  summarize(
+    clams_smp = mean(clams_smp, na.rm = TRUE),
+    biomass = mean(biomass, na.rm = TRUE)
+    ) %>% 
+  ungroup %>% 
+  mutate(yr = as.Date(paste0(yr, '-10-01')))
+
+# make sure date range is same on both
+xlims <- as.Date(c('1976-10-01', '2014-10-01'))
+
+# annual clam time series
+p1 <- ggplot(clmdat, aes(x = yr, y = clams_smp, fill = species)) + 
+  geom_bar(stat = 'identity') + 
+  theme_minimal() + 
+  theme(
+    axis.line.y = element_line(), 
+    axis.line.x = element_line(),
+    # axis.title.x = element_blank(),
+    legend.position = 'top', 
+    legend.title = element_blank()
+    ) + 
+  scale_fill_brewer(
+    palette = 'Set2',
+    labels = parse(text = c('italic(Corbicula)', 'italic(Potamocorbula)'))
+    ) + 
+  scale_x_date('', limits = xlims) +
+  scale_y_continuous('Clams per sample')
+
+# annual chlorophyll time series with flow-norm
+p2 <- ggplot(chldat, aes(x = yr, y = norm0.5)) + 
+  geom_point(aes(y = res, shape = 'Observed'), size = 3) + 
+  geom_line(aes(color = 'Flow-normalized')) + 
+  theme_minimal() + 
+  theme(
+    axis.line.y = element_line(), 
+    axis.line.x = element_line(),
+    # axis.title.x = element_blank(), 
+    legend.position = 'top', 
+    legend.title = element_blank(), 
+    legend.box = 'horizontal'
+    ) + 
+  scale_colour_manual(values = c('black', 'black')) +
+  scale_x_date('', limits = xlims) +
+  scale_y_continuous(expression(paste("Chl-", italic(a), " (", italic(mu), "g ", L^-1, ")")))
+
+# chlorophyll by month
+chldat <- filter(diat_dat, resvar %in% 'chl') %>% 
+  .$mod %>% 
+  .[[1]] %>% 
+  select(year, month, res, norm0.5) %>% 
+  mutate(res = exp(res), norm0.5 = exp(norm0.5)) %>% 
+  rename(yr = year, mo = month) %>% 
+  group_by(yr, mo) %>% 
+  summarize(res = mean(res, na.rm = TRUE), norm0.5 = mean(norm0.5, na.rm = TRUE)) %>% 
+  ungroup
+
+# clam by month
+clmdat <- mutate(clams, mo = lubridate::month(date)) %>% 
+  group_by(yr, mo, species) %>% 
+  summarize(
+    clams_smp = mean(clams_smp, na.rm = TRUE),
+    biomass = mean(biomass, na.rm = TRUE)
+    ) %>% 
+  ungroup %>% 
+  filter(species %in% 'Potamocorbula')
+
+# combine chlorophyll and clam by year, month
+toplo <- left_join(clmdat, chldat, by = c('yr', 'mo')) %>% 
+  mutate(date = as.Date(paste0(yr, '-', mo, '-01')))
+
+# linear model of concentration x biomass
+mod <- lm(log(1 + norm0.5) ~ log(1 + biomass), data = toplo) %>% 
+  coefficients
+xvals <- range(toplo$biomass, na.rm = TRUE)
+xvals <- seq(xvals[1], xvals[2], length = 100)
+yvals <- (exp(mod[1] + mod[2] * log(1 + xvals))) - 1
+
+xlab <- expression(paste(italic(Potamocorbula), " biomass (g ", m^-2, ")"))
+ylab <- expression(paste("Flow-normalized chlorophyll (   ", italic(mu), "g ", L^-1, ")"))
+
+# scatter plot of concetration x biomass with model 
+p3 <- ggplot(toplo, aes(x = biomass, y = norm0.5)) + 
+  geom_point(size = 3, alpha = 0.8, colour = 'darkgrey') + 
+  geom_line(data = data.frame(x = xvals, y = yvals), aes(x, y, colour = 'black'), lwd = 1) +
+  theme_minimal() + 
+  theme(
+    axis.line.y = element_line(), 
+    axis.line.x = element_line(),
+    legend.position = 'top', 
+    legend.title = element_blank(), 
+    legend.box = 'horizontal'
+    ) +
+  scale_colour_manual(label = 'log(1 + chl) = 1.1 - 0.09log(1 + biomass)', values = 'black') +
+  scale_x_continuous(xlab) + 
+  scale_y_continuous(ylab, limits = c(0.8, 4))
+
+
+# align widths of plots in first column
+pA <- ggplot_gtable(ggplot_build(p1))
+pB <- ggplot_gtable(ggplot_build(p2))
+maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3])
+
+# Set the widths
+pA$widths[2:3] <- maxWidth
+pB$widths[2:3] <- maxWidth
+
+# combine all
+grid.arrange(
+  arrangeGrob(pA, pB, ncol = 1, heights = c(1, 1)), 
+  p3, ncol = 2, widths = c(1, 0.5)
+  )
+@
+
 
 \end{document}
