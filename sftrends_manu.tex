@@ -139,7 +139,7 @@
 	\\{\textit {\normalsize Phone: 510-746-7334, Fax: 510-746-7300}}
 	\\{\textit {\normalsize Emails: \href{mailto:davids@sfei.org}{davids@sfei.org}, \href{mailto:philb@sfei.org}{philb@sfei.org}, \href{mailto:emilyn@sfei.org}{emilyn@sfei.org}, \href{mailto:thomasj@sfei.org}{thomasj@sfei.org}}}
   \vspace{1in} 
-  \\ Version Date:   Thu Jun 2 15:15:19 2016 -0500
+  \\ Version Date:   Mon Jun 13 16:52:18 2016 -0500
 	}
 \date{}
 \maketitle
@@ -154,10 +154,10 @@
 \section{Introduction}
 
 \begin{enumerate}
-\item How and why are trends interpreted - assessment of raw data, surrogates, various methods (kendall, GAM, WRTDS), what have been implications of using different approaches, see Kratzer USGS report http://pubs.usgs.gov/sir/2010/5228/pdf/sir20105228.pdf and data http://pubs.usgs.gov/sir/2010/5228/
-\item WRTDS, original method
-\item WRTDS application to Tampa Bay as test set, further validation in Patuxent
-\item SF estuary, unique and prominent location, full story is eomplex (historical context and recent changes), no one has empirically described the data, how is this related to the delta (a vigorous biogeochemical reactor)
+\item How and why are trends interpreted - assessment of raw data, surrogates, various methods (kendall, GAM, WRTDS), what have been implications of using different approaches, see Kratzer USGS report http://pubs.usgs.gov/sir/2010/5228/pdf/sir20105228.pdf and data http://pubs.usgs.gov/sir/2010/5228/, need to interpret eutrophication trends in estuaries - it's confusing \citep{Cloern10}
+\item WRTDS, original method \citep{Hirsch10,Hirsch15}
+\item WRTDS application to Tampa Bay as test set \citep{Beck15}, further validation in Patuxent and other tidal waters \cite{Beck15b}
+\item SF estuary, unique and prominent location, full story is complex (historical context and recent changes) \citep{Cloern12b}, why is the delta important (a vigorous biogeochemical reactor) \citep{Jassby00,Jassby02,Jassby08}, no one has empirically described the data in the delta using data-intensive methods
 \item Study goal and objectives
 \begin{itemize}
 \item Provide a description of trends - annual, seasonal, spatial, response to flow, change by analytes
@@ -182,10 +182,13 @@
 
 \section{Results}
 
-\begin{itemize}
-\item Trend descriptions
-\item Case studies
-\end{itemize}
+\subsection{Trends}
+
+\subsection{Selected examples}
+
+\subsubsection{Clam invasion in Suisun Bay}
+Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
+\cref{fig:clmchl}, \cref{tab:chlsio}
 
 \section{Discussion}
 
@@ -203,16 +206,53 @@
 \label{fig:schematic}   
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{kframe}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in unit.pmax(pc\$widths[2:3], pD\$widths[2:3]): object 'pc' not found}}\end{kframe}\begin{figure}[!ht]
 
 {\centering \includegraphics[width=\textwidth]{figs/clmchl-1} 
 
 }
 
-\caption{Trends in clam abundance and chlorophyll concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \textit{Potamocorbula} clams in 1987 and displacement of \textit{Corbicula sp.} was shown by changes in clam density (top left, annual means).  A coincident decrease in chloropyll concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and chlorophyll concentration was observed (right).}\label{fig:clmchl}
+\caption[Trends in clam abundance and chlorophyll concentration from 1976 to 2014 at station D7 in Suisun Bay]{Trends in clam abundance and chlorophyll concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \textit{Corbicula fluminea} was shown by changes in clam density (top left, annual means).  A coincident decrease in chloropyhll concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and chlorophyll concentration was observed (right).}\label{fig:clmchl}
 \end{figure}
 
 
+
+\clearpage
+%%%%%%
+% tables
+
+% trends in sio and chl at d7
+%latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(1, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2), rowname = cats,     label = "tab:chlsio")%
+\begin{table}[!tbp]
+\caption{Summaries of flow-normalized trends in chlorophyll and silicon dioxide concentrations for different time periods. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.\label{tab:chlsio}} 
+\begin{center}
+\begin{tabular}{lllcll}
+\hline\hline
+\multicolumn{1}{l}{\bfseries Period}&\multicolumn{2}{c}{\bfseries Chl-\textit{a}}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries SiO$_2$}\tabularnewline
+\cline{2-3} \cline{5-6}
+\multicolumn{1}{l}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}\tabularnewline
+\hline
+{\bfseries All}&&&&&\tabularnewline
+~~1976-2013&3.5&-80.1&&12.5&\textit{\textbf{33.6}}\tabularnewline
+\hline
+{\bfseries Annual}&&&&&\tabularnewline
+~~1976-1985&7.8&-62.3&&10.5&\textit{\textbf{8.9}}\tabularnewline
+~~1986-1994&2.2&-62.1&&12.4&\textit{\textbf{15.6}}\tabularnewline
+~~1995-2003&1.6&\textit{\textbf{20.2}}&&13.7&\textit{\textbf{4.5}}\tabularnewline
+~~2004-2013&2&\textit{\textbf{31.3}}&&13.6&-2\tabularnewline
+\hline
+{\bfseries Seasonal}&&&&&\tabularnewline
+~~JFM&1.9&-43.2&&14.8&\textit{\textbf{7.3}}\tabularnewline
+~~AMJ&4.3&-72.8&&12.9&\textit{\textbf{25.7}}\tabularnewline
+~~JAS&4.8&-88.4&&11.1&\textit{\textbf{70.8}}\tabularnewline
+~~OND&2.1&-79.4&&11.7&\textit{\textbf{41.7}}\tabularnewline
+\hline
+\end{tabular}\end{center}
+
+\end{table}
 
 
 \end{document}

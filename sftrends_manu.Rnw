@@ -72,6 +72,7 @@ library(gridExtra)
 library(grid)
 library(purrr)
 library(tidyr)
+library(Hmisc)
 @
 
 % get the version based on commit date
@@ -126,10 +127,10 @@ writeLines(refs, con = file('refs.bib'))
 \section{Introduction}
 
 \begin{enumerate}
-\item How and why are trends interpreted - assessment of raw data, surrogates, various methods (kendall, GAM, WRTDS), what have been implications of using different approaches, see Kratzer USGS report http://pubs.usgs.gov/sir/2010/5228/pdf/sir20105228.pdf and data http://pubs.usgs.gov/sir/2010/5228/
-\item WRTDS, original method
-\item WRTDS application to Tampa Bay as test set, further validation in Patuxent
-\item SF estuary, unique and prominent location, full story is eomplex (historical context and recent changes), no one has empirically described the data, how is this related to the delta (a vigorous biogeochemical reactor)
+\item How and why are trends interpreted - assessment of raw data, surrogates, various methods (kendall, GAM, WRTDS), what have been implications of using different approaches, see Kratzer USGS report http://pubs.usgs.gov/sir/2010/5228/pdf/sir20105228.pdf and data http://pubs.usgs.gov/sir/2010/5228/, need to interpret eutrophication trends in estuaries - it's confusing \citep{Cloern10}
+\item WRTDS, original method \citep{Hirsch10,Hirsch15}
+\item WRTDS application to Tampa Bay as test set \citep{Beck15}, further validation in Patuxent and other tidal waters \cite{Beck15b}
+\item SF estuary, unique and prominent location, full story is complex (historical context and recent changes) \citep{Cloern12b}, why is the delta important (a vigorous biogeochemical reactor) \citep{Jassby00,Jassby02,Jassby08}, no one has empirically described the data in the delta using data-intensive methods
 \item Study goal and objectives
 \begin{itemize}
 \item Provide a description of trends - annual, seasonal, spatial, response to flow, change by analytes
@@ -154,10 +155,13 @@ writeLines(refs, con = file('refs.bib'))
 
 \section{Results}
 
-\begin{itemize}
-\item Trend descriptions
-\item Case studies
-\end{itemize}
+\subsection{Trends}
+
+\subsection{Selected examples}
+
+\subsubsection{Clam invasion in Suisun Bay}
+Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
+\cref{fig:clmchl}, \cref{tab:chlsio}
 
 \section{Discussion}
 
@@ -175,22 +179,24 @@ writeLines(refs, con = file('refs.bib'))
 \label{fig:schematic}   
 \end{figure}
 
-<<clmchl, fig.height = 6, fig.width = 10, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and chlorophyll concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula} clams in 1987 and displacement of \\textit{Corbicula sp.} was shown by changes in clam density (top left, annual means).  A coincident decrease in chloropyll concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and chlorophyll concentration was observed (right).'>>=
+<<clmchl, fig.height = 7, fig.width = 10, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and chlorophyll concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (top left, annual means).  A coincident decrease in chloropyhll concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and chlorophyll concentration was observed (right).'>>=
 # clam and model data at D7
 data(clams)
 data(diat_dat)
+data(chld7)
 
 # format chl data and clam data for first two plots
 chldat <- filter(diat_dat, resvar %in% 'chl') %>% 
   .$mod %>% 
   .[[1]] %>% 
   annual_agg %>% 
+  mutate(year = lubridate::year(date)) %>% 
   select(date, year, res, norm0.5) %>% 
   mutate(res = exp(res), norm0.5 = exp(norm0.5)) %>% 
   rename(yr = date)
 
 clmdat <- group_by(clams, yr, species) %>% 
-  summarize(
+  dplyr::summarize(
     clams_smp = mean(clams_smp, na.rm = TRUE),
     biomass = mean(biomass, na.rm = TRUE)
     ) %>% 
@@ -243,13 +249,13 @@ chldat <- filter(diat_dat, resvar %in% 'chl') %>%
   mutate(res = exp(res), norm0.5 = exp(norm0.5)) %>% 
   rename(yr = year, mo = month) %>% 
   group_by(yr, mo) %>% 
-  summarize(res = mean(res, na.rm = TRUE), norm0.5 = mean(norm0.5, na.rm = TRUE)) %>% 
+  dplyr::summarize(res = mean(res, na.rm = TRUE), norm0.5 = mean(norm0.5, na.rm = TRUE)) %>% 
   ungroup
 
 # clam by month
 clmdat <- mutate(clams, mo = lubridate::month(date)) %>% 
   group_by(yr, mo, species) %>% 
-  summarize(
+  dplyr::summarize(
     clams_smp = mean(clams_smp, na.rm = TRUE),
     biomass = mean(biomass, na.rm = TRUE)
     ) %>% 
@@ -286,8 +292,25 @@ p3 <- ggplot(toplo, aes(x = biomass, y = norm0.5)) +
   scale_x_continuous(xlab) + 
   scale_y_continuous(ylab, limits = c(0.8, 4))
 
+# dynaplot for chl, june
+cols <- RColorBrewer::brewer.pal(10, 'Set2')[1:2]
+ylab <- attr(chld7, 'reslab')
+p4 <- dynaplot(chld7, mo = 6, col_vec = cols) +
+  theme_minimal() +
+  theme(
+    axis.line.y = element_line(), 
+    axis.line.x = element_line(),
+    legend.position = 'top', 
+    legend.title = element_blank(), 
+    legend.box = 'horizontal',
+    strip.background = element_blank(),
+    strip.text.x = element_blank()
+    ) + 
+  scale_x_continuous('Salinity (standardized 0-1)') + 
+  scale_y_continuous(ylab, limits = c(0.4, 3.8))
+  
 
-# align widths of plots in first column
+# align widths of plots in first column, first two
 pA <- ggplot_gtable(ggplot_build(p1))
 pB <- ggplot_gtable(ggplot_build(p2))
 maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3])
@@ -296,12 +319,93 @@ maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3])
 pA$widths[2:3] <- maxWidth
 pB$widths[2:3] <- maxWidth
 
+# align widths of plots in first column, first two
+pC <- ggplot_gtable(ggplot_build(p3))
+pD <- ggplot_gtable(ggplot_build(p4))
+maxWidth = unit.pmax(pc$widths[2:3], pD$widths[2:3])
+
+# Set the widths
+pC$widths[2:3] <- maxWidth
+pD$widths[2:3] <- maxWidth
+
 # combine all
 grid.arrange(
   arrangeGrob(pA, pB, ncol = 1, heights = c(1, 1)), 
-  p3, ncol = 2, widths = c(1, 0.5)
+  arrangeGrob(pC, pD, ncol = 1, heights = c(1, 1)), 
+  ncol = 2, widths = c(1, 0.6)
   )
 @
 
+\clearpage
+%%%%%%
+% tables
+
+% trends in sio and chl at d7
+<<chlsio>>=
+
+data(diat_dat)
+
+sioraw <- filter(diat_dat, resvar %in% 'sio2') %>% 
+  .$mod %>% 
+  .[[1]]
+chlraw <- filter(diat_dat, resvar %in% 'chl') %>% 
+  .$mod %>% 
+  .[[1]]
+
+mobrks <- c(-Inf, 3, 6, 9, Inf)
+yrbrks <- c(-Inf, 1985, 1994, 2003, Inf)
+molabs <- c('JFM', 'AMJ', 'JAS', 'OND')
+yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
+
+# summarize sio2 and chl trends
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+  .[1, ] %>% 
+  rbind(., sio) %>% 
+  data.frame(res = 'sio', .)
+chl <- wrtdstrnd(chlraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
+chl <- wrtdstrnd(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+  .[1, ] %>% 
+  rbind(., chl) %>% 
+  data.frame(res = 'chl', .)
+
+# combine for trends for table
+totab <- rbind(sio, chl) %>% 
+  mutate(
+    chg = round(chg, 1), 
+    chg = ifelse(chg < 0, chg, paste0('\\textit{\\textbf{', chg , '}}')), 
+    ave = as.character(round(ave, 1))
+    ) %>% 
+  gather('var', 'val', chg:ave) %>% 
+  unite('col', res, var) %>% 
+  spread(col, val) %>% 
+  mutate(cat = factor(cat, levels = c('1976-2013', yrlabs, molabs), labels = c('1976-2013', yrlabs, molabs))) %>% 
+  arrange(cat) %>% 
+  data.frame(sep = c(rep('Annual', 5), rep('Seasonal', 4)), .)
+
+# final table formatting
+segs <- c('All', 'Annual', 'Seasonal')
+cats <- totab$cat
+totab <- totab[,-c(1:2)]
+vars <- c('Chl-\\textit{a}', 'SiO$_2$')
+names(totab) <- rep(c('Mean', '\\% change'), 2)
+
+cap.val<-'Summaries of flow-normalized trends in chlorophyll and silicon dioxide concentrations for different time periods. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
+
+latex( 
+  totab,
+  file = '',
+  rowlabel = 'Period',
+  caption = cap.val,
+  caption.loc = 'top',
+  rgroup = segs,
+  n.rgroup = c(1, rep(4, 2)),
+  cgroup = vars,
+  n.cgroup = c(2, 2),
+  rowname = cats,
+  label = 'tab:chlsio'
+  )
+
+@
 
 \end{document}
