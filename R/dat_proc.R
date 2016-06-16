@@ -129,3 +129,7 @@ mod <- wrtds(tomod, tau = c(0.1, 0.5, 0.9), wins = list(0.5, 15, 0.5), flo_div =
 out <- mod %>% 
   respred(dat_pred = topred) %>% 
   resnorm
+
+# save
+dinc10 <- out
+save(dinc10, file = 'data/dinc10.RData')
