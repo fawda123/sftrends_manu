@@ -46,6 +46,7 @@
 % \defcitealias{FLDEP12}{FLDEP 2012}
 
 %acronyms
+\acrodef{chla}[chl-\textit{a}]{chlorophyll \textit{a}}
 \acrodef{sfe}[SFE]{San Francisco Estuary}
 \acrodef{wrtds}[WRTDS]{Weighted Regressions on Time, Discharge, and Season}
 
@@ -131,6 +132,9 @@ writeLines(refs, con = file('refs.bib'))
 \item WRTDS, original method \citep{Hirsch10,Hirsch15}
 \item WRTDS application to Tampa Bay as test set \citep{Beck15}, further validation in Patuxent and other tidal waters \cite{Beck15b}
 \item SF estuary, unique and prominent location, full story is complex (historical context and recent changes) \citep{Cloern12b}, why is the delta important (a vigorous biogeochemical reactor) \citep{Jassby00,Jassby02,Jassby08}, no one has empirically described the data in the delta using data-intensive methods
+
+San Francisco Bay on the Pacific Coast of the United States is one of the most prominent estuaries in the western hemisphere.  Background nutrient concentrations in the Bay often exceed those associated with excessive primary production, although eutrophication events have historically been infrequent.  Recent changes in response to additional stressors (e.g., variation in freshwater inputs/withdrawals, invasive species, climate change) suggests that Bay condition has not followed historical trajectories and more subtle spatial and temporal variation could provide clues that describe underlying properties of this system.  The unique ecological and social context of the Bay, including a rich source of monitoring data from the last four decades, provides a valuable opportunity to gain insight into ecosystem properties of estuaries. 
+
 \item Study goal and objectives
 \begin{itemize}
 \item Provide a description of trends - annual, seasonal, spatial, response to flow, change by analytes
@@ -141,17 +145,22 @@ writeLines(refs, con = file('refs.bib'))
 
 \section{Methods}
 
-\begin{itemize}
-\item Study location (Bay and Delta) and data
-\item WRTDS method - conceptual diagram \cref{fig:schematic}
-\item WRTDS application to delta
-\item case studies and why
-\begin{itemize}
-\item Hypothesis 1: Because multiple factors influence nutrient concentrations at different times, relationships between nutrients, time, and flow/salinity are non-linear, so we expect 1) annual trend independent of seasonal trend, 2) changes in seasonal amplitudes and quantile trends over time, 3) varying flow contribution, either as difference between predicted/flow-normalized results or changes in nutrient v flow scatterplots at different annual periods.
-\item Hypothesis 2: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) shift in the flow/nutrient relatinship before and after upgrade related to change in load contributions.
-\item Hypothesis 3: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in stoichiometric ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
-\end{itemize}
-\end{itemize}
+\subsection{Study location and data}
+
+The \ac{sfe}... exchange with ocean, freshwater inputs, runoff variation (drought years), climate, support of natural resources
+\subsection{Analysis method and application}
+
+\begin{equation}
+\ln\left(N\right) = \beta_0 + \beta_1 t + \beta_2 \ln\left(Q\right) + \beta_3 \sin\left(2\pi t\right) + \beta_4 \cos\left(2\pi t\right)
+\end{equation}
+
+\subsection{Case studies}
+\subsubsection{Disaggregating observed nitrogen time series}
+Hypothesis: Because multiple factors influence nutrient concentrations at different times, relationships between nutrients, time, and flow/salinity are non-linear, so we expect 1) annual trend independent of seasonal trend, 2) changes in seasonal amplitudes and quantile trends over time, 3) varying flow contribution, either as difference between predicted/flow-normalized results or changes in nutrient v flow scatterplots at different annual periods.
+\subsubsection{Effects of wastewater treatment}
+Hypothesis: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) shift in the flow/nutrient relatinship before and after upgrade related to change in load contributions.
+\subsubsection{Effects of biological invasions}
+Hypothesis: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in stoichiometric ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
 
 \section{Results}
 
@@ -179,7 +188,8 @@ Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community 
 \label{fig:schematic}   
 \end{figure}
 
-<<clmchl, fig.height = 7, fig.width = 10, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and chlorophyll concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (top left, annual means).  A coincident decrease in chloropyhll concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and chlorophyll concentration was observed (right).'>>=
+<<clmchl, fig.height = 7, fig.width = 10, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (top left, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in the top right.  Flow relationships with \\ac{chla} concentration have also changed over time (bottom right, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
+
 # clam and model data at D7
 data(clams)
 data(diat_dat)
@@ -295,7 +305,8 @@ p3 <- ggplot(toplo, aes(x = biomass, y = norm0.5)) +
 # dynaplot for chl, june
 cols <- RColorBrewer::brewer.pal(10, 'Set2')[1:2]
 ylab <- attr(chld7, 'reslab')
-p4 <- dynaplot(chld7, mo = 6, col_vec = cols) +
+
+p4 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F) +
   theme_minimal() +
   theme(
     axis.line.y = element_line(), 
@@ -306,10 +317,9 @@ p4 <- dynaplot(chld7, mo = 6, col_vec = cols) +
     strip.background = element_blank(),
     strip.text.x = element_blank()
     ) + 
-  scale_x_continuous('Salinity (standardized 0-1)') + 
+  scale_x_continuous('ln-Salinity (psu)') + 
   scale_y_continuous(ylab, limits = c(0.4, 3.8))
   
-
 # align widths of plots in first column, first two
 pA <- ggplot_gtable(ggplot_build(p1))
 pB <- ggplot_gtable(ggplot_build(p2))
@@ -322,7 +332,7 @@ pB$widths[2:3] <- maxWidth
 # align widths of plots in first column, first two
 pC <- ggplot_gtable(ggplot_build(p3))
 pD <- ggplot_gtable(ggplot_build(p4))
-maxWidth = unit.pmax(pc$widths[2:3], pD$widths[2:3])
+maxWidth = unit.pmax(pC$widths[2:3], pD$widths[2:3])
 
 # Set the widths
 pC$widths[2:3] <- maxWidth

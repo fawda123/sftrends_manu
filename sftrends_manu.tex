@@ -95,6 +95,7 @@
 % \defcitealias{FLDEP12}{FLDEP 2012}
 
 %acronyms
+\acrodef{chla}[chl-\textit{a}]{chlorophyll \textit{a}}
 \acrodef{sfe}[SFE]{San Francisco Estuary}
 \acrodef{wrtds}[WRTDS]{Weighted Regressions on Time, Discharge, and Season}
 
@@ -139,7 +140,7 @@
 	\\{\textit {\normalsize Phone: 510-746-7334, Fax: 510-746-7300}}
 	\\{\textit {\normalsize Emails: \href{mailto:davids@sfei.org}{davids@sfei.org}, \href{mailto:philb@sfei.org}{philb@sfei.org}, \href{mailto:emilyn@sfei.org}{emilyn@sfei.org}, \href{mailto:thomasj@sfei.org}{thomasj@sfei.org}}}
   \vspace{1in} 
-  \\ Version Date:   Mon Jun 13 16:52:18 2016 -0500
+  \\ Version Date:   Tue Jun 14 18:01:49 2016 -0500
 	}
 \date{}
 \maketitle
@@ -168,17 +169,23 @@
 
 \section{Methods}
 
-\begin{itemize}
-\item Study location (Bay and Delta) and data
-\item WRTDS method - conceptual diagram \cref{fig:schematic}
-\item WRTDS application to delta
-\item case studies and why
-\begin{itemize}
-\item Hypothesis 1: Because multiple factors influence nutrient concentrations at different times, relationships between nutrients, time, and flow/salinity are non-linear, so we expect 1) annual trend independent of seasonal trend, 2) changes in seasonal amplitudes and quantile trends over time, 3) varying flow contribution, either as difference between predicted/flow-normalized results or changes in nutrient v flow scatterplots at different annual periods.
-\item Hypothesis 2: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) shift in the flow/nutrient relatinship before and after upgrade related to change in load contributions.
-\item Hypothesis 3: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in stoichiometric ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
-\end{itemize}
-\end{itemize}
+\subsection{Study location and data}
+
+The \ac{sfe}... The delta...
+
+\subsection{Analysis method and application}
+
+\begin{equation}
+\ln\left(N\right) = \beta_0 + \beta_1 t + \beta_2 \ln\left(Q\right) + \beta_3 \sin\left(2\pi t\right) + \beta_4 \cos\left(2\pi t\right)
+\end{equation}
+
+\subsection{Case studies}
+\subsubsection{Disaggregating observed nitrogen time series}
+Hypothesis: Because multiple factors influence nutrient concentrations at different times, relationships between nutrients, time, and flow/salinity are non-linear, so we expect 1) annual trend independent of seasonal trend, 2) changes in seasonal amplitudes and quantile trends over time, 3) varying flow contribution, either as difference between predicted/flow-normalized results or changes in nutrient v flow scatterplots at different annual periods.
+\subsubsection{Effects of wastewater treatment}
+Hypothesis: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) shift in the flow/nutrient relatinship before and after upgrade related to change in load contributions.
+\subsubsection{Effects of biological invasions}
+Hypothesis: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in stoichiometric ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
 
 \section{Results}
 
@@ -206,16 +213,13 @@ Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community 
 \label{fig:schematic}   
 \end{figure}
 
-\begin{kframe}
-
-
-{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in unit.pmax(pc\$widths[2:3], pD\$widths[2:3]): object 'pc' not found}}\end{kframe}\begin{figure}[!ht]
+\begin{figure}[!ht]
 
 {\centering \includegraphics[width=\textwidth]{figs/clmchl-1} 
 
 }
 
-\caption[Trends in clam abundance and chlorophyll concentration from 1976 to 2014 at station D7 in Suisun Bay]{Trends in clam abundance and chlorophyll concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \textit{Corbicula fluminea} was shown by changes in clam density (top left, annual means).  A coincident decrease in chloropyhll concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and chlorophyll concentration was observed (right).}\label{fig:clmchl}
+\caption{Trends in clam abundance and \ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \textit{Corbicula fluminea} was shown by changes in clam density (top left, annual means).  A coincident decrease in \ac{chla} concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and \ac{chla} concentration is shown in the top right.  Flow relationships with \ac{chla} concentration have also changed over time (bottom right, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.}\label{fig:clmchl}
 \end{figure}
 
 
