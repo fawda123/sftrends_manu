@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  16 JUN 2016 11:24
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  17 JUN 2016 16:36
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -544,28 +544,28 @@ tim
 LaTeX Warning: Label `acro:sfe@cref' multiply defined.
 
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 120.
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 120.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 120.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 121.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 121.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 121.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 120.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 120.
+LaTeX Font Info:    ... okay on input line 121.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 121.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
@@ -620,7 +620,7 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring ON on input line 120.
+Package hyperref Info: Link coloring ON on input line 121.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -629,9 +629,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count134
 )
-LaTeX Info: Redefining \ref on input line 120.
-LaTeX Info: Redefining \pageref on input line 120.
-LaTeX Info: Redefining \nameref on input line 120.
+LaTeX Info: Redefining \ref on input line 121.
+LaTeX Info: Redefining \pageref on input line 121.
+LaTeX Info: Redefining \nameref on input line 121.
 
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.out)
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.out)
@@ -640,96 +640,112 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 147.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 147.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 147.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 148.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 147.
+(Font)              <14.4> on input line 148.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 147.
+(Font)              <7> on input line 148.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 147.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 147.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 148.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 147.
+(Font)              <12> on input line 148.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 147.
+(Font)              <8> on input line 148.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 147.
+(Font)              <6> on input line 148.
  [1
 
 {C:/Users/mbeck/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
 Package acronym Info: Label `acro:wrtds' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 151.
+although it is yet undefined on input line 152.
 Package acronym Info: Label `acro:sfe' newly defined as it shall be overridden
-although it is yet undefined on input line 151.
+although it is yet undefined on input line 152.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 155.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 156.
  [2
 
 ]
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 164.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 168.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-Package acronym Info: Label `acro:sfe' overridden on input line 174.
+) [3]
+Package acronym Info: Label `acro:sfe' overridden on input line 178.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 183.
- [3] [4]
-(M:\docs\manuscripts\sftrends_manu\sftrends_manu.bbl) [5
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 187.
+ [4] [5]
+(M:\docs\manuscripts\sftrends_manu\sftrends_manu.bbl) [6
 
 ]
-<figs/schematic.pdf, id=136, page=1, 722.7pt x 722.7pt>
+<figs/schematic.pdf, id=140, page=1, 722.7pt x 722.7pt>
 File: figs/schematic.pdf Graphic file (type pdf)
 
 <use figs/schematic.pdf, page 1>
-Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 211.
+Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 222.
 (pdftex.def)             Requested size: 469.75502pt x 469.76045pt.
-Package acronym Info: Label `acro:wrtds' overridden on input line 212.
+Package acronym Info: Label `acro:wrtds' overridden on input line 223.
 
-<figs/clmchl-1.pdf, id=137, 722.7pt x 505.89pt>
+<figs/dinc10-1.pdf, id=141, 505.89pt x 578.16pt>
+File: figs/dinc10-1.pdf Graphic file (type pdf)
+ <use figs/dinc10-1.pdf>
+Package pdftex.def Info: figs/dinc10-1.pdf used on input line 229.
+(pdftex.def)             Requested size: 352.31625pt x 402.65372pt.
+Package acronym Info: Label `acro:din' newly defined as it shall be overridden
+although it is yet undefined on input line 233.
+
+<figs/dinc10dyna-1.pdf, id=142, 650.43pt x 433.62pt>
+File: figs/dinc10dyna-1.pdf Graphic file (type pdf)
+
+<use figs/dinc10dyna-1.pdf>
+Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 240.
+(pdftex.def)             Requested size: 469.75502pt x 313.17879pt.
+ <figs/clmchl-1.pdf, id=143, 722.7pt x 505.89pt>
 File: figs/clmchl-1.pdf Graphic file (type pdf)
- <use figs/clmchl-1.pdf>
-Package pdftex.def Info: figs/clmchl-1.pdf used on input line 218.
+
+<use figs/clmchl-1.pdf>
+Package pdftex.def Info: figs/clmchl-1.pdf used on input line 252.
 (pdftex.def)             Requested size: 469.75502pt x 328.8323pt.
 Package acronym Info: Label `acro:chla' newly defined as it shall be overridden
 
-although it is yet undefined on input line 222.
-
-[6 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>] [7 <M:/docs/manuscri
-pts/sftrends_manu/figs/clmchl-1.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 262.
- [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 262.
+although it is yet undefined on input line 256.
+ [7 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>] [8 <M:/docs/manuscr
+ipts/sftrends_manu/figs/dinc10-1.pdf>] [9 <M:/docs/manuscripts/sftrends_manu/fi
+gs/dinc10dyna-1.pdf>] [10 <M:/docs/manuscripts/sftrends_manu/figs/clmchl-1.pdf>
+]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 296.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 296.
 
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 262.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 262.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 296.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 296.
 Package rerunfilecheck Info: File `sftrends_manu.out' has not changed.
 (rerunfilecheck)             Checksum: 0EFE4E117A7F56A4AD6A84DF40AD2052;896.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 262.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 296.
  ) 
 Here is how much of TeX's memory you used:
- 11574 strings out of 493921
- 183268 string characters out of 3147282
- 298330 words of memory out of 3000000
- 14633 multiletter control sequences out of 15000+200000
+ 11602 strings out of 493921
+ 183713 string characters out of 3147282
+ 297379 words of memory out of 3000000
+ 14654 multiletter control sequences out of 15000+200000
  33682 words of font info for 72 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  44i,9n,42p,2332b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -741,9 +757,9 @@ w/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a
 .pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/urw/times/utmri8a.pfb>
-Output written on sftrends_manu.pdf (8 pages, 506203 bytes).
+Output written on sftrends_manu.pdf (11 pages, 1524617 bytes).
 PDF statistics:
- 248 PDF objects out of 1000 (max. 8388607)
- 44 named destinations out of 1000 (max. 500000)
- 115 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 279 PDF objects out of 1000 (max. 8388607)
+ 49 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

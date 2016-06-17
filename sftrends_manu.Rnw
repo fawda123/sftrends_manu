@@ -47,6 +47,7 @@
 
 %acronyms
 \acrodef{chla}[chl-\textit{a}]{chlorophyll \textit{a}}
+\acrodef{din}[DIN]{dissolved inorganic nitrogen}
 \acrodef{sfe}[SFE]{San Francisco Estuary}
 \acrodef{wrtds}[WRTDS]{Weighted Regressions on Time, Discharge, and Season}
 
@@ -155,6 +156,7 @@ The \ac{sfe}... exchange with ocean, freshwater inputs, runoff variation (drough
 \end{equation}
 
 \subsection{Case studies}
+These are science questions that are relevant outside of the region.
 \subsubsection{Disaggregating observed nitrogen time series}
 Hypothesis: Because multiple factors influence nutrient concentrations at different times, relationships between nutrients, time, and flow/salinity are non-linear, so we expect 1) annual trend independent of seasonal trend, 2) changes in seasonal amplitudes and quantile trends over time, 3) varying flow contribution, either as difference between predicted/flow-normalized results or changes in nutrient v flow scatterplots at different annual periods.
 \subsubsection{Effects of wastewater treatment}
@@ -170,6 +172,13 @@ Hypothesis: Biological invasions by benthic filter feeders have shifted abundanc
 
 \subsubsection{Clam invasion in Suisun Bay}
 Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
+
+Note the decrease in Potamocorbula abundance in 2011, 2012.  These are wet years where abundance/biomass of the clams is driven down by lower salinity.  Contrased wtih the annual chlorophyll trends in the same years, the predicted values are above the flow-normalized trend suggesting an increase in chlorophyll with higher flow.  The potential mechanism is therefore a decrease in clam abundance with high flow that releases phytoplankon from filtration pressure.  This also explains the positive association of chlorophyll with flow in recent years (bottom right dynaplot). 
+
+Further, chlorophyll trends early in the time series generally show a decrease with high flow with a distinct maximum at moderate flow.  This may suggest stratification events at moderate flow contributed to phytoplankton blooms early in the time series. Water withdrawals later in the time series could have also altered environmental conditions to reduce the frequency occurrence of stratification events.  Look into this more...
+
+What about biomass/density relationships for Potamocorbula?  Although clam density increases throughout the period,  What about initial decrease in chlorophyll prior to clam invasion?  Is this related to water withdrawals (i.e., decrease in stratification events at moderate flow)?
+
 \cref{fig:clmchl}, \cref{tab:chlsio}
 
 \section{Discussion}
@@ -188,7 +197,166 @@ Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community 
 \label{fig:schematic}   
 \end{figure}
 
-<<clmchl, fig.height = 7, fig.width = 10, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (top left, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (bottom left).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in the top right.  Flow relationships with \\ac{chla} concentration have also changed over time (bottom right, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
+<<dinc10, fig.height = 8, fig.width = 7, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual predictions from \\ac{wrtds} at different conditional quantiles ($\\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend.'>>=
+# data
+data(dinc10)
+
+# din at c10
+toplo <- dinc10
+
+# globals
+ylab <- expression(paste('DIN (mg ', L^-1, ')'))
+ptheme <- theme_minimal() + 
+  theme(
+    axis.line.x = element_line(),
+    axis.line.y = element_line(), 
+    axis.title.x = element_blank()
+  )
+col_vec <- RColorBrewer::brewer.pal(9, 'Set1')[c(3, 2, 1)]
+col_lim <- c(0, 3.8)
+xlims <- range(toplo$date)
+txt <- data.frame(
+  x = min(toplo$date), 
+  y =  c(5, 2.4, 0.5, 7), 
+  txt = c('a', 'b', 'c', 'd')
+)
+size <- 7
+
+# observed din
+toplo1 <- select(toplo, date, res) %>% 
+  na.omit()
+p1 <- ggplot(toplo1, aes(x = date, y = exp(res))) + 
+  geom_line() + 
+  ptheme + 
+  scale_y_continuous(ylab) +
+  theme(
+    axis.text.x = element_blank(),
+    plot.margin = grid::unit(c(6, 6, -24, 6), 'pt')
+  ) +
+  geom_text(data = txt[1, ], aes(x = x, y = y, label = txt), size = size) +
+  scale_x_date(limits = xlims) 
+
+# din prdnrmplot
+p2 <- prdnrmplot(toplo, logspace = F, col_vec = col_vec) + 
+  ptheme + 
+  scale_y_continuous(ylab) +
+  theme(
+    legend.position = 'top', 
+    axis.text.x = element_blank(),
+    plot.margin = grid::unit(c(6, 6, -12, 6), 'pt')
+  ) +
+  geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size) +
+  scale_x_date(limits = xlims) 
+
+# flo/observed diffs
+toplo2 <- prdnrmplot(toplo, plot = F)
+toplo2 <- left_join(toplo2$fits, toplo2$nrms, by = c('date', 'taus')) %>% 
+  mutate(flodiff = fits_value - nrms_value) %>% 
+  filter(taus == 0.5)
+toplo3 <- toplo
+toplo3$flo <- scales::rescale(toplo3$flo, to = attr(toplo, 'floobs_rng'))
+ylab <- expression(paste('Pred - norm DIN (mg ', L^-1, ')'))
+p3 <- ggplot(toplo2, aes(x = date, y = flodiff)) + 
+  geom_bar(stat = 'identity') + 
+  theme_minimal() +
+  ptheme + 
+  theme(
+    axis.text.x = element_blank(),
+    plot.margin = grid::unit(c(6, 6, -12, 6), 'pt')
+    ) + 
+  scale_y_continuous(ylab) +
+  scale_x_date(limits = xlims) +
+  geom_text(data = txt[3, ], aes(x = x, y = y, label = txt), size = size)
+
+# flo with loess
+ylab <- expression(paste('ln-Flow (', m^3, ' ', s^-1, ')'))
+p4 <- ggplot(toplo3, aes(x = date, y = flo)) + 
+  geom_line() +
+  stat_smooth(se = F) + 
+  ptheme + 
+  scale_y_continuous(ylab) +
+  scale_x_date(limits = range(toplo3$date)) +
+  geom_text(data = txt[4, ], aes(x = x, y = y, label = txt), size = size)
+
+# align widths of plots in first column, first two
+pA <- ggplot_gtable(ggplot_build(p1))
+pB <- ggplot_gtable(ggplot_build(p2))
+pC <- ggplot_gtable(ggplot_build(p3))
+pD <- ggplot_gtable(ggplot_build(p4))
+maxWidth = grid::unit.pmax(pA$widths[2:3], pB$widths[2:3], pC$widths[2:3], pD$widths[2:3])
+
+pA$widths[2:3] <- maxWidth
+pB$widths[2:3] <- maxWidth
+pC$widths[2:3] <- maxWidth
+pD$widths[2:3] <- maxWidth
+
+grid.arrange(
+  pA, pB, pC, pD,
+  heights = c(0.9, 1.3, 1, 1.2),
+  ncol = 1
+  )
+@
+
+<<dinc10dyna, fig.height = 6, fig.width = 9, out.width = '\\textwidth', fig.cap = 'Modelled relationships between \\ac{din}, flow, and time at station C10.  The top figure shows the annual and seasonal variation over the entire time series and the bottom figure shows annual variation for selected months to remove seasonal variation.  Warmer colors indicate higher \\ac{din} concentrations.  The y-axis on the bottom figure is truncated by the fifth and ninety-fifth percentiles of flow within each month.  Model results are for the fiftieth conditional quantile of \\ac{din}.'>>=
+
+# data
+data(dinc10)
+
+# din at c10
+toplo <- dinc10
+
+# globals
+ptheme <- theme_minimal() + 
+  theme(
+    axis.line.x = element_line(),
+    axis.line.y = element_line(), 
+    axis.title.x = element_blank()
+  )
+col_lim <- c(0, 2.9)
+txt <- data.frame(
+  x = min(toplo$date), 
+  y =  c(5, 2.4, 0.5, 6), 
+  txt = c('a', 'b', 'c', 'd')
+)
+size <- 7
+
+# dynaplot, all
+col_vec = NULL
+attr(toplo, 'reslab') <- expression(paste("DIN (mg ", L^-1, ")"))
+ylab <- expression(paste('ln-Flow (', m^3, ' ', s^-1, ')'))
+p1 <- gridplot(toplo, month = 'all', logspace = F, tau = 0.5, col_lim = col_lim, floscl = F, col_vec = rev(col_vec)) +
+  scale_y_continuous(ylab, expand = c(0, 0)) + 
+  ptheme + 
+  theme(legend.position = 'top')
+
+# dynaplot selected months
+p2 <- gridplot(toplo, logspace = F, tau = 0.5, col_lim = col_lim, month = c(1, 4, 7, 10), ncol = 4, floscl = F) + 
+  ptheme + 
+  theme(
+    strip.background = element_blank(),
+    legend.position = 'none', 
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+    ) + 
+  scale_y_continuous(ylab, expand = c(0, 0)) 
+
+# align widths of plots in first column, first two
+pA <- ggplot_gtable(ggplot_build(p1))
+pB <- ggplot_gtable(ggplot_build(p2))
+maxWidth = grid::unit.pmax(pA$widths[2:3], pB$widths[2:3])
+
+pA$widths[2:3] <- maxWidth
+pB$widths[2:3] <- maxWidth
+
+grid.arrange(
+  pA, pB,
+  heights = c(1.2, 1),
+  ncol = 1
+  )
+@
+
+
+<<clmchl, fig.height = 7, fig.width = 10, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (c).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (b).  Flow relationships with \\ac{chla} concentration have also changed over time (d, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
 
 # clam and model data at D7
 data(clams)
@@ -216,6 +384,14 @@ clmdat <- group_by(clams, yr, species) %>%
 # make sure date range is same on both
 xlims <- as.Date(c('1976-10-01', '2014-10-01'))
 
+# subfig labs
+txt <- data.frame(
+  x = c(as.numeric(xlims[1]), as.numeric(xlims[2]), 25, 0.25),
+  y =  c(10000, 11, 4, 3.8), 
+  txt = c('a', 'c', 'b', 'd')
+)
+size <- 7
+
 # annual clam time series
 p1 <- ggplot(clmdat, aes(x = yr, y = clams_smp, fill = species)) + 
   geom_bar(stat = 'identity') + 
@@ -232,7 +408,8 @@ p1 <- ggplot(clmdat, aes(x = yr, y = clams_smp, fill = species)) +
     labels = parse(text = c('italic(Corbicula)', 'italic(Potamocorbula)'))
     ) + 
   scale_x_date('', limits = xlims) +
-  scale_y_continuous('Clams per sample')
+  scale_y_continuous('Clams per sample') +
+  with(txt[1, ], annotate('text', x = xlims[1], y = y, label = txt, size = size))
 
 # annual chlorophyll time series with flow-norm
 p2 <- ggplot(chldat, aes(x = yr, y = norm0.5)) + 
@@ -249,7 +426,8 @@ p2 <- ggplot(chldat, aes(x = yr, y = norm0.5)) +
     ) + 
   scale_colour_manual(values = c('black', 'black')) +
   scale_x_date('', limits = xlims) +
-  scale_y_continuous(expression(paste("Chl-", italic(a), " (", italic(mu), "g ", L^-1, ")")))
+  scale_y_continuous(expression(paste("Chl-", italic(a), " (", italic(mu), "g ", L^-1, ")"))) +
+  with(txt[2, ], annotate('text', x = xlims[2], y = y, label = txt, size = size))
 
 # chlorophyll by month
 chldat <- filter(diat_dat, resvar %in% 'chl') %>% 
@@ -300,7 +478,8 @@ p3 <- ggplot(toplo, aes(x = biomass, y = norm0.5)) +
     ) +
   scale_colour_manual(label = 'log(1 + chl) = 1.1 - 0.09log(1 + biomass)', values = 'black') +
   scale_x_continuous(xlab) + 
-  scale_y_continuous(ylab, limits = c(0.8, 4))
+  scale_y_continuous(ylab, limits = c(0.8, 4)) +
+  geom_text(data = txt[3, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size)
 
 # dynaplot for chl, june
 cols <- RColorBrewer::brewer.pal(10, 'Set2')[1:2]
@@ -318,7 +497,8 @@ p4 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F) +
     strip.text.x = element_blank()
     ) + 
   scale_x_continuous('ln-Salinity (psu)') + 
-  scale_y_continuous(ylab, limits = c(0.4, 3.8))
+  scale_y_continuous(ylab, limits = c(0.4, 3.8)) +
+  annotate('text', x = txt[4, 'x'], y = txt[4, 'y'], label = txt[4, 'txt'], size = size)
   
 # align widths of plots in first column, first two
 pA <- ggplot_gtable(ggplot_build(p1))

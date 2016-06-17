@@ -68,7 +68,6 @@ out <- mod %>%
 chld7 <- out
 save(chld7, file = 'data/chld7.RData', compress = 'xz')
 
-
 ######
 # a smoother din model for c10
 data(mods_nolag)
@@ -92,7 +91,7 @@ stalk <- list(
   )
 
 # C10, din
-i <- 1
+i <- which(mods_nolag$Site_Code == 'C10' & mods_nolag$resvar == 'din')
 
 # data, respons variable label
 dat <- mods_nolag[i, ]$data[[1]]
