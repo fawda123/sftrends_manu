@@ -155,10 +155,14 @@ The \ac{sfe}... exchange with ocean, freshwater inputs, runoff variation (drough
 \ln\left(N\right) = \beta_0 + \beta_1 t + \beta_2 \ln\left(Q\right) + \beta_3 \sin\left(2\pi t\right) + \beta_4 \cos\left(2\pi t\right)
 \end{equation}
 
+nine discrete sampling stations with data from 1976 to 2012, \ac{din}, ammonium, total nitrate, effects of different flow variables
+
+Annual, seasonal trends of flow-normalized predictions
+
 \subsection{Case studies}
 These are science questions that are relevant outside of the region.
 \subsubsection{Disaggregating observed nitrogen time series}
-Hypothesis: Because multiple factors influence nutrient concentrations at different times, relationships between nutrients, time, and flow/salinity are non-linear, so we expect 1) annual trend independent of seasonal trend, 2) changes in seasonal amplitudes and quantile trends over time, 3) varying flow contribution, either as difference between predicted/flow-normalized results or changes in nutrient v flow scatterplots at different annual periods.
+Hypothesis: Because multiple factors influence nutrient concentrations at different times, relationships between nutrients, time, and flow/salinity are non-linear and complex, so we expect 1) annual trend independent of seasonal trend, 2) changes in seasonal amplitudes and quantile trends over time, 3) varying flow contribution, either as difference between predicted/flow-normalized results or changes in nutrient v flow scatterplots at different annual periods.
 \subsubsection{Effects of wastewater treatment}
 Hypothesis: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) shift in the flow/nutrient relatinship before and after upgrade related to change in load contributions.
 \subsubsection{Effects of biological invasions}
@@ -169,6 +173,14 @@ Hypothesis: Biological invasions by benthic filter feeders have shifted abundanc
 \subsection{Trends}
 
 \subsection{Selected examples}
+
+\subsubsection{Disaggregating observed nitrogen time series}
+
+\cref{fig:dinc10}, \cref{fig:dinc10dyna}
+
+Emphasize the information the model provides relative to the observed time series.  A distinct annual trend with a maximum in the middle of the time series is observed, with lower values at the beginning and end of the period.  The seasonal patterns generally showed that \ac{din} concentrations were highest in January with higher values at moderate to low flow rates depending on the year. Interestingly, summer and fall concentrations have showed a slight increase later in the time series (~2004-2009).  The confounding effect of flow is also very apparent such that higher flows were associated with lower concentration.  Dynaplot showed that there was always a negative assocation between the two (i.e., no modal response).  The quantile distributions showed similar trends over time in both predicted values and flow-normalized predictions, although some exceptions were observed.  In particular, high flow (1984, 2008) reduced concentrations of all quantiles but the magniutude of the effect increased at higher quantiles (i.e., the effect was disproportionate).  The opposite was observed for low flow, i.e., the ninetieth percent showed the greatest increase for low flow.     
+
+Emphasize the summer/fall change in the 2000s, why is this?  Relate to conceptual diagram.
 
 \subsubsection{Clam invasion in Suisun Bay}
 Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
@@ -197,7 +209,7 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 \label{fig:schematic}   
 \end{figure}
 
-<<dinc10, fig.height = 8, fig.width = 7, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual predictions from \\ac{wrtds} at different conditional quantiles ($\\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend.'>>=
+<<dinc10, fig.height = 8, fig.width = 7, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \\ac{wrtds} at different conditional quantiles ($\\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend.'>>=
 # data
 data(dinc10)
 
