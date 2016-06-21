@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 
 <meta name="author" content="Marcus W. Beck, beck.marcus@epa.gov" />
 
@@ -24,25 +24,7 @@
 
 
 
-
-</head>
-
-<body>
-
 <style type="text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
-}
-img {
-  max-width:100%;
-  height: auto;
-}
 h1 {
   font-size: 34px;
 }
@@ -63,6 +45,30 @@ h5 {
 }
 h6 {
   font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type="text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -93,7 +99,8 @@ $(document).ready(function () {
 <div class="fluid-row" id="header">
 
 
-<h1 class="title">README</h1>
+
+<h1 class="title toc-ignore">README</h1>
 <h4 class="author"><em>Marcus W. Beck, <a href="mailto:beck.marcus@epa.gov">beck.marcus@epa.gov</a></em></h4>
 
 </div>
@@ -106,9 +113,10 @@ $(document).ready(function () {
 <p><code>clams.RData</code>* clam data for D7 from Crauder 2016, includes sample date, water year (<code>yr</code> starting in October), biomass in g/m2, clams per sample (<code>clams_smp</code>) in no/m2, depth (m), growth rate (<code>gr</code>) in m3/m2/d, mean size (mm), number of grabs (<code>no_grabs</code>), recruitment per unit area (<code>recruit_area</code>) in recruit/0.05 m2, and species as corbicula or potamocorbula.</p>
 <p><code>delt_dat.RData</code>* Processed wq time series data <code>dwr_wq.RData</code>, includes all nitrogen analytes and current/active stations in the delta, also includes matched and smoothed flow records from <code>flocor.RData</code> results</p>
 <p><code>diat_dat.RData</code>* additional WRTDS models for D7, including chlorphyll and sio2</p>
+<p><code>dinc10.RData</code> WRTDS model for DIN at C10</p>
 <p><code>flow_dat.RData</code>* time series of daily flow estimates for the delta, input stations from Novick et al (Fig 2) were used</p>
 <p><code>mods_nolag.RData</code>* complete dataset for wrtds, including model results. This is the same file as <code>mods_lag.RData</code> except the matched flow variables are not lagged. Nested, do not load without loading tidyr.</p>
-<p><code>dinc10.RData</code> WRTDS model for DIN at C10</p>
+<p><code>potw_load.RData</code>* nutrient load data from Stockton and Tracy wwtp</p>
 </div>
 
 

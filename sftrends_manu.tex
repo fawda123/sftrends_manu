@@ -115,7 +115,14 @@
 
 
 % get online bib file
+\begin{kframe}
 
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in curl::curl\_fetch\_memory(url, handle = handle): Timeout was reached}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in rawToChar(refs\$content): object 'refs' not found}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in writeLines(refs, con = file("{}refs.bib"{})): object 'refs' not found}}\end{kframe}
 
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
@@ -141,7 +148,7 @@
 	\\{\textit {\normalsize Phone: 510-746-7334, Fax: 510-746-7300}}
 	\\{\textit {\normalsize Emails: \href{mailto:davids@sfei.org}{davids@sfei.org}, \href{mailto:philb@sfei.org}{philb@sfei.org}, \href{mailto:emilyn@sfei.org}{emilyn@sfei.org}, \href{mailto:thomasj@sfei.org}{thomasj@sfei.org}}}
   \vspace{1in} 
-  \\ Version Date:   Fri Jun 17 16:39:22 2016 -0500
+  \\ Version Date:   Fri Jun 17 17:17:59 2016 -0500
 	}
 \date{}
 \maketitle
@@ -182,6 +189,10 @@ The \ac{sfe}... exchange with ocean, freshwater inputs, runoff variation (drough
 \ln\left(N\right) = \beta_0 + \beta_1 t + \beta_2 \ln\left(Q\right) + \beta_3 \sin\left(2\pi t\right) + \beta_4 \cos\left(2\pi t\right)
 \end{equation}
 
+nine discrete sampling stations with data from 1976 to 2012, \ac{din}, ammonium, total nitrate, effects of different flow variables
+
+Annual, seasonal trends of flow-normalized predictions
+
 \subsection{Case studies}
 These are science questions that are relevant outside of the region.
 \subsubsection{Disaggregating observed nitrogen time series}
@@ -203,7 +214,7 @@ Hypothesis: Biological invasions by benthic filter feeders have shifted abundanc
 
 Emphasize the information the model provides relative to the observed time series.  A distinct annual trend with a maximum in the middle of the time series is observed, with lower values at the beginning and end of the period.  The seasonal patterns generally showed that \ac{din} concentrations were highest in January with higher values at moderate to low flow rates depending on the year. Interestingly, summer and fall concentrations have showed a slight increase later in the time series (~2004-2009).  The confounding effect of flow is also very apparent such that higher flows were associated with lower concentration.  Dynaplot showed that there was always a negative assocation between the two (i.e., no modal response).  The quantile distributions showed similar trends over time in both predicted values and flow-normalized predictions, although some exceptions were observed.  In particular, high flow (1984, 2008) reduced concentrations of all quantiles but the magniutude of the effect increased at higher quantiles (i.e., the effect was disproportionate).  The opposite was observed for low flow, i.e., the ninetieth percent showed the greatest increase for low flow.     
 
-Emphasize the summer/fall change in the 2000s, why is this?  
+Emphasize the summer/fall change in the 2000s, why is this?  Relate to conceptual diagram.
 
 \subsubsection{Clam invasion in Suisun Bay}
 Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.

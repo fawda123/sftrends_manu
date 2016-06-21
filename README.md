@@ -13,8 +13,10 @@ Files marked with * were created in `sf_trends.RProj`, all others created in `R\
 
 `diat_dat.RData`* additional WRTDS models for D7, including chlorphyll and sio2
 
+`dinc10.RData` WRTDS model for DIN at C10
+
 `flow_dat.RData`* time series of daily flow estimates for the delta, input stations from Novick et al (Fig 2) were used
 
 `mods_nolag.RData`* complete dataset for wrtds, including model results.  This is the same file as `mods_lag.RData` except the matched flow variables are not lagged. Nested, do not load without loading tidyr.
 
-`dinc10.RData` WRTDS model for DIN at C10
+`potw_load.RData`* nutrient load data from Stockton and Tracy wwtp
