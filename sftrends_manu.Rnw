@@ -148,8 +148,6 @@ San Francisco Bay on the Pacific Coast of the United States is one of the most p
 
 \subsection{Study location and data}
 
-
-
 The \ac{sfe}... exchange with ocean, freshwater inputs (rivers and wshed drainage), runoff variation (drought years), climate, support of natural resources, subembayments, POTW (publicly owned treatment works), nutrient loading relative to other locations
 \subsection{Analysis method and application}
 
@@ -194,7 +192,7 @@ Further, chlorophyll trends early in the time series generally show a decrease w
 
 What about biomass/density relationships for Potamocorbula?  Although clam density increases throughout the period,  What about initial decrease in chlorophyll prior to clam invasion?  Is this related to water withdrawals (i.e., decrease in stratification events at moderate flow)?
 
-\cref{fig:clmchl}, \cref{tab:chlsio}
+\cref{fig:clmchl}, \cref{fig:d7c10trnds}, \cref{tab:d7chg}, \cref{tab:c10chg}
 
 \section{Discussion}
 
@@ -372,22 +370,13 @@ grid.arrange(
   )
 @
 
-<<clmchl, fig.height = 7, fig.width = 10, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (c).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (b).  Flow relationships with \\ac{chla} concentration have also changed over time (d, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
+<<clmchl, fig.height = 7, fig.width = 8, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (c).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (b).  Flow relationships with \\ac{chla} concentration have also changed over time (d, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
 
 # clam and model data at D7
 data(clams)
-data(diat_dat)
-data(chld7)
-
-# format chl data and clam data for first two plots
-chldat <- filter(diat_dat, resvar %in% 'chl') %>% 
-  .$mod %>% 
-  .[[1]] %>% 
-  annual_agg %>% 
-  mutate(year = lubridate::year(date)) %>% 
-  select(date, year, res, norm0.5) %>% 
-  mutate(res = exp(res), norm0.5 = exp(norm0.5)) %>% 
-  rename(yr = date)
+data(h3dat)
+data(flow_dat)
+chld7 <- filter(h3dat, Site_Code %in% 'D7' & resvar %in% 'chl')$mod[[1]]
 
 clmdat <- group_by(clams, yr, species) %>% 
   dplyr::summarize(
@@ -402,12 +391,13 @@ xlims <- as.Date(c('1976-10-01', '2014-10-01'))
 
 # subfig labs
 txt <- data.frame(
-  x = c(as.numeric(xlims[1]), as.numeric(xlims[2]), 25, 0.25),
-  y =  c(10000, 11, 4, 3.8), 
-  txt = c('a', 'c', 'b', 'd')
+  x = c(as.numeric(as.Date('1979-10-01')), 2500, 25, 0.25),
+  y =  c(10000, 15, 4, 3.3), 
+  txt = c('(a)', '(c)', '(b)', '(d)')
 )
-size <- 7
+size <- 6
 
+##
 # annual clam time series
 p1 <- ggplot(clmdat, aes(x = yr, y = clams_smp, fill = species)) + 
   geom_bar(stat = 'identity') + 
@@ -423,37 +413,64 @@ p1 <- ggplot(clmdat, aes(x = yr, y = clams_smp, fill = species)) +
     palette = 'Set2',
     labels = parse(text = c('italic(Corbicula)', 'italic(Potamocorbula)'))
     ) + 
-  scale_x_date('', limits = xlims) +
+  scale_x_date('Year', limits = xlims) +
   scale_y_continuous('Clams per sample') +
-  with(txt[1, ], annotate('text', x = xlims[1], y = y, label = txt, size = size))
+  guides(fill = guide_legend(keywidth = 0.5, keyheight = 0.5)) +
+  with(txt[1, ], annotate('text', x = xlims[1] + 365 * 2, y = y, label = txt, size = size))
 
-# annual chlorophyll time series with flow-norm
-p2 <- ggplot(chldat, aes(x = yr, y = norm0.5)) + 
-  geom_point(aes(y = res, shape = 'Observed'), size = 3) + 
-  geom_line(aes(color = 'Flow-normalized')) + 
+##
+# clam biomass related to daily sacramento flow
+clmdat <- group_by(clams, yr, species) %>% 
+  dplyr::summarize(
+    clams_smp = mean(clams_smp, na.rm = TRUE),
+    biomass = mean(biomass, na.rm = TRUE)
+    ) %>% 
+  ungroup %>% 
+  mutate(yr = as.Date(paste0(yr, '-10-01')))
+
+flodat <- filter(flow_dat, station %in% 'sac')
+clmflo <- select(clams, biomass, clams_smp, species, date) %>% 
+  rename(Date = date) %>% 
+  left_join(., flodat, by = 'Date') %>% 
+  filter(species %in% 'Potamocorbula')
+
+# linear model of concentration x biomass
+mod <- lm(log(1 + biomass) ~ log(1 + q), data = clmflo) %>% 
+  coefficients
+xvals <- range(clmflo$q, na.rm = TRUE)
+xvals <- seq(xvals[1], xvals[2], length = 100)
+yvals <- (exp(mod[1] + mod[2] * log(1 + xvals))) - 1
+
+ylab <- expression(paste(italic(Potamocorbula), " biomass (g ", m^-2, ")"))
+xlab <- expression(paste("Sacramento daily flow (", m^3, ' ', s^-1, ")"))
+
+# scatter plot of concentration x biomass with model 
+p2 <- ggplot(clmflo, aes(x = q, y = biomass)) + 
+  geom_point(size = 3, alpha = 0.8, colour = 'darkgrey') + 
+  geom_line(data = data.frame(x = xvals, y = yvals), aes(x, y, colour = 'black'), lwd = 1) +
   theme_minimal() + 
   theme(
     axis.line.y = element_line(), 
     axis.line.x = element_line(),
-    # axis.title.x = element_blank(), 
     legend.position = 'top', 
     legend.title = element_blank(), 
     legend.box = 'horizontal'
-    ) + 
-  scale_colour_manual(values = c('black', 'black')) +
-  scale_x_date('', limits = xlims) +
-  scale_y_continuous(expression(paste("Chl-", italic(a), " (", italic(mu), "g ", L^-1, ")"))) +
-  with(txt[2, ], annotate('text', x = xlims[2], y = y, label = txt, size = size))
+    ) +
+  scale_colour_manual(label = 'log(1 + biomass) = 5.2 - 0.6log(1 + flow)', values = 'black') +
+  scale_x_continuous(xlab) + 
+  scale_y_continuous(ylab, limits = c(0,15)) +
+  geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size)
 
+##
 # chlorophyll by month
-chldat <- filter(diat_dat, resvar %in% 'chl') %>% 
+chldat <- filter(h3dat, resvar %in% 'chl' & Site_Code %in% 'D7') %>% 
   .$mod %>% 
   .[[1]] %>% 
-  select(year, month, res, norm0.5) %>% 
-  mutate(res = exp(res), norm0.5 = exp(norm0.5)) %>% 
-  rename(yr = year, mo = month) %>% 
+  select(year, month, res, bt_norm) %>% 
+  mutate(res = exp(res)) %>% 
+  rename(yr = year, mo = month, bt_res = res) %>% 
   group_by(yr, mo) %>% 
-  dplyr::summarize(res = mean(res, na.rm = TRUE), norm0.5 = mean(norm0.5, na.rm = TRUE)) %>% 
+  dplyr::summarize(res = mean(bt_res, na.rm = TRUE), bt_norm = mean(bt_norm, na.rm = TRUE)) %>% 
   ungroup
 
 # clam by month
@@ -471,17 +488,17 @@ toplo <- left_join(clmdat, chldat, by = c('yr', 'mo')) %>%
   mutate(date = as.Date(paste0(yr, '-', mo, '-01')))
 
 # linear model of concentration x biomass
-mod <- lm(log(1 + norm0.5) ~ log(1 + biomass), data = toplo) %>% 
+mod <- lm(log(1 + bt_norm) ~ log(1 + biomass), data = toplo) %>% 
   coefficients
 xvals <- range(toplo$biomass, na.rm = TRUE)
 xvals <- seq(xvals[1], xvals[2], length = 100)
 yvals <- (exp(mod[1] + mod[2] * log(1 + xvals))) - 1
 
 xlab <- expression(paste(italic(Potamocorbula), " biomass (g ", m^-2, ")"))
-ylab <- expression(paste("Flow-normalized chlorophyll (   ", italic(mu), "g ", L^-1, ")"))
+ylab <- expression(paste("Flow-normalized chlorophyll (", italic(mu), "g ", L^-1, ")"))
 
 # scatter plot of concetration x biomass with model 
-p3 <- ggplot(toplo, aes(x = biomass, y = norm0.5)) + 
+p3 <- ggplot(toplo, aes(x = biomass, y = bt_norm)) + 
   geom_point(size = 3, alpha = 0.8, colour = 'darkgrey') + 
   geom_line(data = data.frame(x = xvals, y = yvals), aes(x, y, colour = 'black'), lwd = 1) +
   theme_minimal() + 
@@ -492,11 +509,12 @@ p3 <- ggplot(toplo, aes(x = biomass, y = norm0.5)) +
     legend.title = element_blank(), 
     legend.box = 'horizontal'
     ) +
-  scale_colour_manual(label = 'log(1 + chl) = 1.1 - 0.09log(1 + biomass)', values = 'black') +
+  scale_colour_manual(label = 'log(1 + chl) = 1.35 - 0.1log(1 + biomass)', values = 'black') +
   scale_x_continuous(xlab) + 
   scale_y_continuous(ylab, limits = c(0.8, 4)) +
   geom_text(data = txt[3, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size)
 
+##
 # dynaplot for chl, june
 cols <- RColorBrewer::brewer.pal(10, 'Set2')[1:2]
 ylab <- attr(chld7, 'reslab')
@@ -513,7 +531,8 @@ p4 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F) +
     strip.text.x = element_blank()
     ) + 
   scale_x_continuous('ln-Salinity (psu)') + 
-  scale_y_continuous(ylab, limits = c(0.4, 3.8)) +
+  scale_y_continuous(ylab, limits = c(0.4, 3.3)) +
+  guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10)) + 
   annotate('text', x = txt[4, 'x'], y = txt[4, 'y'], label = txt[4, 'txt'], size = size)
   
 # align widths of plots in first column, first two
@@ -537,8 +556,8 @@ pD$widths[2:3] <- maxWidth
 # combine all
 grid.arrange(
   arrangeGrob(pA, pB, ncol = 1, heights = c(1, 1)), 
-  arrangeGrob(pC, pD, ncol = 1, heights = c(1, 1)), 
-  ncol = 2, widths = c(1, 0.6)
+  arrangeGrob(pC, pD, ncol = 1, heights = c(1.05, 1)), 
+  ncol = 2, widths = c(1, 1)
   )
 @
 
@@ -576,7 +595,8 @@ pdin1 <- pdin1 + theme(legend.position = 'none')
 
 pdinsy1 <- seasyrplot(toplo1$mod[[2]], col_vec = cols, logspace = F, predicted = F) +
   ptheme + 
-  theme(legend.position = 'top', axis.title.y = element_blank())
+  theme(legend.position = 'top', axis.title.y = element_blank()) + 
+  guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10))
 pleg2 <- g_legend(pdinsy1)
 pdinsy1 <- pdinsy1 + theme(legend.position = 'none')
 
@@ -856,6 +876,5 @@ latex(
   )
 
 @
-
 
 \end{document}
