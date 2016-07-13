@@ -699,15 +699,20 @@ grid.arrange(
 %%%%%%
 % tables
 
-% trends in sio and chl at d7
-<<chlsio>>=
+% trends in din, chl, sio2 at d7
+<<d7chg>>=
 
-data(diat_dat)
+data(h3dat)
 
-sioraw <- filter(diat_dat, resvar %in% 'sio2') %>% 
+d7dat <- filter(h3dat, Site_Code %in% 'D7')
+
+dinraw <- filter(d7dat, resvar %in% 'din') %>% 
   .$mod %>% 
   .[[1]]
-chlraw <- filter(diat_dat, resvar %in% 'chl') %>% 
+chlraw <- filter(d7dat, resvar %in% 'chl') %>% 
+  .$mod %>% 
+  .[[1]]
+sioraw <- filter(d7dat, resvar %in% 'sio2') %>% 
   .$mod %>% 
   .[[1]]
 
@@ -716,20 +721,25 @@ yrbrks <- c(-Inf, 1985, 1994, 2003, Inf)
 molabs <- c('JFM', 'AMJ', 'JAS', 'OND')
 yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
 
-# summarize sio2 and chl trends
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+# summarize din, sio2, chl trends
+din <- wrtdstrnd(dinraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
+din <- wrtdstrnd(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
   .[1, ] %>% 
-  rbind(., sio) %>% 
-  data.frame(res = 'sio', .)
+  rbind(., din) %>% 
+  data.frame(res = 'din', .)
 chl <- wrtdstrnd(chlraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
 chl <- wrtdstrnd(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
   .[1, ] %>% 
   rbind(., chl) %>% 
   data.frame(res = 'chl', .)
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+  .[1, ] %>% 
+  rbind(., sio) %>% 
+  data.frame(res = 'sio', .)
 
 # combine for trends for table
-totab <- rbind(sio, chl) %>% 
+totab <- rbind(din, chl, sio) %>% 
   mutate(
     chg = round(chg, 1), 
     chg = ifelse(chg < 0, chg, paste0('\\textit{\\textbf{', chg , '}}')), 
@@ -740,16 +750,17 @@ totab <- rbind(sio, chl) %>%
   spread(col, val) %>% 
   mutate(cat = factor(cat, levels = c('1976-2013', yrlabs, molabs), labels = c('1976-2013', yrlabs, molabs))) %>% 
   arrange(cat) %>% 
-  data.frame(sep = c(rep('Annual', 5), rep('Seasonal', 4)), .)
+  data.frame(sep = c(rep('Annual', 5), rep('Seasonal', 4)), .) %>% 
+  select(sep, cat, din_ave, din_chg, chl_ave, chl_chg, sio_ave, sio_chg)
 
 # final table formatting
 segs <- c('All', 'Annual', 'Seasonal')
 cats <- totab$cat
 totab <- totab[,-c(1:2)]
-vars <- c('Chl-\\textit{a}', 'SiO$_2$')
-names(totab) <- rep(c('Mean', '\\% change'), 2)
+vars <- c('DIN', 'Chl-\\textit{a}', 'SiO$_2$')
+names(totab) <- rep(c('Mean', '\\% change'), 3)
 
-cap.val<-'Summaries of flow-normalized trends in chlorophyll ($\\mu$g $L^{-1}$) and silicon dioxide (mg $L^{-1}$) concentrations for different time periods. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
+cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg $L^{-1}$), chlorophyll ($\\mu$g $L^{-1}$), and silicon dioxide (mg $L^{-1}$) concentrations for different time periods at station D7. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
 
 latex( 
   totab,
@@ -760,11 +771,91 @@ latex(
   rgroup = segs,
   n.rgroup = c(1, rep(4, 2)),
   cgroup = vars,
-  n.cgroup = c(2, 2),
+  n.cgroup = c(2, 2, 2),
   rowname = cats,
-  label = 'tab:chlsio'
+  label = 'tab:d7chg'
   )
 
 @
+
+% trends in din, chl, sio2 at c10
+<<c10chg>>=
+
+data(h3dat)
+
+c10dat <- filter(h3dat, Site_Code %in% 'C10')
+
+dinraw <- filter(c10dat, resvar %in% 'din') %>% 
+  .$mod %>% 
+  .[[1]]
+chlraw <- filter(c10dat, resvar %in% 'chl') %>% 
+  .$mod %>% 
+  .[[1]]
+sioraw <- filter(c10dat, resvar %in% 'sio2') %>% 
+  .$mod %>% 
+  .[[1]]
+
+mobrks <- c(-Inf, 3, 6, 9, Inf)
+yrbrks <- c(-Inf, 1985, 1994, 2003, Inf)
+molabs <- c('JFM', 'AMJ', 'JAS', 'OND')
+yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
+
+# summarize din, sio2, chl trends
+din <- wrtdstrnd(dinraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
+din <- wrtdstrnd(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+  .[1, ] %>% 
+  rbind(., din) %>% 
+  data.frame(res = 'din', .)
+chl <- wrtdstrnd(chlraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
+chl <- wrtdstrnd(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+  .[1, ] %>% 
+  rbind(., chl) %>% 
+  data.frame(res = 'chl', .)
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+  .[1, ] %>% 
+  rbind(., sio) %>% 
+  data.frame(res = 'sio', .)
+
+# combine for trends for table
+totab <- rbind(din, chl, sio) %>% 
+  mutate(
+    chg = round(chg, 1), 
+    chg = ifelse(chg < 0, chg, paste0('\\textit{\\textbf{', chg , '}}')), 
+    ave = as.character(round(ave, 1))
+    ) %>% 
+  gather('var', 'val', chg:ave) %>% 
+  unite('col', res, var) %>% 
+  spread(col, val) %>% 
+  mutate(cat = factor(cat, levels = c('1976-2013', yrlabs, molabs), labels = c('1976-2013', yrlabs, molabs))) %>% 
+  arrange(cat) %>% 
+  data.frame(sep = c(rep('Annual', 5), rep('Seasonal', 4)), .) %>% 
+  select(sep, cat, din_ave, din_chg, chl_ave, chl_chg, sio_ave, sio_chg)
+
+# final table formatting
+segs <- c('All', 'Annual', 'Seasonal')
+cats <- totab$cat
+totab <- totab[,-c(1:2)]
+vars <- c('DIN', 'Chl-\\textit{a}', 'SiO$_2$')
+names(totab) <- rep(c('Mean', '\\% change'), 3)
+
+cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg $L^{-1}$), chlorophyll ($\\mu$g $L^{-1}$), and silicon dioxide (mg $L^{-1}$) concentrations for different time periods at station C10. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
+
+latex( 
+  totab,
+  file = '',
+  rowlabel = 'Period',
+  caption = cap.val,
+  caption.loc = 'top',
+  rgroup = segs,
+  n.rgroup = c(1, rep(4, 2)),
+  cgroup = vars,
+  n.cgroup = c(2, 2, 2),
+  rowname = cats,
+  label = 'tab:c10chg'
+  )
+
+@
+
 
 \end{document}
