@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  23 JUN 2016 10:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  13 JUL 2016 15:16
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -690,76 +690,82 @@ although it is yet undefined on input line 187.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 193.
  [4] [5] [6]
-(M:\docs\manuscripts\sftrends_manu\sftrends_manu.bbl) [7
+[7] (M:\docs\manuscripts\sftrends_manu\sftrends_manu.bbl) [8
 
 ]
-<figs/schematic.pdf, id=158, page=1, 722.7pt x 722.7pt>
+<figs/schematic.pdf, id=162, page=1, 722.7pt x 722.7pt>
 File: figs/schematic.pdf Graphic file (type pdf)
 
 <use figs/schematic.pdf, page 1>
-Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 236.
+Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 239.
 (pdftex.def)             Requested size: 469.75502pt x 469.76045pt.
-Package acronym Info: Label `acro:wrtds' overridden on input line 237.
+Package acronym Info: Label `acro:wrtds' overridden on input line 240.
 
-<figs/dinc10-1.pdf, id=159, 505.89pt x 578.16pt>
+<figs/dinc10-1.pdf, id=163, 505.89pt x 578.16pt>
 File: figs/dinc10-1.pdf Graphic file (type pdf)
  <use figs/dinc10-1.pdf>
-Package pdftex.def Info: figs/dinc10-1.pdf used on input line 243.
+Package pdftex.def Info: figs/dinc10-1.pdf used on input line 246.
 (pdftex.def)             Requested size: 352.31625pt x 402.65372pt.
 
-<figs/dinc10dyna-1.pdf, id=160, 650.43pt x 433.62pt>
+<figs/dinc10dyna-1.pdf, id=164, 650.43pt x 433.62pt>
 File: figs/dinc10dyna-1.pdf Graphic file (type pdf)
 
 <use figs/dinc10dyna-1.pdf>
-Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 254.
+Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 257.
 (pdftex.def)             Requested size: 469.75502pt x 313.17879pt.
- <figs/clmchl-1.pdf, id=161, 722.7pt x 505.89pt>
+ <figs/clmchl-1.pdf, id=165, 722.7pt x 505.89pt>
 File: figs/clmchl-1.pdf Graphic file (type pdf)
 
 <use figs/clmchl-1.pdf>
-Package pdftex.def Info: figs/clmchl-1.pdf used on input line 266.
+Package pdftex.def Info: figs/clmchl-1.pdf used on input line 268.
 (pdftex.def)             Requested size: 469.75502pt x 328.8323pt.
 Package acronym Info: Label `acro:chla' newly defined as it shall be overridden
 
-although it is yet undefined on input line 270.
- [8 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>] [9 <M:/docs/manuscr
-ipts/sftrends_manu/figs/dinc10-1.pdf>] [10 <M:/docs/manuscripts/sftrends_manu/f
-igs/dinc10dyna-1.pdf>] [11 <M:/docs/manuscripts/sftrends_manu/figs/clmchl-1.pdf
->]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 310.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 310.
+although it is yet undefined on input line 272.
+ <figs/d7c10trnds-1.pdf, id=166, 650.43pt x 722.7pt>
+File: figs/d7c10trnds-1.pdf Graphic file (type pdf)
 
-(M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 310.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 310.
+<use figs/d7c10trnds-1.pdf>
+Package pdftex.def Info: figs/d7c10trnds-1.pdf used on input line 279.
+(pdftex.def)             Requested size: 469.75502pt x 521.96465pt.
+ [9 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>] [10 <M:/docs/manusc
+ripts/sftrends_manu/figs/dinc10-1.pdf>] [11 <M:/docs/manuscripts/sftrends_manu/
+figs/dinc10dyna-1.pdf>] [12 <M:/docs/manuscripts/sftrends_manu/figs/clmchl-1.pd
+f>] [13 <M:/docs/manuscripts/sftrends_manu/figs/d7c10trnds-1.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 323.
+ [14]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 323.
+ (M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 323.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 323.
 Package rerunfilecheck Info: File `sftrends_manu.out' has not changed.
 (rerunfilecheck)             Checksum: 3D0AA4AC1BB5C62F83DD269318CFABC6;1001.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 310.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 323.
  ) 
 Here is how much of TeX's memory you used:
- 11612 strings out of 493921
- 183861 string characters out of 3147282
+ 11626 strings out of 493921
+ 184107 string characters out of 3147282
  298379 words of memory out of 3000000
- 14660 multiletter control sequences out of 15000+200000
- 33682 words of font info for 72 fonts, out of 3000000 for 9000
+ 14669 multiletter control sequences out of 15000+200000
+ 35366 words of font info for 74 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  44i,9n,42p,2332b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
-w/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sftrends_manu.pdf (12 pages, 1528383 bytes).
+s/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helveti
+c/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/urw/times/utmri8a.pfb>
+Output written on sftrends_manu.pdf (14 pages, 1572625 bytes).
 PDF statistics:
- 294 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 318 PDF objects out of 1000 (max. 8388607)
+ 56 named destinations out of 1000 (max. 500000)
+ 138 words of extra memory for PDF output out of 10000 (max. 10000000)
 

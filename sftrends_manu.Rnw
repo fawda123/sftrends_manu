@@ -168,7 +168,7 @@ Hypothesis: Because multiple factors influence nutrient concentrations at differ
 \subsubsection{Effects of wastewater treatment}
 Hypothesis: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) shift in the flow/nutrient relatinship before and after upgrade related to change in load contributions. See \href{http://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/san_joaquin/r5-2008-0086_res.pdf}{here}
 \subsubsection{Effects of biological invasions}
-Hypothesis: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in stoichiometric ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
+Hypothesis: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
 
 \section{Results}
 
@@ -185,6 +185,7 @@ Emphasize the information the model provides relative to the observed time serie
 Emphasize the summer/fall change in the 2000s, why is this?  Check \citep{Cloern07}, showed seasonal changes in early 2000s in chlorophyll (NE Pacific shifted to cool phase), is there a mechanism here with DIN? Relate to conceptual diagram.
 
 \subsubsection{Clam invasion in Suisun Bay}
+
 Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
 
 Note the decrease in Potamocorbula abundance in 2011, 2012.  These are wet years where abundance/biomass of the clams is driven down by lower salinity.  Contrased wtih the annual chlorophyll trends in the same years, the predicted values are above the flow-normalized trend suggesting an increase in chlorophyll with higher flow.  The potential mechanism is therefore a decrease in clam abundance with high flow that releases phytoplankon from filtration pressure.  This also explains the positive association of chlorophyll with flow in recent years (bottom right dynaplot). 
@@ -196,6 +197,8 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 \cref{fig:clmchl}, \cref{tab:chlsio}
 
 \section{Discussion}
+
+What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorohpyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
 \clearpage
 \begin{singlespace}
@@ -369,7 +372,6 @@ grid.arrange(
   )
 @
 
-
 <<clmchl, fig.height = 7, fig.width = 10, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (c).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (b).  Flow relationships with \\ac{chla} concentration have also changed over time (d, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
 
 # clam and model data at D7
@@ -540,6 +542,159 @@ grid.arrange(
   )
 @
 
+<<d7c10trnds, fig.cap = 'Flow-normalized trends of annual (left) and seasonal (right) variation in DIN, chl-{\\it\\footnotesize a}, and SiO$_2$ at station D7 (top) and C10 (bottom).  Covariation between nutrients, chl-{\\it\\footnotesize a}, and SiO$_2$ is observed at D7 but not C10, although an overall decrease in SiO$_2$ at C10 is shown.  Seasonal changes at D7 are most pronounced during the summer.', fig.width = 9, fig.height = 10>>=
+data(h3dat)
+
+# separate each site
+toplo1 <- filter(h3dat, Site_Code %in% 'D7')
+toplo2 <- filter(h3dat, Site_Code %in% 'C10')
+
+# y axis labels
+ylab1 <- expression(paste("DIN (mg ", L^-1, ")"))
+ylab2 <- expression(paste("Chl-", italic(a), " (", italic(mu), "g ", L^-1, ")"))
+ylab3 <- expression(paste("Si", O[2], " (mg ", L^-1, ")"))
+
+# generic theme for all plots
+ptheme <- theme_minimal() + 
+  theme(
+    axis.line.x = element_line(),
+    axis.line.y = element_line(), 
+    axis.title.x = element_blank(), 
+    axis.text.x = element_blank()
+  )
+
+# colors
+cols <- RColorBrewer::brewer.pal(9, 'Set1')[1:3]
+
+## first set of plots
+pdin1 <- prdnrmplot(toplo1$mod[[2]], col_vec = cols[2], logspace = F, min_mo = 10) +
+  ptheme + 
+  scale_y_continuous(ylab1) +
+  theme(legend.position = 'top', legend.title = element_blank())
+pleg1 <- g_legend(pdin1)
+pdin1 <- pdin1 + theme(legend.position = 'none')
+
+pdinsy1 <- seasyrplot(toplo1$mod[[2]], col_vec = cols, logspace = F, predicted = F) +
+  ptheme + 
+  theme(legend.position = 'top', axis.title.y = element_blank())
+pleg2 <- g_legend(pdinsy1)
+pdinsy1 <- pdinsy1 + theme(legend.position = 'none')
+
+pchl1 <- prdnrmplot(toplo1$mod[[1]], col_vec = cols[2], logspace = F, min_mo = 10) +
+  ptheme + 
+  theme(legend.position = 'none') + 
+  scale_y_continuous(ylab2)
+
+pchlsy1 <- seasyrplot(toplo1$mod[[1]], col_vec = cols, logspace = F, predicted = F) +
+  ptheme + 
+  theme(legend.position = 'none', axis.title.y = element_blank())
+
+psio1 <- prdnrmplot(toplo1$mod[[3]], col_vec = cols[2], logspace = F, min_mo = 10) +
+  ptheme + 
+  theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text()) +
+  scale_x_date('Year') +
+  scale_y_continuous(ylab3)
+
+psiosy1 <- seasyrplot(toplo1$mod[[3]], col_vec = cols, logspace = F, predicted = F) + 
+  ptheme + 
+  theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text(), axis.title.y = element_blank()) +
+  scale_x_date('Day of year', date_labels = "%m/%d")
+
+# Set the widths
+pA1 <- ggplot_gtable(ggplot_build(pdin1))
+pB1 <- ggplot_gtable(ggplot_build(pchl1))
+pC1 <- ggplot_gtable(ggplot_build(psio1))
+maxWidth = unit.pmax(pA1$widths[2:3], pB1$widths[2:3], pC1$widths[2:3])
+pA1$widths[2:3] <- maxWidth
+pB1$widths[2:3] <- maxWidth
+pC1$widths[2:3] <- maxWidth
+
+# Set the widths for seasyrplots
+pAsy1 <- ggplot_gtable(ggplot_build(pdinsy1))
+pBsy1 <- ggplot_gtable(ggplot_build(pchlsy1))
+pCsy1 <- ggplot_gtable(ggplot_build(psiosy1))
+maxWidth = unit.pmax(pAsy1$widths[2:3], pBsy1$widths[2:3], pCsy1$widths[2:3])
+pAsy1$widths[2:3] <- maxWidth
+pBsy1$widths[2:3] <- maxWidth
+pCsy1$widths[2:3] <- maxWidth
+
+## second set of plots
+pdin2 <- prdnrmplot(toplo2$mod[[2]], col_vec = cols[2], logspace = F, min_mo = 10) +
+  ptheme + 
+  scale_y_continuous(ylab1) +
+  theme(legend.position = 'none')
+
+pdinsy2 <- seasyrplot(toplo2$mod[[2]], col_vec = cols, logspace = F, predicted = F) +
+  ptheme + 
+  theme(legend.position = 'none', axis.title.y = element_blank())
+
+pchl2 <- prdnrmplot(toplo2$mod[[1]], col_vec = cols[2], logspace = F, min_mo = 10) +
+  ptheme + 
+  theme(legend.position = 'none') + 
+  scale_y_continuous(ylab2)
+
+pchlsy2 <- seasyrplot(toplo2$mod[[1]], col_vec = cols, logspace = F, predicted = F) +
+  ptheme + 
+  theme(legend.position = 'none', axis.title.y = element_blank())
+
+psio2 <- prdnrmplot(toplo2$mod[[3]], col_vec = cols[2], logspace = F, min_mo = 10) +
+  ptheme + 
+  theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text()) +
+  scale_x_date('Year') +
+  scale_y_continuous(ylab3)
+
+psiosy2 <- seasyrplot(toplo2$mod[[3]], col_vec = cols, logspace = F, predicted = F) + 
+  ptheme + 
+  theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text(), axis.title.y = element_blank()) +
+  scale_x_date('Day of year', date_labels = "%m/%d")
+
+# Set the widths
+pA2 <- ggplot_gtable(ggplot_build(pdin2))
+pB2 <- ggplot_gtable(ggplot_build(pchl2))
+pC2 <- ggplot_gtable(ggplot_build(psio2))
+maxWidth = unit.pmax(pA2$widths[2:3], pB2$widths[2:3], pC2$widths[2:3])
+pA2$widths[2:3] <- maxWidth
+pB2$widths[2:3] <- maxWidth
+pC2$widths[2:3] <- maxWidth
+
+# Set the widths for seasyrplots
+pAsy2 <- ggplot_gtable(ggplot_build(pdinsy2))
+pBsy2 <- ggplot_gtable(ggplot_build(pchlsy2))
+pCsy2 <- ggplot_gtable(ggplot_build(psiosy2))
+maxWidth = unit.pmax(pAsy2$widths[2:3], pBsy2$widths[2:3], pCsy2$widths[2:3])
+pAsy2$widths[2:3] <- maxWidth
+pBsy2$widths[2:3] <- maxWidth
+pCsy2$widths[2:3] <- maxWidth
+
+
+grid.arrange(
+  arrangeGrob(
+    ncol = 1, heights = c(0.05, 1),
+    arrangeGrob(pleg1, pleg2, ncol = 2),
+    arrangeGrob(
+      arrangeGrob(
+        textGrob('(a) Station D7, Suisun Bay'), heights = c(0.1, 1), 
+        arrangeGrob(
+          arrangeGrob(pA1, pB1, pC1, ncol = 1, heights = c(0.85, 0.85, 1)),
+          arrangeGrob(pAsy1, pBsy1, pCsy1, ncol = 1, heights = c(0.85, 0.85, 1)),
+          ncol = 2
+        )
+      ),
+      arrangeGrob(
+        textGrob('(b) Station C10, Delta'), heights = c(0.1, 1),
+        arrangeGrob(
+          arrangeGrob(pA2, pB2, pC2, ncol = 1, heights = c(0.85, 0.85, 1)),
+          arrangeGrob(pAsy2, pBsy2, pCsy2, ncol = 1, heights = c(0.85, 0.85, 1)),
+          ncol = 2
+        )
+      ),
+      ncol = 1 
+    )
+  )
+)
+
+@
+
 \clearpage
 %%%%%%
 % tables
@@ -594,7 +749,7 @@ totab <- totab[,-c(1:2)]
 vars <- c('Chl-\\textit{a}', 'SiO$_2$')
 names(totab) <- rep(c('Mean', '\\% change'), 2)
 
-cap.val<-'Summaries of flow-normalized trends in chlorophyll and silicon dioxide concentrations for different time periods. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
+cap.val<-'Summaries of flow-normalized trends in chlorophyll ($\\mu$g $L^{-1}$) and silicon dioxide (mg $L^{-1}$) concentrations for different time periods. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
 
 latex( 
   totab,

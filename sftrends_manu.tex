@@ -141,7 +141,7 @@
 	\\{\textit {\normalsize Phone: 510-746-7334, Fax: 510-746-7300}}
 	\\{\textit {\normalsize Emails: \href{mailto:davids@sfei.org}{davids@sfei.org}, \href{mailto:philb@sfei.org}{philb@sfei.org}, \href{mailto:emilyn@sfei.org}{emilyn@sfei.org}, \href{mailto:thomasj@sfei.org}{thomasj@sfei.org}}}
   \vspace{1in} 
-  \\ Version Date:   Wed Jun 22 07:22:19 2016 -0500
+  \\ Version Date:   Thu Jun 23 14:00:35 2016 -0500
 	}
 \date{}
 \maketitle
@@ -195,7 +195,7 @@ Hypothesis: Because multiple factors influence nutrient concentrations at differ
 \subsubsection{Effects of wastewater treatment}
 Hypothesis: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) shift in the flow/nutrient relatinship before and after upgrade related to change in load contributions. See \href{http://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/san_joaquin/r5-2008-0086_res.pdf}{here}
 \subsubsection{Effects of biological invasions}
-Hypothesis: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in stoichiometric ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
+Hypothesis: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
 
 \section{Results}
 
@@ -212,6 +212,7 @@ Emphasize the information the model provides relative to the observed time serie
 Emphasize the summer/fall change in the 2000s, why is this?  Check \citep{Cloern07}, showed seasonal changes in early 2000s in chlorophyll (NE Pacific shifted to cool phase), is there a mechanism here with DIN? Relate to conceptual diagram.
 
 \subsubsection{Clam invasion in Suisun Bay}
+
 Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
 
 Note the decrease in Potamocorbula abundance in 2011, 2012.  These are wet years where abundance/biomass of the clams is driven down by lower salinity.  Contrased wtih the annual chlorophyll trends in the same years, the predicted values are above the flow-normalized trend suggesting an increase in chlorophyll with higher flow.  The potential mechanism is therefore a decrease in clam abundance with high flow that releases phytoplankon from filtration pressure.  This also explains the positive association of chlorophyll with flow in recent years (bottom right dynaplot). 
@@ -223,6 +224,8 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 \cref{fig:clmchl}, \cref{tab:chlsio}
 
 \section{Discussion}
+
+What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorohpyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
 \clearpage
 \begin{singlespace}
@@ -260,7 +263,6 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 
 
 
-
 \begin{figure}[!ht]
 
 {\centering \includegraphics[width=\textwidth]{figs/clmchl-1} 
@@ -272,6 +274,17 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 
 
 
+\begin{figure}[!ht]
+
+{\centering \includegraphics[width=\maxwidth]{figs/d7c10trnds-1} 
+
+}
+
+\caption{Flow-normalized trends of annual (left) and seasonal (right) variation in DIN, chl-{\it\footnotesize a}, and SiO$_2$ at station D7 (top) and C10 (bottom).  Covariation between nutrients, chl-{\it\footnotesize a}, and SiO$_2$ is observed at D7 but not C10, although an overall decrease in SiO$_2$ at C10 is shown.  Seasonal changes at D7 are most pronounced during the summer.}\label{fig:d7c10trnds}
+\end{figure}
+
+
+
 \clearpage
 %%%%%%
 % tables
@@ -279,7 +292,7 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 % trends in sio and chl at d7
 %latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(1, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2), rowname = cats,     label = "tab:chlsio")%
 \begin{table}[!tbp]
-\caption{Summaries of flow-normalized trends in chlorophyll and silicon dioxide concentrations for different time periods. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.\label{tab:chlsio}} 
+\caption{Summaries of flow-normalized trends in chlorophyll ($\mu$g $L^{-1}$) and silicon dioxide (mg $L^{-1}$) concentrations for different time periods. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.\label{tab:chlsio}} 
 \begin{center}
 \begin{tabular}{lllcll}
 \hline\hline
