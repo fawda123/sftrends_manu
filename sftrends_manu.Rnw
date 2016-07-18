@@ -182,7 +182,10 @@ Emphasize the information the model provides relative to the observed time serie
 
 Emphasize the summer/fall change in the 2000s, why is this?  Check \citep{Cloern07}, showed seasonal changes in early 2000s in chlorophyll (NE Pacific shifted to cool phase), is there a mechanism here with DIN? Relate to conceptual diagram.
 
-\subsubsection{Clam invasion in Suisun Bay}
+\subsubsection{Effects of wastewater treatment}
+
+
+\subsubsection{Effects of biological invasions}
 
 Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
 
@@ -370,6 +373,56 @@ grid.arrange(
   )
 @
 
+<<tracy, fig.height = 5, fig.width = 8, out.width = '\\textwidth', fig.cap = 'test'>>=
+data(potw_load)
+
+ptheme <- theme_minimal() + 
+  theme(
+    axis.line.x = element_line(),
+    axis.line.y = element_line(), 
+    axis.title.x = element_blank()
+  )
+lncol <- RColorBrewer::brewer.pal(9, 'Set1')[2]
+
+toplo1 <- filter(potw_load, loc %in% 'tracy' & var %in% c('tn'))
+toplo2 <- filter(potw_load, loc %in% 'tracy' & var %in% c('nh4', 'no3', 'orgn'))
+
+ylab <- expression(paste("Total nitrogen load (kg ", d^-1, ")"))
+leglabs <- list(
+  expression(NH [4] ^ '+'),
+  expression(NO [3] ^ '2-'),
+  expression('organic N')
+  )
+
+p1 <- ggplot(toplo1, aes(x = date, y = val)) + 
+  geom_line(colour = lncol) + 
+  scale_x_date(expand = c(0, 0)) + 
+  scale_y_continuous(ylab, expand = c(0, 0), limits = c(50, 850)) + 
+  ptheme
+
+p2 <- ggplot(toplo2, aes(x = date, y = val, group = var, fill = var)) + 
+  geom_area(stat = 'identity', position = 'fill') + 
+  scale_x_date(expand = c(0, 0)) + 
+  scale_fill_brewer(palette = 'Blues', labels = leglabs) + 
+  scale_y_continuous('% of total nitrogen', expand = c(0, 0)) + 
+  ptheme + 
+  theme(
+    legend.position = 'top', 
+    legend.title = element_blank()
+    )
+
+# align widths of plots in first column, first two
+pA <- ggplot_gtable(ggplot_build(p1))
+pB <- ggplot_gtable(ggplot_build(p2))
+maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3])
+
+# Set the widths
+pA$widths[2:3] <- maxWidth
+pB$widths[2:3] <- maxWidth
+
+grid.arrange(pA, pB, ncol = 1, heights = c(0.8, 1))
+@
+
 <<clmchl, fig.height = 7, fig.width = 8, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (c).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (b).  Flow relationships with \\ac{chla} concentration have also changed over time (d, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
 
 # clam and model data at D7
@@ -392,7 +445,7 @@ xlims <- as.Date(c('1976-10-01', '2014-10-01'))
 # subfig labs
 txt <- data.frame(
   x = c(as.numeric(as.Date('1979-10-01')), 2500, 25, 0.25),
-  y =  c(10000, 15, 4, 3.3), 
+  y =  c(10000, 14, 4, 3.3), 
   txt = c('(a)', '(c)', '(b)', '(d)')
 )
 size <- 6
