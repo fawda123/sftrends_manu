@@ -75,6 +75,7 @@ library(grid)
 library(purrr)
 library(tidyr)
 library(Hmisc)
+library(ggrepel)
 @
 
 % get the version based on commit date
@@ -184,6 +185,7 @@ Emphasize the summer/fall change in the 2000s, why is this?  Check \citep{Cloern
 
 \subsubsection{Effects of wastewater treatment}
 
+Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:tracy}).  Nitrate is the primary constituent of total nitrogen after 2007.  
 
 \subsubsection{Effects of biological invasions}
 
@@ -234,9 +236,9 @@ col_vec <- RColorBrewer::brewer.pal(9, 'Set1')[c(3, 2, 1)]
 col_lim <- c(0, 3.8)
 xlims <- range(toplo$date)
 txt <- data.frame(
-  x = min(toplo$date), 
+  x = max(toplo$date), 
   y =  c(5, 2.4, 0.5, 7), 
-  txt = c('a', 'b', 'c', 'd')
+  txt = c('(a)', '(b)', '(c)', '(d)')
 )
 size <- 7
 
@@ -373,7 +375,7 @@ grid.arrange(
   )
 @
 
-<<tracy, fig.height = 5, fig.width = 8, out.width = '\\textwidth', fig.cap = 'test'>>=
+<<tracy, fig.height = 5, fig.width = 8, out.width = '\\textwidth', fig.cap = 'Nitrogen load measurements (kg d$^{-1}$) at the City of Tracy Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in May, 2007 to include nitrification/denitrification and tertiary filtration causing a reduction in total nitrogen effluent discharged to the Delta. Reductions were primarily observed for ammonium.'>>=
 data(potw_load)
 
 ptheme <- theme_minimal() + 
@@ -394,10 +396,19 @@ leglabs <- list(
   expression('organic N')
   )
 
-p1 <- ggplot(toplo1, aes(x = date, y = val)) + 
-  geom_line(colour = lncol) + 
+lndate <- as.Date('2007/05/01')
+
+p1 <- ggplot(toplo1) + 
+  geom_line(colour = lncol, aes(x = date, y = val)) + 
   scale_x_date(expand = c(0, 0)) + 
   scale_y_continuous(ylab, expand = c(0, 0), limits = c(50, 850)) + 
+  geom_vline(xintercept = as.numeric(lndate), linetype = 'dashed') +
+  geom_label_repel(
+    data = data.frame(x = lndate, y = 600), 
+    aes(x, y, label = 'WWTP upgrades'), 
+    box.padding = grid::unit(2, "lines"), 
+    nudge_x = 1
+    ) + 
   ptheme
 
 p2 <- ggplot(toplo2, aes(x = date, y = val, group = var, fill = var)) + 
@@ -405,6 +416,7 @@ p2 <- ggplot(toplo2, aes(x = date, y = val, group = var, fill = var)) +
   scale_x_date(expand = c(0, 0)) + 
   scale_fill_brewer(palette = 'Blues', labels = leglabs) + 
   scale_y_continuous('% of total nitrogen', expand = c(0, 0)) + 
+  geom_vline(xintercept = as.numeric(lndate), linetype = 'dashed') +
   ptheme + 
   theme(
     legend.position = 'top', 

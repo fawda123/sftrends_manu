@@ -13,6 +13,8 @@ Files marked with * were created in `sf_trends.RProj`, all others created in `R\
 
 `flow_dat.RData`* time series of daily flow estimates for the delta, input stations from Novick et al (Fig 2) were used
 
+`h2dat.RData`* mean models to support second hypothesis/case study in manuscript, wrtds mean models for no23, nh at p8
+
 `h3dat.RData`* mean models to support third hypothesis/case study in manuscript, wrtds mean models for sio2, din, chla at c10, d7
 
 `mods_nolag.RData`* complete dataset for wrtds, including model results.  This is the same file as `mods_lag.RData` except the matched flow variables are not lagged. Nested, do not load without loading tidyr.
