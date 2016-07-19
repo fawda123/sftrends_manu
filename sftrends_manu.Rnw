@@ -50,6 +50,7 @@
 \acrodef{din}[DIN]{dissolved inorganic nitrogen}
 \acrodef{sfe}[SFE]{San Francisco Estuary}
 \acrodef{wrtds}[WRTDS]{Weighted Regressions on Time, Discharge, and Season}
+\acrodef{wwtp}[WWTP]{wastewater treatment plant}
 
 %for supplemental figures/tables
 \newcommand{\beginsupplement}{%
@@ -187,6 +188,8 @@ Emphasize the summer/fall change in the 2000s, why is this?  Check \citep{Cloern
 
 Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:tracy}).  Nitrate is the primary constituent of total nitrogen after 2007.  
 
+What was reduction in ammonium starting in 2002?
+
 \subsubsection{Effects of biological invasions}
 
 Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
@@ -200,6 +203,8 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 \cref{fig:clmchl}, \cref{fig:d7c10trnds}, \cref{tab:d7chg}, \cref{tab:c10chg}
 
 \section{Discussion}
+
+Trends as percent change depend on the mean value, lower values will have larger percent changes.
 
 What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorohpyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
@@ -448,7 +453,7 @@ nhmod <- filter(h2dat, resvar == 'nh') %>%
 
 # globals
 ylab1 <- expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-', ' (mg ', L^-1, ')'))
-ylab2 <- expression(paste(NH [4] ^ '2+', ' (mg ', L^-1, ')'))
+ylab2 <- expression(paste(NH [4] ^ '+', ' (mg ', L^-1, ')'))
 flolab <- expression(paste('ln-Flow (', m^3, ' ', s^-1, ')'))
 ptheme <- theme_minimal() + 
   theme(
@@ -781,9 +786,10 @@ ptheme <- theme_minimal() +
 
 # colors
 cols <- RColorBrewer::brewer.pal(9, 'Set1')[1:3]
+col_vec <- RColorBrewer::brewer.pal(9, 'Blues')[c(9, 8, 7)]
 
 ## first set of plots
-pdin1 <- prdnrmplot(toplo1$mod[[2]], col_vec = cols[2], logspace = F, min_mo = 10) +
+pdin1 <- prdnrmplot(toplo1$mod[[2]], col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   scale_y_continuous(ylab1) +
   theme(legend.position = 'top', legend.title = element_blank())
@@ -797,7 +803,7 @@ pdinsy1 <- seasyrplot(toplo1$mod[[2]], col_vec = cols, logspace = F, predicted =
 pleg2 <- g_legend(pdinsy1)
 pdinsy1 <- pdinsy1 + theme(legend.position = 'none')
 
-pchl1 <- prdnrmplot(toplo1$mod[[1]], col_vec = cols[2], logspace = F, min_mo = 10) +
+pchl1 <- prdnrmplot(toplo1$mod[[1]], col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   theme(legend.position = 'none') + 
   scale_y_continuous(ylab2)
@@ -806,7 +812,7 @@ pchlsy1 <- seasyrplot(toplo1$mod[[1]], col_vec = cols, logspace = F, predicted =
   ptheme + 
   theme(legend.position = 'none', axis.title.y = element_blank())
 
-psio1 <- prdnrmplot(toplo1$mod[[3]], col_vec = cols[2], logspace = F, min_mo = 10) +
+psio1 <- prdnrmplot(toplo1$mod[[3]], col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text()) +
   scale_x_date('Year') +
@@ -836,7 +842,7 @@ pBsy1$widths[2:3] <- maxWidth
 pCsy1$widths[2:3] <- maxWidth
 
 ## second set of plots
-pdin2 <- prdnrmplot(toplo2$mod[[2]], col_vec = cols[2], logspace = F, min_mo = 10) +
+pdin2 <- prdnrmplot(toplo2$mod[[2]], col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   scale_y_continuous(ylab1) +
   theme(legend.position = 'none')
@@ -845,7 +851,7 @@ pdinsy2 <- seasyrplot(toplo2$mod[[2]], col_vec = cols, logspace = F, predicted =
   ptheme + 
   theme(legend.position = 'none', axis.title.y = element_blank())
 
-pchl2 <- prdnrmplot(toplo2$mod[[1]], col_vec = cols[2], logspace = F, min_mo = 10) +
+pchl2 <- prdnrmplot(toplo2$mod[[1]], col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   theme(legend.position = 'none') + 
   scale_y_continuous(ylab2)
@@ -854,7 +860,7 @@ pchlsy2 <- seasyrplot(toplo2$mod[[1]], col_vec = cols, logspace = F, predicted =
   ptheme + 
   theme(legend.position = 'none', axis.title.y = element_blank())
 
-psio2 <- prdnrmplot(toplo2$mod[[3]], col_vec = cols[2], logspace = F, min_mo = 10) +
+psio2 <- prdnrmplot(toplo2$mod[[3]], col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text()) +
   scale_x_date('Year') +
@@ -882,7 +888,6 @@ maxWidth = unit.pmax(pAsy2$widths[2:3], pBsy2$widths[2:3], pCsy2$widths[2:3])
 pAsy2$widths[2:3] <- maxWidth
 pBsy2$widths[2:3] <- maxWidth
 pCsy2$widths[2:3] <- maxWidth
-
 
 grid.arrange(
   arrangeGrob(
@@ -916,6 +921,90 @@ grid.arrange(
 %%%%%%
 % tables
 
+% trends in no23, nh at p8
+<<p8chg>>=
+
+data(h2dat)
+dt <- as.Date('2007-05-01')
+
+noraw_bf <- filter(h2dat, resvar %in% 'no23') %>% 
+  .$mod %>% 
+  .[[1]] %>% 
+  .[which(.$date < dt), ]
+noraw_af <- filter(h2dat, resvar %in% 'no23') %>% 
+  .$mod %>% 
+  .[[1]] %>% 
+  .[which(.$date >= dt), ]
+nhraw_bf <- filter(h2dat, resvar %in% 'nh') %>% 
+  .$mod %>% 
+  .[[1]] %>% 
+  .[which(.$date < dt), ]
+nhraw_af <- filter(h2dat, resvar %in% 'nh') %>% 
+  .$mod %>% 
+  .[[1]] %>% 
+  .[which(.$date >= dt), ]
+
+
+mobrks <- c(0, 3, 6, 9, 12)
+yrbrks_bf <- c(1975, 2007)
+yrbrks_af <- c(2006, 2013)
+molabs <- c('JFM', 'AMJ', 'JAS', 'OND')
+yrlabs_bf <- '1976-2007'
+yrlabs_af <- '2008-2013'
+faclevs <- c('1976-2007_before', '2008-2013_after', paste0(molabs, '_before'), paste0(molabs, '_after'))
+
+# summarize din, sio2, chl trends
+no_bf <- wrtdstrnd(noraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf, aves = TRUE, min_mo = 10) %>% 
+  mutate(period = 'before', var = 'no')
+no_af <- wrtdstrnd(noraw_af, mobrks, yrbrks_af, molabs, yrlabs_af, aves = TRUE, min_mo = 10) %>% 
+  mutate(period = 'after', var = 'no')
+nh_bf <- wrtdstrnd(nhraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf, aves = TRUE, min_mo = 10) %>% 
+  mutate(period = 'before', var = 'nh')
+nh_af <- wrtdstrnd(nhraw_af, mobrks, yrbrks_af, molabs, yrlabs_af, aves = TRUE, min_mo = 10) %>% 
+  mutate(period = 'after', var = 'nh')
+
+# combine for trends for table
+totab <- rbind(no_bf, no_af, nh_bf, nh_af) %>% 
+  mutate(
+    chg = round(chg, 1), 
+    chg = ifelse(chg < 0, chg, paste0('\\textit{\\textbf{', chg , '}}')), 
+    ave = as.character(round(ave, 2))
+    ) %>% 
+  gather('est', 'val', chg:ave) %>% 
+  unite('col', var, est) %>% 
+  spread(col, val) %>% 
+  unite('period', cat, period) %>% 
+  mutate(period = factor(period, levels = faclevs, labels = faclevs)) %>% 
+  arrange(period) %>% 
+  mutate(cat = c(yrlabs_bf, yrlabs_af, molabs, molabs)) %>% 
+  data.frame(sep = c(rep('Annual', 2), rep('Seasonal, pre', 4), rep('Seasonal, post', 4)), .) %>% 
+  select(sep, cat, no_ave, no_chg, nh_ave, nh_chg)
+
+# final table formatting
+segs <- unique(totab$sep)
+cats <- totab$cat
+totab <- totab[,-c(1:2)]
+vars <- c('NO$_{2}^{-}$/NO$_{3}^{2-}$', 'NH$_{4}^{+}$')
+names(totab) <- rep(c('Mean', '\\% change'), 2)
+
+cap.val<-'Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \\ac{wwtp} upgrades upstream of station P8. Upgrades were completed in May 2007 at the City of Tracy \\ac{wwtp} (San Joaquin County, \\cref{fig:tracy}).  Summaries are means and percent changes based on annual means within the pre- and post-upgrade time periods (1976-2007, 2008-2013).  Increasing values are in bold-italics.'
+
+latex( 
+  totab,
+  file = '',
+  rowlabel = 'Period',
+  caption = cap.val,
+  caption.loc = 'top',
+  rgroup = segs,
+  n.rgroup = c(2, rep(4, 2)),
+  cgroup = vars,
+  n.cgroup = c(2, 2),
+  rowname = cats,
+  label = 'tab:p8chg'
+  )
+
+@
+
 % trends in din, chl, sio2 at d7
 <<d7chg>>=
 
@@ -933,24 +1022,24 @@ sioraw <- filter(d7dat, resvar %in% 'sio2') %>%
   .$mod %>% 
   .[[1]]
 
-mobrks <- c(-Inf, 3, 6, 9, Inf)
-yrbrks <- c(-Inf, 1985, 1994, 2003, Inf)
+mobrks <- c(0, 3, 6, 9, 12)
+yrbrks <- c(1975, 1985, 1994, 2003, 2013)
 molabs <- c('JFM', 'AMJ', 'JAS', 'OND')
 yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
 
 # summarize din, sio2, chl trends
-din <- wrtdstrnd(dinraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
-din <- wrtdstrnd(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+din <- wrtdstrnd(dinraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
+din <- wrtdstrnd(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
   .[1, ] %>% 
   rbind(., din) %>% 
   data.frame(res = 'din', .)
-chl <- wrtdstrnd(chlraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
-chl <- wrtdstrnd(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+chl <- wrtdstrnd(chlraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
+chl <- wrtdstrnd(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
   .[1, ] %>% 
   rbind(., chl) %>% 
   data.frame(res = 'chl', .)
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
   .[1, ] %>% 
   rbind(., sio) %>% 
   data.frame(res = 'sio', .)
@@ -977,7 +1066,7 @@ totab <- totab[,-c(1:2)]
 vars <- c('DIN', 'Chl-\\textit{a}', 'SiO$_2$')
 names(totab) <- rep(c('Mean', '\\% change'), 3)
 
-cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg $L^{-1}$), chlorophyll ($\\mu$g $L^{-1}$), and silicon dioxide (mg $L^{-1}$) concentrations for different time periods at station D7. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
+cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station D7. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
 
 latex( 
   totab,
@@ -1012,24 +1101,24 @@ sioraw <- filter(c10dat, resvar %in% 'sio2') %>%
   .$mod %>% 
   .[[1]]
 
-mobrks <- c(-Inf, 3, 6, 9, Inf)
-yrbrks <- c(-Inf, 1985, 1994, 2003, Inf)
+mobrks <- c(0, 3, 6, 9, 12)
+yrbrks <- c(1975, 1985, 1994, 2003, 2013)
 molabs <- c('JFM', 'AMJ', 'JAS', 'OND')
 yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
 
 # summarize din, sio2, chl trends
-din <- wrtdstrnd(dinraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
-din <- wrtdstrnd(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+din <- wrtdstrnd(dinraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
+din <- wrtdstrnd(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
   .[1, ] %>% 
   rbind(., din) %>% 
   data.frame(res = 'din', .)
-chl <- wrtdstrnd(chlraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
-chl <- wrtdstrnd(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+chl <- wrtdstrnd(chlraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
+chl <- wrtdstrnd(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
   .[1, ] %>% 
   rbind(., chl) %>% 
   data.frame(res = 'chl', .)
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE)
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE) %>% 
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
+sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
   .[1, ] %>% 
   rbind(., sio) %>% 
   data.frame(res = 'sio', .)

@@ -99,6 +99,7 @@
 \acrodef{din}[DIN]{dissolved inorganic nitrogen}
 \acrodef{sfe}[SFE]{San Francisco Estuary}
 \acrodef{wrtds}[WRTDS]{Weighted Regressions on Time, Discharge, and Season}
+\acrodef{wwtp}[WWTP]{wastewater treatment plant}
 
 %for supplemental figures/tables
 \newcommand{\beginsupplement}{%
@@ -141,7 +142,7 @@
 	\\{\textit {\normalsize Phone: 510-746-7334, Fax: 510-746-7300}}
 	\\{\textit {\normalsize Emails: \href{mailto:davids@sfei.org}{davids@sfei.org}, \href{mailto:philb@sfei.org}{philb@sfei.org}, \href{mailto:emilyn@sfei.org}{emilyn@sfei.org}, \href{mailto:thomasj@sfei.org}{thomasj@sfei.org}}}
   \vspace{1in} 
-  \\ Version Date:   Tue Jul 19 09:56:38 2016 -0500
+  \\ Version Date:   Tue Jul 19 14:18:21 2016 -0500
 	}
 \date{}
 \maketitle
@@ -213,6 +214,8 @@ Emphasize the summer/fall change in the 2000s, why is this?  Check \citep{Cloern
 
 Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:tracy}).  Nitrate is the primary constituent of total nitrogen after 2007.  
 
+What was reduction in ammonium starting in 2002?
+
 \subsubsection{Effects of biological invasions}
 
 Data from \citep{Crauder16}, \citet{Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in \citet{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
@@ -226,6 +229,8 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 \cref{fig:clmchl}, \cref{fig:d7c10trnds}, \cref{tab:d7chg}, \cref{tab:c10chg}
 
 \section{Discussion}
+
+Trends as percent change depend on the mean value, lower values will have larger percent changes.
 
 What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorohpyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
@@ -313,10 +318,42 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 %%%%%%
 % tables
 
+% trends in no23, nh at p8
+%latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(2, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2), rowname = cats,     label = "tab:p8chg")%
+\begin{table}[!tbp]
+\caption{Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \ac{wwtp} upgrades upstream of station P8. Upgrades were completed in May 2007 at the City of Tracy \ac{wwtp} (San Joaquin County, \cref{fig:tracy}).  Summaries are means and percent changes based on annual means within the pre- and post-upgrade time periods (1976-2007, 2008-2013).  Increasing values are in bold-italics.\label{tab:p8chg}} 
+\begin{center}
+\begin{tabular}{lllcll}
+\hline\hline
+\multicolumn{1}{l}{\bfseries Period}&\multicolumn{2}{c}{\bfseries NO$_{2}^{-}$/NO$_{3}^{2-}$}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries NH$_{4}^{+}$}\tabularnewline
+\cline{2-3} \cline{5-6}
+\multicolumn{1}{l}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}\tabularnewline
+\hline
+{\bfseries Annual}&&&&&\tabularnewline
+~~1976-2007&1.27&\textit{\textbf{75.7}}&&0.33&\textit{\textbf{71.3}}\tabularnewline
+~~2008-2013&1.47&-6&&0.11&-62.6\tabularnewline
+\hline
+{\bfseries Seasonal, pre}&&&&&\tabularnewline
+~~JFM&1.46&\textit{\textbf{77.7}}&&0.49&\textit{\textbf{57.1}}\tabularnewline
+~~AMJ&1&\textit{\textbf{75.3}}&&0.13&\textit{\textbf{63.4}}\tabularnewline
+~~JAS&1.08&\textit{\textbf{97.9}}&&0.13&\textit{\textbf{151.9}}\tabularnewline
+~~OND&1.53&\textit{\textbf{81.9}}&&0.54&\textit{\textbf{102.4}}\tabularnewline
+\hline
+{\bfseries Seasonal, post}&&&&&\tabularnewline
+~~JFM&1.76&-3.4&&0.14&-47\tabularnewline
+~~AMJ&0.94&-5.5&&0.07&-45.3\tabularnewline
+~~JAS&1.17&-10&&0.07&-50.3\tabularnewline
+~~OND&1.99&-4.6&&0.15&-58.5\tabularnewline
+\hline
+\end{tabular}\end{center}
+
+\end{table}
+
+
 % trends in din, chl, sio2 at d7
 %latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(1, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2, 2), rowname = cats,     label = "tab:d7chg")%
 \begin{table}[!tbp]
-\caption{Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg $L^{-1}$), chlorophyll ($\mu$g $L^{-1}$), and silicon dioxide (mg $L^{-1}$) concentrations for different time periods at station D7. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.\label{tab:d7chg}} 
+\caption{Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station D7. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.\label{tab:d7chg}} 
 \begin{center}
 \begin{tabular}{lllcllcll}
 \hline\hline
@@ -325,13 +362,13 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \multicolumn{1}{l}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}\tabularnewline
 \hline
 {\bfseries All}&&&&&&&&\tabularnewline
-~~1976-2013&0.4&-4.2&&4.6&-82.4&&12.5&\textit{\textbf{30}}\tabularnewline
+~~1976-2013&0.4&\textit{\textbf{27.8}}&&4.4&-81.6&&12.6&\textit{\textbf{30.2}}\tabularnewline
 \hline
 {\bfseries Annual}&&&&&&&&\tabularnewline
-~~1976-1985&0.4&-15.2&&10.2&-67.9&&10.7&\textit{\textbf{8.4}}\tabularnewline
-~~1986-1994&0.4&\textit{\textbf{15.4}}&&3.3&-48.8&&12.3&\textit{\textbf{13.5}}\tabularnewline
-~~1995-2003&0.5&\textit{\textbf{4.3}}&&2.1&-3.9&&13.5&\textit{\textbf{3.7}}\tabularnewline
-~~2004-2013&0.5&-10.6&&2.5&\textit{\textbf{31.7}}&&13.7&-1.8\tabularnewline
+~~1976-1985&0.4&\textit{\textbf{10.2}}&&9.8&-63.9&&10.8&\textit{\textbf{9}}\tabularnewline
+~~1986-1994&0.4&\textit{\textbf{14.9}}&&3.4&-48.8&&12.2&\textit{\textbf{14.2}}\tabularnewline
+~~1995-2003&0.5&\textit{\textbf{4}}&&2.1&-4.8&&13.5&\textit{\textbf{3.7}}\tabularnewline
+~~2004-2013&0.5&-8.6&&2.5&\textit{\textbf{28.5}}&&13.7&-1.8\tabularnewline
 \hline
 {\bfseries Seasonal}&&&&&&&&\tabularnewline
 ~~JFM&0.5&-4.9&&2.7&-56&&15&\textit{\textbf{4.4}}\tabularnewline
@@ -356,13 +393,13 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \multicolumn{1}{l}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Mean}&\multicolumn{1}{c}{\% change}\tabularnewline
 \hline
 {\bfseries All}&&&&&&&&\tabularnewline
-~~1976-2013&1.3&-16.9&&27.6&-4.9&&14.5&-23.1\tabularnewline
+~~1976-2013&1.3&-16.5&&27.5&\textit{\textbf{9}}&&14.4&-21.7\tabularnewline
 \hline
 {\bfseries Annual}&&&&&&&&\tabularnewline
-~~1976-1985&1.3&\textit{\textbf{16.6}}&&26.6&-20.5&&15.7&-5\tabularnewline
-~~1986-1994&1.4&\textit{\textbf{6.6}}&&27.5&\textit{\textbf{23.7}}&&14.8&-3.9\tabularnewline
-~~1995-2003&1.4&-1.1&&29.3&-15.2&&14.1&-5.1\tabularnewline
-~~2004-2013&1.2&-32.6&&27.3&\textit{\textbf{11}}&&13&-9.6\tabularnewline
+~~1976-1985&1.3&\textit{\textbf{12.1}}&&26.1&-3.3&&15.7&-4.3\tabularnewline
+~~1986-1994&1.4&\textit{\textbf{6.3}}&&27.5&\textit{\textbf{23.5}}&&14.8&-4\tabularnewline
+~~1995-2003&1.4&-0.8&&29.3&-15.3&&14.1&-5\tabularnewline
+~~2004-2013&1.2&-29.4&&27.1&\textit{\textbf{5.1}}&&13.1&-8.7\tabularnewline
 \hline
 {\bfseries Seasonal}&&&&&&&&\tabularnewline
 ~~JFM&1.4&-20.5&&12&\textit{\textbf{14.8}}&&14.3&-16.9\tabularnewline
