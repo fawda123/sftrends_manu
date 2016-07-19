@@ -435,6 +435,138 @@ pB$widths[2:3] <- maxWidth
 grid.arrange(pA, pB, ncol = 1, heights = c(0.8, 1))
 @
 
+<<p8trnds, fig.height = 8, fig.width = 9, out.width = '\\textwidth', fig.cap = 'Nitrogen trends at P8 as observed (a, top), predicted and flow-normalized estimates from \\ac{wrtds} (a, bottom), and relationships with flow over time (b).  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Tracy (San Joaquin County), were completed in May 2007 (\\cref{fig:tracy}), coincident with a dramatic decrease in ammonium at P8.'>>=
+data(h2dat)
+
+nomod <-  filter(h2dat, resvar == 'no23') %>% 
+  .$mod %>% 
+  .[[1]]
+
+nhmod <- filter(h2dat, resvar == 'nh') %>% 
+  .$mod %>% 
+  .[[1]]
+
+# globals
+ylab1 <- expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-', ' (mg ', L^-1, ')'))
+ylab2 <- expression(paste(NH [4] ^ '2+', ' (mg ', L^-1, ')'))
+flolab <- expression(paste('ln-Flow (', m^3, ' ', s^-1, ')'))
+ptheme <- theme_minimal() + 
+  theme(
+    axis.line.x = element_line(),
+    axis.line.y = element_line()
+  )
+col_vec <- RColorBrewer::brewer.pal(9, 'Blues')[c(9, 8, 7)]
+dynacol_vec <- RColorBrewer::brewer.pal(9, 'Spectral')
+xlims <- range(nomod$date)
+
+# observed time series
+toplo1 <- select(nomod, date, res) %>% 
+  na.omit()
+toplo2 <- select(nhmod, date, res) %>% 
+  na.omit()
+p1 <- ggplot(toplo1, aes(x = date, y = exp(res))) + 
+  geom_line() + 
+  ptheme + 
+  scale_y_continuous(ylab1) +
+  theme(
+    axis.text.x = element_blank(),
+    axis.title.x = element_blank(),
+    plot.margin = grid::unit(c(6, 6, -12, 6), 'pt')
+  ) +
+  # geom_text(data = txt[1, ], aes(x = x, y = y, label = txt), size = size) +
+  scale_x_date(limits = xlims) 
+p2 <- ggplot(toplo2, aes(x = date, y = exp(res))) + 
+  geom_line() + 
+  ptheme + 
+  scale_y_continuous(ylab2) +
+  theme(
+    axis.text.x = element_blank(),
+    axis.title.x = element_blank(),
+    plot.margin = grid::unit(c(6, 6, -12, 6), 'pt')
+  ) +
+  # geom_text(data = txt[1, ], aes(x = x, y = y, label = txt), size = size) +
+  scale_x_date(limits = xlims)  
+
+# prdnrmplots
+p3 <- prdnrmplot(nomod, logspace = F, col_vec = col_vec, min_mo = 10) + 
+  ptheme + 
+  scale_y_continuous(ylab1) +
+  theme(
+    legend.position = 'top', 
+    legend.title = element_blank(),
+    axis.title.x = element_blank(),
+    plot.margin = grid::unit(c(6, 6, 6, 6), 'pt')
+  ) +
+  # geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size) +
+  scale_x_date(limits = xlims) 
+pleg1 <- g_legend(p3)
+p3 <- p3 + theme(legend.position = 'none')
+p4 <- prdnrmplot(nhmod, logspace = F, col_vec = col_vec, min_mo = 10) + 
+  ptheme + 
+  scale_y_continuous(ylab2) +
+  theme(
+    legend.position = 'none',
+    legend.title = element_blank(),
+    axis.title.x = element_blank(),
+    plot.margin = grid::unit(c(6, 6, 6, 6), 'pt')
+  ) +
+  # geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size) +
+  scale_x_date(limits = xlims) 
+
+# dynaplots
+p5 <- dynaplot(nomod, logspace = F, col_vec = dynacol_vec, month = c(1, 4, 7, 10), floscl = F) + 
+  ptheme + 
+  scale_y_continuous(ylab1) +
+  theme(
+    legend.position = 'top', 
+    legend.title = element_blank()
+  ) +
+  scale_x_continuous(flolab) + 
+  guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10))
+  # geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size)
+pleg2 <- g_legend(p5)
+p5 <- p5 + theme(legend.position = 'none')
+p6 <- dynaplot(nhmod, logspace = F, col_vec = dynacol_vec, month = c(1, 4, 7, 10), floscl = F) + 
+  ptheme + 
+  scale_y_continuous(ylab2) +
+  scale_x_continuous(flolab) +
+  theme(
+    legend.position = 'none', 
+    legend.title = element_blank()
+  )# +
+  # geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size)
+
+# align widths of plots in first column, first two
+pA <- ggplot_gtable(ggplot_build(p1))
+pB <- ggplot_gtable(ggplot_build(p2))
+pC <- ggplot_gtable(ggplot_build(p3))
+pD <- ggplot_gtable(ggplot_build(p4))
+pE <- ggplot_gtable(ggplot_build(p5))
+pF <- ggplot_gtable(ggplot_build(p6))
+
+maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3], pC$widths[2:3], pD$widths[2:3], pE$widths[2:3], pF$widths[2:3])
+
+# Set the widths
+pA$widths[2:3] <- maxWidth
+pB$widths[2:3] <- maxWidth
+pC$widths[2:3] <- maxWidth
+pD$widths[2:3] <- maxWidth
+pE$widths[2:3] <- maxWidth
+pF$widths[2:3] <- maxWidth
+
+grid.arrange(
+  textGrob('(a) Observed, predicted, and flow-normalized trends'),
+  arrangeGrob(pA, pB, ncol = 2), 
+  pleg1,
+  arrangeGrob(pC, pD, ncol = 2),
+  textGrob('(b) Nutrient/flow relationships over time'),
+  pleg2, 
+  arrangeGrob(pE, pF, ncol = 2), 
+  ncol = 1,
+  heights = c(0.2, 0.8, 0.25, 1, 0.2, 0.25, 2)
+  )
+@
+
 <<clmchl, fig.height = 7, fig.width = 8, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (c).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (b).  Flow relationships with \\ac{chla} concentration have also changed over time (d, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
 
 # clam and model data at D7
