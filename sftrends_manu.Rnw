@@ -48,6 +48,7 @@
 %acronyms
 \acrodef{chla}[chl-\textit{a}]{chlorophyll \textit{a}}
 \acrodef{din}[DIN]{dissolved inorganic nitrogen}
+\acrodef{jas}[JAS]{July-August-September}
 \acrodef{sfe}[SFE]{San Francisco Estuary}
 \acrodef{wrtds}[WRTDS]{Weighted Regressions on Time, Discharge, and Season}
 \acrodef{wwtp}[WWTP]{wastewater treatment plant}
@@ -166,7 +167,7 @@ These are science questions that are relevant outside of the region.
 \subsubsection{Disaggregating observed nitrogen time series}
 Hypothesis: Because multiple factors influence nutrient concentrations at different times, relationships between nutrients, time, and flow/salinity are non-linear and complex, so we expect 1) annual trend independent of seasonal trend, 2) changes in seasonal amplitudes and quantile trends over time, 3) varying flow contribution, either as difference between predicted/flow-normalized results or changes in nutrient v flow scatterplots at different annual periods.
 \subsubsection{Effects of wastewater treatment}
-Hypothesis: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) shift in the flow/nutrient relatinship before and after upgrade related to change in load contributions. See \href{http://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/san_joaquin/r5-2008-0086_res.pdf}{here}
+Hypothesis: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) different nitrogen species will have different changes depending on change in load outputs. See \href{http://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/san_joaquin/r5-2008-0086_res.pdf}{here}
 \subsubsection{Effects of biological invasions}
 Hypothesis: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
 
@@ -186,9 +187,11 @@ Emphasize the summer/fall change in the 2000s, why is this?  Check \citep{Cloern
 
 \subsubsection{Effects of wastewater treatment}
 
-Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:tracy}).  Nitrate is the primary constituent of total nitrogen after 2007.  
+Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:tracy}).  Nitrate is the primary constituent of total nitrogen after 2007.  Organic nitrogen is a larger percentage of the total after nitrification. What was reduction in ammonium starting in 2002? 
 
-What was reduction in ammonium starting in 2002?
+Nitrogen trends at P8 shifted in response to upstream \ac{wwtp} upgrades (\cref{fig:p8trnds}), with ammonium showing the largest reduction.  Interestingly, nitrite/nitrate concentrations also showed a similar but less dramatic decrease.  Percent changes are shown in \cref{tab:p8chg}, where both nitrogen species shows large percent increases prior to \ac{wwtp} upgrades followed by decreases after upgrades with ammonium showing the largest pecentage.  Seasonally, increases prior to upgrades were most apparent in the \ac{jas} months for both analytes.  Seasonal reductions post-upgrades were also largest in \ac{jas} for nitrite/nitrate, whereas percent reductions were similar across all monthly groupings for ammonium.  
+
+Relationships of nitrogen with flow showed the typical inverse flow/concentration dynamic with flushing at high flow, although patterns differed by nitrogen species.  Seasonal variation was more apparent for ammonium, although both typically had the highest concentrations in the winter.  Additionally, strength of the flow/nutrient relationship changed throughout the time series the year where the strongest relationship differed by analyte.  Nitrite/nitrate typically had the strongest relationship flow later in the time series, whereas ammonium had the strongest relationship with flow in the early 2000s.  
 
 \subsubsection{Effects of biological invasions}
 
@@ -205,6 +208,8 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 \section{Discussion}
 
 Trends as percent change depend on the mean value, lower values will have larger percent changes.
+
+Second case study showed typical inverse relationships between nutrients and flow, more flow means greater flushing and dilution of nutrient concentrations.  Conversely, low flow means less flushing and higher nutrient concentrations, although this may not always be observed if the available nutrients are biologically available.  Low-flow events during warmer months show the lowest ammonium concentrations, which corresponds to seasonal maxima in chlorophyll concentration.  A similar but weaker relationship was observed with nitrite/nitrate where increased flow was related to decreased concentration and lower concentrations overall were observed in the summer.  However, low-flow events still had higher concentrations than high-flow events in July, as compared to ammonium which was low regardless of flow.  This suggests that ammonium concentrations are driving phytoplankton production at P8.  Annual trends in chlorophyll concentration (not shown) showed an overall decrease from the 1970s to present, although a slight peak is observed in the 2000s.  This peak is likely related to the maximum ammonium concentration shown in \cref{fig:p8trnds}.  Moreover, flow/chlorophyll relationships have generally been constant throughout the period of record such that a change in flow has not been related to a change in phytoplankton production.  This suggests that nutrient loads that contribute to production at P8 are primarily from point sources at \ac{wwtp} outflows as a change in flow does not affect the load output.  But what are watershed loads?  
 
 What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorohpyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
@@ -446,6 +451,7 @@ data(h2dat)
 nomod <-  filter(h2dat, resvar == 'no23') %>% 
   .$mod %>% 
   .[[1]]
+
 
 nhmod <- filter(h2dat, resvar == 'nh') %>% 
   .$mod %>% 
