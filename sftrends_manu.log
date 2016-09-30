@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  20 JUL 2016 11:10
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  30 SEP 2016 16:40
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -707,71 +707,83 @@ Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 251.
 (pdftex.def)             Requested size: 469.75502pt x 469.76045pt.
 Package acronym Info: Label `acro:wrtds' overridden on input line 252.
 
-<figs/dinc10-1.pdf, id=184, 505.89pt x 578.16pt>
+<figs/trends-1.pdf, id=184, 505.89pt x 433.62pt>
+File: figs/trends-1.pdf Graphic file (type pdf)
+ <use figs/trends-1.pdf>
+Package pdftex.def Info: figs/trends-1.pdf used on input line 258.
+(pdftex.def)             Requested size: 305.33789pt x 261.72226pt.
+
+<figs/trends-2.pdf, id=185, 505.89pt x 433.62pt>
+File: figs/trends-2.pdf Graphic file (type pdf)
+ <use figs/trends-2.pdf>
+Package pdftex.def Info: figs/trends-2.pdf used on input line 259.
+(pdftex.def)             Requested size: 305.33789pt x 261.72226pt.
+
+<figs/dinc10-1.pdf, id=186, 505.89pt x 578.16pt>
 File: figs/dinc10-1.pdf Graphic file (type pdf)
  <use figs/dinc10-1.pdf>
-Package pdftex.def Info: figs/dinc10-1.pdf used on input line 258.
+Package pdftex.def Info: figs/dinc10-1.pdf used on input line 270.
 (pdftex.def)             Requested size: 352.31625pt x 402.65372pt.
 
-<figs/dinc10dyna-1.pdf, id=185, 650.43pt x 433.62pt>
+<figs/dinc10dyna-1.pdf, id=187, 650.43pt x 433.62pt>
 File: figs/dinc10dyna-1.pdf Graphic file (type pdf)
 
 <use figs/dinc10dyna-1.pdf>
-Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 269.
+Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 281.
 (pdftex.def)             Requested size: 469.75502pt x 313.17879pt.
- <figs/tracy-1.pdf, id=186, 578.16pt x 361.35pt>
+ <figs/tracy-1.pdf, id=188, 578.16pt x 361.35pt>
 File: figs/tracy-1.pdf Graphic file (type pdf)
 
 <use figs/tracy-1.pdf>
-Package pdftex.def Info: figs/tracy-1.pdf used on input line 280.
+Package pdftex.def Info: figs/tracy-1.pdf used on input line 292.
 (pdftex.def)             Requested size: 469.75502pt x 293.59616pt.
- <figs/p8trnds-1.pdf, id=187, 650.43pt x 578.16pt>
+ <figs/p8trnds-1.pdf, id=189, 650.43pt x 578.16pt>
 File: figs/p8trnds-1.pdf Graphic file (type pdf)
 
 <use figs/p8trnds-1.pdf>
-Package pdftex.def Info: figs/p8trnds-1.pdf used on input line 291.
+Package pdftex.def Info: figs/p8trnds-1.pdf used on input line 303.
 (pdftex.def)             Requested size: 469.75502pt x 417.57172pt.
- <figs/clmchl-1.pdf, id=190, 578.16pt x 505.89pt>
+ <figs/clmchl-1.pdf, id=192, 578.16pt x 505.89pt>
 File: figs/clmchl-1.pdf Graphic file (type pdf)
 
 <use figs/clmchl-1.pdf>
-Package pdftex.def Info: figs/clmchl-1.pdf used on input line 302.
+Package pdftex.def Info: figs/clmchl-1.pdf used on input line 314.
 (pdftex.def)             Requested size: 469.75502pt x 411.0346pt.
 Package acronym Info: Label `acro:chla' newly defined as it shall be overridden
 
-although it is yet undefined on input line 306.
- <figs/d7c10trnds-1.pdf, id=191, 650.43pt x 722.7pt>
+although it is yet undefined on input line 318.
+ <figs/d7c10trnds-1.pdf, id=193, 650.43pt x 722.7pt>
 File: figs/d7c10trnds-1.pdf Graphic file (type pdf)
 
 <use figs/d7c10trnds-1.pdf>
-Package pdftex.def Info: figs/d7c10trnds-1.pdf used on input line 313.
+Package pdftex.def Info: figs/d7c10trnds-1.pdf used on input line 325.
 (pdftex.def)             Requested size: 469.75502pt x 521.96465pt.
  [10 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>] [11 <M:/docs/manus
-cripts/sftrends_manu/figs/dinc10-1.pdf>] [12 <M:/docs/manuscripts/sftrends_manu
-/figs/dinc10dyna-1.pdf>] [13 <M:/docs/manuscripts/sftrends_manu/figs/tracy-1.pd
-f>] [14 <M:/docs/manuscripts/sftrends_manu/figs/p8trnds-1.pdf>] [15 <M:/docs/ma
-nuscripts/sftrends_manu/figs/clmchl-1.pdf>] [16 <M:/docs/manuscripts/sftrends_m
-anu/figs/d7c10trnds-1.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 420.
- [17] [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 420.
-
-(M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 420.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 420.
+cripts/sftrends_manu/figs/trends-1.pdf> <M:/docs/manuscripts/sftrends_manu/figs
+/trends-2.pdf>] [12 <M:/docs/manuscripts/sftrends_manu/figs/dinc10-1.pdf>] [13 
+<M:/docs/manuscripts/sftrends_manu/figs/dinc10dyna-1.pdf>] [14 <M:/docs/manuscr
+ipts/sftrends_manu/figs/tracy-1.pdf>] [15 <M:/docs/manuscripts/sftrends_manu/fi
+gs/p8trnds-1.pdf>] [16 <M:/docs/manuscripts/sftrends_manu/figs/clmchl-1.pdf>] [
+17 <M:/docs/manuscripts/sftrends_manu/figs/d7c10trnds-1.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 432.
+ [18] [19]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 432.
+ (M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 432.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 432.
 Package rerunfilecheck Info: File `sftrends_manu.out' has not changed.
 (rerunfilecheck)             Checksum: A9BC9E3EDD6695B9A208E4DE1A632211;1097.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 420.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 432.
  ) 
 Here is how much of TeX's memory you used:
- 11678 strings out of 493921
- 184836 string characters out of 3147282
+ 11694 strings out of 493921
+ 185116 string characters out of 3147282
  311470 words of memory out of 3000000
- 14708 multiletter control sequences out of 15000+200000
+ 14720 multiletter control sequences out of 15000+200000
  35366 words of font info for 74 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  44i,10n,42p,2332b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -784,9 +796,9 @@ c/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/Mi
 KTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on sftrends_manu.pdf (18 pages, 1638080 bytes).
+Output written on sftrends_manu.pdf (19 pages, 2027351 bytes).
 PDF statistics:
- 371 PDF objects out of 1000 (max. 8388607)
- 67 named destinations out of 1000 (max. 500000)
- 156 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 398 PDF objects out of 1000 (max. 8388607)
+ 69 named destinations out of 1000 (max. 500000)
+ 166 words of extra memory for PDF output out of 10000 (max. 10000000)
 

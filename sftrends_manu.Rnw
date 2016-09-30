@@ -66,7 +66,7 @@
 library(knitr)
 # set global chunk options
 opts_chunk$set(fig.path = 'figs/', fig.align = 'center', fig.show = 'hold', message = F, echo = F, results = 'asis', dev = 'pdf', dev.args = list(family = 'serif'), fig.pos = '!ht', warning = F)
-options(replace.assign = TRUE, width = 90, digits = 1)
+options(replace.assign = TRUE, width = 90)
 
 source('R/funcs.r')
 library(WRTDStidal)
@@ -227,7 +227,13 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \label{fig:schematic}   
 \end{figure}
 
+<<trends, fig.height = 6, fig.width = 7, out.width = '0.65\\textwidth', fig.cap = 'Percent changes in nitrogen analytes for (a) annual and (b) seasonal periods in the record.  Changes are based on the difference between the ending and starting estimates for the flow-normalized estimates within each period.  Points are colored for direction (red increasing, green decreasing) and sized for relative magnitude. Station names are shown in the top left panel.'>>=
+trnd_map(molabs = NULL, sz_rng = c(2, 8), leg_lab = '(a) Annual % change')
+trnd_map(yrlabs = NULL, sz_rng = c(2, 8), stat_labs = F, leg_lab = '(b) Seasonal % change')
+@
+
 <<dinc10, fig.height = 8, fig.width = 7, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \\ac{wrtds} at different conditional quantiles ($\\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend.'>>=
+
 # data
 data(dinc10)
 
@@ -240,7 +246,10 @@ ptheme <- theme_minimal() +
   theme(
     axis.line.x = element_line(),
     axis.line.y = element_line(), 
-    axis.title.x = element_blank()
+    axis.title.x = element_blank(),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm") 
   )
 col_vec <- RColorBrewer::brewer.pal(9, 'Set1')[c(3, 2, 1)]
 col_lim <- c(0, 3.8)
@@ -261,7 +270,7 @@ p1 <- ggplot(toplo1, aes(x = date, y = exp(res))) +
   scale_y_continuous(ylab) +
   theme(
     axis.text.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, -24, 6), 'pt')
+    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
   ) +
   geom_text(data = txt[1, ], aes(x = x, y = y, label = txt), size = size) +
   scale_x_date(limits = xlims) 
@@ -273,7 +282,7 @@ p2 <- prdnrmplot(toplo, logspace = F, col_vec = col_vec) +
   theme(
     legend.position = 'top', 
     axis.text.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, -12, 6), 'pt')
+    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
   ) +
   geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size) +
   scale_x_date(limits = xlims) 
@@ -292,7 +301,7 @@ p3 <- ggplot(toplo2, aes(x = date, y = flodiff)) +
   ptheme + 
   theme(
     axis.text.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, -12, 6), 'pt')
+    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
     ) + 
   scale_y_continuous(ylab) +
   scale_x_date(limits = xlims) +
@@ -338,8 +347,11 @@ toplo <- dinc10
 # globals
 ptheme <- theme_minimal() + 
   theme(
-    axis.line.x = element_line(),
+    axis.line.x = element_line(), 
     axis.line.y = element_line(), 
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"),
     axis.title.x = element_blank()
   )
 col_lim <- c(0, 2.9)
@@ -390,8 +402,11 @@ data(potw_load)
 
 ptheme <- theme_minimal() + 
   theme(
-    axis.line.x = element_line(),
+    axis.line.x = element_line(), 
     axis.line.y = element_line(), 
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"),
     axis.title.x = element_blank()
   )
 lncol <- RColorBrewer::brewer.pal(9, 'Set1')[2]
@@ -463,8 +478,11 @@ ylab2 <- expression(paste(NH [4] ^ '+', ' (mg ', L^-1, ')'))
 flolab <- expression(paste('ln-Flow (', m^3, ' ', s^-1, ')'))
 ptheme <- theme_minimal() + 
   theme(
-    axis.line.x = element_line(),
-    axis.line.y = element_line()
+    axis.line.x = element_line(), 
+    axis.line.y = element_line(), 
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm")
   )
 col_vec <- RColorBrewer::brewer.pal(9, 'Blues')[c(9, 8, 7)]
 dynacol_vec <- RColorBrewer::brewer.pal(9, 'Spectral')
@@ -482,7 +500,7 @@ p1 <- ggplot(toplo1, aes(x = date, y = exp(res))) +
   theme(
     axis.text.x = element_blank(),
     axis.title.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, -12, 6), 'pt')
+    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
   ) +
   # geom_text(data = txt[1, ], aes(x = x, y = y, label = txt), size = size) +
   scale_x_date(limits = xlims) 
@@ -493,7 +511,7 @@ p2 <- ggplot(toplo2, aes(x = date, y = exp(res))) +
   theme(
     axis.text.x = element_blank(),
     axis.title.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, -12, 6), 'pt')
+    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
   ) +
   # geom_text(data = txt[1, ], aes(x = x, y = y, label = txt), size = size) +
   scale_x_date(limits = xlims)  
@@ -506,7 +524,7 @@ p3 <- prdnrmplot(nomod, logspace = F, col_vec = col_vec, min_mo = 10) +
     legend.position = 'top', 
     legend.title = element_blank(),
     axis.title.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, 6, 6), 'pt')
+    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
   ) +
   # geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size) +
   scale_x_date(limits = xlims) 
@@ -519,7 +537,7 @@ p4 <- prdnrmplot(nhmod, logspace = F, col_vec = col_vec, min_mo = 10) +
     legend.position = 'none',
     legend.title = element_blank(),
     axis.title.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, 6, 6), 'pt')
+    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
   ) +
   # geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size) +
   scale_x_date(limits = xlims) 
@@ -574,7 +592,7 @@ grid.arrange(
   pleg2, 
   arrangeGrob(pE, pF, ncol = 2), 
   ncol = 1,
-  heights = c(0.2, 0.8, 0.25, 1, 0.2, 0.25, 2)
+  heights = c(0.2, 0.8, 0.25, 0.9, 0.2, 0.25, 2)
   )
 @
 
@@ -611,8 +629,11 @@ p1 <- ggplot(clmdat, aes(x = yr, y = clams_smp, fill = species)) +
   geom_bar(stat = 'identity') + 
   theme_minimal() + 
   theme(
+    axis.line.x = element_line(), 
     axis.line.y = element_line(), 
-    axis.line.x = element_line(),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"), 
     # axis.title.x = element_blank(),
     legend.position = 'top', 
     legend.title = element_blank()
@@ -658,8 +679,11 @@ p2 <- ggplot(clmflo, aes(x = q, y = biomass)) +
   geom_line(data = data.frame(x = xvals, y = yvals), aes(x, y, colour = 'black'), lwd = 1) +
   theme_minimal() + 
   theme(
+    axis.line.x = element_line(), 
     axis.line.y = element_line(), 
-    axis.line.x = element_line(),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"), 
     legend.position = 'top', 
     legend.title = element_blank(), 
     legend.box = 'horizontal'
@@ -711,8 +735,11 @@ p3 <- ggplot(toplo, aes(x = biomass, y = bt_norm)) +
   geom_line(data = data.frame(x = xvals, y = yvals), aes(x, y, colour = 'black'), lwd = 1) +
   theme_minimal() + 
   theme(
+    axis.line.x = element_line(), 
     axis.line.y = element_line(), 
-    axis.line.x = element_line(),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"),
     legend.position = 'top', 
     legend.title = element_blank(), 
     legend.box = 'horizontal'
@@ -730,8 +757,11 @@ ylab <- attr(chld7, 'reslab')
 p4 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F) +
   theme_minimal() +
   theme(
+    axis.line.x = element_line(), 
     axis.line.y = element_line(), 
-    axis.line.x = element_line(),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"),
     legend.position = 'top', 
     legend.title = element_blank(), 
     legend.box = 'horizontal',
@@ -784,8 +814,11 @@ ylab3 <- expression(paste("Si", O[2], " (mg ", L^-1, ")"))
 # generic theme for all plots
 ptheme <- theme_minimal() + 
   theme(
-    axis.line.x = element_line(),
+    axis.line.x = element_line(), 
     axis.line.y = element_line(), 
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"),  
     axis.title.x = element_blank(), 
     axis.text.x = element_blank()
   )

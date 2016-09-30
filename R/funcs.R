@@ -23,27 +23,41 @@ g_legend <- function(a.gplot){
 #
 # uses delt_dat, mods_nolag, delt_map
 #
-trnd_map <- function(res, 
+trnd_map <- function(res = c('din', 'nh', 'no23'), 
   mobrks = c(-Inf, 4, 8, Inf),
   yrbrks = c(-Inf, 1988, 2000, Inf),
   molabs = c('JFMA', 'MJJA', 'SOND'),
   yrlabs = c('1976-1988', '1989-2000', '2001-2012'),
   buffx = 0.00025,
   buffy = 0.001,
-  cols =  c('#E41A1C', '#4DAF4A'),
+  cols =  c('#D53E4F', '#4DAF4A'),
   sz_rng = c(2, 11),
   shps = c(24, 25),
   ndivs = 6,
   strp_fl = 'lightgrey',
   bar = FALSE, 
   stat_labs = TRUE,
-  leg = TRUE){
+  leg = TRUE, 
+  leg_lab = 'Percent change'){
 
   # load required data
   data(delt_dat)
   data(delt_map)
   data(mods_nolag)
 
+  # response labels 
+  reslabs <- list(
+    shrt = c('din', 'nh', 'no23'),
+    expr = c(
+      'DIN', 
+      expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-')),
+      expression(paste(NH [4] ^ '+'))
+    )
+  )
+  
+  # make response labels
+  mods_nolag <- mutate(mods_nolag, reslabs = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr))
+  
   ##
   # get a bounding box for the stations
   statmeta <- select(delt_dat, Site_Code, Latitude, Longitude) %>% 
@@ -83,29 +97,47 @@ trnd_map <- function(res,
   # base delta map
   pbase <- ggplot(delt_map, aes(x = long, y = lat)) + 
     geom_polygon(aes(group = group, fill = hole), colour = "cornflowerblue") +
-    theme_bw() +
+    theme_bw() + 
     theme(
-      axis.title.x=element_blank(),
-      axis.title.y=element_blank(),
-      panel.background=element_blank(),panel.grid.major=element_blank(),
-      panel.grid.minor=element_blank(),plot.background=element_blank(), 
-      legend.position = 'none'
-      ) +  
+      plot.background = element_rect(fill='transparent', 
+        colour = NA),
+      panel.background = element_rect(fill='transparent', 
+        colour = NA),
+      legend.background = element_rect(fill='transparent', 
+        colour = NA),
+      legend.key = element_rect(fill = 'transparent', 
+        colour = NA),
+      axis.ticks.x = element_line(),
+      axis.ticks.y = element_line(),
+      axis.ticks.length = unit(.1, "cm"), 
+      panel.grid.minor = element_blank(), 
+      axis.title.x = element_blank(), 
+      axis.title.y = element_blank(), 
+      legend.position = 'none', 
+      plot.margin = grid::unit(c(3, 3, 12, 3), 'pt'), 
+      axis.text.x = element_text(size = 8), 
+      axis.text.y = element_text(size = 8)
+    ) +
     coord_fixed(ratio = 1, xlim = lims[c(1, 3)], ylim = lims[c(2, 4)])
 
   # some formatting for the variable to plot
-  toplo <- filter(trnds, resvar == res)
+  toplo <- filter(trnds, resvar %in% res & cat %in% c(molabs, yrlabs))
   toplo$shp <- shps[1]
   toplo[toplo$chg < 0, 'shp'] <- shps[2]
   toplo$shp <- factor(toplo$shp)
-  toplo$sz <- rescale(abs(toplo$chg), to = sz_rng)
-  toplo[!toplo$cat %in% yrlabs[1] , 'Site_Code'] <- NA
+  toplo$sz <- scales::rescale(abs(toplo$chg), to = sz_rng)
+  
+  # block out site labels depending on molabs or ylabs as NULL
+  if(is.null(molabs))
+    toplo[!toplo$cat %in% yrlabs[1] | !toplo$resvar %in% res[1], 'Site_Code'] <- NA
+  if(is.null(yrlabs))
+    toplo[!toplo$cat %in% molabs[1] & toplo$resvar %in% res[1], 'Site_Code'] <- NA
   
   # barplots of true
   if(bar){
     
     # barplot data
-    toplobr <- filter(trnds, resvar == res)
+    toplobr <- filter(trnds, resvar %in% res & cat %in% c(molabs, yrlabs))
     toplobr$cat_grp <- 'yr'
     toplobr$cat_grp[grepl('[A-Z]', toplobr$cat)] <- 'mo'
     toplobr$cat_grp <- factor(toplobr$cat_grp, levels  = c('yr', 'mo'))
@@ -113,14 +145,14 @@ trnd_map <- function(res,
     # barplot
     pbar <- ggplot(toplobr, aes(x = Site_Code, y = chg, fill = cat)) + 
       geom_bar(stat = 'identity', position = 'dodge') + 
-      facet_wrap(~ cat_grp, ncol = 1) +
+      facet_grid(resvar ~ cat_grp, labeller = label_parsed) +
       theme(strip.background=element_rect(fill = strp_fl)) +
       theme_bw()
     
     return(pbar)
     
   }
-  
+
   # add trend data to base map
   ptrnd <- pbase +
     geom_point(data = toplo, 
@@ -130,9 +162,9 @@ trnd_map <- function(res,
     scale_shape_manual(values = shps) + 
     scale_size(range = sz_rng) + 
     scale_fill_manual(values=c(cols, "cornflowerblue", "aliceblue"), guide="none") +
-    facet_wrap( ~ cat, ncol = 3) +
-    theme(strip.background=element_rect(fill = strp_fl),
-      panel.background=element_rect(fill = alpha("cornflowerblue", 0.1))
+    facet_grid(reslabs ~ cat, labeller = label_parsed) +
+    theme(strip.background=element_rect(fill = 'white', colour = 'white'),
+      panel.border = element_rect(colour = "grey")
       )
   
   # add station labels in first panel if T
@@ -156,7 +188,7 @@ trnd_map <- function(res,
     
     ## manual legend
     
-    legtitle <- 'Percent change'
+    legtitle <- leg_lab
     legcols <- rep(cols, each = ndivs/2)
     legshps <- rep(shps, each = ndivs/2)
     
@@ -194,14 +226,16 @@ trnd_map <- function(res,
         shape = guide_legend(title = legtitle)
         ) +
       theme_minimal() + 
-      theme(legend.position = 'top')
+      theme(legend.position = 'top', 
+      plot.margin = grid::unit(c(18, 3, 3, 3), 'pt')
+        )
     pleg <- g_legend(pleg)
     
     # combine the legend and trends map
     grid.arrange(
       arrangeGrob(
         pleg, ptrnd, ncol = 1, 
-        heights = c(0.12, 1)
+        heights = c(0.1, 1)
         )
       )
    
