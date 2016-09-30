@@ -161,7 +161,7 @@ trnd_map <- function(res = c('din', 'nh', 'no23'),
     )  + 
     scale_shape_manual(values = shps) + 
     scale_size(range = sz_rng) + 
-    scale_fill_manual(values=c(cols, "cornflowerblue", "aliceblue"), guide="none") +
+    scale_fill_manual(values=c(cols, "cornflowerblue", "white"), guide="none") +
     facet_grid(reslabs ~ cat, labeller = label_parsed) +
     theme(strip.background=element_rect(fill = 'white', colour = 'white'),
       panel.border = element_rect(colour = "grey")
