@@ -50,8 +50,8 @@ trnd_map <- function(res = c('din', 'nh', 'no23'),
     shrt = c('din', 'nh', 'no23'),
     expr = c(
       'DIN', 
-      expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-')),
-      expression(paste(NH [4] ^ '+'))
+      expression(paste(NH [4] ^ '+')),
+      expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
     )
   )
   
