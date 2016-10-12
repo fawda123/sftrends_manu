@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  30 SEP 2016 17:55
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  12 OCT 2016 11:10
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -544,28 +544,28 @@ tim
 LaTeX Warning: Label `acro:sfe@cref' multiply defined.
 
 )
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 123.
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 123.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 123.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 124.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 124.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 124.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 123.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 123.
+LaTeX Font Info:    ... okay on input line 124.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 124.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
@@ -620,7 +620,7 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box31
-Package hyperref Info: Link coloring ON on input line 123.
+Package hyperref Info: Link coloring ON on input line 124.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -629,9 +629,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count134
 )
-LaTeX Info: Redefining \ref on input line 123.
-LaTeX Info: Redefining \pageref on input line 123.
-LaTeX Info: Redefining \nameref on input line 123.
+LaTeX Info: Redefining \ref on input line 124.
+LaTeX Info: Redefining \pageref on input line 124.
+LaTeX Info: Redefining \nameref on input line 124.
 
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.out)
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.out)
@@ -640,167 +640,1377 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 150.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 151.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 150.
+(Font)              <14.4> on input line 151.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 150.
+(Font)              <7> on input line 151.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 150.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 150.
+(Font)              <12> on input line 151.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 150.
+(Font)              <8> on input line 151.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 150.
+(Font)              <6> on input line 151.
  [1
 
 {C:/Users/mbeck/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 153.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 154.
 Package acronym Info: Label `acro:wrtds' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 154.
+although it is yet undefined on input line 155.
 Package acronym Info: Label `acro:sfe' newly defined as it shall be overridden
-although it is yet undefined on input line 154.
+although it is yet undefined on input line 155.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 158.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 159.
  [2
 
 ]
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 170.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 171.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [3]
-Package acronym Info: Label `acro:sfe' overridden on input line 180.
+Package acronym Info: Label `acro:sfe' overridden on input line 181.
 Package acronym Info: Label `acro:din' newly defined as it shall be overridden
-although it is yet undefined on input line 187.
+although it is yet undefined on input line 188.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 193.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 194.
  [4] [5]
 Package acronym Info: Label `acro:wwtp' newly defined as it shall be overridden
 
-although it is yet undefined on input line 218.
+although it is yet undefined on input line 219.
+
+
+LaTeX Warning: Reference `fig:p8trnds' on page 1 undefined on input line 219.
+
+
+LaTeX Warning: Reference `tab:p8chg' on page 1 undefined on input line 219.
+
 Package acronym Info: Label `acro:jas' newly defined as it shall be overridden
-although it is yet undefined on input line 218.
- [6]
+although it is yet undefined on input line 219.
+[6]
+
+LaTeX Warning: Reference `fig:d7c10trnds' on page 1 undefined on input line 233
+.
+
+
+LaTeX Warning: Reference `tab:d7chg' on page 1 undefined on input line 233.
+
+
+LaTeX Warning: Reference `tab:c10chg' on page 1 undefined on input line 233.
+
+
+LaTeX Warning: Reference `fig:p8trnds' on page 1 undefined on input line 239.
+
 [7] [8] (M:\docs\manuscripts\sftrends_manu\sftrends_manu.bbl) [9
 
 ]
-<figs/schematic.pdf, id=183, page=1, 722.7pt x 722.7pt>
+<figs/schematic.pdf, id=172, page=1, 722.7pt x 722.7pt>
 File: figs/schematic.pdf Graphic file (type pdf)
 
 <use figs/schematic.pdf, page 1>
-Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 251.
+Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 252.
 (pdftex.def)             Requested size: 469.75502pt x 469.76045pt.
-Package acronym Info: Label `acro:wrtds' overridden on input line 252.
+Package acronym Info: Label `acro:wrtds' overridden on input line 253.
 
-<figs/trndmap-1.pdf, id=184, 505.89pt x 433.62pt>
+<figs/trndmap-1.pdf, id=173, 505.89pt x 433.62pt>
 File: figs/trndmap-1.pdf Graphic file (type pdf)
  <use figs/trndmap-1.pdf>
-Package pdftex.def Info: figs/trndmap-1.pdf used on input line 258.
+Package pdftex.def Info: figs/trndmap-1.pdf used on input line 259.
 (pdftex.def)             Requested size: 305.33789pt x 261.72226pt.
 
-<figs/trndmap-2.pdf, id=185, 505.89pt x 433.62pt>
+<figs/trndmap-2.pdf, id=174, 505.89pt x 433.62pt>
 File: figs/trndmap-2.pdf Graphic file (type pdf)
  <use figs/trndmap-2.pdf>
-Package pdftex.def Info: figs/trndmap-2.pdf used on input line 259.
+Package pdftex.def Info: figs/trndmap-2.pdf used on input line 260.
 (pdftex.def)             Requested size: 305.33789pt x 261.72226pt.
 
-<figs/dinc10-1.pdf, id=186, 505.89pt x 578.16pt>
+<figs/dinc10-1.pdf, id=175, 505.89pt x 578.16pt>
 File: figs/dinc10-1.pdf Graphic file (type pdf)
  <use figs/dinc10-1.pdf>
-Package pdftex.def Info: figs/dinc10-1.pdf used on input line 270.
+Package pdftex.def Info: figs/dinc10-1.pdf used on input line 271.
 (pdftex.def)             Requested size: 352.31625pt x 402.65372pt.
 
-<figs/dinc10dyna-1.pdf, id=187, 650.43pt x 433.62pt>
+<figs/dinc10dyna-1.pdf, id=176, 650.43pt x 433.62pt>
 File: figs/dinc10dyna-1.pdf Graphic file (type pdf)
 
 <use figs/dinc10dyna-1.pdf>
-Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 281.
+Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 282.
 (pdftex.def)             Requested size: 469.75502pt x 313.17879pt.
- <figs/tracy-1.pdf, id=188, 578.16pt x 361.35pt>
+ <figs/tracy-1.pdf, id=177, 578.16pt x 361.35pt>
 File: figs/tracy-1.pdf Graphic file (type pdf)
 
 <use figs/tracy-1.pdf>
-Package pdftex.def Info: figs/tracy-1.pdf used on input line 292.
+Package pdftex.def Info: figs/tracy-1.pdf used on input line 293.
 (pdftex.def)             Requested size: 469.75502pt x 293.59616pt.
- <figs/p8trnds-1.pdf, id=189, 650.43pt x 578.16pt>
-File: figs/p8trnds-1.pdf Graphic file (type pdf)
 
-<use figs/p8trnds-1.pdf>
-Package pdftex.def Info: figs/p8trnds-1.pdf used on input line 303.
-(pdftex.def)             Requested size: 469.75502pt x 417.57172pt.
- <figs/clmchl-1.pdf, id=192, 578.16pt x 505.89pt>
+
+Package xcolor Warning: Incompatible color definition on input line 302.
+
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 305.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <12> not available
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 305.
+
+
+Package xcolor Warning: Incompatible color definition on input line 305.
+
+
+Package xcolor Warning: Incompatible color definition on input line 307.
+
+
+Package xcolor Warning: Incompatible color definition on input line 309.
+
+
+Package xcolor Warning: Incompatible color definition on input line 311.
+
+
+Package xcolor Warning: Incompatible color definition on input line 313.
+
+
+Package xcolor Warning: Incompatible color definition on input line 315.
+
+LaTeX Font Info:    Try loading font information for TS1+pcr on input line 315.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1pcr.fd"
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+)
+LaTeX Font Info:    Font shape `TS1/pcr/bx/n' in size <12> not available
+(Font)              Font shape `TS1/pcr/b/n' tried instead on input line 315.
+
+
+Package xcolor Warning: Incompatible color definition on input line 317.
+
+
+Package xcolor Warning: Incompatible color definition on input line 319.
+
+
+Package xcolor Warning: Incompatible color definition on input line 321.
+
+
+Package xcolor Warning: Incompatible color definition on input line 323.
+
+
+Package xcolor Warning: Incompatible color definition on input line 325.
+
+
+Package xcolor Warning: Incompatible color definition on input line 327.
+
+
+Package xcolor Warning: Incompatible color definition on input line 329.
+
+
+Package xcolor Warning: Incompatible color definition on input line 331.
+
+
+Package xcolor Warning: Incompatible color definition on input line 333.
+
+
+Package xcolor Warning: Incompatible color definition on input line 335.
+
+
+Package xcolor Warning: Incompatible color definition on input line 337.
+
+
+Package xcolor Warning: Incompatible color definition on input line 337.
+
+
+Package xcolor Warning: Incompatible color definition on input line 337.
+
+
+Package xcolor Warning: Incompatible color definition on input line 339.
+
+
+Package xcolor Warning: Incompatible color definition on input line 342.
+
+
+Package xcolor Warning: Incompatible color definition on input line 344.
+
+
+Package xcolor Warning: Incompatible color definition on input line 346.
+
+
+Package xcolor Warning: Incompatible color definition on input line 348.
+
+
+Package xcolor Warning: Incompatible color definition on input line 350.
+
+
+Package xcolor Warning: Incompatible color definition on input line 352.
+
+[10
+
+] [11 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>] [12 <M:/docs/manu
+scripts/sftrends_manu/figs/trndmap-1.pdf> <M:/docs/manuscripts/sftrends_manu/fi
+gs/trndmap-2.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 352.
+
+
+Package xcolor Warning: Incompatible color definition on input line 352.
+
+
+Underfull \vbox (badness 10000) detected at line 352
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 352
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 352.
+
+[13 <M:/docs/manuscripts/sftrends_manu/figs/dinc10-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 352.
+
+
+Package xcolor Warning: Incompatible color definition on input line 352.
+
+
+Underfull \vbox (badness 10000) detected at line 352
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 352
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 352.
+
+[14 <M:/docs/manuscripts/sftrends_manu/figs/dinc10dyna-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 352.
+
+
+Package xcolor Warning: Incompatible color definition on input line 352.
+
+<figs/clmchl-1.pdf, id=279, 578.16pt x 505.89pt>
 File: figs/clmchl-1.pdf Graphic file (type pdf)
-
-<use figs/clmchl-1.pdf>
-Package pdftex.def Info: figs/clmchl-1.pdf used on input line 314.
+ <use figs/clmchl-1.pdf>
+Package pdftex.def Info: figs/clmchl-1.pdf used on input line 354.
 (pdftex.def)             Requested size: 469.75502pt x 411.0346pt.
 Package acronym Info: Label `acro:chla' newly defined as it shall be overridden
 
-although it is yet undefined on input line 318.
- <figs/d7c10trnds-1.pdf, id=193, 650.43pt x 722.7pt>
-File: figs/d7c10trnds-1.pdf Graphic file (type pdf)
+although it is yet undefined on input line 358.
 
-<use figs/d7c10trnds-1.pdf>
-Package pdftex.def Info: figs/d7c10trnds-1.pdf used on input line 325.
-(pdftex.def)             Requested size: 469.75502pt x 521.96465pt.
- [10 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>] [11 <M:/docs/manus
-cripts/sftrends_manu/figs/trndmap-1.pdf> <M:/docs/manuscripts/sftrends_manu/fig
-s/trndmap-2.pdf>] [12 <M:/docs/manuscripts/sftrends_manu/figs/dinc10-1.pdf>] [1
-3 <M:/docs/manuscripts/sftrends_manu/figs/dinc10dyna-1.pdf>] [14 <M:/docs/manus
-cripts/sftrends_manu/figs/tracy-1.pdf>] [15 <M:/docs/manuscripts/sftrends_manu/
-figs/p8trnds-1.pdf>] [16 <M:/docs/manuscripts/sftrends_manu/figs/clmchl-1.pdf>]
- [17 <M:/docs/manuscripts/sftrends_manu/figs/d7c10trnds-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 363.
+
+[15 <M:/docs/manuscripts/sftrends_manu/figs/tracy-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 366.
+
+
+Package xcolor Warning: Incompatible color definition on input line 368.
+
+
+Package xcolor Warning: Incompatible color definition on input line 370.
+
+
+Package xcolor Warning: Incompatible color definition on input line 372.
+
+
+Package xcolor Warning: Incompatible color definition on input line 374.
+
+
+Package xcolor Warning: Incompatible color definition on input line 376.
+
+
+Package xcolor Warning: Incompatible color definition on input line 378.
+
+
+Package xcolor Warning: Incompatible color definition on input line 380.
+
+
+Package xcolor Warning: Incompatible color definition on input line 382.
+
+
+Package xcolor Warning: Incompatible color definition on input line 384.
+
+
+Package xcolor Warning: Incompatible color definition on input line 386.
+
+
+Package xcolor Warning: Incompatible color definition on input line 388.
+
+
+Package xcolor Warning: Incompatible color definition on input line 390.
+
+
+Package xcolor Warning: Incompatible color definition on input line 392.
+
+
+Package xcolor Warning: Incompatible color definition on input line 394.
+
+
+Package xcolor Warning: Incompatible color definition on input line 396.
+
+
+Package xcolor Warning: Incompatible color definition on input line 398.
+
+
+Package xcolor Warning: Incompatible color definition on input line 400.
+
+
+Package xcolor Warning: Incompatible color definition on input line 402.
+
+
+Package xcolor Warning: Incompatible color definition on input line 404.
+
+
+Package xcolor Warning: Incompatible color definition on input line 406.
+
+
+Package xcolor Warning: Incompatible color definition on input line 408.
+
+
+Package xcolor Warning: Incompatible color definition on input line 410.
+
+
+Package xcolor Warning: Incompatible color definition on input line 412.
+
+
+Package xcolor Warning: Incompatible color definition on input line 414.
+
+
+Package xcolor Warning: Incompatible color definition on input line 416.
+
+
+Package xcolor Warning: Incompatible color definition on input line 418.
+
+
+Package xcolor Warning: Incompatible color definition on input line 420.
+
+
+Package xcolor Warning: Incompatible color definition on input line 422.
+
+
+Package xcolor Warning: Incompatible color definition on input line 424.
+
+
+Package xcolor Warning: Incompatible color definition on input line 426.
+
+
+Package xcolor Warning: Incompatible color definition on input line 428.
+
+
+Package xcolor Warning: Incompatible color definition on input line 430.
+
+
+Package xcolor Warning: Incompatible color definition on input line 432.
+
+
+Package xcolor Warning: Incompatible color definition on input line 434.
+
+
+Package xcolor Warning: Incompatible color definition on input line 436.
+
+
+Package xcolor Warning: Incompatible color definition on input line 438.
+
+
+Package xcolor Warning: Incompatible color definition on input line 440.
+
+
+Package xcolor Warning: Incompatible color definition on input line 442.
+
+
+Package xcolor Warning: Incompatible color definition on input line 444.
+
+
+Package xcolor Warning: Incompatible color definition on input line 446.
+
+
+Package xcolor Warning: Incompatible color definition on input line 448.
+
+
+Package xcolor Warning: Incompatible color definition on input line 450.
+
+
+Package xcolor Warning: Incompatible color definition on input line 452.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[16 <M:/docs/manuscripts/sftrends_manu/figs/clmchl-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[17]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[18]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[19]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[20]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[21]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[22]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[23]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[24]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[25]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[26]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[27]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[28]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[29]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[30]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[31]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[32]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[33]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[34]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[35]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[36]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[37]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[38]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[39]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[40]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[41]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[42]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[43]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[44]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[45]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[46]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[47]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[48]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[49]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[50]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[51]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[52]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[53]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[54]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 454
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[55]
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+
+Package xcolor Warning: Incompatible color definition on input line 454.
+
+[56]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 350.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 481.
- [18] [19] [20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 481.
+(Font)              Font shape `OT1/ptm/b/it' tried instead on input line 472.
+
+Overfull \hbox (2.07564pt too wide) in paragraph at lines 465--504
+ [] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 510.
+
+
+Package xcolor Warning: Incompatible color definition on input line 513.
+
+
+Package xcolor Warning: Incompatible color definition on input line 515.
+
+
+Package xcolor Warning: Incompatible color definition on input line 517.
+
+
+Package xcolor Warning: Incompatible color definition on input line 519.
+
+
+Package xcolor Warning: Incompatible color definition on input line 521.
+
+
+Package xcolor Warning: Incompatible color definition on input line 523.
+
+
+Package xcolor Warning: Incompatible color definition on input line 525.
+
+
+Package xcolor Warning: Incompatible color definition on input line 527.
+
+
+Package xcolor Warning: Incompatible color definition on input line 529.
+
+LaTeX Font Info:    Try loading font information for OMS+pcr on input line 529.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omspcr.fd"
+File: omspcr.fd 
+)
+
+LaTeX Font Warning: Font shape `OMS/pcr/bx/n' undefined
+(Font)              using `OMS/pcr/m/n' instead
+(Font)              for symbol `textbackslash' on input line 529.
+
+LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 529.
+LaTeX Font Info:    Font shape `OMS/pcr/bx/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 529.
+
+Package xcolor Warning: Incompatible color definition on input line 531.
+
+
+Package xcolor Warning: Incompatible color definition on input line 531.
+
+
+Package xcolor Warning: Incompatible color definition on input line 531.
+
+
+Underfull \vbox (badness 10000) detected at line 531
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 531
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 531.
+
+[57
+
+]
+
+Package xcolor Warning: Incompatible color definition on input line 531.
+
+
+Package xcolor Warning: Incompatible color definition on input line 531.
+
+
+Package xcolor Warning: Incompatible color definition on input line 534.
+
+
+Package xcolor Warning: Incompatible color definition on input line 537.
+
+
+Package xcolor Warning: Incompatible color definition on input line 539.
+
+
+Package xcolor Warning: Incompatible color definition on input line 541.
+
+
+Package xcolor Warning: Incompatible color definition on input line 543.
+
+
+Package xcolor Warning: Incompatible color definition on input line 545.
+
+
+Package xcolor Warning: Incompatible color definition on input line 547.
+
+
+Package xcolor Warning: Incompatible color definition on input line 549.
+
+
+Package xcolor Warning: Incompatible color definition on input line 551.
+
+
+Package xcolor Warning: Incompatible color definition on input line 553.
+
+
+Package xcolor Warning: Incompatible color definition on input line 555.
+
+
+Package xcolor Warning: Incompatible color definition on input line 557.
+
+
+Package xcolor Warning: Incompatible color definition on input line 557.
+
+
+Package xcolor Warning: Incompatible color definition on input line 557.
+
+
+Underfull \vbox (badness 10000) detected at line 557
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 557.
+
+[58]
+
+Package xcolor Warning: Incompatible color definition on input line 557.
+
+
+Package xcolor Warning: Incompatible color definition on input line 557.
+
+
+Package xcolor Warning: Incompatible color definition on input line 560.
+
+
+Package xcolor Warning: Incompatible color definition on input line 563.
+
+
+Package xcolor Warning: Incompatible color definition on input line 565.
+
+
+Package xcolor Warning: Incompatible color definition on input line 567.
+
+
+Package xcolor Warning: Incompatible color definition on input line 569.
+
+
+Package xcolor Warning: Incompatible color definition on input line 571.
+
+
+Package xcolor Warning: Incompatible color definition on input line 573.
+
+
+Package xcolor Warning: Incompatible color definition on input line 575.
+
+
+Package xcolor Warning: Incompatible color definition on input line 577.
+
+
+Package xcolor Warning: Incompatible color definition on input line 579.
+
+
+Package xcolor Warning: Incompatible color definition on input line 581.
+
+
+Package xcolor Warning: Incompatible color definition on input line 583.
+
+
+Package xcolor Warning: Incompatible color definition on input line 583.
+
+
+Package xcolor Warning: Incompatible color definition on input line 583.
+
+
+Underfull \vbox (badness 10000) detected at line 583
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 583.
+
+[59]
+
+Package xcolor Warning: Incompatible color definition on input line 583.
+
+
+Package xcolor Warning: Incompatible color definition on input line 583.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 585.
+[60]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 585.
  (M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 481.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 481.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 585.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 585.
 Package rerunfilecheck Info: File `sftrends_manu.out' has not changed.
 (rerunfilecheck)             Checksum: A9BC9E3EDD6695B9A208E4DE1A632211;1097.
 
 
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 481.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 585.
  ) 
 Here is how much of TeX's memory you used:
- 11705 strings out of 493921
- 185265 string characters out of 3147282
- 325470 words of memory out of 3000000
- 14727 multiletter control sequences out of 15000+200000
- 38580 words of font info for 78 fonts, out of 3000000 for 9000
+ 11794 strings out of 493921
+ 186205 string characters out of 3147282
+ 307470 words of memory out of 3000000
+ 14771 multiletter control sequences out of 15000+200000
+ 38468 words of font info for 81 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 44i,10n,42p,2332b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 61i,10n,94p,2332b,478s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helveti
-c/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/urw/times/utmri8a.pfb>
-Output written on sftrends_manu.pdf (20 pages, 2030415 bytes).
+blic/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
+w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on sftrends_manu.pdf (60 pages, 2051551 bytes).
 PDF statistics:
- 405 PDF objects out of 1000 (max. 8388607)
- 71 named destinations out of 1000 (max. 500000)
- 166 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 555 PDF objects out of 1000 (max. 8388607)
+ 106 named destinations out of 1000 (max. 500000)
+ 156 words of extra memory for PDF output out of 10000 (max. 10000000)
 
