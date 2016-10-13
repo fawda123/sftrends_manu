@@ -23,8 +23,8 @@ g_legend <- function(a.gplot){
 #
 # uses delt_dat, mods_nolag, delt_map
 #
-trnd_map <- function(res = c('din', 'nh', 'no23'), 
-  mobrks = c(-Inf, 4, 8, Inf),
+trnd_map <- function(res = c('din', 'nh', 'no23'), mods,
+  mobrks = list(c(1, 2, 3, 4), c(5, 6, 7, 8), c(9, 10, 11, 12)),
   yrbrks = c(-Inf, 1988, 2000, Inf),
   molabs = c('JFMA', 'MJJA', 'SOND'),
   yrlabs = c('1976-1988', '1989-2000', '2001-2012'),
@@ -43,7 +43,6 @@ trnd_map <- function(res = c('din', 'nh', 'no23'),
   # load required data
   data(delt_dat)
   data(delt_map)
-  data(mods_nolag)
 
   # response labels 
   reslabs <- list(
@@ -56,7 +55,7 @@ trnd_map <- function(res = c('din', 'nh', 'no23'),
   )
   
   # make response labels
-  mods_nolag <- mutate(mods_nolag, reslabs = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr))
+  mods <- mutate(mods, reslabs = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr))
   
   ##
   # get a bounding box for the stations
@@ -76,17 +75,40 @@ trnd_map <- function(res = c('din', 'nh', 'no23'),
   
   ##
   # get trends using wrtdstrnd function
+
+  # need placeholders for null molabs
+  if(is.null(molabs)){
+    
+    molabstmp <- letters[1:length(mobrks)]
+    
+    # get trends
+    trnds <- mutate(mods, 
+      trnd = map(data, function(x){
+        wrtdstrnd(x, mobrks, yrbrks, molabstmp, yrlabs)
+        })
+      )
   
-  # get trends, merge with statmeta for lat/lon
-  trnds <- mutate(mods_nolag, 
-    trnd = map(mod, function(x){
-      wrtdstrnd(x, mobrks, yrbrks, molabs, yrlabs, tau = 0.5)
-      })
-    ) %>% 
-    select(-data, -mod) %>% 
-    unnest %>% 
-    left_join(., statmeta, by = 'Site_Code') %>% 
-    data.frame
+  }
+  
+  # need placeholders for null yrlabs
+  if(is.null(yrlabs)){
+    
+    yrlabstmp <- letters[1:(length(yrbrks) - 1)]
+    
+    # get trends
+    trnds <- mutate(mods, 
+      trnd = map(data, function(x){
+        wrtdstrnd(x, mobrks, yrbrks, molabs, yrlabstmp)
+        })
+      ) 
+
+  }
+  
+  # unnest trend summary
+  trnds <-select(trnds, -data) %>% 
+      unnest %>% 
+      left_join(., statmeta, by = 'Site_Code') %>% 
+      data.frame
   
   ##
   # create some plots

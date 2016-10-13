@@ -65,7 +65,7 @@
 <<setup,include=F,cache=F>>=
 library(knitr)
 # set global chunk options
-opts_chunk$set(fig.path = 'figs/', fig.align = 'center', fig.show = 'hold', message = F, echo = F, results = 'asis', dev = 'pdf', dev.args = list(family = 'serif'), fig.pos = '!ht', warning = F)
+opts_chunk$set(fig.path = 'figs/', fig.align = 'center', fig.show = 'hold', message = F, echo = F, results = 'asis', dev = 'pdf', dev.args = list(family = 'serif'), fig.pos = '!ht', warning = F, cache = T)
 options(replace.assign = TRUE, width = 90)
 
 source('R/funcs.r')
@@ -227,18 +227,26 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \label{fig:schematic}   
 \end{figure}
 
-<<trndmap, fig.height = 6, fig.width = 7, out.width = '0.65\\textwidth', fig.cap = 'Percent changes in nitrogen analytes for (a) annual and (b) seasonal (monthly) periods in the record.  Changes are based on the difference between the ending and starting estimates for the flow-normalized estimates within each period.  Points are colored for direction (red increasing, green decreasing) and sized for relative magnitude. Station names are shown in the top left panel.'>>=
-trnd_map(molabs = NULL, sz_rng = c(2, 8), leg_lab = '(a) Annual % change')
-trnd_map(yrlabs = NULL, sz_rng = c(2, 8), stat_labs = F, leg_lab = '(b) Seasonal % change')
+<<trndmap, fig.height = 6, fig.width = 9, cache = T, out.width = '0.75\\textwidth', fig.cap = 'Percent changes in nitrogen analytes for (a) annual and (b) seasonal (monthly) periods in the record.  Changes are based on the difference between the ending and starting estimates for the flow-normalized estimates within each period.  Points are colored for direction (red increasing, green decreasing) and sized for relative magnitude. Station names are shown in the top left panel. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'>>=
+data(mods)
+mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
+yrbrks <- c(1975, 1995, 2000, 2008, 2014)
+molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
+yrlabs <- c('1976-1995', '1996-2000', '2001-2008', '2009-2014')
+
+trnd_map(mods = mods, molabs = NULL, yrlabs = yrlabs, yrbrks = yrbrks, sz_rng = c(2, 8), leg_lab = '(a) Annual % change')
+trnd_map(mods = mods, yrlabs = NULL, molabs = molabs, mobrks = mobrks, sz_rng = c(2, 8), stat_labs = F, leg_lab = '(b) Seasonal % change')
 @
 
-<<dinc10, fig.height = 8, fig.width = 7, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \\ac{wrtds} at different conditional quantiles ($\\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend.'>>=
+<<dinc10, fig.height = 8, fig.width = 7, cache = T, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \\ac{wrtds} at different conditional quantiles ($\\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend.'>>=
 
 # data
-data(dinc10)
+data(h1dat)
 
 # din at c10
-toplo <- dinc10
+toplo <- filter(h1dat, resvar == 'din') %>% 
+  .$data %>% 
+  .[[1]]
 
 # globals
 ylab <- expression(paste('DIN (mg ', L^-1, ')'))
@@ -251,7 +259,7 @@ ptheme <- theme_minimal() +
     axis.ticks.y = element_line(),
     axis.ticks.length = unit(.1, "cm") 
   )
-col_vec <- RColorBrewer::brewer.pal(9, 'Set1')[c(3, 2, 1)]
+col_vec <- RColorBrewer::brewer.pal(9, 'Blues')[c(9, 8, 7)]
 col_lim <- c(0, 3.8)
 xlims <- range(toplo$date)
 txt <- data.frame(
@@ -282,6 +290,7 @@ p2 <- prdnrmplot(toplo, logspace = F, col_vec = col_vec) +
   theme(
     legend.position = 'top', 
     axis.text.x = element_blank(),
+    legend.title = element_blank(),
     plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
   ) +
   geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size) +
@@ -289,9 +298,8 @@ p2 <- prdnrmplot(toplo, logspace = F, col_vec = col_vec) +
 
 # flo/observed diffs
 toplo2 <- prdnrmplot(toplo, plot = F)
-toplo2 <- left_join(toplo2$fits, toplo2$nrms, by = c('date', 'taus')) %>% 
-  mutate(flodiff = fits_value - nrms_value) %>% 
-  filter(taus == 0.5)
+toplo2 <- left_join(toplo2$fits, toplo2$nrms, by = c('date')) %>% 
+  mutate(flodiff = fits_variable - nrms_variable)
 toplo3 <- toplo
 toplo3$flo <- scales::rescale(toplo3$flo, to = attr(toplo, 'floobs_rng'))
 ylab <- expression(paste('Pred - norm DIN (mg ', L^-1, ')'))
@@ -336,13 +344,15 @@ grid.arrange(
   )
 @
 
-<<dinc10dyna, fig.height = 6, fig.width = 9, out.width = '\\textwidth', fig.cap = 'Modelled relationships between \\ac{din}, flow, and time at station C10.  The top figure shows the annual and seasonal variation over the entire time series and the bottom figure shows annual variation for selected months to remove seasonal variation.  Warmer colors indicate higher \\ac{din} concentrations.  The y-axis on the bottom figure is truncated by the fifth and ninety-fifth percentiles of flow within each month.  Model results are for the fiftieth conditional quantile of \\ac{din}.'>>=
+<<dinc10dyna, fig.height = 6, fig.width = 9, cache = T, out.width = '\\textwidth', fig.cap = 'Modelled relationships between \\ac{din}, flow, and time at station C10.  The top figure shows the annual and seasonal variation over the entire time series and the bottom figure shows annual variation for selected months to remove seasonal variation.  Warmer colors indicate higher \\ac{din} concentrations.  The y-axis on the bottom figure is truncated by the fifth and ninety-fifth percentiles of flow within each month.  Model results are for the fiftieth conditional quantile of \\ac{din}.'>>=
 
 # data
-data(dinc10)
+data(h1dat)
 
 # din at c10
-toplo <- dinc10
+toplo <- filter(h1dat, resvar == 'din') %>% 
+  .$data %>% 
+  .[[1]]
 
 # globals
 ptheme <- theme_minimal() + 
@@ -354,7 +364,7 @@ ptheme <- theme_minimal() +
     axis.ticks.length = unit(.1, "cm"),
     axis.title.x = element_blank()
   )
-col_lim <- c(0, 2.9)
+col_lim <- c(0, 3.8)
 txt <- data.frame(
   x = min(toplo$date), 
   y =  c(5, 2.4, 0.5, 6), 
@@ -366,13 +376,13 @@ size <- 7
 col_vec = NULL
 attr(toplo, 'reslab') <- expression(paste("DIN (mg ", L^-1, ")"))
 ylab <- expression(paste('ln-Flow (', m^3, ' ', s^-1, ')'))
-p1 <- gridplot(toplo, month = 'all', logspace = F, tau = 0.5, col_lim = col_lim, floscl = F, col_vec = rev(col_vec)) +
+p1 <- gridplot(toplo, month = 'all', logspace = F, col_lim = col_lim, floscl = F, col_vec = rev(col_vec)) +
   scale_y_continuous(ylab, expand = c(0, 0)) + 
   ptheme + 
   theme(legend.position = 'top')
 
 # dynaplot selected months
-p2 <- gridplot(toplo, logspace = F, tau = 0.5, col_lim = col_lim, month = c(1, 4, 7, 10), ncol = 4, floscl = F) + 
+p2 <- gridplot(toplo, logspace = F, col_lim = col_lim, month = c(1, 4, 7, 10), ncol = 4, floscl = F) + 
   ptheme + 
   theme(
     strip.background = element_blank(),
@@ -397,7 +407,7 @@ grid.arrange(
   )
 @
 
-<<tracy, fig.height = 5, fig.width = 8, out.width = '\\textwidth', fig.cap = 'Nitrogen load measurements (kg d$^{-1}$) at the City of Tracy Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in May, 2007 to include nitrification/denitrification and tertiary filtration causing a reduction in total nitrogen effluent discharged to the Delta. Reductions were primarily observed for ammonium.'>>=
+<<tracy, fig.height = 5, fig.width = 8, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen load measurements (kg d$^{-1}$) at the City of Tracy Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in May, 2007 to include nitrification/denitrification and tertiary filtration causing a reduction in total nitrogen effluent discharged to the Delta. Reductions were primarily observed for ammonium.'>>=
 data(potw_load)
 
 ptheme <- theme_minimal() + 
@@ -460,16 +470,16 @@ pB$widths[2:3] <- maxWidth
 grid.arrange(pA, pB, ncol = 1, heights = c(0.8, 1))
 @
 
-<<p8trnds, fig.height = 8, fig.width = 9, out.width = '\\textwidth', fig.cap = 'Nitrogen trends at P8 as observed (a, top), predicted and flow-normalized estimates from \\ac{wrtds} (a, bottom), and relationships with flow over time (b).  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Tracy (San Joaquin County), were completed in May 2007 (\\cref{fig:tracy}), coincident with a dramatic decrease in ammonium at P8.'>>=
+<<p8trnds, fig.height = 8, fig.width = 9, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen trends at P8 as observed (a, top), predicted and flow-normalized estimates from \\ac{wrtds} (a, bottom), and relationships with flow over time (b).  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Tracy (San Joaquin County), were completed in May 2007 (\\cref{fig:tracy}), coincident with a dramatic decrease in ammonium at P8.'>>=
 data(h2dat)
 
 nomod <-  filter(h2dat, resvar == 'no23') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]]
 
 
 nhmod <- filter(h2dat, resvar == 'nh') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]]
 
 # globals
@@ -596,13 +606,13 @@ grid.arrange(
   )
 @
 
-<<clmchl, fig.height = 7, fig.width = 8, out.width = '\\textwidth', fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (c).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (b).  Flow relationships with \\ac{chla} concentration have also changed over time (d, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
+<<clmchl, fig.height = 7, fig.width = 8, out.width = '\\textwidth', cache = T, fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (c).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (b).  Flow relationships with \\ac{chla} concentration have also changed over time (d, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
 
 # clam and model data at D7
 data(clams)
 data(h3dat)
 data(flow_dat)
-chld7 <- filter(h3dat, Site_Code %in% 'D7' & resvar %in% 'chl')$mod[[1]]
+chld7 <- filter(h3dat, Site_Code %in% 'D7' & resvar %in% 'chl')$data[[1]]
 
 clmdat <- group_by(clams, yr, species) %>% 
   dplyr::summarize(
@@ -696,7 +706,7 @@ p2 <- ggplot(clmflo, aes(x = q, y = biomass)) +
 ##
 # chlorophyll by month
 chldat <- filter(h3dat, resvar %in% 'chl' & Site_Code %in% 'D7') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]] %>% 
   select(year, month, res, bt_norm) %>% 
   mutate(res = exp(res)) %>% 
@@ -799,7 +809,7 @@ grid.arrange(
   )
 @
 
-<<d7c10trnds, fig.cap = 'Flow-normalized trends of annual (left) and seasonal (right) variation in DIN, chl-{\\it\\footnotesize a}, and SiO$_2$ at station D7 (top) and C10 (bottom).  Covariation between nutrients, chl-{\\it\\footnotesize a}, and SiO$_2$ is observed at D7 but not C10, although an overall decrease in SiO$_2$ at C10 is shown.  Seasonal changes at D7 are most pronounced during the summer.', fig.width = 9, fig.height = 10>>=
+<<d7c10trnds, fig.cap = 'Flow-normalized trends of annual (left) and seasonal (right) variation in DIN, chl-{\\it\\footnotesize a}, and SiO$_2$ at station D7 (top) and C10 (bottom).  Covariation between nutrients, chl-{\\it\\footnotesize a}, and SiO$_2$ is observed at D7 but not C10, although an overall decrease in SiO$_2$ at C10 is shown.  Seasonal changes at D7 are most pronounced during the summer.', fig.width = 9, fig.height = 10, cache = T>>=
 data(h3dat)
 
 # separate each site
@@ -828,36 +838,45 @@ cols <- RColorBrewer::brewer.pal(9, 'Set1')[1:3]
 col_vec <- RColorBrewer::brewer.pal(9, 'Blues')[c(9, 8, 7)]
 
 ## first set of plots
-pdin1 <- prdnrmplot(toplo1$mod[[2]], col_vec = col_vec, logspace = F, min_mo = 10) +
+d7din<- filter(toplo1, resvar == 'din') %>% 
+  .$data %>% 
+  .[[1]]
+pdin1 <- prdnrmplot(d7din, col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   scale_y_continuous(ylab1) +
   theme(legend.position = 'top', legend.title = element_blank())
 pleg1 <- g_legend(pdin1)
 pdin1 <- pdin1 + theme(legend.position = 'none')
 
-pdinsy1 <- seasyrplot(toplo1$mod[[2]], col_vec = cols, logspace = F, predicted = F) +
+pdinsy1 <- seasyrplot(d7din, col_vec = cols, logspace = F, predicted = F) +
   ptheme + 
   theme(legend.position = 'top', axis.title.y = element_blank()) + 
   guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10))
 pleg2 <- g_legend(pdinsy1)
 pdinsy1 <- pdinsy1 + theme(legend.position = 'none')
 
-pchl1 <- prdnrmplot(toplo1$mod[[1]], col_vec = col_vec, logspace = F, min_mo = 10) +
+d7chl<- filter(toplo1, resvar == 'chl') %>% 
+  .$data %>% 
+  .[[1]]
+pchl1 <- prdnrmplot(d7chl, col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   theme(legend.position = 'none') + 
   scale_y_continuous(ylab2)
 
-pchlsy1 <- seasyrplot(toplo1$mod[[1]], col_vec = cols, logspace = F, predicted = F) +
+pchlsy1 <- seasyrplot(d7chl, col_vec = cols, logspace = F, predicted = F) +
   ptheme + 
   theme(legend.position = 'none', axis.title.y = element_blank())
 
-psio1 <- prdnrmplot(toplo1$mod[[3]], col_vec = col_vec, logspace = F, min_mo = 10) +
+d7sio2 <- filter(toplo1, resvar == 'sio2') %>% 
+  .$data %>% 
+  .[[1]]
+psio1 <- prdnrmplot(d7sio2, col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text()) +
   scale_x_date('Year') +
   scale_y_continuous(ylab3)
 
-psiosy1 <- seasyrplot(toplo1$mod[[3]], col_vec = cols, logspace = F, predicted = F) + 
+psiosy1 <- seasyrplot(d7sio2, col_vec = cols, logspace = F, predicted = F) + 
   ptheme + 
   theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text(), axis.title.y = element_blank()) +
   scale_x_date('Day of year', date_labels = "%m/%d")
@@ -881,31 +900,40 @@ pBsy1$widths[2:3] <- maxWidth
 pCsy1$widths[2:3] <- maxWidth
 
 ## second set of plots
-pdin2 <- prdnrmplot(toplo2$mod[[2]], col_vec = col_vec, logspace = F, min_mo = 10) +
+c10din <- filter(toplo2, resvar == 'din') %>% 
+  .$data %>% 
+  .[[1]]
+pdin2 <- prdnrmplot(c10din, col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   scale_y_continuous(ylab1) +
   theme(legend.position = 'none')
 
-pdinsy2 <- seasyrplot(toplo2$mod[[2]], col_vec = cols, logspace = F, predicted = F) +
+pdinsy2 <- seasyrplot(c10din, col_vec = cols, logspace = F, predicted = F) +
   ptheme + 
   theme(legend.position = 'none', axis.title.y = element_blank())
 
-pchl2 <- prdnrmplot(toplo2$mod[[1]], col_vec = col_vec, logspace = F, min_mo = 10) +
+c10chl <- filter(toplo2, resvar == 'chl') %>% 
+  .$data %>% 
+  .[[1]]
+pchl2 <- prdnrmplot(c10chl, col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   theme(legend.position = 'none') + 
   scale_y_continuous(ylab2)
 
-pchlsy2 <- seasyrplot(toplo2$mod[[1]], col_vec = cols, logspace = F, predicted = F) +
+pchlsy2 <- seasyrplot(c10chl, col_vec = cols, logspace = F, predicted = F) +
   ptheme + 
   theme(legend.position = 'none', axis.title.y = element_blank())
 
-psio2 <- prdnrmplot(toplo2$mod[[3]], col_vec = col_vec, logspace = F, min_mo = 10) +
+c10sio2 <- filter(toplo2, resvar == 'sio2') %>% 
+  .$data %>% 
+  .[[1]]
+psio2 <- prdnrmplot(c10sio2, col_vec = col_vec, logspace = F, min_mo = 10) +
   ptheme + 
   theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text()) +
   scale_x_date('Year') +
   scale_y_continuous(ylab3)
 
-psiosy2 <- seasyrplot(toplo2$mod[[3]], col_vec = cols, logspace = F, predicted = F) + 
+psiosy2 <- seasyrplot(c10sio2, col_vec = cols, logspace = F, predicted = F) + 
   ptheme + 
   theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text(), axis.title.y = element_blank()) +
   scale_x_date('Day of year', date_labels = "%m/%d")
@@ -981,10 +1009,11 @@ tab_ave <- gather(trnds_ave, 'var', 'ave', -Site_Code, -resvar) %>%
 tab <- left_join(tab_ave, tab_chg, by = c('Site_Code', 'resvar', 'var')) %>% 
   unite(val, ave, chg, sep = ' ') %>% 
   spread(var, val) %>% 
-  arrange(resvar, Site_Code)
+  arrange(resvar, Site_Code) %>% 
+  select(Site_Code, resvar, `1976-1995`, `1996-2014`, Spring, Summer, Fall, Winter)
 
 # table stuff
-cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and different time periods.  Summaries are averages (mg L$^{-1}$) and percent changes in parentheses (increasing in bold-italic).  Changes are based on the difference between the ending and starting estimates for the estimates within each period.  See \\cref{fig:trndmap} for a summary of spatial trends.'
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and different time periods.  Summaries are averages (mg L$^{-1}$) and percent changes in parentheses (increasing in bold-italic).  Changes are based on the difference between the ending and starting estimates within each period.  See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
 vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 stats <- tab$Site_Code
 
@@ -998,7 +1027,7 @@ latex(
   rgroup = vars,
   n.rgroup = c(9, 9, 9),
   cgroup = c('Annual', 'Seasonal'),
-  n.cgroup = c(3, 3),
+  n.cgroup = c(2, 4),
   rowname = stats,
   label = 'tab:trnds'
   )
@@ -1012,27 +1041,26 @@ data(h2dat)
 dt <- as.Date('2007-05-01')
 
 noraw_bf <- filter(h2dat, resvar %in% 'no23') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]] %>% 
   .[which(.$date < dt), ]
 noraw_af <- filter(h2dat, resvar %in% 'no23') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]] %>% 
   .[which(.$date >= dt), ]
 nhraw_bf <- filter(h2dat, resvar %in% 'nh') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]] %>% 
   .[which(.$date < dt), ]
 nhraw_af <- filter(h2dat, resvar %in% 'nh') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]] %>% 
   .[which(.$date >= dt), ]
 
-
-mobrks <- c(0, 3, 6, 9, 12)
+mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
 yrbrks_bf <- c(1975, 2007)
 yrbrks_af <- c(2006, 2013)
-molabs <- c('JFM', 'AMJ', 'JAS', 'OND')
+molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
 yrlabs_bf <- '1976-2007'
 yrlabs_af <- '2008-2013'
 faclevs <- c('1976-2007_before', '2008-2013_after', paste0(molabs, '_before'), paste0(molabs, '_after'))
@@ -1071,7 +1099,7 @@ totab <- totab[,-c(1:2)]
 vars <- c('NO$_{2}^{-}$/NO$_{3}^{2-}$', 'NH$_{4}^{+}$')
 names(totab) <- rep(c('Mean', '\\% change'), 2)
 
-cap.val<-'Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \\ac{wwtp} upgrades upstream of station P8. Upgrades were completed in May 2007 at the City of Tracy \\ac{wwtp} (San Joaquin County, \\cref{fig:tracy}).  Summaries are means and percent changes based on annual means within the pre- and post-upgrade time periods (1976-2007, 2008-2013).  Increasing values are in bold-italics.'
+cap.val<-'Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \\ac{wwtp} upgrades upstream of station P8. Upgrades were completed in May 2007 at the City of Tracy \\ac{wwtp} (San Joaquin County, \\cref{fig:tracy}).  Summaries are means and percent changes based on annual means within the pre- and post-upgrade time periods (1976-2007, 2008-2013).  Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
 
 latex( 
   totab,
@@ -1097,18 +1125,18 @@ data(h3dat)
 d7dat <- filter(h3dat, Site_Code %in% 'D7')
 
 dinraw <- filter(d7dat, resvar %in% 'din') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]]
 chlraw <- filter(d7dat, resvar %in% 'chl') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]]
 sioraw <- filter(d7dat, resvar %in% 'sio2') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]]
 
-mobrks <- c(0, 3, 6, 9, 12)
+mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
 yrbrks <- c(1975, 1985, 1994, 2003, 2013)
-molabs <- c('JFM', 'AMJ', 'JAS', 'OND')
+molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
 yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
 
 # summarize din, sio2, chl trends
@@ -1150,7 +1178,7 @@ totab <- totab[,-c(1:2)]
 vars <- c('DIN', 'Chl-\\textit{a}', 'SiO$_2$')
 names(totab) <- rep(c('Mean', '\\% change'), 3)
 
-cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station D7. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
+cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station D7. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
 
 latex( 
   totab,
@@ -1176,18 +1204,18 @@ data(h3dat)
 c10dat <- filter(h3dat, Site_Code %in% 'C10')
 
 dinraw <- filter(c10dat, resvar %in% 'din') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]]
 chlraw <- filter(c10dat, resvar %in% 'chl') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]]
 sioraw <- filter(c10dat, resvar %in% 'sio2') %>% 
-  .$mod %>% 
+  .$data %>% 
   .[[1]]
 
-mobrks <- c(0, 3, 6, 9, 12)
+mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
 yrbrks <- c(1975, 1985, 1994, 2003, 2013)
-molabs <- c('JFM', 'AMJ', 'JAS', 'OND')
+molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
 yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
 
 # summarize din, sio2, chl trends
@@ -1229,7 +1257,7 @@ totab <- totab[,-c(1:2)]
 vars <- c('DIN', 'Chl-\\textit{a}', 'SiO$_2$')
 names(totab) <- rep(c('Mean', '\\% change'), 3)
 
-cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg $L^{-1}$), chlorophyll ($\\mu$g $L^{-1}$), and silicon dioxide (mg $L^{-1}$) concentrations for different time periods at station C10. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics.'
+cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg $L^{-1}$), chlorophyll ($\\mu$g $L^{-1}$), and silicon dioxide (mg $L^{-1}$) concentrations for different time periods at station C10. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
 
 latex( 
   totab,
