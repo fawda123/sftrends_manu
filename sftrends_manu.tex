@@ -144,7 +144,7 @@
 	\\{\textit {\normalsize Phone: 510-746-7334, Fax: 510-746-7300}}
 	\\{\textit {\normalsize Emails: \href{mailto:davids@sfei.org}{davids@sfei.org}, \href{mailto:philb@sfei.org}{philb@sfei.org}, \href{mailto:emilyn@sfei.org}{emilyn@sfei.org}, \href{mailto:thomasj@sfei.org}{thomasj@sfei.org}}}
   \vspace{1in} 
-  \\ Version Date:   Wed Oct 12 11:34:29 2016 -0500
+  \\ Version Date:   Thu Oct 13 08:56:33 2016 -0500
 	}
 \date{}
 \maketitle
@@ -152,7 +152,7 @@
 \clearpage
 
 \begin{abstract}
-\noindent Recent methods for trend analysis have been developed that leverage the descriptive potential of long-term time series.  Combined with these methods, multi-decadal datasets of water quality in coastal systems can provide valuable opportunities to gain insights into ecosystem properties and drivers of change.  This study describes use of an estuarine adaptation of the \ac{wrtds} model to describe water quality trends over four decades in the Delta region of the \ac{sfe}. This region is a complex mosaic of inflows that are primary sources of nutrients into the larger Bay.  To date, a comprehensive evaluation of the long-term monitoring dataset at multiple stations in the Delta has not been conducted despite the importance of nutrient transport from the region for water quality in the entire bay.  The \ac{wrtds} technique is data-driven where the parameterization of the functional model changes smoothly over time following dynamic patterns of season and flow.  Water quality trends that have not been previously quantified can be described, including variation in flow-normalized concentrations, frequency occurrence of extreme events, and response to historical changes in the watershed, all of which are important needs for understanding changes in the \ac{sfe}.  Model results from multiple stations in the Delta provided novel descriptions of historical trends and relationships between key species of dissolved inorganic nitrogen (ammonium, nitrate/nitrite, total).  This variation was described in the context of varying contributions of input flows from the Sacramento and San Joaquin rivers, as well as tidal exchange with the central \ac{sfe}.  Conceptual relationships between water quality and drivers of change were used to generate and test hypotheses of mechanistic relationships using selected examples from the trend descriptions. Overall, this analysis provides an ecological and management-based understanding of historical trends in the \ac{sfe} as a means to interpret potential impacts of recent changes and expected trends in this dynamic system.  An argument is also made for more comprehensive evaluations of long-term monitoring datasets to understand relationships between response endpoints and causal mechanisms in coastal waters.
+\noindent Recent methods for trend analysis have been developed that leverage the descriptive potential of long-term time series.  Combined with these methods, multi-decadal datasets of water quality in coastal systems can provide valuable opportunities to gain insights into ecosystem properties and drivers of change.  This study describes use of an estuarine adaptation of the \ac{wrtds} model to describe water quality trends over four decades in the Delta region of the \ac{sfe}. This region is a complex mosaic of inflows that are primary sources of nutrients into the larger Bay.  To date, a comprehensive evaluation of flow-normalized trends using the long-term monitoring dataset at multiple stations in the Delta has not been conducted despite the importance of nutrient transport from the region for water quality in the entire bay.  The \ac{wrtds} technique is data-driven where the parameterization of the functional model changes smoothly over time following dynamic patterns of season and flow.  Water quality trends that have not been previously quantified can be described, including variation in flow-normalized concentrations, frequency occurrence of extreme events, and response to historical changes in the watershed, all of which are important needs for understanding changes in the \ac{sfe}.  Model results from multiple stations in the Delta provided novel descriptions of historical trends and relationships between key species of dissolved inorganic nitrogen (ammonium, nitrate/nitrite, total).  This variation was described in the context of varying contributions of input flows from the Sacramento and San Joaquin rivers, as well as tidal exchange with the central \ac{sfe}.  Conceptual relationships between water quality and drivers of change were used to generate and test hypotheses of mechanistic relationships using selected examples from the trend descriptions. Overall, this analysis provides an ecological and management-based understanding of historical trends in the \ac{sfe} as a means to interpret potential impacts of recent changes and expected trends in this dynamic system.  An argument is also made for more comprehensive evaluations of long-term monitoring datasets to understand relationships between response endpoints and causal mechanisms in coastal waters.
 \end{abstract}
 \acresetall
 
@@ -178,14 +178,23 @@ San Francisco Bay on the Pacific Coast of the United States is one of the most p
 
 \subsection{Study location and data}
 
-The \ac{sfe}... exchange with ocean, freshwater inputs (rivers and wshed drainage), runoff variation (drought years), climate, support of natural resources, subembayments, POTW (publicly owned treatment works), nutrient loading relative to other locations
+The \ac{sfe} drains a 200 thousand km$^2$ watershed and is the largest bay on the Pacific coast of North America.  The watershed provides drinking water to over 25 million people, including irrigation for 18 thousand km$^2$ of agricultural land in the Central Valley.  Water enters the Bay through the Sacramento and San Joaquin rivers that have a combined inflow of approximately 28 km$^3$ per year, with the Sacramento accounting for 84\% of inflow to the Delta.  The \ac{sfe} system is divided into several sub-bays, including Suisun Bay immediately downstream of the Delta, San Pablo Bay to the north, South Bay, and the Central Bay that drains to the Pacific Ocean through the Golden Gate.  Water dynamics in \ac{sfe} are governed by inflows from the watershed, tidal exchange with the Pacific Ocean, and water withdrawals for municipal and agricultural use \citep{Jassby00}.  Seasonally, inflows into \ac{sfe} peak in the spring and early summer from snowmelt in the upper watershed, whereas consumption, withdrawals, and export have steadily increased from 1960 to present but vary considerably depending on inter-annual climate effects \citep{Cloern12b}.  The system is mixed mesotidal and significant exchange with the ocean occurs daily, although the extent of landward saltwater intrusion varies with inflow and annual water use patterns. Notable drought periods have occurred from 1976-1977, 1987-1992, and recently from 2013-2015 \citep{Cloern15}.  Oceanic upwelling and climatic variation are also significant external factors that have influenced water quality dynamics in the Bay \citep{Cloern07}.
+
+Nutrient loading in \ac{sfe} is comparable to other locations that exhibit symptomatic effects of cultural eutrophication, although productivity has historically not been affected by excess nutrients \citep{Jassby02,Kimmerer12}.  Orthoposphate (PO$_4^{3-}$) and \ac{din} enter the Bay primarily through riverine sources in the north and municipal \ac{wwtp} inputs in the densely-populated area immediately surrounding \ac{sfe}.  Annual nutrient export from the Delta region as been estimated as approximateily 30 thousand kg d$-1$ of total nitrogen \citep[varying with flow,][]{Novick15}, with 90\% of ammonium (NH$_4^{+}$) originating solely from the Sacramento Regional \ac{wwtp} \citep{Jassby08}.  Although nitrogen inputs are considerable, several 
+
+POTW (publicly owned treatment works), nutrient loading relative to other locations, recent trends
+
+The delta region...
+
 \subsection{Analysis method and application}
+
+nine discrete sampling stations with data from 1976 to 2012, \ac{din}, ammonium, total nitrate, effects of different flow variables
+
+\subsection{Time series modelling}
 
 \begin{equation}
 \ln\left(N\right) = \beta_0 + \beta_1 t + \beta_2 \ln\left(Q\right) + \beta_3 \sin\left(2\pi t\right) + \beta_4 \cos\left(2\pi t\right)
-\end{equation}
-
-nine discrete sampling stations with data from 1976 to 2012, \ac{din}, ammonium, total nitrate, effects of different flow variables
+\end{equation}  
 
 Annual, seasonal trends of flow-normalized predictions
 

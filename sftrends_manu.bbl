@@ -12,6 +12,12 @@ Beck MW, {Hagy III} JD, Murrell MC. 2015.
   tidal advection on dissolved oxygen time series.
 \newblock Limnology and Oceanography: Methods, 13(12):731--745.
 
+\bibitem[Cloern, 2015]{Cloern15}
+Cloern JE. 2015.
+\newblock Life on the edge: {C}alifornia's estuaries.
+\newblock In: Mooney H, Zavaleta E, editors, {Ecosystems of California: A
+  Source Book}, pages 359--387. University of California Press, California.
+
 \bibitem[Cloern and Jassby, 2010]{Cloern10}
 Cloern JE, Jassby AD. 2010.
 \newblock Patterns and scales of phytoplankton variability in estuarine-coastal
@@ -68,5 +74,20 @@ Jassby AD, Cloern JE, Cole BE. 2002.
 \newblock Annual primary production: Patterns and mechanisms of change in a
   nutrient-rich tidal ecosystem.
 \newblock Limnology and Oceanography, 47(3):698--712.
+
+\bibitem[Kimmerer et~al., 2012]{Kimmerer12}
+Kimmerer WJ, Parker AE, Lidstrom UE, Carpenter EJ. 2012.
+\newblock Short-term and interannual variability in primary production in the
+  low-salinity zone of the {S}an {F}rancisco {E}stuary.
+\newblock Estuaries and Coasts, 35:913--929.
+
+\bibitem[Novick et~al., 2015]{Novick15}
+Novick E, Holleman R, Jabusch T, Sun J, Trowbridge P, Senn D, Guerin M, Kendall
+  C, Young M, Peek S. 2015.
+\newblock Characterizing and quantifying nutrient sources, sinks and
+  transformations in the {D}elta: synthesis, modeling, and recommendations for
+  monitoring.
+\newblock Technical Report Contribution Number 785, San Francisco Estuary
+  Institute, Richmond, CA.
 
 \end{thebibliography}
