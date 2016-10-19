@@ -12,6 +12,13 @@ Beck MW, {Hagy III} JD, Murrell MC. 2015.
   tidal advection on dissolved oxygen time series.
 \newblock Limnology and Oceanography: Methods, 13(12):731--745.
 
+\bibitem[Cloern, 1996]{Cloern96}
+Cloern JE. 1996.
+\newblock Phytoplankton bloom dynamics in coastal ecosystems: {A} review with
+  some general lessons from sustained investigation of {S}an {F}rancisco {B}ay,
+  {C}alifornia.
+\newblock Review of Geophysics, 34(2):127--168.
+
 \bibitem[Cloern, 2015]{Cloern15}
 Cloern JE. 2015.
 \newblock Life on the edge: {C}alifornia's estuaries.
@@ -30,12 +37,24 @@ Cloern JE, Jassby AD. 2012.
   four decades of study in {S}an {F}rancisco {B}ay.
 \newblock Reviews of Geophysics, 50(4):1--33.
 
+\bibitem[Cloern et~al., 2012]{Cloern12}
+Cloern JE, Jassby AD, Carstensen J, Bennett WA, Kimmerer W, Nally RM,
+  Schoellhamer DH, Winder M. 2012.
+\newblock Perils of correlating {CUSUM}-transformed variables to infer
+  ecological relationships ({Breton et al. 2006}; {Glibert 2010}).
+\newblock Limnology and Oceanography, 57(2):665--668.
+
 \bibitem[Cloern et~al., 2007]{Cloern07}
 Cloern JE, Jassby AD, Thompson JK, Hieb KA. 2007.
 \newblock A cold phase of the {E}ast {P}acific triggers new phytoplankton
   blooms in {S}an {F}rancisco {B}ay.
 \newblock Proceedings of the National Academy of Sciences of the United States
   of America, 104(47):18561--18565.
+
+\bibitem[Cohen and Carlton, 1998]{Cohen98}
+Cohen AN, Carlton JT. 1998.
+\newblock Accelerating invasion rate in a highly invaded estuary.
+\newblock Science, 279(5350):555--558.
 
 \bibitem[Crauder et~al., 2016]{Crauder16}
 Crauder JS, Thompson JK, Parchaso F, Anduaga RI, Pearson SA, Gehrts K, Fuller
@@ -45,6 +64,12 @@ Crauder JS, Thompson JK, Parchaso F, Anduaga RI, Pearson SA, Gehrts K, Fuller
   freshwater outflow.
 \newblock Technical Report Open-File Report 2016-1005, US Geological Survey,
   Reston, Virginia.
+
+\bibitem[Enright and Culberson, 2009]{Enright09}
+Enright C, Culberson SD. 2009.
+\newblock Salinity trends, variability, and control in the northern reach of
+  the {S}an {F}rancisco {E}stuary.
+\newblock San Francisco Estuary \& Watershed Science, 7(2):1--28.
 
 \bibitem[Hirsch et~al., 2015]{Hirsch15}
 Hirsch RM, Archfield SA, {De Cicco} LA. 2015.
@@ -75,6 +100,14 @@ Jassby AD, Cloern JE, Cole BE. 2002.
   nutrient-rich tidal ecosystem.
 \newblock Limnology and Oceanography, 47(3):698--712.
 
+\bibitem[Kemp et~al., 2005]{Kemp05}
+Kemp WM, Boynton WR, Adolf JE, Boesch DF, Boicourt WC, Brush G, Cornwell JC,
+  Fisher TR, Glibert PM, Hagy JD, Harding LW, Houde ED, Kimmel DG, Miller WD,
+  Newell RIE, Roman MR, Smith EM, Stevenson JC. 2005.
+\newblock Eutrophication of {C}hesapeake {B}ay: historical trends and
+  ecological interactions.
+\newblock Marine Ecology Progress Series, 303:1--29.
+
 \bibitem[Kimmerer et~al., 2012]{Kimmerer12}
 Kimmerer WJ, Parker AE, Lidstrom UE, Carpenter EJ. 2012.
 \newblock Short-term and interannual variability in primary production in the
@@ -89,5 +122,11 @@ Novick E, Holleman R, Jabusch T, Sun J, Trowbridge P, Senn D, Guerin M, Kendall
   monitoring.
 \newblock Technical Report Contribution Number 785, San Francisco Estuary
   Institute, Richmond, CA.
+
+\bibitem[Thompson et~al., 2008]{Thompson08}
+Thompson JK, Koseff JR, Monismith SG, Lucas LV. 2008.
+\newblock Shallow water processes govern system-wide phytoplankton bloom
+  dynamics: A field study.
+\newblock Journal of Marine Systems, 74(1-2):153--166.
 
 \end{thebibliography}
