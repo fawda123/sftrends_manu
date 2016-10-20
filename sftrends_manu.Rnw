@@ -107,7 +107,7 @@ writeLines(refs, con = file('refs.bib'))
 \title{{\bf {\Large Four decades of water quality change in the upper San Francisco Estuary}}}
 \author{
   {\bf {\normalsize Marcus W. Beck$^1$, David Senn$^2$, Phil Bresnahan$^2$, Emily Novick$^2$, James D. Hagy III$^1$,}}
-  \\{\bf {\normalsize Thomas Jabusch$^2$}}
+  \\{\bf {\normalsize Thomas Jabusch$^2$, Phil Trowbridge$^2$}}
   \\\\{\textit {\normalsize $^1$USEPA National Health and Environmental Effects Research Laboratory}}
   \\{\textit {\normalsize Gulf Ecology Division, 1 Sabine Island Drive, Gulf Breeze, FL 32561}}
 	\\{\textit {\normalsize Phone: 850-934-2480, Fax: 850-934-2401}}
