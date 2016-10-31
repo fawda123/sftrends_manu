@@ -89,6 +89,12 @@ IEP. 2013.
   Quality Metadata}.
 \newblock \url{http://water.ca.gov/bdma/meta/discrete.cfm}.
 
+\bibitem[IEP, 2016]{IEP16}
+IEP. 2016.
+\newblock {Dayflow: An estimate of daily average Delta outflow. Interagency
+  Ecological Program for the San Francisco Estuary}.
+\newblock \url{http://www.water.ca.gov/dayflow/}.
+
 \bibitem[Jassby, 2008]{Jassby08}
 Jassby AD. 2008.
 \newblock Phytoplankton in the {U}pper {S}an {F}rancisco {E}stuary: Recent
@@ -153,5 +159,10 @@ Thompson JK, Koseff JR, Monismith SG, Lucas LV. 2008.
 \newblock Shallow water processes govern system-wide phytoplankton bloom
   dynamics: A field study.
 \newblock Journal of Marine Systems, 74(1-2):153--166.
+
+\bibitem[Tobin, 1958]{Tobin58}
+Tobin J. 1958.
+\newblock Estimation of relationships for limited dependent variables.
+\newblock Econometrica, 26(1):24--36.
 
 \end{thebibliography}
