@@ -1,5 +1,10 @@
 \begin{thebibliography}{}
 
+\bibitem[Beck, 2016]{Beck16b}
+Beck MW. 2016.
+\newblock fawda123/wrtdstidal: v1.0.0 [software]. zenodo.
+\newblock http://doi.org/10.5281/zenodo.164183.
+
 \bibitem[Beck and {Hagy III}, 2015]{Beck15}
 Beck MW, {Hagy III} JD. 2015.
 \newblock Adaptation of a weighted regression approach to evaluate water
@@ -11,6 +16,12 @@ Beck MW, {Hagy III} JD, Murrell MC. 2015.
 \newblock Improving estimates of ecosystem metabolism by reducing effects of
   tidal advection on dissolved oxygen time series.
 \newblock Limnology and Oceanography: Methods, 13(12):731--745.
+
+\bibitem[Beck and Murphy, ress]{BeckIP}
+Beck MW, Murphy RR. In press.
+\newblock Numerical and qualitative contrasts of two statistical models for
+  water quality change in tidal waters.
+\newblock Journal of the American Water Resources Assocation.
 
 \bibitem[Cloern, 1996]{Cloern96}
 Cloern JE. 1996.
@@ -95,6 +106,13 @@ IEP. 2016.
   Ecological Program for the San Francisco Estuary}.
 \newblock \url{http://www.water.ca.gov/dayflow/}.
 
+\bibitem[Jabusch et~al., 2016]{Jabusch16}
+Jabusch T, Bresnahan P, Trowbridge P, Novick E, Wong A, Salomon M, Senn D.
+  2016.
+\newblock Summary and evaluation of delta subregions for nutrient monitoring
+  and assessment.
+\newblock Technical report, San Francisco Estuary Institute, Richmond, CA.
+
 \bibitem[Jassby, 2008]{Jassby08}
 Jassby AD. 2008.
 \newblock Phytoplankton in the {U}pper {S}an {F}rancisco {E}stuary: Recent
@@ -146,6 +164,12 @@ Novick E, Holleman R, Jabusch T, Sun J, Trowbridge P, Senn D, Guerin M, Kendall
   monitoring.
 \newblock Technical Report Contribution Number 785, San Francisco Estuary
   Institute, Richmond, CA.
+
+\bibitem[{RDCT (R Development Core Team)}, 2016]{RDCT16}
+{RDCT (R Development Core Team)}. 2016.
+\newblock {R: A language and environment for statistical computing, v3.3.1. R
+  Foundation for Statistical Computing, Vienna, Austria}.
+\newblock \url{http://www.R-project.org}.
 
 \bibitem[Sutula et~al., view]{SutulaIR}
 Sutula M, Kudela R, III JDH, Jr. LWH, Senn D, Cloern JE, Bricker S, Berg GM,
