@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  1 NOV 2016 10:24
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  10 NOV 2016 16:43
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -417,7 +417,7 @@ Package: paralist 2013/06/09 v2.4 Extended list environments
 \plparsep=\skip59
 \pl@lab=\toks24
 )
-(C:/PROGRA~1/R/R-33~1.1/share/texmf/tex/latex\Sweave.sty
+(C:/PROGRA~1/R/R-33~1.2/share/texmf/tex/latex\Sweave.sty
 Package: Sweave 
 
 (C:\Users\mbeck\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyvrb\fancyvrb.sty
@@ -711,50 +711,50 @@ although it is yet undefined on input line 248.
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.bbl [14
 
 ] [15]) [16]
-<figs/schematic.pdf, id=329, page=1, 722.7pt x 722.7pt>
+<figs/schematic.pdf, id=332, page=1, 722.7pt x 722.7pt>
 File: figs/schematic.pdf Graphic file (type pdf)
 
 <use figs/schematic.pdf, page 1>
 Package pdftex.def Info: figs/schematic.pdf, page1 used on input line 281.
 (pdftex.def)             Requested size: 469.75502pt x 469.76045pt.
 
-<figs/trndmap-1.pdf, id=330, 650.43pt x 433.62pt>
+<figs/trndmap-1.pdf, id=333, 650.43pt x 433.62pt>
 File: figs/trndmap-1.pdf Graphic file (type pdf)
  <use figs/trndmap-1.pdf>
 Package pdftex.def Info: figs/trndmap-1.pdf used on input line 288.
 (pdftex.def)             Requested size: 352.31625pt x 234.87912pt.
 
-<figs/trndmap-2.pdf, id=331, 650.43pt x 433.62pt>
+<figs/trndmap-2.pdf, id=334, 650.43pt x 433.62pt>
 File: figs/trndmap-2.pdf Graphic file (type pdf)
  <use figs/trndmap-2.pdf>
 Package pdftex.def Info: figs/trndmap-2.pdf used on input line 289.
 (pdftex.def)             Requested size: 352.31625pt x 234.87912pt.
 
-<figs/dinc10-1.pdf, id=332, 505.89pt x 578.16pt>
+<figs/dinc10-1.pdf, id=335, 505.89pt x 578.16pt>
 File: figs/dinc10-1.pdf Graphic file (type pdf)
  <use figs/dinc10-1.pdf>
 Package pdftex.def Info: figs/dinc10-1.pdf used on input line 300.
 (pdftex.def)             Requested size: 352.31625pt x 402.65372pt.
 
-<figs/dinc10dyna-1.pdf, id=333, 650.43pt x 433.62pt>
+<figs/dinc10dyna-1.pdf, id=336, 650.43pt x 433.62pt>
 File: figs/dinc10dyna-1.pdf Graphic file (type pdf)
 
 <use figs/dinc10dyna-1.pdf>
 Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 311.
 (pdftex.def)             Requested size: 469.75502pt x 313.17879pt.
- <figs/tracy-1.pdf, id=334, 578.16pt x 361.35pt>
+ <figs/tracy-1.pdf, id=337, 578.16pt x 361.35pt>
 File: figs/tracy-1.pdf Graphic file (type pdf)
 
 <use figs/tracy-1.pdf>
 Package pdftex.def Info: figs/tracy-1.pdf used on input line 322.
 (pdftex.def)             Requested size: 469.75502pt x 293.59616pt.
- <figs/p8trnds-1.pdf, id=335, 650.43pt x 578.16pt>
+ <figs/p8trnds-1.pdf, id=338, 650.43pt x 578.16pt>
 File: figs/p8trnds-1.pdf Graphic file (type pdf)
 
 <use figs/p8trnds-1.pdf>
 Package pdftex.def Info: figs/p8trnds-1.pdf used on input line 333.
 (pdftex.def)             Requested size: 469.75502pt x 417.57172pt.
- <figs/clmchl-1.pdf, id=338, 578.16pt x 505.89pt>
+ <figs/clmchl-1.pdf, id=341, 578.16pt x 505.89pt>
 File: figs/clmchl-1.pdf Graphic file (type pdf)
 
 <use figs/clmchl-1.pdf>
@@ -763,7 +763,7 @@ Package pdftex.def Info: figs/clmchl-1.pdf used on input line 344.
 Package acronym Info: Label `acro:chla' newly defined as it shall be overridden
 
 although it is yet undefined on input line 348.
- <figs/d7c10trnds-1.pdf, id=339, 650.43pt x 722.7pt>
+ <figs/d7c10trnds-1.pdf, id=342, 650.43pt x 722.7pt>
 File: figs/d7c10trnds-1.pdf Graphic file (type pdf)
 
 <use figs/d7c10trnds-1.pdf>
@@ -793,13 +793,13 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 511.
  ) 
 Here is how much of TeX's memory you used:
- 11815 strings out of 493921
- 186699 string characters out of 3147282
+ 11819 strings out of 493921
+ 186760 string characters out of 3147282
  325625 words of memory out of 3000000
- 14802 multiletter control sequences out of 15000+200000
+ 14805 multiletter control sequences out of 15000+200000
  38580 words of font info for 78 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 44i,10n,42p,2361b,568s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,10n,42p,2361b,566s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/font
@@ -809,9 +809,9 @@ c/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/
 Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/Mi
 KTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmri8a.pfb>
-Output written on sftrends_manu.pdf (27 pages, 1593230 bytes).
+Output written on sftrends_manu.pdf (27 pages, 1593918 bytes).
 PDF statistics:
- 555 PDF objects out of 1000 (max. 8388607)
- 106 named destinations out of 1000 (max. 500000)
+ 558 PDF objects out of 1000 (max. 8388607)
+ 107 named destinations out of 1000 (max. 500000)
  174 words of extra memory for PDF output out of 10000 (max. 10000000)
 
