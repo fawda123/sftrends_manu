@@ -180,12 +180,12 @@ A hallmark of the \ac{wrtds} approach is the description of flow-normalized tren
 
 \subsection{Case studies}
 
-Three stations were chosen for closer evaluation to demonstrate use of \ac{wrtds} to develop a more detailed understanding of trends that can lead to additional hypotheses for further evaluation.  The stations were also chosen to address ecological and management-based questions that have relevance outside of the region, having importance for our understanding of estuarine processes that influence eutrophication trends on decadal time scales.  The selected case studies focused on \begin{inparaenum}[1\upshape)]
+Three stations were chosen for closer evaluation to demonstrate use of \ac{wrtds} to develop a more detailed understanding of trends for further evaluation.  The stations werechosen to address ecological and management-based questions that have relevance outside of the region, having importance for our understanding of estuarine processes that influence eutrophication trends on decadal time scales.  The selected case studies focused on \begin{inparaenum}[1\upshape)]
 \item nitrogen trends and flow-effects of the San Joaquin river at C10, 
 \item effects of wastewater treatment upgrades upstream of P8, and
 \item effects of biological invasion on nutrient dynamics in Suisun Bay.
 \end{inparaenum}
-Each case study is built around hypotheses that results from \ac{wrtds} models are expected to support, both as a general description and as a means for additional testing with alternative methods. 
+Each case study is built around hypotheses that results from \ac{wrtds} models are expected to support, both as a general description and for additional testing with alternative methods. 
 
 \subsubsection{Disaggregating observed nitrogen time series}
 
@@ -196,8 +196,10 @@ Multiple biological and physical factors influence nutrient concentrations at di
 Results from this case study were used to demonstrate the breadth of information that can be obtained from the observed time series with \ac{wrtds}. 
 
 \subsubsection{Effects of wastewater treatment}
-Hypothesis: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) different nitrogen species will have different changes depending on change in load outputs. See \href{http://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/san_joaquin/r5-2008-0086_res.pdf}{here}
+
+Hypothesis: Modal response of nutrient concentrations at P8 over time is result of WWTP upgrades, so we expect 1) a shift in load contributions before/after upgrade, 2) a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 3) different nitrogen species will have different changes depending on change in load outputs. See \href{http://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/san_joaquin/r5-2008-0086_res.pdf}{here}, but this is about Tracy
 \subsubsection{Effects of biological invasions}
+
 Hypothesis: Biological invasions by benthic filter feeders have shifted abundance and composition of phytoplankton communities in Suisun Bay, so we expect 1) decline in annual, flow-normalized chlorophyll concentrations over time coincident with increase in abundance of invaders, 2) changes in ratios of limiting nutrients (nitrogen, SiO2) suggesting different uptake rates with shift in community composition, and 3) seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession.
 
 \section{Results}
@@ -216,7 +218,7 @@ Emphasize the summer/fall change in the 2000s, why is this?  Check \citep{Cloern
 
 \subsubsection{Effects of wastewater treatment}
 
-Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:tracy}).  Nitrate is the primary constituent of total nitrogen after 2007.  Organic nitrogen is a larger percentage of the total after nitrification. What was reduction in ammonium starting in 2002? 
+Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:stock}).  Nitrate is the primary constituent of total nitrogen after 2007.  Organic nitrogen is a larger percentage of the total after nitrification. What was reduction in ammonium starting in 2002? 
 
 Nitrogen trends at P8 shifted in response to upstream \ac{wwtp} upgrades (\cref{fig:p8trnds}), with ammonium showing the largest reduction.  Interestingly, nitrite/nitrate concentrations also showed a similar but less dramatic decrease.  Percent changes are shown in \cref{tab:p8chg}, where both nitrogen species shows large percent increases prior to \ac{wwtp} upgrades followed by decreases after upgrades with ammonium showing the largest pecentage.  Seasonally, increases prior to upgrades were most apparent in the \ac{jas} months for both analytes.  Seasonal reductions post-upgrades were also largest in \ac{jas} for nitrite/nitrate, whereas percent reductions were similar across all monthly groupings for ammonium.  
 
@@ -437,8 +439,10 @@ grid.arrange(
   )
 @
 
-<<tracy, fig.height = 5, fig.width = 8, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen load measurements (kg d$^{-1}$) at the City of Tracy Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in May, 2007 to include nitrification/denitrification and tertiary filtration causing a reduction in total nitrogen effluent discharged to the Delta. Reductions were primarily observed for ammonium.'>>=
-data(potw_load)
+<<stock, fig.height = 5, fig.width = 8, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in 2006 for nitrification/denitrification and tertiary filtration to convert ammonium to nitrate.'>>=
+data(stock_conc)
+
+stock_conc <- filter(stock_conc, date >= as.Date('2003-01-01'))
 
 ptheme <- theme_minimal() + 
   theme(
@@ -451,37 +455,43 @@ ptheme <- theme_minimal() +
   )
 lncol <- RColorBrewer::brewer.pal(9, 'Set1')[2]
 
-toplo1 <- filter(potw_load, loc %in% 'tracy' & var %in% c('tn'))
-toplo2 <- filter(potw_load, loc %in% 'tracy' & var %in% c('nh4', 'no3', 'orgn'))
+toplo1 <- stock_conc %>% 
+  select(-val2) %>% 
+  spread(var, val) %>% 
+  mutate(TN = NH3 + NO2 + NO3)
+toplo2 <- stock_conc
 
-ylab <- expression(paste("Total nitrogen load (kg ", d^-1, ")"))
+ylab1 <- expression(paste("Total nitrogen (mg ", L^-1, ")"))
+ylab2 <- '% of total nitrogen'
+xrng <- range(c(toplo1$date, toplo2$date))
+yrng <- c(0, 50)
 leglabs <- list(
   expression(NH [4] ^ '+'),
-  expression(NO [3] ^ '2-'),
-  expression('organic N')
+  expression(NO [2] ^ '-'),
+  expression(NO [3] ^ '2-')
   )
 
-lndate <- as.Date('2007/05/01')
+lndate <- as.Date('2006/01/01')
 
 p1 <- ggplot(toplo1) + 
-  geom_line(colour = lncol, aes(x = date, y = val)) + 
-  scale_x_date(expand = c(0, 0)) + 
-  scale_y_continuous(ylab, expand = c(0, 0), limits = c(50, 850)) + 
+  geom_line(colour = lncol, aes(x = date, y = TN)) + 
+  scale_x_date(expand = c(0, 0), limits = xrng) + 
+  scale_y_continuous(ylab1, expand = c(0, 0), limits = yrng) + 
   geom_vline(xintercept = as.numeric(lndate), linetype = 'dashed') +
   geom_label_repel(
-    data = data.frame(x = lndate, y = 600), 
+    data = data.frame(x = lndate, y = 35), 
     aes(x, y, label = 'WWTP upgrades'), 
     box.padding = grid::unit(2, "lines"), 
     nudge_x = 1
     ) + 
   ptheme
 
-p2 <- ggplot(toplo2, aes(x = date, y = val, group = var, fill = var)) + 
-  geom_area(stat = 'identity', position = 'fill') + 
-  scale_x_date(expand = c(0, 0)) + 
+p2 <- ggplot(toplo2) + 
+  geom_area(aes(x = date, y = val, group = var, fill = var), stat = 'identity', position = 'fill') + 
+  scale_x_date(expand = c(0, 0), limits = xrng) + 
   scale_fill_brewer(palette = 'Blues', labels = leglabs) + 
-  scale_y_continuous('% of total nitrogen', expand = c(0, 0)) + 
   geom_vline(xintercept = as.numeric(lndate), linetype = 'dashed') +
+  scale_y_continuous(ylab2, expand = c(0, 0)) + 
   ptheme + 
   theme(
     legend.position = 'top', 
@@ -500,7 +510,7 @@ pB$widths[2:3] <- maxWidth
 grid.arrange(pA, pB, ncol = 1, heights = c(0.8, 1))
 @
 
-<<p8trnds, fig.height = 8, fig.width = 9, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen trends at P8 as observed (a, top), predicted and flow-normalized estimates from \\ac{wrtds} (a, bottom), and relationships with flow over time (b).  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Tracy (San Joaquin County), were completed in May 2007 (\\cref{fig:tracy}), coincident with a dramatic decrease in ammonium at P8.'>>=
+<<p8trnds, fig.height = 8, fig.width = 9, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen trends at P8 as observed (a, top), predicted and flow-normalized estimates from \\ac{wrtds} (a, bottom), and relationships with flow over time (b).  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Stockton (San Joaquin County), were completed in May 2007 (\\cref{fig:stock}), coincident with a dramatic decrease in ammonium at P8.'>>=
 data(h2dat)
 
 nomod <-  filter(h2dat, resvar == 'no23') %>% 
@@ -1129,7 +1139,7 @@ totab <- totab[,-c(1:2)]
 vars <- c('NO$_{2}^{-}$/NO$_{3}^{2-}$', 'NH$_{4}^{+}$')
 names(totab) <- rep(c('Mean', '\\% change'), 2)
 
-cap.val<-'Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \\ac{wwtp} upgrades upstream of station P8. Upgrades were completed in May 2007 at the City of Tracy \\ac{wwtp} (San Joaquin County, \\cref{fig:tracy}).  Summaries are means and percent changes based on annual means within the pre- and post-upgrade time periods (1976-2007, 2008-2013).  Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+cap.val<-'Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \\ac{wwtp} upgrades upstream of station P8. Upgrades were completed in 2006 at the City of Stockton \\ac{wwtp} (San Joaquin County, \\cref{fig:stock}).  Summaries are means and percent changes based on annual means within the pre- and post-upgrade time periods (1976-2007, 2008-2013).  Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
 
 latex( 
   totab,
