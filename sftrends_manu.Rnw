@@ -168,7 +168,7 @@ Daily flow estimates for the Delta region were obtained from the Dayflow softwar
 
 \subsection{Analysis method and application}
 
-A total of twenty-seven \ac{wrtds} models were created, one for each nitrogen at each station.  The functional form of \ac{wrtds} is a simple regression that models the log-transformed response variable as a function of time, flow, and season:
+A total of twenty-seven \ac{wrtds} models were created, one for each nitrogen analyte at each station.  The functional form of \ac{wrtds} is a simple regression that models the log-transformed response variable as a function of time, flow, and season:
 
 \begin{equation}
 \ln\left(N\right) = \beta_0 + \beta_1 t + \beta_2 \ln\left(Q\right) + \beta_3 \sin\left(2\pi t\right) + \beta_4 \cos\left(2\pi t\right)
@@ -1030,30 +1030,33 @@ grid.arrange(
 
 % overall trends
 <<trnds>>=
-data(trnds_chg)
-data(trnds_ave)
+data(trnds_sk)
 
 # percent changes
-tab_chg <- trnds_chg
-
-# increase in bold italic
-tab_chg[, -c(1:2)] <- round(tab_chg[, -c(1:2)], 1)
-tab_chg[, -c(1:2)][sign(tab_chg[, -c(1:2)]) != -1] <- paste0('\\textit{\\textbf{', tab_chg[, -c(1:2)][sign(tab_chg[, -c(1:2)]) != -1], '}}')
-tab_chg <- gather(tab_chg, 'var', 'chg', -Site_Code, -resvar) %>% 
-  mutate(chg = paste0('\\footnotesize{(', chg, ')}'))
-
-# averages
-tab_ave <- gather(trnds_ave, 'var', 'ave', -Site_Code, -resvar) %>% 
-  mutate(ave = round(ave, 1))
-
-tab <- left_join(tab_ave, tab_chg, by = c('Site_Code', 'resvar', 'var')) %>% 
-  unite(val, ave, chg, sep = ' ') %>% 
-  spread(var, val) %>% 
+tab <- trnds_sk %>% 
+  select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
+  mutate(
+    med = round(med, 1), 
+    perchg = round(perchg, 1),
+    perchg = ifelse(
+      perchg < 0, 
+      paste0('(', perchg, ')' ), 
+      paste0('(\\textit{\\textbf{', perchg, '}})')
+      ), 
+    ztest = p_ast(ztest)
+  ) %>% 
+  unite('perchg', perchg, ztest, sep = '') %>% 
+  mutate(
+    perchg = paste0('\\footnotesize{', perchg, '}')
+  ) %>% 
+  unite('val', med, perchg, sep = ' ') %>% 
+  spread(cat, val) %>% 
   arrange(resvar, Site_Code) %>% 
   select(Site_Code, resvar, `1976-1995`, `1996-2014`, Spring, Summer, Fall, Winter)
 
 # table stuff
-cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and different time periods.  Summaries are averages (mg L$^{-1}$) and percent changes in parentheses (increasing in bold-italic).  Changes are based on the difference between the ending and starting estimates within each period.  See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and different time periods.  Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
 vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 stats <- tab$Site_Code
 
@@ -1069,7 +1072,8 @@ latex(
   cgroup = c('Annual', 'Seasonal'),
   n.cgroup = c(2, 4),
   rowname = stats,
-  label = 'tab:trnds'
+  label = 'tab:trnds',
+  insert.bottom = foot.val
   )
 
 @
@@ -1078,7 +1082,7 @@ latex(
 <<p8chg>>=
 
 data(h2dat)
-dt <- as.Date('2007-05-01')
+dt <- as.Date('2006-01-01')
 
 noraw_bf <- filter(h2dat, resvar %in% 'no23') %>% 
   .$data %>% 
@@ -1098,31 +1102,38 @@ nhraw_af <- filter(h2dat, resvar %in% 'nh') %>%
   .[which(.$date >= dt), ]
 
 mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
-yrbrks_bf <- c(1975, 2007)
+yrbrks_bf <- c(1975, 2005)
 yrbrks_af <- c(2006, 2013)
 molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
-yrlabs_bf <- '1976-2007'
-yrlabs_af <- '2008-2013'
-faclevs <- c('1976-2007_before', '2008-2013_after', paste0(molabs, '_before'), paste0(molabs, '_after'))
+yrlabs_bf <- '1976-2006'
+yrlabs_af <- '2007-2013'
+faclevs <- c('1976-2006_before', '2007-2013_after', paste0(molabs, '_before'), paste0(molabs, '_after'))
 
 # summarize din, sio2, chl trends
-no_bf <- wrtdstrnd(noraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf, aves = TRUE, min_mo = 10) %>% 
+no_bf <- wrtdstrnd_sk(noraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf) %>% 
   mutate(period = 'before', var = 'no')
-no_af <- wrtdstrnd(noraw_af, mobrks, yrbrks_af, molabs, yrlabs_af, aves = TRUE, min_mo = 10) %>% 
+no_af <- wrtdstrnd_sk(noraw_af, mobrks, yrbrks_af, molabs, yrlabs_af) %>% 
   mutate(period = 'after', var = 'no')
-nh_bf <- wrtdstrnd(nhraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf, aves = TRUE, min_mo = 10) %>% 
+nh_bf <- wrtdstrnd_sk(nhraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf) %>% 
   mutate(period = 'before', var = 'nh')
-nh_af <- wrtdstrnd(nhraw_af, mobrks, yrbrks_af, molabs, yrlabs_af, aves = TRUE, min_mo = 10) %>% 
+nh_af <- wrtdstrnd_sk(nhraw_af, mobrks, yrbrks_af, molabs, yrlabs_af) %>% 
   mutate(period = 'after', var = 'nh')
 
 # combine for trends for table
 totab <- rbind(no_bf, no_af, nh_bf, nh_af) %>% 
+  select(-tau, -slope, -chitest) %>% 
   mutate(
-    chg = round(chg, 1), 
-    chg = ifelse(chg < 0, chg, paste0('\\textit{\\textbf{', chg , '}}')), 
-    ave = as.character(round(ave, 2))
-    ) %>% 
-  gather('est', 'val', chg:ave) %>% 
+    med = round(med, 1), 
+    perchg = round(perchg, 1),
+    perchg = ifelse(
+      perchg < 0, 
+      perchg, 
+      paste0('\\textit{\\textbf{', perchg, '}}')
+      ), 
+    ztest = p_ast(ztest)
+  ) %>% 
+  unite('perchg', perchg, ztest, sep = '') %>% 
+  gather('est', 'val', med:perchg) %>% 
   unite('col', var, est) %>% 
   spread(col, val) %>% 
   unite('period', cat, period) %>% 
@@ -1130,16 +1141,17 @@ totab <- rbind(no_bf, no_af, nh_bf, nh_af) %>%
   arrange(period) %>% 
   mutate(cat = c(yrlabs_bf, yrlabs_af, molabs, molabs)) %>% 
   data.frame(sep = c(rep('Annual', 2), rep('Seasonal, pre', 4), rep('Seasonal, post', 4)), .) %>% 
-  select(sep, cat, no_ave, no_chg, nh_ave, nh_chg)
+  select(sep, cat, no_med, no_perchg, nh_med, nh_perchg)
 
 # final table formatting
 segs <- unique(totab$sep)
 cats <- totab$cat
 totab <- totab[,-c(1:2)]
 vars <- c('NO$_{2}^{-}$/NO$_{3}^{2-}$', 'NH$_{4}^{+}$')
-names(totab) <- rep(c('Mean', '\\% change'), 2)
+names(totab) <- rep(c('Median', '\\% change'), 2)
 
-cap.val<-'Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \\ac{wwtp} upgrades upstream of station P8. Upgrades were completed in 2006 at the City of Stockton \\ac{wwtp} (San Joaquin County, \\cref{fig:stock}).  Summaries are means and percent changes based on annual means within the pre- and post-upgrade time periods (1976-2007, 2008-2013).  Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+cap.val<-'Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \\ac{wwtp} upgrades upstream of station P8. Upgrades were completed in 2006 at the City of Stockton \\ac{wwtp} (San Joaquin County, \\cref{fig:stock}).  Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
 
 latex( 
   totab,
@@ -1152,7 +1164,8 @@ latex(
   cgroup = vars,
   n.cgroup = c(2, 2),
   rowname = cats,
-  label = 'tab:p8chg'
+  label = 'tab:p8chg',
+  insert.bottom = foot.val
   )
 
 @
@@ -1180,45 +1193,53 @@ molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
 yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
 
 # summarize din, sio2, chl trends
-din <- wrtdstrnd(dinraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
-din <- wrtdstrnd(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
+din <- wrtdstrnd_sk(dinraw, mobrks, yrbrks, molabs, yrlabs)
+din <- wrtdstrnd_sk(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
   .[1, ] %>% 
   rbind(., din) %>% 
   data.frame(res = 'din', .)
-chl <- wrtdstrnd(chlraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
-chl <- wrtdstrnd(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
+chl <- wrtdstrnd_sk(chlraw, mobrks, yrbrks, molabs, yrlabs)
+chl <- wrtdstrnd_sk(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
   .[1, ] %>% 
   rbind(., chl) %>% 
   data.frame(res = 'chl', .)
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
+sio <- wrtdstrnd_sk(sioraw, mobrks, yrbrks, molabs, yrlabs)
+sio <- wrtdstrnd_sk(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
   .[1, ] %>% 
   rbind(., sio) %>% 
   data.frame(res = 'sio', .)
 
 # combine for trends for table
 totab <- rbind(din, chl, sio) %>% 
+  select(res, cat, med, perchg, ztest) %>% 
   mutate(
-    chg = round(chg, 1), 
-    chg = ifelse(chg < 0, chg, paste0('\\textit{\\textbf{', chg , '}}')), 
-    ave = as.character(round(ave, 1))
-    ) %>% 
-  gather('var', 'val', chg:ave) %>% 
+    med = round(med, 1), 
+    perchg = round(perchg, 1),
+    perchg = ifelse(
+      perchg < 0, 
+      perchg, 
+      paste0('\\textit{\\textbf{', perchg, '}}')
+      ), 
+    ztest = p_ast(ztest)
+  ) %>% 
+  unite('perchg', perchg, ztest, sep = '') %>% 
+  gather('var', 'val', med:perchg) %>% 
   unite('col', res, var) %>% 
   spread(col, val) %>% 
   mutate(cat = factor(cat, levels = c('1976-2013', yrlabs, molabs), labels = c('1976-2013', yrlabs, molabs))) %>% 
   arrange(cat) %>% 
   data.frame(sep = c(rep('Annual', 5), rep('Seasonal', 4)), .) %>% 
-  select(sep, cat, din_ave, din_chg, chl_ave, chl_chg, sio_ave, sio_chg)
+  select(sep, cat, din_med, din_perchg, chl_med, chl_perchg, sio_med, sio_perchg)
 
 # final table formatting
 segs <- c('All', 'Annual', 'Seasonal')
 cats <- totab$cat
 totab <- totab[,-c(1:2)]
 vars <- c('DIN', 'Chl-\\textit{a}', 'SiO$_2$')
-names(totab) <- rep(c('Mean', '\\% change'), 3)
+names(totab) <- rep(c('Median', '\\% change'), 3)
 
-cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station D7. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station D7. Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
 
 latex( 
   totab,
@@ -1231,7 +1252,8 @@ latex(
   cgroup = vars,
   n.cgroup = c(2, 2, 2),
   rowname = cats,
-  label = 'tab:d7chg'
+  label = 'tab:d7chg', 
+  insert.bottom = foot.val
   )
 
 @
@@ -1259,45 +1281,53 @@ molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
 yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
 
 # summarize din, sio2, chl trends
-din <- wrtdstrnd(dinraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
-din <- wrtdstrnd(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
+din <- wrtdstrnd_sk(dinraw, mobrks, yrbrks, molabs, yrlabs)
+din <- wrtdstrnd_sk(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
   .[1, ] %>% 
   rbind(., din) %>% 
   data.frame(res = 'din', .)
-chl <- wrtdstrnd(chlraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
-chl <- wrtdstrnd(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
+chl <- wrtdstrnd_sk(chlraw, mobrks, yrbrks, molabs, yrlabs)
+chl <- wrtdstrnd_sk(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
   .[1, ] %>% 
   rbind(., chl) %>% 
   data.frame(res = 'chl', .)
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks, molabs, yrlabs, aves = TRUE, min_mo = 10)
-sio <- wrtdstrnd(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013'), aves = TRUE, min_mo = 10) %>% 
+sio <- wrtdstrnd_sk(sioraw, mobrks, yrbrks, molabs, yrlabs)
+sio <- wrtdstrnd_sk(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
   .[1, ] %>% 
   rbind(., sio) %>% 
   data.frame(res = 'sio', .)
 
 # combine for trends for table
 totab <- rbind(din, chl, sio) %>% 
+  select(res, cat, med, perchg, ztest) %>% 
   mutate(
-    chg = round(chg, 1), 
-    chg = ifelse(chg < 0, chg, paste0('\\textit{\\textbf{', chg , '}}')), 
-    ave = as.character(round(ave, 1))
-    ) %>% 
-  gather('var', 'val', chg:ave) %>% 
+    med = round(med, 1), 
+    perchg = round(perchg, 1),
+    perchg = ifelse(
+      perchg < 0, 
+      perchg, 
+      paste0('\\textit{\\textbf{', perchg, '}}')
+      ), 
+    ztest = p_ast(ztest)
+  ) %>% 
+  unite('perchg', perchg, ztest, sep = '') %>% 
+  gather('var', 'val', med:perchg) %>% 
   unite('col', res, var) %>% 
   spread(col, val) %>% 
   mutate(cat = factor(cat, levels = c('1976-2013', yrlabs, molabs), labels = c('1976-2013', yrlabs, molabs))) %>% 
   arrange(cat) %>% 
   data.frame(sep = c(rep('Annual', 5), rep('Seasonal', 4)), .) %>% 
-  select(sep, cat, din_ave, din_chg, chl_ave, chl_chg, sio_ave, sio_chg)
+  select(sep, cat, din_med, din_perchg, chl_med, chl_perchg, sio_med, sio_perchg)
 
 # final table formatting
 segs <- c('All', 'Annual', 'Seasonal')
 cats <- totab$cat
 totab <- totab[,-c(1:2)]
 vars <- c('DIN', 'Chl-\\textit{a}', 'SiO$_2$')
-names(totab) <- rep(c('Mean', '\\% change'), 3)
+names(totab) <- rep(c('Median', '\\% change'), 3)
 
-cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg $L^{-1}$), chlorophyll ($\\mu$g $L^{-1}$), and silicon dioxide (mg $L^{-1}$) concentrations for different time periods at station C10. Summaries are means and percent changes based on annual means within the time periods.  Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station C10. Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
 
 latex( 
   totab,
@@ -1310,7 +1340,8 @@ latex(
   cgroup = vars,
   n.cgroup = c(2, 2, 2),
   rowname = cats,
-  label = 'tab:c10chg'
+  label = 'tab:c10chg', 
+  insert.bottom = foot.val
   )
 
 @
