@@ -7,6 +7,39 @@ g_legend <- function(a.gplot){
   return(legend)}
 
 ######
+# some stupid function for formatting p-values, no asterisks
+# one value at a time
+p_form <- function(x, tex_out = F){
+  if(x < 0.005) out <-'< 0.005'
+  else{
+    if(x < 0.05 & x >= 0.005) out <- as.character(format(round(x, 3), nsmall = 3))
+    else out <- 'ns'
+    }
+  if(tex_out == F) return(out)
+  else{
+    if(out == '< 0.005') '$p<$ 0.005'
+    else{
+      if(out == 'ns') '$p = $ ns'
+      else paste('$p = $', out, sep = ' ')
+      }
+    }
+  }
+
+######
+# another stupid function for formatting p-values as asterisks
+p_ast <- function(x){
+  
+  sig_cats <- c('**', '*', '')
+  sig_vals <- c(-Inf, 0.005, 0.05, Inf)
+  
+  out <- cut(x, breaks = sig_vals, labels = sig_cats, right = FALSE)
+  out <- as.character(out)
+  
+  return(out)
+  
+}
+
+######
 # trend maps
 # 
 # library(dplyr)

@@ -22,3 +22,9 @@ Files marked with * were created in `sf_trends.RProj`, all others created in `R\
 `stock_conc.RData` summarized effluent data from Stockton wwtp, mg/L
 
 `stock_load.RData` nutrient load data from Stockton, kg/day
+
+`trnds_ave.RData` trend summary of averages by annual, monthly categories
+
+`trnds_chg.RData` trend summary of percent changes by annual, monthly categories
+
+`trnds_sk.RData` trend summary using seasonal kendall on flow-normalized results
