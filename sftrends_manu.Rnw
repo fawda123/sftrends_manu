@@ -81,6 +81,7 @@ library(purrr)
 library(tidyr)
 library(Hmisc)
 library(ggrepel)
+library(ggtree)
 @
 
 % get the version based on commit date
@@ -268,6 +269,175 @@ yrlabs <- c('1976-1995', '1996-2000', '2001-2008', '2009-2014')
 
 trnd_map(mods = mods, molabs = NULL, yrlabs = yrlabs, yrbrks = yrbrks, sz_rng = c(2, 8), leg_lab = '(a) Annual % change')
 trnd_map(mods = mods, yrlabs = NULL, molabs = molabs, mobrks = mobrks, sz_rng = c(2, 8), stat_labs = F, leg_lab = '(b) Seasonal % change')
+@
+
+<<trndmap2, fig.height = 9, fig.width = 6, cache = T, out.width = '0.75\\textwidth', fig.cap = 'test'>>=
+
+res = c('din', 'nh', 'no23')
+mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
+yrbrks <- c(-Inf, 1995, Inf)
+molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
+yrlabs <- c('1976-1995', '1996-2014')
+buffx = 0.00025
+buffy = 0.001
+cols =  c('#D53E4F', '#4DAF4A')
+sz_rng = c(2, 11)
+shps = c(24, 25)
+ndivs = 6
+strp_fl = 'lightgrey'
+bar = FALSE
+stat_labs = TRUE
+leg = TRUE
+leg_lab = 'Percent change'
+
+# load required data
+data(delt_dat)
+data(delt_map)
+data(mods)
+
+# response labels 
+reslabs <- list(
+  shrt = c('din', 'nh', 'no23'),
+  expr = c(
+    'DIN', 
+    expression(paste(NH [4] ^ '+')),
+    expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
+  )
+)
+
+# make response labels
+mods <- mutate(mods, reslabs = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr))
+
+##
+# get a bounding box for the stations
+statmeta <- select(delt_dat, Site_Code, Latitude, Longitude) %>% 
+  unique
+
+# bounding box
+lims<- select(statmeta, -Site_Code) %>% 
+  apply(., 2, function(x) range(x, na.rm = TRUE))
+lims <- c(
+  (1 + buffx) * lims[1, 2], 
+  (1 - buffy) * lims[1, 1], 
+  (1 - buffx) * lims[2, 2], 
+  (1 + buffy) * lims[2, 1]
+  )    
+names(lims) <- c('left', 'bottom', 'right', 'top')
+
+
+# get trends
+trnds <- mutate(mods, 
+  trnd = map(data, function(x){
+    wrtdstrnd_sk(x, mobrks, yrbrks, molabs, yrlabs)
+    })
+  )
+
+cols <- RColorBrewer::brewer.pal(11, 'RdYlGn')
+pal <- colorRampPalette(rev(cols))(1000)
+
+
+# convert delta map to ggplot compatible object
+delt_map <- fortify(delt_map)
+
+# base delta map
+pbase <- ggplot(delt_map, aes(x = long, y = lat)) + 
+  geom_polygon(aes(group = group, fill = hole), colour = "cornflowerblue") +
+  theme_bw() + 
+  theme(
+    plot.background = element_rect(fill='transparent', 
+      colour = NA),
+    panel.background = element_rect(fill='transparent', 
+      colour = NA),
+    legend.background = element_rect(fill='transparent', 
+      colour = NA),
+    legend.key = element_rect(fill = 'transparent', 
+      colour = NA),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"), 
+    panel.grid.minor = element_blank(), 
+    axis.title.x = element_blank(), 
+    axis.title.y = element_blank(), 
+    legend.position = 'none', 
+    plot.margin = grid::unit(c(3, 3, 12, 3), 'pt'), 
+    axis.text.x = element_text(size = 8), 
+    axis.text.y = element_text(size = 8), 
+    strip.background=element_rect(fill = 'white', colour = 'white'),
+    panel.border = element_rect(colour = "grey")
+  ) +
+  coord_fixed(ratio = 1, xlim = lims[c(1, 3)], ylim = lims[c(2, 4)]) +
+  scale_fill_manual(values=c("cornflowerblue", "white"), guide="none")
+
+
+yrng <- c(-5, 5)
+
+# unnest trend summary
+toplo <-select(trnds, -data) %>% 
+  unnest %>% 
+  select(Site_Code, resvar, reslabs, cat, ztest, perchg) %>% 
+  left_join(., statmeta, by = 'Site_Code') %>% 
+  data.frame %>% 
+  mutate(
+    rnks = scales::rescale(perchg, c(1, 1000)), 
+    rnks = round(rnks), 
+    cols = pal[rnks],
+    ind = 1:nrow(.), 
+    cattype = ifelse(cat %in% molabs, 'mo', 'yr'), 
+    perchg = pmax(yrng[1], perchg),
+    perchg = pmin(yrng[2], perchg)
+  )
+
+unis <- with(toplo, paste(resvar, cattype)) %>% 
+  unique
+
+sites <- unique(toplo$Site_Code)
+
+plo_ls <- vector('list', length = length(unis))
+names(plo_ls) <- unis
+
+for(uni in unis){
+  
+  splits <- strsplit(uni, ' ')[[1]]
+  resvart <- splits[1]
+  cattypet <- splits[2]
+  
+  
+  toplo_tmp <- filter(toplo, resvar %in% resvart & cattype %in% cattypet)
+  
+  bars <- setNames(lapply(sites, function(i){
+    
+    subplo <- filter(toplo_tmp, Site_Code %in% i)
+    ggplot(subplo, aes(x=cat, y = perchg, fill = factor(cat))) +
+      geom_bar(stat = 'identity', colour = 'black') + 
+      scale_fill_manual(values = as.character(subplo$cols)) + 
+      theme_tree() + 
+      xlab(NULL) + 
+      ylab(NULL) + 
+      theme_transparent() +
+      theme(plot.margin=unit(c(0,0,0,0),"mm")) + 
+      scale_y_continuous(limits = yrng)
+    
+  }), sites)
+
+  
+  ##
+  # create some plots
+  pall <- pbase
+  for(i in 1:length(bars)){
+  
+      nms <- names(bars)[i]
+      dat <- statmeta[statmeta$Site_Code %in% nms,]
+      pall <- subview(pall, bars[[i]], x = dat$Longitude, y = dat$Latitude, 0.08, 0.08)
+  
+  }
+    
+  pall <- pall + ggtitle(uni)
+  plo_ls[[uni]] <- pall
+  
+}
+  
+grid.arrange(plo_ls[[1]], plo_ls[[2]], plo_ls[[3]], plo_ls[[4]], plo_ls[[5]], plo_ls[[6]], ncol = 2)
+
 @
 
 <<dinc10, fig.height = 8, fig.width = 7, cache = T, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \\ac{wrtds} at different conditional quantiles ($\\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend.'>>=
