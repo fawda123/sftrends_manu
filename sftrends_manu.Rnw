@@ -279,12 +279,12 @@ yrbrks <- c(-Inf, 1995, Inf)
 molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
 yrlabs <- c('1976-1995', '1996-2014')
 buffx = 0.00025
-buffy = 0.001
+buffy = 0.002
 cols =  c('#D53E4F', '#4DAF4A')
 sz_rng = c(2, 11)
 shps = c(24, 25)
 ndivs = 6
-strp_fl = 'lightgrey'
+strp_fl = 'grey90'
 bar = FALSE
 stat_labs = TRUE
 leg = TRUE
@@ -294,19 +294,6 @@ leg_lab = 'Percent change'
 data(delt_dat)
 data(delt_map)
 data(mods)
-
-# response labels 
-reslabs <- list(
-  shrt = c('din', 'nh', 'no23'),
-  expr = c(
-    'DIN', 
-    expression(paste(NH [4] ^ '+')),
-    expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
-  )
-)
-
-# make response labels
-mods <- mutate(mods, reslabs = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr))
 
 ##
 # get a bounding box for the stations
@@ -324,17 +311,23 @@ lims <- c(
   )    
 names(lims) <- c('left', 'bottom', 'right', 'top')
 
-
 # get trends
-trnds <- mutate(mods, 
+trnds <- mutate(mods,
   trnd = map(data, function(x){
     wrtdstrnd_sk(x, mobrks, yrbrks, molabs, yrlabs)
     })
   )
 
-cols <- RColorBrewer::brewer.pal(11, 'RdYlGn')
-pal <- colorRampPalette(rev(cols))(1000)
-
+# response labels 
+reslabs <- c('din an', 'nh an', 'no23 an', 'din mo', 'nh mo', 'no23 mo')
+reslevs <- c(
+  'DIN, annual', 
+  expression(paste(NH [4] ^ '+', ', annual')),
+  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-', ', annual')),
+  'DIN, seasonal', 
+  expression(paste(NH [4] ^ '+', ', seasonal')),
+  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-', ', seasonal'))
+)
 
 # convert delta map to ggplot compatible object
 delt_map <- fortify(delt_map)
@@ -359,7 +352,7 @@ pbase <- ggplot(delt_map, aes(x = long, y = lat)) +
     axis.title.x = element_blank(), 
     axis.title.y = element_blank(), 
     legend.position = 'none', 
-    plot.margin = grid::unit(c(3, 3, 12, 3), 'pt'), 
+    plot.margin = grid::unit(c(3, 3, 3, 3), 'pt'), 
     axis.text.x = element_text(size = 8), 
     axis.text.y = element_text(size = 8), 
     strip.background=element_rect(fill = 'white', colour = 'white'),
@@ -371,24 +364,36 @@ pbase <- ggplot(delt_map, aes(x = long, y = lat)) +
 
 yrng <- c(-5, 5)
 
-# unnest trend summary
-toplo <-select(trnds, -data) %>% 
+# color ramp, red for pos, green for neg
+colpos <- RColorBrewer::brewer.pal(9, 'Reds')[3:9]
+colneg <- RColorBrewer::brewer.pal(9, 'Greens')[3:9]
+palneg <-  colorRampPalette(colneg)(1000)
+palpos <-   colorRampPalette(colpos)(1000)
+
+# plot(1:2000, col = c(palneg, palpos), pch = 16, cex = 4)
+# points(1000, 1000)
+
+# unnest data frame, assign colors by rank and sign
+toplo <- select(trnds, -data) %>% 
   unnest %>% 
-  select(Site_Code, resvar, reslabs, cat, ztest, perchg) %>% 
+  select(Site_Code, resvar, resvar, cat, ztest, perchg) %>% 
   left_join(., statmeta, by = 'Site_Code') %>% 
   data.frame %>% 
   mutate(
-    rnks = scales::rescale(perchg, c(1, 1000)), 
-    rnks = round(rnks), 
-    cols = pal[rnks],
-    ind = 1:nrow(.), 
-    cattype = ifelse(cat %in% molabs, 'mo', 'yr'), 
     perchg = pmax(yrng[1], perchg),
-    perchg = pmin(yrng[2], perchg)
+    perchg = pmin(yrng[2], perchg),
+    negs = sign(perchg),  
+    rnks = scales::rescale(abs(perchg), c(1, 1000)), 
+    rnks = round(rnks), 
+    cols = ifelse(negs == 1, palpos[rnks], palneg[rnks]),
+    ind = 1:nrow(.), 
+    cattype = ifelse(cat %in% molabs, 'mo', 'an')
   )
+# plot(perchg ~ ind, dat = toplo, col = cols)
 
 unis <- with(toplo, paste(resvar, cattype)) %>% 
-  unique
+  unique %>% 
+  sort
 
 sites <- unique(toplo$Site_Code)
 
@@ -397,13 +402,13 @@ names(plo_ls) <- unis
 
 for(uni in unis){
   
+  # get variable, agg period
   splits <- strsplit(uni, ' ')[[1]]
   resvart <- splits[1]
   cattypet <- splits[2]
-  
-  
   toplo_tmp <- filter(toplo, resvar %in% resvart & cattype %in% cattypet)
   
+  # create individual bar plots as ggplot list
   bars <- setNames(lapply(sites, function(i){
     
     subplo <- filter(toplo_tmp, Site_Code %in% i)
@@ -421,17 +426,32 @@ for(uni in unis){
 
   
   ##
-  # create some plots
+  # add the barplots to the base map
+  
+  # add site labels if plot is first
   pall <- pbase
+  if(which(uni == unis) == 1)
+    pall <- pbase + 
+      geom_label_repel(
+        data = statmeta, 
+        aes(x = Longitude, y = Latitude, label = Site_Code), 
+        label.r = unit(0, "lines"),
+        box.padding = unit(1.9, "lines"),
+        point.padding = unit(0, "lines"),
+        force = 2, size = 2,
+        fill = strp_fl
+      )
+  
   for(i in 1:length(bars)){
   
       nms <- names(bars)[i]
       dat <- statmeta[statmeta$Site_Code %in% nms,]
-      pall <- subview(pall, bars[[i]], x = dat$Longitude, y = dat$Latitude, 0.08, 0.08)
+      pall <- subview(pall, bars[[i]], x = dat$Longitude, y = dat$Latitude, 0.08, 0.1)
   
   }
-    
-  pall <- pall + ggtitle(uni)
+  
+  tval <- reslevs[which(uni == reslabs)]
+  pall <- pall + ggtitle(tval)
   plo_ls[[uni]] <- pall
   
 }
