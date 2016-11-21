@@ -259,27 +259,15 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \label{fig:schematic}   
 \end{figure}
 
-<<trndmap, fig.height = 6, fig.width = 9, cache = T, out.width = '0.75\\textwidth', fig.cap = 'Percent changes in nitrogen analytes for (a) annual and (b) seasonal (monthly) periods in the record.  Changes are based on the difference between the ending and starting estimates for the flow-normalized estimates within each period.  Points are colored for direction (red increasing, green decreasing) and sized for relative magnitude. Station names are shown in the top left panel. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'>>=
-data(mods)
-
-mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
-yrbrks <- c(1975, 1995, 2000, 2008, 2014)
-molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
-yrlabs <- c('1976-1995', '1996-2000', '2001-2008', '2009-2014')
-
-trnd_map(mods = mods, molabs = NULL, yrlabs = yrlabs, yrbrks = yrbrks, sz_rng = c(2, 8), leg_lab = '(a) Annual % change')
-trnd_map(mods = mods, yrlabs = NULL, molabs = molabs, mobrks = mobrks, sz_rng = c(2, 8), stat_labs = F, leg_lab = '(b) Seasonal % change')
-@
-
-<<trndmap2, fig.height = 9, fig.width = 6, cache = T, out.width = '0.75\\textwidth', fig.cap = 'test'>>=
+<<trndmap, fig.cap = 'Percent change per year in nitrogen analytes for (a) annual and (b) seasonal aggregations.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Three values less than 5\\% change were truncated for visual clarity of the bar plots, see \\cref{tab:trnds} for actual values. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.', fig.height = 8, fig.width = 7, cache = T, out.width = '\\textwidth'>>=
 
 res = c('din', 'nh', 'no23')
 mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
 yrbrks <- c(-Inf, 1995, Inf)
 molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
 yrlabs <- c('1976-1995', '1996-2014')
-buffx = 0.00025
-buffy = 0.002
+buffx = 0.00035
+buffy = 0.0022
 cols =  c('#D53E4F', '#4DAF4A')
 sz_rng = c(2, 11)
 shps = c(24, 25)
@@ -293,7 +281,7 @@ leg_lab = 'Percent change'
 # load required data
 data(delt_dat)
 data(delt_map)
-data(mods)
+data(trnds_sk)
 
 ##
 # get a bounding box for the stations
@@ -311,30 +299,24 @@ lims <- c(
   )    
 names(lims) <- c('left', 'bottom', 'right', 'top')
 
-# get trends
-trnds <- mutate(mods,
-  trnd = map(data, function(x){
-    wrtdstrnd_sk(x, mobrks, yrbrks, molabs, yrlabs)
-    })
-  )
-
 # response labels 
 reslabs <- c('din an', 'nh an', 'no23 an', 'din mo', 'nh mo', 'no23 mo')
 reslevs <- c(
-  'DIN, annual', 
-  expression(paste(NH [4] ^ '+', ', annual')),
-  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-', ', annual')),
-  'DIN, seasonal', 
-  expression(paste(NH [4] ^ '+', ', seasonal')),
-  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-', ', seasonal'))
+  'DIN', 
+  expression(paste(NH [4] ^ '+')),
+  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-')),
+  'DIN', 
+  expression(paste(NH [4] ^ '+')),
+  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
 )
 
 # convert delta map to ggplot compatible object
 delt_map <- fortify(delt_map)
 
 # base delta map
+alph <- 1
 pbase <- ggplot(delt_map, aes(x = long, y = lat)) + 
-  geom_polygon(aes(group = group, fill = hole), colour = "cornflowerblue") +
+  geom_polygon(aes(group = group, fill = hole), colour = alpha("lightblue", alph)) +
   theme_bw() + 
   theme(
     plot.background = element_rect(fill='transparent', 
@@ -359,8 +341,7 @@ pbase <- ggplot(delt_map, aes(x = long, y = lat)) +
     panel.border = element_rect(colour = "grey")
   ) +
   coord_fixed(ratio = 1, xlim = lims[c(1, 3)], ylim = lims[c(2, 4)]) +
-  scale_fill_manual(values=c("cornflowerblue", "white"), guide="none")
-
+  scale_fill_manual(values=c(alpha("lightblue", alph), "white"), guide="none")
 
 yrng <- c(-5, 5)
 
@@ -374,9 +355,7 @@ palpos <-   colorRampPalette(colpos)(1000)
 # points(1000, 1000)
 
 # unnest data frame, assign colors by rank and sign
-toplo <- select(trnds, -data) %>% 
-  unnest %>% 
-  select(Site_Code, resvar, resvar, cat, ztest, perchg) %>% 
+toplo <- select(trnds_sk, Site_Code, resvar, resvar, cat, ztest, perchg) %>% 
   left_join(., statmeta, by = 'Site_Code') %>% 
   data.frame %>% 
   mutate(
@@ -413,7 +392,7 @@ for(uni in unis){
     
     subplo <- filter(toplo_tmp, Site_Code %in% i)
     ggplot(subplo, aes(x=cat, y = perchg, fill = factor(cat))) +
-      geom_bar(stat = 'identity', colour = 'black') + 
+      geom_bar(stat = 'identity', colour = 'black', size = 0.2) + 
       scale_fill_manual(values = as.character(subplo$cols)) + 
       theme_tree() + 
       xlab(NULL) + 
@@ -430,33 +409,55 @@ for(uni in unis){
   
   # add site labels if plot is first
   pall <- pbase
+  set.seed(5)
   if(which(uni == unis) == 1)
     pall <- pbase + 
       geom_label_repel(
         data = statmeta, 
         aes(x = Longitude, y = Latitude, label = Site_Code), 
         label.r = unit(0, "lines"),
-        box.padding = unit(1.9, "lines"),
-        point.padding = unit(0, "lines"),
+        box.padding = unit(2, "lines"),
+        label.padding = unit(0.15, "lines"), 
+        point.padding = unit(0.1, "lines"),
         force = 2, size = 2,
         fill = strp_fl
       )
+  
+  # keep bar widths the same for cattypes
+  subwid <- 0.1
+  if(grepl('an$', uni))
+    subwid <- subwid/2
   
   for(i in 1:length(bars)){
   
       nms <- names(bars)[i]
       dat <- statmeta[statmeta$Site_Code %in% nms,]
-      pall <- subview(pall, bars[[i]], x = dat$Longitude, y = dat$Latitude, 0.08, 0.1)
-  
+      pall <- subview(pall, bars[[i]], x = dat$Longitude, y = dat$Latitude, subwid, 0.14)
+
   }
   
   tval <- reslevs[which(uni == reslabs)]
-  pall <- pall + ggtitle(tval)
+  pall <- pall + 
+    geom_text(data = data.frame(x = lims[1], y = lims[4], tval = as.character(tval)), 
+      aes(x = x, y = y, label = tval), parse = TRUE, hjust = 0, vjust = 1)
   plo_ls[[uni]] <- pall
   
 }
-  
-grid.arrange(plo_ls[[1]], plo_ls[[2]], plo_ls[[3]], plo_ls[[4]], plo_ls[[5]], plo_ls[[6]], ncol = 2)
+
+# setup legend
+leg <- ggplot(data.frame(x = 1:10, y = 1:10, z = seq(-5, 5, length = 10)), aes(x, y, colour = z)) + 
+  geom_point() + 
+  scale_colour_gradientn(colours = c(rev(colneg), colpos)) + 
+  guides(colour = guide_colourbar(title = expression('% chg yr' ^-1), barheight = 5, barwidth = 0.5))
+leg <- g_legend(leg)
+
+grid.arrange(
+  arrangeGrob(plo_ls[[1]], plo_ls[[3]], plo_ls[[5]], ncol = 1, top = c('Annual (1976-1995, 1996-2014)')), 
+  arrangeGrob(plo_ls[[2]], plo_ls[[4]], plo_ls[[6]], ncol = 1, top = c('Seasonal (Sp, Su, Fa, Wi)')),
+  leg,
+  ncol = 3, 
+  widths = c(1, 1, 0.4)
+  )
 
 @
 
