@@ -109,14 +109,15 @@ $(document).ready(function () {
 
 <div id="files" class="section level3">
 <h3>Files</h3>
-<p>Files marked with * were created in <code>sf_trends.RProj</code>, all others created in <code>R\dat_proc.R</code></p>
-<p><code>clams.RData</code>* clam data for D7 from Crauder 2016, includes sample date, water year (<code>yr</code> starting in October), biomass in g/m2, clams per sample (<code>clams_smp</code>) in no/m2, depth (m), growth rate (<code>gr</code>) in m3/m2/d, mean size (mm), number of grabs (<code>no_grabs</code>), recruitment per unit area (<code>recruit_area</code>) in recruit/0.05 m2, and species as corbicula or potamocorbula.</p>
-<p><code>delt_dat.RData</code>* Processed wq time series data <code>dwr_wq.RData</code>, includes all nitrogen analytes and current/active stations in the delta, also includes matched and smoothed flow records from <code>flocor.RData</code> results</p>
-<p><code>dinc10.RData</code> WRTDS model for DIN at C10</p>
-<p><code>flow_dat.RData</code>* time series of daily flow estimates for the delta, input stations from Novick et al (Fig 2) were used</p>
-<p><code>h2dat.RData</code>* mean models to support second hypothesis/case study in manuscript, wrtds mean models for no23, nh at p8</p>
-<p><code>h3dat.RData</code>* mean models to support third hypothesis/case study in manuscript, wrtds mean models for sio2, din, chla at c10, d7</p>
-<p><code>mods_nolag.RData</code>* complete dataset for wrtds, including model results. This is the same file as <code>mods_lag.RData</code> except the matched flow variables are not lagged. Nested, do not load without loading tidyr.</p>
+<p>Files were created in <code>sf_trends.RProj</code></p>
+<p><code>clams.RData</code> clam data for D7 from Crauder 2016, includes sample date, water year (<code>yr</code> starting in October), biomass in g/m2, clams per sample (<code>clams_smp</code>) in no/m2, depth (m), growth rate (<code>gr</code>) in m3/m2/d, mean size (mm), number of grabs (<code>no_grabs</code>), recruitment per unit area (<code>recruit_area</code>) in recruit/0.05 m2, and species as corbicula or potamocorbula.</p>
+<p><code>delt_dat.RData</code> Processed wq time series data <code>dwr_wq.RData</code>, includes all nitrogen analytes and current/active stations in the delta, also includes matched and smoothed flow records from <code>flocor.RData</code> results</p>
+<p><code>delt_map.RData</code> SpatialPolygon object of generalized delta map</p>
+<p><code>flow_dat.RData</code> time series of daily flow estimates for the delta, input stations from Novick et al (Fig 2) were used</p>
+<p><code>h1dat.RData</code> mean models to support first hypothesis/case study in manuscript, wrtds mean models at c10</p>
+<p><code>h2dat.RData</code> mean models to support second hypothesis/case study in manuscript, wrtds mean models for no23, nh at p8</p>
+<p><code>h3dat.RData</code> mean models to support third hypothesis/case study in manuscript, wrtds mean models for sio2, din, chla at c10, d7</p>
+<p><code>mods.RData</code> complete dataset for wrtds, including model results.</p>
 <p><code>stock_conc.RData</code> summarized effluent data from Stockton wwtp, mg/L</p>
 <p><code>stock_load.RData</code> nutrient load data from Stockton, kg/day</p>
 <p><code>trnds_ave.RData</code> trend summary of averages by annual, monthly categories</p>
