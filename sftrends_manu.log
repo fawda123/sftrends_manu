@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  8 DEC 2016 16:34
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  9 DEC 2016 16:09
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -735,12 +735,12 @@ File: figs/dinc10dyna-1.pdf Graphic file (type pdf)
 <use figs/dinc10dyna-1.pdf>
 Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 330.
 (pdftex.def)             Requested size: 469.75502pt x 313.17879pt.
- <figs/stock-1.pdf, id=418, 578.16pt x 361.35pt>
+ <figs/stock-1.pdf, id=418, 578.16pt x 216.81pt>
 File: figs/stock-1.pdf Graphic file (type pdf)
 
 <use figs/stock-1.pdf>
 Package pdftex.def Info: figs/stock-1.pdf used on input line 341.
-(pdftex.def)             Requested size: 469.75502pt x 293.59616pt.
+(pdftex.def)             Requested size: 469.75502pt x 176.15768pt.
  <figs/p8trnds-1.pdf, id=419, 650.43pt x 578.16pt>
 File: figs/p8trnds-1.pdf Graphic file (type pdf)
 
@@ -765,10 +765,10 @@ Package pdftex.def Info: figs/d7c10trnds-1.pdf used on input line 374.
  [19 <M:/docs/manuscripts/sftrends_manu/figs/schematic.pdf>] [20 <M:/docs/manus
 cripts/sftrends_manu/figs/trndmap-1.pdf>] [21 <M:/docs/manuscripts/sftrends_man
 u/figs/dinc10-1.pdf>] [22 <M:/docs/manuscripts/sftrends_manu/figs/dinc10dyna-1.
-pdf>] [23 <M:/docs/manuscripts/sftrends_manu/figs/stock-1.pdf>] [24 <M:/docs/ma
-nuscripts/sftrends_manu/figs/p8trnds-1.pdf>]
-[25 <M:/docs/manuscripts/sftrends_manu/figs/clmchl-1.pdf>] [26 <M:/docs/manuscr
-ipts/sftrends_manu/figs/d7c10trnds-1.pdf>]
+pdf> <M:/docs/manuscripts/sftrends_manu/figs/stock-1.pdf>] [23 <M:/docs/manuscr
+ipts/sftrends_manu/figs/p8trnds-1.pdf>] [24 <M:/docs/manuscripts/sftrends_manu/
+figs/clmchl-1.pdf>] [25 <M:/docs/manuscripts/sftrends_manu/figs/d7c10trnds-1.pd
+f>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 399.
 
@@ -779,7 +779,7 @@ Overfull \hbox (15.69351pt too wide) in paragraph at lines 392--431
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 433.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 530.
-[27] [28] [29] [30]
+[26] [27] [28] [29]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 530.
  (M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 530.
@@ -793,8 +793,8 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 530.
  ) 
 Here is how much of TeX's memory you used:
- 11876 strings out of 493921
- 187535 string characters out of 3147282
+ 11875 strings out of 493921
+ 187528 string characters out of 3147282
  326682 words of memory out of 3000000
  14840 multiletter control sequences out of 15000+200000
  39496 words of font info for 81 fonts, out of 3000000 for 9000
@@ -811,9 +811,9 @@ Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
 ri8a.pfb>
-Output written on sftrends_manu.pdf (30 pages, 1310741 bytes).
+Output written on sftrends_manu.pdf (29 pages, 1292369 bytes).
 PDF statistics:
- 643 PDF objects out of 1000 (max. 8388607)
- 127 named destinations out of 1000 (max. 500000)
+ 638 PDF objects out of 1000 (max. 8388607)
+ 126 named destinations out of 1000 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 

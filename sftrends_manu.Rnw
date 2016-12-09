@@ -648,7 +648,7 @@ grid.arrange(
   )
 @
 
-<<stock, fig.height = 5, fig.width = 8, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in 2006 for nitrification/denitrification and tertiary filtration to convert ammonium to nitrate.'>>=
+<<stock, fig.height = 3, fig.width = 8, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in 2006 for nitrification/denitrification and tertiary filtration to convert ammonium to nitrate.'>>=
 data(stock_conc)
 
 stock_conc <- filter(stock_conc, date >= as.Date('2003-01-01'))
@@ -671,7 +671,6 @@ toplo1 <- stock_conc %>%
 toplo2 <- stock_conc
 
 ylab1 <- expression(paste("Total nitrogen (mg ", L^-1, ")"))
-ylab2 <- '% of total nitrogen'
 xrng <- range(c(toplo1$date, toplo2$date))
 yrng <- c(0, 50)
 leglabs <- list(
@@ -682,41 +681,25 @@ leglabs <- list(
 
 lndate <- as.Date('2006/01/01')
 
-p1 <- ggplot(toplo1) + 
-  geom_line(colour = lncol, aes(x = date, y = TN)) + 
+p1 <- ggplot(toplo2) + 
+  geom_area(aes(x = date, y = val, group = var, fill = var), stat = 'identity', position = 'stack') + 
   scale_x_date(expand = c(0, 0), limits = xrng) + 
-  scale_y_continuous(ylab1, expand = c(0, 0), limits = yrng) + 
+  scale_fill_brewer(palette = 'Blues', labels = leglabs) + 
   geom_vline(xintercept = as.numeric(lndate), linetype = 'dashed') +
   geom_label_repel(
     data = data.frame(x = lndate, y = 35), 
     aes(x, y, label = 'WWTP upgrades'), 
     box.padding = grid::unit(2, "lines"), 
     nudge_x = 1
-    ) + 
-  ptheme
-
-p2 <- ggplot(toplo2) + 
-  geom_area(aes(x = date, y = val, group = var, fill = var), stat = 'identity', position = 'fill') + 
-  scale_x_date(expand = c(0, 0), limits = xrng) + 
-  scale_fill_brewer(palette = 'Blues', labels = leglabs) + 
-  geom_vline(xintercept = as.numeric(lndate), linetype = 'dashed') +
-  scale_y_continuous(ylab2, expand = c(0, 0)) + 
+    ) +
+  scale_y_continuous(ylab1, expand = c(0, 0)) + 
   ptheme + 
   theme(
     legend.position = 'top', 
     legend.title = element_blank()
     )
 
-# align widths of plots in first column, first two
-pA <- ggplot_gtable(ggplot_build(p1))
-pB <- ggplot_gtable(ggplot_build(p2))
-maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3])
-
-# Set the widths
-pA$widths[2:3] <- maxWidth
-pB$widths[2:3] <- maxWidth
-
-grid.arrange(pA, pB, ncol = 1, heights = c(0.8, 1))
+p1
 @
 
 <<p8trnds, fig.height = 8, fig.width = 9, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen trends at P8 as observed (a, top), predicted and flow-normalized estimates from \\ac{wrtds} (a, bottom), and relationships with flow over time (b).  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Stockton (San Joaquin County), were completed in May 2007 (\\cref{fig:stock}), coincident with a dramatic decrease in ammonium at P8.'>>=
