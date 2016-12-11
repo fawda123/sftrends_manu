@@ -56,7 +56,7 @@ Cloern JE, Jassby AD. 2012.
 \newblock Reviews of Geophysics, 50(4):1--33.
 
 \bibitem[Cloern et~al., 2012]{Cloern12}
-Cloern JE, Jassby AD, Carstensen J, Bennett WA, Kimmerer W, Nally RM,
+Cloern JE, Jassby AD, Carstensen J, Bennett WA, Kimmerer W, {Mac Nally} R,
   Schoellhamer DH, Winder M. 2012.
 \newblock Perils of correlating {CUSUM}-transformed variables to infer
   ecological relationships ({Breton et al. 2006}; {Glibert 2010}).
@@ -194,17 +194,17 @@ Lehman PW, Teh SJ, Boyer GL, Nobriga ML, Bass E, Hogle C. 2010.
   aquatic food web in the {S}an {F}rancisco {E}stuary.
 \newblock Hydrobiologia, 637(1):229--248.
 
+\bibitem[{Mac Nally} et~al., 2010]{MacNally10}
+{Mac Nally} R, Thompson JR, Kimmerer WJ, Feyrer F, Newman KB, Sih A, Bennett
+  WA, Brown L, Fleishman E, Culberson SD, Castillo G. 2010.
+\newblock Analysis of pelagic species decline in the upper {S}an {F}rancisco
+  {E}stuary using multivariate autoregressive modeling ({MAR}).
+\newblock Ecological Applications, 20(5):1417--1430.
+
 \bibitem[Millard, 2013]{Millard13}
 Millard SP. 2013.
 \newblock EnvStats: An R Package for Environmental Statistics.
 \newblock Springer, New York.
-
-\bibitem[Nally et~al., 2010]{MacNally10}
-Nally RM, Thompson JR, Kimmerer WJ, Feyrer F, Newman KB, Sih A, Bennett WA,
-  Brown L, Fleishman E, Culberson SD, Castillo G. 2010.
-\newblock Analysis of pelagic species decline in the upper {S}an {F}rancisco
-  {E}stuary using multivariate autoregressive modeling ({MAR}).
-\newblock Ecological Applications, 20(5):1417--1430.
 
 \bibitem[Nichols et~al., 1990]{Nichols90}
 Nichols FH, Thompson JK, Schemel LE. 1990.
