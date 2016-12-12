@@ -278,12 +278,18 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \label{fig:schematic}   
 \end{figure}
 
-<<trndmap, fig.cap = 'Percent change per year in nitrogen analytes for aggregations by (a) year, (b) seasons from 1976-1995, and (c) seasons from 1996-2014.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Values less than -9\\% change were truncated for visual clarity of the bar plots, see \\cref{tab:trnds} for actual values. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.', fig.height = 8, fig.width = 8, cache = T, out.width = '\\textwidth'>>=
+<<trndmap, fig.cap = 'Percent change per year in nitrogen analytes for aggregations by (a) year, (b) seasons from 1976-1995, and (c) seasons from 1996-2013.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Values less than -9\\% change were truncated for visual clarity of the bar plots, see \\cref{tab:trnds} for actual values. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.', fig.height = 8, fig.width = 8, cache = T, out.width = '\\textwidth'>>=
 
 # load required data
 data(delt_dat)
 data(delt_map)
 data(trnds_seasyr)
+
+# combine all
+trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>% 
+  select(Site_Code, resvar, cat, perchg, ann, trndvar) %>% 
+  spread(trndvar, perchg) %>% 
+  mutate(Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'C10', 'C3')))
 
 ##
 # get a bounding box for the stations
@@ -382,7 +388,7 @@ toplo <- select(trnds_seasyr, Site_Code, resvar, ann, cat, norm) %>%
   mutate(
     cattype = factor(cattype),
     cattype = fct_collapse(cattype, 
-      an = c('1976-1995bef', '1996-2014aft'),
+      an = c('1976-1995bef', '1996-2013aft'),
       mobef = paste0(c('Spring', 'Summer', 'Fall', 'Winter'), 'bef'), 
       moaft = paste0(c('Spring', 'Summer', 'Fall', 'Winter'), 'aft') 
     )
@@ -445,7 +451,7 @@ for(uni in unis){
   # keep bar widths the same for cattypes
   subwid <- 0.1
   if(grepl('an$', uni))
-    subwid <- subwid/2
+    subwid <- 0.06
   
   for(i in 1:length(bars)){
   
@@ -475,9 +481,9 @@ leg <- g_legend(leg)
 grid.arrange(
   leg,
   arrangeGrob(
-    arrangeGrob (plo_ls[[1]], plo_ls[[4]], plo_ls[[7]], ncol = 1, top = c('(a) 1976-1995, 1996-2014')), 
+    arrangeGrob (plo_ls[[1]], plo_ls[[4]], plo_ls[[7]], ncol = 1, top = c('(a) 1976-1995, 1996-2013')), 
     arrangeGrob(plo_ls[[3]], plo_ls[[6]], plo_ls[[9]], ncol = 1, top = c('(b) Sp, Su, Fa, Wi (1976-1995)')),
-    arrangeGrob(plo_ls[[2]], plo_ls[[5]], plo_ls[[8]], ncol = 1, top = c('(c) Sp, Su, Fa, Wi (1996-2014)')),
+    arrangeGrob(plo_ls[[2]], plo_ls[[5]], plo_ls[[8]], ncol = 1, top = c('(c) Sp, Su, Fa, Wi (1996-2013)')),
     ncol = 3
     ),
   ncol = 1, 
@@ -1228,11 +1234,12 @@ grid.arrange(
 % tables
 
 % overall trends, years
-<<trnds>>=
-data(trnds_sk)
+<<trndsann>>=
+data(trnds_seasyr)
 
 # percent changes
-tab <- trnds_sk %>% 
+tab <- trnds_nrm %>% 
+  filter(cat %in% c('1976-1995', '1996-2013')) %>% 
   select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
   mutate(
     med = round(med, 1), 
@@ -1251,10 +1258,10 @@ tab <- trnds_sk %>%
   unite('val', med, perchg, sep = ' ') %>% 
   spread(cat, val) %>% 
   arrange(resvar, Site_Code) %>% 
-  select(Site_Code, resvar, `1976-1995`, `1996-2014`, Spring, Summer, Fall, Winter)
+  select(Site_Code, resvar, `1976-1995`, `1996-2013`)
 
 # table stuff
-cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and different time periods.  Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and annual aggregations.  Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends.'
 foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
 vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 stats <- tab$Site_Code
@@ -1268,10 +1275,116 @@ latex(
   caption.loc = 'top',
   rgroup = vars,
   n.rgroup = c(9, 9, 9),
-  cgroup = c('Annual', 'Seasonal'),
-  n.cgroup = c(2, 4),
+  cgroup = c('Annual'),
+  n.cgroup = c(2),
   rowname = stats,
-  label = 'tab:trnds',
+  label = 'tab:trndsann',
+  insert.bottom = foot.val
+  )
+
+@
+
+% overall trends, seasons, first annual periodyears
+<<trndsbef>>=
+data(trnds_seasyr)
+
+# percent changes
+tab <- trnds_nrm %>% 
+  filter(
+    cat %in% c('Spring', 'Summer', 'Fall', 'Winter') &
+    ann %in% 'bef'
+    ) %>% 
+  select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
+  mutate(
+    med = round(med, 1), 
+    perchg = round(perchg, 1),
+    perchg = ifelse(
+      perchg < 0, 
+      paste0('(', perchg, ')' ), 
+      paste0('(\\textit{\\textbf{', perchg, '}})')
+      ), 
+    ztest = p_ast(ztest)
+  ) %>% 
+  unite('perchg', perchg, ztest, sep = '') %>% 
+  mutate(
+    perchg = paste0('\\footnotesize{', perchg, '}')
+  ) %>% 
+  unite('val', med, perchg, sep = ' ') %>% 
+  spread(cat, val) %>% 
+  arrange(resvar, Site_Code)
+
+# table stuff
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1976-1995. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
+vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
+stats <- tab$Site_Code
+
+# table
+latex( 
+  tab[, -c(1, 2)],
+  file = '',
+  rowlabel = 'Analyte/Station',
+  caption = cap.val,
+  caption.loc = 'top',
+  rgroup = vars,
+  n.rgroup = c(9, 9, 9),
+  cgroup = c('Seasonal, 1976-1995'),
+  n.cgroup = c(4),
+  rowname = stats,
+  label = 'tab:trndsbef',
+  insert.bottom = foot.val
+  )
+
+@
+
+% overall trends, seasons, first annual periodyears
+<<trndsaft>>=
+data(trnds_seasyr)
+
+# percent changes
+tab <- trnds_nrm %>% 
+  filter(
+    cat %in% c('Spring', 'Summer', 'Fall', 'Winter') &
+    ann %in% 'aft'
+    ) %>% 
+  select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
+  mutate(
+    med = round(med, 1), 
+    perchg = round(perchg, 1),
+    perchg = ifelse(
+      perchg < 0, 
+      paste0('(', perchg, ')' ), 
+      paste0('(\\textit{\\textbf{', perchg, '}})')
+      ), 
+    ztest = p_ast(ztest)
+  ) %>% 
+  unite('perchg', perchg, ztest, sep = '') %>% 
+  mutate(
+    perchg = paste0('\\footnotesize{', perchg, '}')
+  ) %>% 
+  unite('val', med, perchg, sep = ' ') %>% 
+  spread(cat, val) %>% 
+  arrange(resvar, Site_Code)
+
+# table stuff
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1996-2013. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
+vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
+stats <- tab$Site_Code
+
+# table
+latex( 
+  tab[, -c(1, 2)],
+  file = '',
+  rowlabel = 'Analyte/Station',
+  caption = cap.val,
+  caption.loc = 'top',
+  rgroup = vars,
+  n.rgroup = c(9, 9, 9),
+  cgroup = c('Seasonal, 1996-2013'),
+  n.cgroup = c(4),
+  rowname = stats,
+  label = 'tab:trndsaft',
   insert.bottom = foot.val
   )
 

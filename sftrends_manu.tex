@@ -148,7 +148,7 @@
 	\\{\textit {\normalsize Phone: 510-746-7334, Fax: 510-746-7300}}
 	\\{\textit {\normalsize Emails: \href{mailto:davids@sfei.org}{davids@sfei.org}, \href{mailto:philb@sfei.org}{philb@sfei.org}, \href{mailto:emilyn@sfei.org}{emilyn@sfei.org}, \href{mailto:thomasj@sfei.org}{thomasj@sfei.org}}}
   \vspace{1in} 
-  \\ Version Date:   Fri Dec 9 16:31:55 2016 -0600
+  \\ Version Date:   Sun Dec 11 11:23:55 2016 -0600
 	}
 \date{}
 \maketitle
@@ -309,7 +309,7 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 
 }
 
-\caption{Percent change per year in nitrogen analytes for aggregations by (a) year, (b) seasons from 1976-1995, and (c) seasons from 1996-2014.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Values less than -9\% change were truncated for visual clarity of the bar plots, see \cref{tab:trnds} for actual values. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.}\label{fig:trndmap}
+\caption{Percent change per year in nitrogen analytes for aggregations by (a) year, (b) seasons from 1976-1995, and (c) seasons from 1996-2013.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Values less than -9\% change were truncated for visual clarity of the bar plots, see \cref{tab:trnds} for actual values. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.}\label{fig:trndmap}
 \end{figure}
 
 
@@ -385,48 +385,146 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 % tables
 
 % overall trends, years
-%latex.default(tab[, -c(1, 2)], file = "", rowlabel = "Analyte/Station",     caption = cap.val, caption.loc = "top", rgroup = vars, n.rgroup = c(9,         9, 9), cgroup = c("Annual", "Seasonal"), n.cgroup = c(2,         4), rowname = stats, label = "tab:trnds", insert.bottom = foot.val)%
+%latex.default(tab[, -c(1, 2)], file = "", rowlabel = "Analyte/Station",     caption = cap.val, caption.loc = "top", rgroup = vars, n.rgroup = c(9,         9, 9), cgroup = c("Annual"), n.cgroup = c(2), rowname = stats,     label = "tab:trndsann", insert.bottom = foot.val)%
 \begin{table}[!tbp]
-\caption{Summaries of flow-normalized trends in nitrogen analytes for all stations and different time periods.  Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.\label{tab:trnds}} 
+\caption{Summaries of flow-normalized trends in nitrogen analytes for all stations and annual aggregations.  Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \cref{fig:trndmap} for a summary of spatial trends.\label{tab:trndsann}} 
 \begin{center}
-\begin{tabular}{lllcllll}
+\begin{tabular}{lll}
 \hline\hline
-\multicolumn{1}{l}{\bfseries Analyte/Station}&\multicolumn{2}{c}{\bfseries Annual}&\multicolumn{1}{c}{\bfseries }&\multicolumn{4}{c}{\bfseries Seasonal}\tabularnewline
-\cline{2-3} \cline{5-8}
-\multicolumn{1}{l}{}&\multicolumn{1}{c}{1976-1995}&\multicolumn{1}{c}{1996-2014}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Spring}&\multicolumn{1}{c}{Summer}&\multicolumn{1}{c}{Fall}&\multicolumn{1}{c}{Winter}\tabularnewline
+\multicolumn{1}{l}{\bfseries Analyte/Station}&\multicolumn{2}{c}{\bfseries Annual}\tabularnewline
+\cline{2-3}
+\multicolumn{1}{l}{}&\multicolumn{1}{c}{1976-1995}&\multicolumn{1}{c}{1996-2013}\tabularnewline
 \hline
-{\bfseries DIN}&&&&&&&\tabularnewline
-~~C10&1.3 \footnotesize{(\textit{\textbf{0.8}})**}&1.4 \footnotesize{(-3.1)**}&&1.1 \footnotesize{(-0.1)}&1.2 \footnotesize{(\textit{\textbf{0.1}})}&1.4 \footnotesize{(\textit{\textbf{0.6}})**}&1.7 \footnotesize{(\textit{\textbf{0.1}})}\tabularnewline
-~~C3&0.3 \footnotesize{(\textit{\textbf{2.2}})**}&0.5 \footnotesize{(-0.1)**}&&0.4 \footnotesize{(\textit{\textbf{1.8}})**}&0.3 \footnotesize{(\textit{\textbf{1.9}})**}&0.4 \footnotesize{(\textit{\textbf{1.7}})**}&0.5 \footnotesize{(\textit{\textbf{1}})**}\tabularnewline
-~~D19&0.4 \footnotesize{(\textit{\textbf{0.2}})**}&0.4 \footnotesize{(-1.9)**}&&0.5 \footnotesize{(-0.4)**}&0.2 \footnotesize{(\textit{\textbf{0}})}&0.3 \footnotesize{(\textit{\textbf{0.2}})}&0.7 \footnotesize{(-0.5)**}\tabularnewline
-~~D26&0.4 \footnotesize{(\textit{\textbf{0.4}})**}&0.5 \footnotesize{(-1.2)**}&&0.5 \footnotesize{(\textit{\textbf{0}})}&0.3 \footnotesize{(\textit{\textbf{0.4}})**}&0.4 \footnotesize{(\textit{\textbf{0.5}})**}&0.6 \footnotesize{(-0.2)**}\tabularnewline
-~~D28&0.4 \footnotesize{(\textit{\textbf{0.1}})**}&0.4 \footnotesize{(-3.1)**}&&0.5 \footnotesize{(-0.5)**}&0.2 \footnotesize{(-0.9)**}&0.3 \footnotesize{(-1.1)**}&0.8 \footnotesize{(-0.8)**}\tabularnewline
-~~D4&0.3 \footnotesize{(\textit{\textbf{0.6}})**}&0.4 \footnotesize{(-0.3)**}&&0.4 \footnotesize{(\textit{\textbf{0.4}})**}&0.3 \footnotesize{(\textit{\textbf{0.8}})**}&0.4 \footnotesize{(\textit{\textbf{0.5}})**}&0.5 \footnotesize{(\textit{\textbf{0.4}})**}\tabularnewline
-~~D6&0.4 \footnotesize{(\textit{\textbf{1.8}})**}&0.5 \footnotesize{(-0.3)**}&&0.5 \footnotesize{(\textit{\textbf{0.2}})**}&0.4 \footnotesize{(\textit{\textbf{1.6}})**}&0.4 \footnotesize{(\textit{\textbf{0.9}})**}&0.5 \footnotesize{(\textit{\textbf{0.2}})*}\tabularnewline
-~~D7&0.4 \footnotesize{(\textit{\textbf{1.7}})**}&0.5 \footnotesize{(-0.7)**}&&0.5 \footnotesize{(-0.1)}&0.4 \footnotesize{(\textit{\textbf{1.5}})**}&0.4 \footnotesize{(\textit{\textbf{0.6}})**}&0.6 \footnotesize{(-0.2)}\tabularnewline
-~~P8&1.3 \footnotesize{(\textit{\textbf{2.5}})**}&1.7 \footnotesize{(-2)**}&&1.4 \footnotesize{(\textit{\textbf{0.7}})**}&1 \footnotesize{(\textit{\textbf{1.4}})**}&1.6 \footnotesize{(\textit{\textbf{2}})**}&2.2 \footnotesize{(\textit{\textbf{1.7}})**}\tabularnewline
+{\bfseries DIN}&&\tabularnewline
+~~C10&1.3 \footnotesize{(\textit{\textbf{0.8}})**}&1.4 \footnotesize{(-3.1)**}\tabularnewline
+~~C3&0.3 \footnotesize{(\textit{\textbf{2.2}})**}&0.5 \footnotesize{(-0.1)**}\tabularnewline
+~~D19&0.4 \footnotesize{(\textit{\textbf{0.2}})**}&0.4 \footnotesize{(-1.9)**}\tabularnewline
+~~D26&0.4 \footnotesize{(\textit{\textbf{0.4}})**}&0.5 \footnotesize{(-1.2)**}\tabularnewline
+~~D28&0.4 \footnotesize{(\textit{\textbf{0.1}})**}&0.4 \footnotesize{(-3.1)**}\tabularnewline
+~~D4&0.3 \footnotesize{(\textit{\textbf{0.6}})**}&0.4 \footnotesize{(-0.3)**}\tabularnewline
+~~D6&0.4 \footnotesize{(\textit{\textbf{1.8}})**}&0.5 \footnotesize{(-0.3)**}\tabularnewline
+~~D7&0.4 \footnotesize{(\textit{\textbf{1.7}})**}&0.5 \footnotesize{(-0.7)**}\tabularnewline
+~~P8&1.3 \footnotesize{(\textit{\textbf{2.5}})**}&1.7 \footnotesize{(-2)**}\tabularnewline
 \hline
-{\bfseries NH$_{4}^{+}$}&&&&&&&\tabularnewline
-~~C10&0.1 \footnotesize{(-3.4)**}&0 \footnotesize{(-5.2)**}&&0 \footnotesize{(-4.4)**}&0 \footnotesize{(-6.9)**}&0.1 \footnotesize{(-8.7)**}&0.2 \footnotesize{(-4.3)**}\tabularnewline
-~~C3&0.2 \footnotesize{(\textit{\textbf{3.7}})**}&0.3 \footnotesize{(\textit{\textbf{0}})}&&0.2 \footnotesize{(\textit{\textbf{2.9}})**}&0.2 \footnotesize{(\textit{\textbf{2.8}})**}&0.3 \footnotesize{(\textit{\textbf{2.2}})**}&0.2 \footnotesize{(\textit{\textbf{2}})**}\tabularnewline
-~~D19&0 \footnotesize{(\textit{\textbf{0.4}})**}&0 \footnotesize{(-1.7)**}&&0.1 \footnotesize{(-0.7)**}&0 \footnotesize{(-0.5)**}&0 \footnotesize{(\textit{\textbf{0}})}&0.1 \footnotesize{(-0.6)**}\tabularnewline
-~~D26&0.1 \footnotesize{(\textit{\textbf{2.2}})**}&0.1 \footnotesize{(-1.5)**}&&0.1 \footnotesize{(\textit{\textbf{0}})}&0.1 \footnotesize{(\textit{\textbf{1}})**}&0.1 \footnotesize{(\textit{\textbf{0.5}})**}&0.1 \footnotesize{(-0.2)*}\tabularnewline
-~~D28&0 \footnotesize{(-1.1)**}&0 \footnotesize{(-1.4)**}&&0 \footnotesize{(-1.2)**}&0 \footnotesize{(-0.4)*}&0 \footnotesize{(-0.9)**}&0.1 \footnotesize{(-1.4)**}\tabularnewline
-~~D4&0 \footnotesize{(\textit{\textbf{0.9}})**}&0.1 \footnotesize{(\textit{\textbf{0}})}&&0.1 \footnotesize{(\textit{\textbf{1.7}})**}&0 \footnotesize{(\textit{\textbf{1.3}})**}&0.1 \footnotesize{(\textit{\textbf{1.2}})**}&0.1 \footnotesize{(\textit{\textbf{1.4}})**}\tabularnewline
-~~D6&0.1 \footnotesize{(\textit{\textbf{2.4}})**}&0.1 \footnotesize{(-0.5)**}&&0.1 \footnotesize{(\textit{\textbf{0.6}})**}&0.1 \footnotesize{(\textit{\textbf{1.4}})**}&0.1 \footnotesize{(\textit{\textbf{1.1}})**}&0.1 \footnotesize{(\textit{\textbf{0.7}})**}\tabularnewline
-~~D7&0.1 \footnotesize{(\textit{\textbf{1.5}})**}&0.1 \footnotesize{(-1.2)**}&&0.1 \footnotesize{(\textit{\textbf{0.5}})*}&0 \footnotesize{(\textit{\textbf{0.9}})**}&0.1 \footnotesize{(\textit{\textbf{0.4}})**}&0.1 \footnotesize{(\textit{\textbf{0.4}})**}\tabularnewline
-~~P8&0.2 \footnotesize{(\textit{\textbf{4.9}})**}&0.1 \footnotesize{(-10.3)**}&&0.2 \footnotesize{(-0.5)}&0.1 \footnotesize{(\textit{\textbf{1.3}})**}&0.2 \footnotesize{(\textit{\textbf{1.9}})*}&0.6 \footnotesize{(\textit{\textbf{1}})}\tabularnewline
+{\bfseries NH$_{4}^{+}$}&&\tabularnewline
+~~C10&0.1 \footnotesize{(-3.4)**}&0 \footnotesize{(-5.2)**}\tabularnewline
+~~C3&0.2 \footnotesize{(\textit{\textbf{3.7}})**}&0.3 \footnotesize{(\textit{\textbf{0}})}\tabularnewline
+~~D19&0 \footnotesize{(\textit{\textbf{0.4}})**}&0 \footnotesize{(-1.7)**}\tabularnewline
+~~D26&0.1 \footnotesize{(\textit{\textbf{2.2}})**}&0.1 \footnotesize{(-1.5)**}\tabularnewline
+~~D28&0 \footnotesize{(-1.1)**}&0 \footnotesize{(-1.4)**}\tabularnewline
+~~D4&0 \footnotesize{(\textit{\textbf{0.9}})**}&0.1 \footnotesize{(\textit{\textbf{0}})}\tabularnewline
+~~D6&0.1 \footnotesize{(\textit{\textbf{2.4}})**}&0.1 \footnotesize{(-0.5)**}\tabularnewline
+~~D7&0.1 \footnotesize{(\textit{\textbf{1.5}})**}&0.1 \footnotesize{(-1.2)**}\tabularnewline
+~~P8&0.2 \footnotesize{(\textit{\textbf{4.9}})**}&0.1 \footnotesize{(-10.3)**}\tabularnewline
 \hline
-{\bfseries NO$_{2}^{-}$/NO$_{3}^{2-}$}&&&&&&&\tabularnewline
-~~C10&1.2 \footnotesize{(\textit{\textbf{1.4}})**}&1.4 \footnotesize{(-3)**}&&1.1 \footnotesize{(\textit{\textbf{0.1}})}&1.2 \footnotesize{(\textit{\textbf{0.2}})}&1.3 \footnotesize{(\textit{\textbf{1.2}})**}&1.5 \footnotesize{(\textit{\textbf{0.8}})**}\tabularnewline
-~~C3&0.1 \footnotesize{(-0.1)**}&0.2 \footnotesize{(\textit{\textbf{0.7}})**}&&0.2 \footnotesize{(\textit{\textbf{0.5}})**}&0.1 \footnotesize{(\textit{\textbf{0.7}})**}&0.1 \footnotesize{(\textit{\textbf{0.9}})**}&0.2 \footnotesize{(\textit{\textbf{0.4}})**}\tabularnewline
-~~D19&0.4 \footnotesize{(-0.1)**}&0.4 \footnotesize{(-1.9)**}&&0.4 \footnotesize{(-0.3)*}&0.2 \footnotesize{(-0.3)*}&0.3 \footnotesize{(-0.1)}&0.6 \footnotesize{(-0.6)**}\tabularnewline
-~~D26&0.3 \footnotesize{(\textit{\textbf{0}})}&0.4 \footnotesize{(-1.1)**}&&0.4 \footnotesize{(\textit{\textbf{0}})}&0.2 \footnotesize{(\textit{\textbf{0.2}})*}&0.3 \footnotesize{(\textit{\textbf{0.4}})**}&0.5 \footnotesize{(-0.1)}\tabularnewline
-~~D28&0.4 \footnotesize{(-0.2)**}&0.4 \footnotesize{(-3.1)**}&&0.5 \footnotesize{(-0.5)*}&0.2 \footnotesize{(-1.5)**}&0.3 \footnotesize{(-1.4)**}&0.7 \footnotesize{(-0.8)**}\tabularnewline
-~~D4&0.3 \footnotesize{(\textit{\textbf{0.7}})**}&0.3 \footnotesize{(-0.4)**}&&0.3 \footnotesize{(\textit{\textbf{0.2}})*}&0.3 \footnotesize{(\textit{\textbf{0.7}})**}&0.3 \footnotesize{(\textit{\textbf{0.2}})*}&0.4 \footnotesize{(\textit{\textbf{0.1}})}\tabularnewline
-~~D6&0.3 \footnotesize{(\textit{\textbf{1.3}})**}&0.4 \footnotesize{(-0.3)**}&&0.4 \footnotesize{(\textit{\textbf{0.2}})*}&0.4 \footnotesize{(\textit{\textbf{1.4}})**}&0.4 \footnotesize{(\textit{\textbf{0.6}})**}&0.4 \footnotesize{(\textit{\textbf{0.1}})}\tabularnewline
-~~D7&0.4 \footnotesize{(\textit{\textbf{0.7}})**}&0.4 \footnotesize{(-0.7)**}&&0.4 \footnotesize{(-0.3)**}&0.4 \footnotesize{(\textit{\textbf{1.2}})**}&0.4 \footnotesize{(-0.1)}&0.4 \footnotesize{(-0.5)**}\tabularnewline
-~~P8&1.2 \footnotesize{(\textit{\textbf{1.7}})**}&1.5 \footnotesize{(-0.6)**}&&1.2 \footnotesize{(\textit{\textbf{1}})**}&1 \footnotesize{(\textit{\textbf{1.2}})**}&1.4 \footnotesize{(\textit{\textbf{1.7}})**}&1.6 \footnotesize{(\textit{\textbf{1.7}})**}\tabularnewline
+{\bfseries NO$_{2}^{-}$/NO$_{3}^{2-}$}&&\tabularnewline
+~~C10&1.2 \footnotesize{(\textit{\textbf{1.4}})**}&1.4 \footnotesize{(-3)**}\tabularnewline
+~~C3&0.1 \footnotesize{(-0.1)**}&0.2 \footnotesize{(\textit{\textbf{0.7}})**}\tabularnewline
+~~D19&0.4 \footnotesize{(-0.1)**}&0.4 \footnotesize{(-1.9)**}\tabularnewline
+~~D26&0.3 \footnotesize{(\textit{\textbf{0}})}&0.4 \footnotesize{(-1.1)**}\tabularnewline
+~~D28&0.4 \footnotesize{(-0.2)**}&0.4 \footnotesize{(-3.1)**}\tabularnewline
+~~D4&0.3 \footnotesize{(\textit{\textbf{0.7}})**}&0.3 \footnotesize{(-0.4)**}\tabularnewline
+~~D6&0.3 \footnotesize{(\textit{\textbf{1.3}})**}&0.4 \footnotesize{(-0.3)**}\tabularnewline
+~~D7&0.4 \footnotesize{(\textit{\textbf{0.7}})**}&0.4 \footnotesize{(-0.7)**}\tabularnewline
+~~P8&1.2 \footnotesize{(\textit{\textbf{1.7}})**}&1.5 \footnotesize{(-0.6)**}\tabularnewline
+\hline
+\end{tabular}\end{center}
+
+\footnotesize *$p<0.05$; **$p<0.005$\end{table}
+
+
+% overall trends, seasons, first annual periodyears
+%latex.default(tab[, -c(1, 2)], file = "", rowlabel = "Analyte/Station",     caption = cap.val, caption.loc = "top", rgroup = vars, n.rgroup = c(9,         9, 9), cgroup = c("Seasonal, 1976-1995"), n.cgroup = c(4),     rowname = stats, label = "tab:trndsbef", insert.bottom = foot.val)%
+\begin{table}[!tbp]
+\caption{Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1976-1995. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.\label{tab:trndsbef}} 
+\begin{center}
+\begin{tabular}{lllll}
+\hline\hline
+\multicolumn{1}{l}{\bfseries Analyte/Station}&\multicolumn{4}{c}{\bfseries Seasonal, 1976-1995}\tabularnewline
+\cline{2-5}
+\multicolumn{1}{l}{}&\multicolumn{1}{c}{Spring}&\multicolumn{1}{c}{Summer}&\multicolumn{1}{c}{Fall}&\multicolumn{1}{c}{Winter}\tabularnewline
+\hline
+{\bfseries DIN}&&&&\tabularnewline
+~~C10&1.2 \footnotesize{(\textit{\textbf{1.1}})**}&1.2 \footnotesize{(\textit{\textbf{0.3}})}&1.3 \footnotesize{(\textit{\textbf{0.5}})**}&1.7 \footnotesize{(\textit{\textbf{1.2}})**}\tabularnewline
+~~C3&0.3 \footnotesize{(\textit{\textbf{2.4}})**}&0.3 \footnotesize{(\textit{\textbf{2.3}})**}&0.4 \footnotesize{(\textit{\textbf{2.4}})**}&0.4 \footnotesize{(\textit{\textbf{1.9}})**}\tabularnewline
+~~D19&0.5 \footnotesize{(\textit{\textbf{0.3}})}&0.2 \footnotesize{(\textit{\textbf{0.4}})}&0.3 \footnotesize{(\textit{\textbf{0.7}})**}&0.7 \footnotesize{(-0.2)}\tabularnewline
+~~D26&0.4 \footnotesize{(\textit{\textbf{0.7}})**}&0.3 \footnotesize{(\textit{\textbf{0.4}})*}&0.4 \footnotesize{(\textit{\textbf{1}})**}&0.6 \footnotesize{(\textit{\textbf{0.3}})}\tabularnewline
+~~D28&0.5 \footnotesize{(\textit{\textbf{0.8}})*}&0.2 \footnotesize{(\textit{\textbf{0.3}})}&0.3 \footnotesize{(\textit{\textbf{0.5}})*}&0.8 \footnotesize{(-0.3)}\tabularnewline
+~~D4&0.4 \footnotesize{(\textit{\textbf{0.2}})}&0.3 \footnotesize{(\textit{\textbf{1.4}})**}&0.3 \footnotesize{(\textit{\textbf{1.1}})**}&0.5 \footnotesize{(-0.5)}\tabularnewline
+~~D6&0.4 \footnotesize{(\textit{\textbf{0.4}})}&0.3 \footnotesize{(\textit{\textbf{4.6}})**}&0.4 \footnotesize{(\textit{\textbf{1.4}})**}&0.5 \footnotesize{(-0.7)*}\tabularnewline
+~~D7&0.4 \footnotesize{(-0.2)}&0.3 \footnotesize{(\textit{\textbf{4.2}})**}&0.4 \footnotesize{(\textit{\textbf{1.5}})**}&0.6 \footnotesize{(-2.4)**}\tabularnewline
+~~P8&1.3 \footnotesize{(\textit{\textbf{2.4}})**}&0.9 \footnotesize{(\textit{\textbf{2.4}})**}&1.3 \footnotesize{(\textit{\textbf{3.1}})**}&1.9 \footnotesize{(\textit{\textbf{2.1}})**}\tabularnewline
+\hline
+{\bfseries NH$_{4}^{+}$}&&&&\tabularnewline
+~~C10&0.1 \footnotesize{(-2.3)**}&0 \footnotesize{(-6.8)**}&0.1 \footnotesize{(-7.1)**}&0.3 \footnotesize{(-1.5)**}\tabularnewline
+~~C3&0.2 \footnotesize{(\textit{\textbf{3.9}})**}&0.2 \footnotesize{(\textit{\textbf{4}})**}&0.3 \footnotesize{(\textit{\textbf{3.8}})**}&0.2 \footnotesize{(\textit{\textbf{2.9}})**}\tabularnewline
+~~D19&0.1 \footnotesize{(\textit{\textbf{0.4}})*}&0 \footnotesize{(-1.7)**}&0 \footnotesize{(\textit{\textbf{1.2}})**}&0.1 \footnotesize{(\textit{\textbf{2.5}})**}\tabularnewline
+~~D26&0.1 \footnotesize{(\textit{\textbf{1.4}})**}&0.1 \footnotesize{(\textit{\textbf{2.5}})**}&0.1 \footnotesize{(\textit{\textbf{3.1}})**}&0.1 \footnotesize{(\textit{\textbf{2.3}})**}\tabularnewline
+~~D28&0.1 \footnotesize{(-0.5)}&0 \footnotesize{(-3.7)**}&0 \footnotesize{(-1.6)**}&0.1 \footnotesize{(\textit{\textbf{1.7}})**}\tabularnewline
+~~D4&0.1 \footnotesize{(\textit{\textbf{1.7}})**}&0 \footnotesize{(\textit{\textbf{1}})**}&0 \footnotesize{(-0.7)}&0.1 \footnotesize{(\textit{\textbf{2}})**}\tabularnewline
+~~D6&0.1 \footnotesize{(\textit{\textbf{2.9}})**}&0.1 \footnotesize{(\textit{\textbf{2.8}})**}&0.1 \footnotesize{(-0.1)}&0.1 \footnotesize{(\textit{\textbf{2.1}})**}\tabularnewline
+~~D7&0.1 \footnotesize{(\textit{\textbf{3.3}})**}&0 \footnotesize{(\textit{\textbf{2}})**}&0.1 \footnotesize{(-2.8)**}&0.1 \footnotesize{(\textit{\textbf{1.7}})**}\tabularnewline
+~~P8&0.2 \footnotesize{(\textit{\textbf{3.9}})**}&0.1 \footnotesize{(\textit{\textbf{1.8}})**}&0.2 \footnotesize{(\textit{\textbf{7}})**}&0.6 \footnotesize{(\textit{\textbf{7}})**}\tabularnewline
+\hline
+{\bfseries NO$_{2}^{-}$/NO$_{3}^{2-}$}&&&&\tabularnewline
+~~C10&1.1 \footnotesize{(\textit{\textbf{1.5}})**}&1.2 \footnotesize{(\textit{\textbf{0.6}})**}&1.2 \footnotesize{(\textit{\textbf{1.3}})**}&1.5 \footnotesize{(\textit{\textbf{1.8}})**}\tabularnewline
+~~C3&0.2 \footnotesize{(\textit{\textbf{0.7}})**}&0.1 \footnotesize{(-1)**}&0.1 \footnotesize{(-0.3)}&0.2 \footnotesize{(\textit{\textbf{1}})**}\tabularnewline
+~~D19&0.4 \footnotesize{(\textit{\textbf{0.4}})}&0.2 \footnotesize{(-0.3)}&0.3 \footnotesize{(\textit{\textbf{0.3}})}&0.6 \footnotesize{(-0.9)*}\tabularnewline
+~~D26&0.4 \footnotesize{(\textit{\textbf{0.6}})*}&0.2 \footnotesize{(-0.1)}&0.3 \footnotesize{(\textit{\textbf{0.3}})*}&0.5 \footnotesize{(-0.3)}\tabularnewline
+~~D28&0.5 \footnotesize{(\textit{\textbf{0.7}})*}&0.2 \footnotesize{(-0.1)}&0.3 \footnotesize{(\textit{\textbf{0.2}})}&0.7 \footnotesize{(-1)**}\tabularnewline
+~~D4&0.3 \footnotesize{(\textit{\textbf{0.1}})}&0.3 \footnotesize{(\textit{\textbf{1.4}})**}&0.3 \footnotesize{(\textit{\textbf{1.1}})**}&0.4 \footnotesize{(-0.8)*}\tabularnewline
+~~D6&0.4 \footnotesize{(-0.2)}&0.3 \footnotesize{(\textit{\textbf{4.1}})**}&0.3 \footnotesize{(\textit{\textbf{1.4}})**}&0.4 \footnotesize{(-1)**}\tabularnewline
+~~D7&0.4 \footnotesize{(-1)*}&0.3 \footnotesize{(\textit{\textbf{3.4}})**}&0.4 \footnotesize{(\textit{\textbf{0.4}})}&0.4 \footnotesize{(-3.6)**}\tabularnewline
+~~P8&1.2 \footnotesize{(\textit{\textbf{2}})**}&0.9 \footnotesize{(\textit{\textbf{2.3}})**}&1.1 \footnotesize{(\textit{\textbf{2}})**}&1.4 \footnotesize{(\textit{\textbf{1}})**}\tabularnewline
+\hline
+\end{tabular}\end{center}
+
+\footnotesize *$p<0.05$; **$p<0.005$\end{table}
+
+
+% overall trends, seasons, first annual periodyears
+%latex.default(tab[, -c(1, 2)], file = "", rowlabel = "Analyte/Station",     caption = cap.val, caption.loc = "top", rgroup = vars, n.rgroup = c(9,         9, 9), cgroup = c("Seasonal, 1996-2013"), n.cgroup = c(4),     rowname = stats, label = "tab:trndsaft", insert.bottom = foot.val)%
+\begin{table}[!tbp]
+\caption{Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1996-2013. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.\label{tab:trndsaft}} 
+\begin{center}
+\begin{tabular}{lllll}
+\hline\hline
+\multicolumn{1}{l}{\bfseries Analyte/Station}&\multicolumn{4}{c}{\bfseries Seasonal, 1996-2013}\tabularnewline
+\cline{2-5}
+\multicolumn{1}{l}{}&\multicolumn{1}{c}{Spring}&\multicolumn{1}{c}{Summer}&\multicolumn{1}{c}{Fall}&\multicolumn{1}{c}{Winter}\tabularnewline
+\hline
+{\bfseries DIN}&&&&\tabularnewline
+~~C10&1.1 \footnotesize{(-4.1)**}&1.3 \footnotesize{(-3.1)**}&1.6 \footnotesize{(-2)**}&1.7 \footnotesize{(-3.4)**}\tabularnewline
+~~C3&0.5 \footnotesize{(\textit{\textbf{0.5}})}&0.4 \footnotesize{(\textit{\textbf{0.1}})}&0.6 \footnotesize{(-0.2)}&0.5 \footnotesize{(-0.6)**}\tabularnewline
+~~D19&0.5 \footnotesize{(-2.8)**}&0.2 \footnotesize{(-1)*}&0.3 \footnotesize{(-1.6)**}&0.7 \footnotesize{(-2.3)**}\tabularnewline
+~~D26&0.5 \footnotesize{(-1.9)**}&0.3 \footnotesize{(-1.7)**}&0.4 \footnotesize{(-1)**}&0.6 \footnotesize{(-0.8)**}\tabularnewline
+~~D28&0.5 \footnotesize{(-3)**}&0.2 \footnotesize{(-4.9)**}&0.2 \footnotesize{(-4.9)**}&0.7 \footnotesize{(-2.1)**}\tabularnewline
+~~D4&0.4 \footnotesize{(\textit{\textbf{0}})}&0.4 \footnotesize{(-1)**}&0.4 \footnotesize{(-0.9)**}&0.5 \footnotesize{(\textit{\textbf{0.6}})**}\tabularnewline
+~~D6&0.5 \footnotesize{(-0.2)*}&0.5 \footnotesize{(-1)**}&0.5 \footnotesize{(-0.3)*}&0.5 \footnotesize{(-0.1)}\tabularnewline
+~~D7&0.5 \footnotesize{(-0.8)**}&0.4 \footnotesize{(-1.3)**}&0.4 \footnotesize{(-0.4)**}&0.6 \footnotesize{(-0.2)}\tabularnewline
+~~P8&1.5 \footnotesize{(-1.9)**}&1.2 \footnotesize{(-3.5)**}&1.8 \footnotesize{(-2.4)**}&2.7 \footnotesize{(-2.2)**}\tabularnewline
+\hline
+{\bfseries NH$_{4}^{+}$}&&&&\tabularnewline
+~~C10&0 \footnotesize{(-4.2)**}&0 \footnotesize{(-6.1)**}&0 \footnotesize{(-8.5)**}&0.1 \footnotesize{(-7.3)**}\tabularnewline
+~~C3&0.3 \footnotesize{(\textit{\textbf{1}})**}&0.3 \footnotesize{(-0.8)*}&0.4 \footnotesize{(-0.5)*}&0.2 \footnotesize{(-0.1)}\tabularnewline
+~~D19&0 \footnotesize{(-1.9)**}&0 \footnotesize{(-0.4)}&0 \footnotesize{(-2.2)**}&0.1 \footnotesize{(-1.8)**}\tabularnewline
+~~D26&0.1 \footnotesize{(-1.2)**}&0.1 \footnotesize{(-1.3)**}&0.1 \footnotesize{(-1.9)**}&0.1 \footnotesize{(-1.4)**}\tabularnewline
+~~D28&0 \footnotesize{(-1.7)**}&0 \footnotesize{(-0.2)}&0 \footnotesize{(-2.4)**}&0.1 \footnotesize{(-3.1)**}\tabularnewline
+~~D4&0.1 \footnotesize{(\textit{\textbf{0.3}})}&0 \footnotesize{(-1.3)**}&0.1 \footnotesize{(-0.3)}&0.1 \footnotesize{(\textit{\textbf{1}})**}\tabularnewline
+~~D6&0.1 \footnotesize{(-0.7)**}&0.1 \footnotesize{(-1)**}&0.1 \footnotesize{(\textit{\textbf{0.3}})}&0.1 \footnotesize{(-0.3)**}\tabularnewline
+~~D7&0.1 \footnotesize{(-2.2)**}&0 \footnotesize{(-2.1)**}&0.1 \footnotesize{(\textit{\textbf{1.3}})**}&0.1 \footnotesize{(-0.4)*}\tabularnewline
+~~P8&0.2 \footnotesize{(-8.7)**}&0.1 \footnotesize{(-6.3)**}&0.2 \footnotesize{(-10.4)**}&0.5 \footnotesize{(-13.1)**}\tabularnewline
+\hline
+{\bfseries NO$_{2}^{-}$/NO$_{3}^{2-}$}&&&&\tabularnewline
+~~C10&1.1 \footnotesize{(-4.2)**}&1.2 \footnotesize{(-3.2)**}&1.6 \footnotesize{(-1.9)**}&1.6 \footnotesize{(-3.3)**}\tabularnewline
+~~C3&0.2 \footnotesize{(\textit{\textbf{0.4}})}&0.1 \footnotesize{(\textit{\textbf{3.1}})**}&0.2 \footnotesize{(\textit{\textbf{1.7}})**}&0.2 \footnotesize{(-0.4)}\tabularnewline
+~~D19&0.4 \footnotesize{(-2.9)**}&0.2 \footnotesize{(-1)*}&0.3 \footnotesize{(-1.5)**}&0.6 \footnotesize{(-2.2)**}\tabularnewline
+~~D26&0.4 \footnotesize{(-1.9)**}&0.2 \footnotesize{(-1.6)**}&0.3 \footnotesize{(-0.6)*}&0.5 \footnotesize{(-0.6)**}\tabularnewline
+~~D28&0.5 \footnotesize{(-3)**}&0.2 \footnotesize{(-5.4)**}&0.2 \footnotesize{(-5.2)**}&0.7 \footnotesize{(-1.7)**}\tabularnewline
+~~D4&0.3 \footnotesize{(-0.1)}&0.3 \footnotesize{(-1)**}&0.3 \footnotesize{(-1)**}&0.4 \footnotesize{(\textit{\textbf{0.4}})**}\tabularnewline
+~~D6&0.4 \footnotesize{(-0.1)}&0.4 \footnotesize{(-1)**}&0.4 \footnotesize{(-0.4)*}&0.4 \footnotesize{(-0.1)}\tabularnewline
+~~D7&0.4 \footnotesize{(-0.6)**}&0.4 \footnotesize{(-1.2)**}&0.4 \footnotesize{(-0.8)**}&0.4 \footnotesize{(-0.3)*}\tabularnewline
+~~P8&1.3 \footnotesize{(-1.1)**}&1.1 \footnotesize{(-3.1)**}&1.6 \footnotesize{(-0.3)*}&2.2 \footnotesize{(\textit{\textbf{0}})}\tabularnewline
 \hline
 \end{tabular}\end{center}
 
