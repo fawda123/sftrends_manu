@@ -8,8 +8,10 @@ Alpine AE, Cloern JE. 1992.
 
 \bibitem[Beck, 2016]{Beck16b}
 Beck MW. 2016.
-\newblock fawda123/wrtdstidal: v1.0.0 [software]. zenodo.
-\newblock http://doi.org/10.5281/zenodo.164183.
+\newblock {WRTDStidal: Weighted Regression for Water Quality Evaluation in
+  Tidal Waters}.
+\newblock R package version 1.0.2, url =
+  {http://CRAN.R-project.org/package=WRTDStidal},.
 
 \bibitem[Beck and {Hagy III}, 2015]{Beck15}
 Beck MW, {Hagy III} JD. 2015.
@@ -23,12 +25,36 @@ Beck MW, {Hagy III} JD, Murrell MC. 2015.
   tidal advection on dissolved oxygen time series.
 \newblock Limnology and Oceanography: Methods, 13(12):731--745.
 
+\bibitem[Beck and Murphy, ress]{BeckIP}
+Beck MW, Murphy RR. In press.
+\newblock Numerical and qualitative contrasts of two statistical models for
+  water quality change in tidal waters.
+\newblock Journal of the American Water Resources Assocation.
+
+\bibitem[Bhangu and Whitfield, 1997]{Bhangu97}
+Bhangu I, Whitfield PH. 1997.
+\newblock Seasonal and long-term variations in water quality of the {S}keena
+  {R}iver at {U}sk, {B}ritish {C}olumbia.
+\newblock Water Research, 31(9):2187--2194.
+
 \bibitem[Carlton et~al., 1990]{Carlton90}
 Carlton JT, Thompson JK, Schemel LE, Nichols FH. 1990.
 \newblock Remarkable invasion of {S}an {F}rancisco {B}ay ({C}alifornia, {USA})
   by the {A}sian claim \textit{Potamocorbula amurensis}. {I.} {I}ntroduction
   and dispersal.
 \newblock Marine Ecology Progress Series, 66(1-2):81--94.
+
+\bibitem[Champely and Doledec, 1997]{Champely97}
+Champely S, Doledec S. 1997.
+\newblock How to separate long-term trends from periodic variation in water
+  quality monitoring.
+\newblock Water Research, 31(11):2849--2857.
+
+\bibitem[Chang, 2008]{Chang08}
+Chang H. 2008.
+\newblock Spatial analysis of water quality trends in the {H}an {R}iver basin,
+  {S}outh {K}orea.
+\newblock Water Research, 42(13):3285--3304.
 
 \bibitem[Cloern, 1996]{Cloern96}
 Cloern JE. 1996.
@@ -101,6 +127,12 @@ Enright C, Culberson SD. 2009.
   the {S}an {F}rancisco {E}stuary.
 \newblock San Francisco Estuary \& Watershed Science, 7(2):1--28.
 
+\bibitem[Esterby, 1996]{Esterby96}
+Esterby SR. 1996.
+\newblock Review of methods for the detection adn estimation of trends with
+  emphasis on water quality applications.
+\newblock Hydrological Processes, 10(2):127--149.
+
 \bibitem[Feyrer et~al., 2003]{Feyrer03}
 Feyrer F, Herbold B, Matern SA, Moyle PB. 2003.
 \newblock Dietary shifts in a stressed fish assemblage: Consequences of a
@@ -115,11 +147,32 @@ Glibert PM, Dugdale RC, Wilkerson F, Parker AE, Alexander J, Antell E, Blaser
   altered nutrient loads and forms.
 \newblock Journal fo Experimental Marine Biology and Ecology, 460:8--18.
 
+\bibitem[Halliday et~al., 2012]{Halliday12}
+Halliday SJ, Wade AJ, Skeffington RA, Neal C, Reynolds B, Rowland P, Neal M,
+  Norris D. 2012.
+\newblock An analysis of long-term trends, seasonality and short-term dynamics
+  in water quality data from {P}lynlimon, {W}ales.
+\newblock Science of the Total Environment, 434:186--200.
+
+\bibitem[Hirsch et~al., 1991]{Hirsch91}
+Hirsch RM, Alexander RB, Smith RA. 1991.
+\newblock Selection of methods for the detection and estimation of trends in
+  water quality.
+\newblock Water Resources Research, 27:803--813.
+
 \bibitem[Hirsch et~al., 2015]{Hirsch15}
 Hirsch RM, Archfield SA, {De Cicco} LA. 2015.
 \newblock A bootstrap method for estimating uncertainty of water quality
   trends.
 \newblock Environmental Modelling and Software, 73:148--166.
+
+\bibitem[Hirsch and {De Cicco}, 2014]{Hirsch14}
+Hirsch RM, {De Cicco} L. 2014.
+\newblock User guide to {E}xploration and {G}raphics for {R}iv{E}r {T}rends
+  ({EGRET}) and data{R}etrieval: {R} packages for hydrologic data.
+\newblock Technical Report Techniques and Methods book 4, ch. A10, US
+  Geological Survey, Reston, Virginia.
+\newblock \url{http://pubs.usgs.gov/tm/04/a10/}.
 
 \bibitem[Hirsch et~al., 2010]{Hirsch10}
 Hirsch RM, Moyer DL, Archfield SA. 2010.
@@ -194,6 +247,11 @@ Lehman PW, Teh SJ, Boyer GL, Nobriga ML, Bass E, Hogle C. 2010.
   aquatic food web in the {S}an {F}rancisco {E}stuary.
 \newblock Hydrobiologia, 637(1):229--248.
 
+\bibitem[Levin, 1992]{Levin92}
+Levin SA. 1992.
+\newblock The problem of pattern and scale in ecology.
+\newblock Ecology, 73(6):1943--1967.
+
 \bibitem[{Mac Nally} et~al., 2010]{MacNally10}
 {Mac Nally} R, Thompson JR, Kimmerer WJ, Feyrer F, Newman KB, Sih A, Bennett
   WA, Brown L, Fleishman E, Culberson SD, Castillo G. 2010.
@@ -228,6 +286,11 @@ Novick E, Holleman R, Jabusch T, Sun J, Trowbridge P, Senn D, Guerin M, Kendall
   monitoring.
 \newblock Technical Report Contribution Number 785, San Francisco Estuary
   Institute, Richmond, CA.
+
+\bibitem[O`Neill et~al., 1989]{Oneill89}
+O`Neill RV, Johnson AR, King AW. 1989.
+\newblock A hierarchical framework for the analysis of scale.
+\newblock Landscape Ecology, 3(3-4):193--205.
 
 \bibitem[Parchaso and Thompson, 2002]{Parchaso02}
 Parchaso F, Thompson JK. 2002.
