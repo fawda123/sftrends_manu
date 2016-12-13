@@ -10,8 +10,8 @@ Alpine AE, Cloern JE. 1992.
 Beck MW. 2016.
 \newblock {WRTDStidal: Weighted Regression for Water Quality Evaluation in
   Tidal Waters}.
-\newblock R package version 1.0.2, url =
-  {http://CRAN.R-project.org/package=WRTDStidal},.
+\newblock R package version 1.0.2,
+  url={\url{http://CRAN.R-project.org/package=WRTDStidal}}.
 
 \bibitem[Beck and {Hagy III}, 2015]{Beck15}
 Beck MW, {Hagy III} JD. 2015.
@@ -36,6 +36,12 @@ Bhangu I, Whitfield PH. 1997.
 \newblock Seasonal and long-term variations in water quality of the {S}keena
   {R}iver at {U}sk, {B}ritish {C}olumbia.
 \newblock Water Research, 31(9):2187--2194.
+
+\bibitem[Bowes et~al., 2009]{Bowes09}
+Bowes MJ, Smith JT, Neal C. 2009.
+\newblock The value of high resolution nutrient monitoring: a case study of the
+  {R}iver {F}rome, {D}orset, {UK}.
+\newblock Journal of Hydrology, 378:82--96.
 
 \bibitem[Carlton et~al., 1990]{Carlton90}
 Carlton JT, Thompson JK, Schemel LE, Nichols FH. 1990.
@@ -80,13 +86,6 @@ Cloern JE, Jassby AD. 2012.
 \newblock Drivers of change in estuarine-coastal ecosystems: Discoveries from
   four decades of study in {S}an {F}rancisco {B}ay.
 \newblock Reviews of Geophysics, 50(4):1--33.
-
-\bibitem[Cloern et~al., 2012]{Cloern12}
-Cloern JE, Jassby AD, Carstensen J, Bennett WA, Kimmerer W, {Mac Nally} R,
-  Schoellhamer DH, Winder M. 2012.
-\newblock Perils of correlating {CUSUM}-transformed variables to infer
-  ecological relationships ({Breton et al. 2006}; {Glibert 2010}).
-\newblock Limnology and Oceanography, 57(2):665--668.
 
 \bibitem[Cloern et~al., 2007]{Cloern07}
 Cloern JE, Jassby AD, Thompson JK, Hieb KA. 2007.
@@ -154,17 +153,18 @@ Halliday SJ, Wade AJ, Skeffington RA, Neal C, Reynolds B, Rowland P, Neal M,
   in water quality data from {P}lynlimon, {W}ales.
 \newblock Science of the Total Environment, 434:186--200.
 
+\bibitem[Harding et~al., 2016]{Harding16}
+Harding LW, Gallegos CL, Perry ES, Miller WD, Adolf JE, Mallonee ME, Paerl HW.
+  2016.
+\newblock Long-term trends of nutrients and phytoplankton in {C}hesapeake
+  {B}ay.
+\newblock Estuaries and Coasts, 39:664--681.
+
 \bibitem[Hirsch et~al., 1991]{Hirsch91}
 Hirsch RM, Alexander RB, Smith RA. 1991.
 \newblock Selection of methods for the detection and estimation of trends in
   water quality.
 \newblock Water Resources Research, 27:803--813.
-
-\bibitem[Hirsch et~al., 2015]{Hirsch15}
-Hirsch RM, Archfield SA, {De Cicco} LA. 2015.
-\newblock A bootstrap method for estimating uncertainty of water quality
-  trends.
-\newblock Environmental Modelling and Software, 73:148--166.
 
 \bibitem[Hirsch and {De Cicco}, 2014]{Hirsch14}
 Hirsch RM, {De Cicco} L. 2014.
@@ -259,6 +259,12 @@ Levin SA. 1992.
   {E}stuary using multivariate autoregressive modeling ({MAR}).
 \newblock Ecological Applications, 20(5):1417--1430.
 
+\bibitem[Medalie et~al., 2012]{Medalie12}
+Medalie L, Hirsch RM, Archfield SA. 2012.
+\newblock Use of flow-normalization to evaluate nutrient concentration and flux
+  changes in {L}ake {C}hamplain tributaries, 1990-2009.
+\newblock Journal of Great Lakes Research, 38(SI):58--67.
+
 \bibitem[Millard, 2013]{Millard13}
 Millard SP. 2013.
 \newblock EnvStats: An R Package for Environmental Statistics.
@@ -311,6 +317,24 @@ Parker AE, Hogue VE, Wilkerson FP, Dugdale RC. 2012.
   Foundation for Statistical Computing, Vienna, Austria}.
 \newblock \url{http://www.R-project.org}.
 
+\bibitem[Sakamoto and Tanaka, 1989]{Sakamoto89}
+Sakamoto M, Tanaka T. 1989.
+\newblock Phosphorus dynamics associated with phytoplankton blooms in eutrophic
+  {M}ikawa {B}ay, {J}apan.
+\newblock Marine Biology, 101(2):265--271.
+
+\bibitem[Schultz and Urban, 2008]{Schultz08}
+Schultz P, Urban NR. 2008.
+\newblock Effects of bacterial dynamics on organic matter decomposition and
+  nutrient release from sediments: A modeling study.
+\newblock Ecological Modelling, 210(1-2):1--14.
+
+\bibitem[Sprague et~al., 2011]{Sprague11}
+Sprague LA, Hirsch RM, Aulenbach BT. 2011.
+\newblock Nitrate in the {M}ississippi {R}iver and its tributaries, 1980 to
+  2008: Are we making progress?
+\newblock Environmental Science and Technology, 45(17):7209--7216.
+
 \bibitem[Sutula et~al., view]{SutulaIR}
 Sutula M, Kudela R, III JDH, Jr. LWH, Senn D, Cloern JE, Bricker S, Berg GM,
   Beck MW. in review.
@@ -334,5 +358,12 @@ Werner I, Hollibaugh JT. 1993.
 \newblock \textit{{P}otamocorbula amurensis} - comparison of clearance rates
   and assimilation efficiencies for phytoplankton and bacterioplankton.
 \newblock Limnology and Oceanography, 38(5):949--964.
+
+\bibitem[Zhang et~al., 2016]{Zhang16}
+Zhang Q, Harman CJ, Ball WP. 2016.
+\newblock An improved method for interpretation of riverine
+  concentration-discharge relationships indicates long-term shifts in reservoir
+  sediment trapping.
+\newblock Geophysical Research Letters, 43(10):215--224.
 
 \end{thebibliography}
