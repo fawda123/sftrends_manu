@@ -224,6 +224,8 @@ The application of \ac{wrtds} to water quality observations at station D7 in Sui
 
 Estimated annual percent change of ammonium from 1976-1995 at P8 was more than twice that shown in \citet{Jabusch16}, suggesting that flow effects on the time series lead to an under-estimate of the actual change. \cref{tab:trnds} shows an approximate 5\% increase per year, compared to 2\% in Fig 2 from \citet{Jabusch16}.  Mid-1990s was high flow, which diluted the observed ammonium and removal of this component showed a steady, positive increase in the flow-normalized trend (\cref{fig:p8trnds}).  
 
+Effects of flow on trend interpration shown in \cref{fig:trndcomp1,fig:trndcomp2,fig:trndcomp3}.
+
 \subsection{Selected examples}
 
 \subsubsection{Disaggregating observed nitrogen time series}
@@ -1235,6 +1237,111 @@ grid.arrange(
 
 @
 
+<<trndcomp, echo = F, warning = F, message = F, cache = T>>=
+data(trnds_seasyr)
+
+# response labels 
+reslabs <- list(
+  shrt = c('din', 'nh', 'no23'),
+  expr = c(
+    'DIN', 
+    expression(paste(NH [4] ^ '+')),
+    expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
+  )
+)
+
+# combine all
+trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>% 
+  select(Site_Code, resvar, cat, ztest, tau, perchg, ann, trndvar) %>% 
+  filter(!trndvar %in% 'res') %>% 
+  mutate(
+    Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'C10', 'C3')),
+    ztest = ifelse(ztest < 0.05, '(< 0.05)', '(ns)'),
+    resvar = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr), 
+    trndvar = factor(trndvar, levels = c('fits', 'norm'), labels = c('Pred.', 'Flow-norm.'))
+  ) %>% 
+  unite('trnd', trndvar, ztest, sep = ' ')
+
+# ggplot theme
+mythm <- theme_minimal() +
+  theme(
+    legend.position = 'top', 
+    legend.title = element_blank(),
+    axis.title.y = element_blank(),
+    panel.border = element_rect(colour = "black", fill = NA, size = 0.5),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"), 
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank()
+  )  
+
+# year only
+toplo1 <- filter(trnds_seasyr, cat %in% c('1976-1995', '1996-2013'))
+p1 <- ggplot(toplo1, aes(x = tau, y = Site_Code)) + 
+  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
+  facet_grid(cat~resvar, labeller = label_parsed
+    ) + 
+  geom_vline(xintercept = 0, linetype = 'dashed') + 
+  mythm + 
+  xlab(expression(tau)) +
+  scale_shape_manual(values = c(16, 1, 17, 2)) +
+  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
+  scale_x_continuous(limits = c(-1, 1)) + 
+  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6)
+
+# seasonal, first years
+toplo2 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'bef') 
+p2 <- ggplot(toplo2, aes(x = tau, y = Site_Code)) + 
+  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
+  facet_grid(cat~resvar, labeller = label_parsed
+    ) + 
+  geom_vline(xintercept = 0, linetype = 'dashed') + 
+  mythm + 
+  xlab(expression(tau)) +
+  scale_shape_manual(values = c(16, 1, 17, 2)) +
+  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
+  scale_x_continuous(limits = c(-1, 1)) + 
+  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6)
+
+# seasonal, first years
+toplo3 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'aft')
+p3 <- ggplot(toplo3, aes(x = tau, y = Site_Code)) + 
+  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
+  facet_grid(cat~resvar, labeller = label_parsed
+    ) + 
+  geom_vline(xintercept = 0, linetype = 'dashed') + 
+  mythm + 
+  xlab(expression(tau)) +
+  scale_shape_manual(values = c(16, 1, 17, 2)) +
+  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
+  scale_x_continuous(limits = c(-1, 1)) + 
+  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6)
+
+
+
+pdf('figs/trndcomp1.pdf', height = 5, width = 9, family = 'serif')
+p1
+dev.off()
+
+
+pdf('figs/trndcomp2.pdf', height = 8, width = 9, family = 'serif')
+p2
+dev.off()
+
+
+pdf('figs/trndcomp3.pdf', height = 8, width = 9, family = 'serif')
+p3
+dev.off()
+@
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,page=1]{figs/trndcomp1.pdf}
+\caption{Results from seasonal Kendall tests on model predictions from \ac{wrtds}. Trends were evaluated using predicted (triangles) and flow-normalized (circles) results to identify potential effects of flow. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different annual groupings. See \cref{fig:trndcomp2,fig:trndcomp3} for seasonal groupings.}
+\label{fig:trndcomp1}   
+\end{figure}
+
 \clearpage
 %%%%%%
 % tables
@@ -1663,5 +1770,24 @@ latex(
   )
 
 @
+
+\clearpage
+
+% supplementary material
+\beginsupplement
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,page=1]{figs/trndcomp2.pdf}
+\caption{Results from seasonal Kendall tests on model predictions from \ac{wrtds}. Trends were evaluated using predicted (triangles) and flow-normalized (circles) results to identify potential effects of flow. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\label{fig:trndcomp2}   
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,page=1]{figs/trndcomp3.pdf}
+\caption{Results from seasonal Kendall tests on model predictions from \ac{wrtds}. Trends were evaluated using predicted (triangles) and flow-normalized (circles) results to identify potential effects of flow. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\label{fig:trndcomp3}   
+\end{figure}
 
 \end{document}
