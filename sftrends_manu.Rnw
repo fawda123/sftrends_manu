@@ -1267,7 +1267,6 @@ mythm <- theme_minimal() +
   theme(
     legend.position = 'top', 
     legend.title = element_blank(),
-    axis.title.y = element_blank(),
     panel.border = element_rect(colour = "black", fill = NA, size = 0.5),
     axis.ticks.x = element_line(),
     axis.ticks.y = element_line(),
@@ -1288,7 +1287,8 @@ p1 <- ggplot(toplo1, aes(x = tau, y = Site_Code)) +
   scale_shape_manual(values = c(16, 1, 17, 2)) +
   scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
   scale_x_continuous(limits = c(-1, 1)) + 
-  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6)
+  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
+  scale_y_discrete('Stations')
 
 # seasonal, first years
 toplo2 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'bef') 
@@ -1302,7 +1302,8 @@ p2 <- ggplot(toplo2, aes(x = tau, y = Site_Code)) +
   scale_shape_manual(values = c(16, 1, 17, 2)) +
   scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
   scale_x_continuous(limits = c(-1, 1)) + 
-  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6)
+  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
+  scale_y_discrete('Stations')
 
 # seasonal, first years
 toplo3 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'aft')
@@ -1316,9 +1317,8 @@ p3 <- ggplot(toplo3, aes(x = tau, y = Site_Code)) +
   scale_shape_manual(values = c(16, 1, 17, 2)) +
   scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
   scale_x_continuous(limits = c(-1, 1)) + 
-  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6)
-
-
+  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
+  scale_y_discrete('Stations')
 
 pdf('figs/trndcomp1.pdf', height = 5, width = 9, family = 'serif')
 p1
