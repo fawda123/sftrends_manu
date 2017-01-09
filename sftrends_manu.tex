@@ -58,8 +58,7 @@
 \usepackage{cleveref}
 \usepackage{acronym}
 \usepackage{paralist}
-\usepackage{bm}
-\usepackage{fixltx2e}
+\usepackage{setspace}
 \usepackage{showlabels}
 
 % cleveref options
@@ -85,6 +84,9 @@
         \setcounter{figure}{0}
         \renewcommand{\thefigure}{S\arabic{figure}}%
      }
+
+% turn this off for submission
+\SectionNumbersOn
 
 %knitr options
 
@@ -117,7 +119,7 @@
 
 \section{Introduction}
 
-Environmental conditions are affected by multiple processes acting in a hierarchy across space and time \cite{Oneill89,Levin92}. Trend analysis is a broad discipline that has been applied to evaluate environmental condition using time series for the interpretation of ecologically-relevant changes.  Direct evaluation of an observed time series is often insufficient given that a long-term change can be masked by variation at shorter time scales or the observed variation represents the combined effects of many variables. Climate, local, regional, and historical effects may act individually or together to impose a change on time series, such that methods that account for variation at different scales have been used for trend analysis \cite{Bhangu97,Champely97,Chang08,Halliday12}.  As a practical approach for water quality evaluation, trend analysis of eutrophication endpoints often focuses on tracking the change in concentrations or loads of nutrients over many years. Indicators of eutrophication can vary naturally with variation in flow conditions and may also reflect long-term effects of management or policy changes. For example, \ac{chla} concentration as a measure of phytoplankton response to nutrient inputs can follow seasonal patterns with cyclical variation in temperature and light changes throughout each year, whereas annual trends can follow long-term variation in nutrient inputs to the system \cite{Cloern96,Cloern10}. Similarly, nutrient trends that vary with hydrologic loading also vary as a function of utilization rates by primary producers or decomposition processes \cite{Sakamoto89,Schultz08,Harding16}. Time series analysis of water quality indicators must simultaneously consider effects of processes at multiple scales and interactions between variables of interest to develop a more comprehensive description of system change. 
+Trend analysis is a broad discipline that has been applied to time series for the interpretation of environmentally-relevant changes.  Direct evaluation of an observed time series is often insufficient given that a long-term change can be masked by variation at shorter time scales or the observed variation represents the combined effects of many variables\cite{Oneill89,Levin92}. Climate, local, regional, and historical effects may act individually or together to impose a change on time series, such that methods that account for variation at different scales have been used for trend analysis \cite{Bhangu97,Champely97,Chang08,Halliday12}.  As a practical approach for water quality evaluation, trend analysis of eutrophication endpoints often focuses on tracking the change in concentrations or loads of nutrients over many years. Indicators of eutrophication can vary naturally with variation in flow conditions and may also reflect long-term effects of management or policy changes. For example, \ac{chla} concentration as a measure of phytoplankton response to nutrient inputs can follow seasonal patterns with cyclical variation in temperature and light changes throughout each year, whereas annual trends can follow long-term variation in nutrient inputs to the system \cite{Cloern96,Cloern10}. Similarly, nutrient trends that vary with hydrologic loading also vary as a function of utilization rates by primary producers or decomposition processes \cite{Sakamoto89,Schultz08,Harding16}. Time series analysis of water quality indicators must simultaneously consider effects of processes at multiple scales and interactions between variables of interest to develop a more comprehensive description of system change. 
 
 Appropriate methods for the analysis of change depend largely on the question of interest and on characteristics of the environmental dataset.  Trend analyses for aquatic systems have traditionally focused on comparisons between discrete periods of time to estimate a direction and magnitude of a trend using non-parametric tests \cite{Hirsch91,Esterby96}. Development of these conventional approaches addressed limitations in historical monitoring datasets related to infrequent sampling and relatively few years of continuous data. Increased availability of multi-decadal datasets, particularly for high profile environments, has accelerated recent development of trend analysis methods that leverage the descriptive potential of long-term time series from continuous monitoring programs \cite{Bowes09,Halliday12}. These methods are often data-driven where the parameterization of a simple functional model can change smoothly over time given that relationships between water quality variables and potential drivers are dynamic.  The \ac{wrtds} approach was developed under this context and has been used to characterize decadal trends in running-water systems \cite{Hirsch10,Sprague11,Medalie12,Hirsch14,Zhang16}. This method has the potential to provide a spatially and temporally robust description of trends by fitting a dynamic model with parameters that change relative to the domain of interest.  More recently, the \ac{wrtds} method was adapted for trend analysis in tidal waters, with a focus on \ac{chla} trends in Tampa Bay \cite{Beck15} and the Patuxent River Estuary \cite{BeckIP}, and tidally-infleunced time series of dissolved oxygen from continuous sonde measurements \cite{Beck15b}. These studies have demonstrated potential for the use \ac{wrtds} for trend analysis in tidal waters and further application to alternative datasets could provide additional insight into drivers of change in aquatic systems. 
 
@@ -129,7 +131,7 @@ The goal of this study was to provide a comprehensive description of nutrient tr
 \end{inparaenum}
 The second objective evaluated two specific water quality stations in the Delta to demonstrate complexities with nutrient response to flow, effects of \ac{wwtp} upgrades on water quality, and effects of biological invasion by benthic filter feeders on primary production. Although quantitative descriptions of change can be ends in themselves, the results were expected to have greater impact as a means to more detailed understanding of ecosystem properties.  Products derived from \ac{wrtds} can be used to inform additional analyses, such as water quality response after removing annual, seasonal, or flow effects. Overall, this analysis is expected to further an ecological and management-based understanding of dynamics in San Francisco Bay, with implications for water quality restoration and protection of this prominent system. 
 
-\section{Methods}
+\section{Materials and Methods}
 
 \subsection{Study system}
 
@@ -141,31 +143,41 @@ The Delta region is of particular interest for understanding historical patterns
 
 \subsection{Data sources}
 
-Multi-decadal time series of nutrients and flow records were used to develop a quantitative description of nitrogen trends in the Delta.  The \ac{iep} is a consortium of state and federal agencies that have maintained the \ac{emp} in the Delta region since 1975 \cite{IEP13}.  The \ac{emp} collects monthly water quality samples at 19 stations in the Delta, Suisun Bay, and northeastern San Pablo Bay.  Water samples were collected using a Van Dorn sample, a submersible pump, or a flow through system depending on site.  All samples were processed with standard QA/QC at the California Department of Water Resources Bryte Laboratory in Sacramento \cite{IEP13}.  Nutrient time series were obtained from the \ac{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}) at ten discrete sampling stations from 1976 through 2013 (\cref{fig:delt_map}).  Representative stations from  three locations in the Delta and Suisun Bay were used: Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; middle stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations were chosen based on continuity of the water quality time series and geographic location for understanding trends.  Data were minimally processed with the exception of averaging replicates that occurred on the same day.  Detection limits throughout the period of record were obtained from the metadata, although few observations were censored ($<$ 3\%).  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two).  
+Multi-decadal time series of nutrients and flow records were used to develop a quantitative description of nitrogen trends in the Delta.  The \ac{iep} is a consortium of state and federal agencies that have maintained the \ac{emp} in the Delta region since 1975 \cite{IEP13}.  The \ac{emp} collects monthly water quality samples at 19 stations in the Delta, Suisun Bay, and northeastern San Pablo Bay.  Water samples were collected using a Van Dorn sample, a submersible pump, or a flow through system depending on site.  All samples were processed with standard QA/QC at the California Department of Water Resources Bryte Laboratory in Sacramento \cite{IEP13}.  Nutrient time series were obtained from the \ac{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}) at ten discrete sampling stations from 1976 through 2013 (\cref{fig:delt_map}).  Stations were grouped by location in the study area for comparison: Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; middle stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations were chosen based on continuity of the water quality time series and geographic location for understanding trends.  Time series were complete for all stations except for an approximate ten year gap from 1996-2014 for D19.  Data were minimally processed with the exception of averaging replicates that occurred on the same day.  Detection limits throughout the period of record were obtained from the metadata, although few observations were censored ($<$ 3\%).  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two).  
 
 Daily flow estimates for the Delta region were obtained from the Dayflow software program that provides estimates of average Delta outflow \cite{IEP16}.  Because of the complexity of water inflow, exports, and outflows from the Delta, the Dayflow program combines observations with estimates based on mass balance to reconstruct historical and daily flow estimates.  The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to acount for flow effects at C3, D19, D26, and D28, and the San Joaquin time series was used for C10 and P8.  The salinity observations at D4, D6, and D7 in Suisun Bay were used as a more appropriate measure of variation in freshwater balance given the stronger tidal influence at these stations.  Salinity has been used a tracer of freshwater influence for the application of WRTDS models in tidal waters \cite{Beck15}.  
 
 \subsection{Analysis method and application}
 
-A total of twenty-seven \ac{wrtds} models were created, one for each nitrogen analyte at each station.  The functional form of \ac{wrtds} is a simple regression that models the log-transformed response variable as a function of time, flow, and season:
+A total of twenty-seven \ac{wrtds} models were created, one for each nitrogen analyte at each station.  The functional form of \ac{wrtds} is a simple regression\cite{Hirsch10} that models the log-transformed response variable as a function of time, flow, and season:
 
 \begin{equation}
 \ln\left(N\right) = \beta_0 + \beta_1 t + \beta_2 \ln\left(Q\right) + \beta_3 \sin\left(2\pi t\right) + \beta_4 \cos\left(2\pi t\right)
 \end{equation}  
 
-\noindent where $N$ is one of three nitrogen analytes, time $t$ is a continuous variable as decimal time to capture the annual or seasonal trend, and $Q$ is the flow variable (either flow or salinity depending on station).  The seasonal trend is modelled as a sinusoidal component to capture periodicity between years.  The \ac{wrtds} model is a moving window regression that fits a unique set of parameters at each observation point in the time series.  A unique set of weights is used for each regression to control the relevance of observations used to fit the model to the observation at the center of the window. The weights are based on a scaled Euclidean distance to estimate the differences of all points from the center in relation to annual time, season, and flow.  The final vector used to fit the model at each point weights observations more similar to the center of the window with more importance.  The complete model for the time series contains a parameter set for every time step that considers the unique context of the data.  As such, predictions from \ac{wrtds} are more precise than those from more conventional models that fit a single parameter set to the entire time series \cite{Moyer12,Beck15}.  The original \ac{wrtds} method is described in more detail in Ref.~\citenum{Hirsch10}.  The \ac{wrtds} model applied to the Delta time series was based on a tidal adaptation of the original method\cite{Beck15}.  The \ac{wrtds} models were fit to describe the conditional mean response using a weighted Tobit model for left-censored data \cite{Tobin58}.  Previous adaptations of \ac{wrtds} to tidal waters have used quantile regression to describe trends in the conditional quantiles, such as changes in the frequency of occurrence of extreme events.  The application to the Delta data focused only on the conditional mean models to establish a baseline response which has not been previously quantified.  All analyses used the WRTDStidal package for R \cite{Beck16b,RDCT16}.
+\noindent where $N$ is one of three nitrogen analytes, time $t$ is a continuous variable as decimal time to capture the annual or seasonal trend, and $Q$ is the flow variable (either flow or salinity depending on station).  The seasonal trend is modelled as a sinusoidal component to capture periodicity between years.  The \ac{wrtds} model is a moving window regression that fits a unique set of parameters at each observation point in the time series.  A unique set of weights is used for each regression to control the relevance of observations used to fit the model to the observation at the center of the window. The weights are based on a scaled Euclidean distance to estimate the differences of all points from the center in relation to annual time, season, and flow.  The final vector used to fit the model at each point weights observations more similar to the center of the window with more importance.  The complete model for the time series contains a parameter set for every time step that considers the unique context of the data.  As such, predictions from \ac{wrtds} are more precise than those from more conventional models that fit a single parameter set to the entire time series \cite{Moyer12,Beck15}.  The \ac{wrtds} model applied to the Delta time series was based on a tidal adaptation of the original method\cite{Beck15}.  The \ac{wrtds} models were fit to describe the conditional mean response using a weighted Tobit model for left-censored data \cite{Tobin58}.  Previous adaptations of \ac{wrtds} to tidal waters have used quantile regression to describe trends in the conditional quantiles, such as changes in the frequency of occurrence of extreme events.  The application to the Delta data focused only on the conditional mean models to establish a baseline response which has not been previously quantified.  All analyses used the WRTDStidal package for R \cite{Beck16b,RDCT16}.
 
 A hallmark of the \ac{wrtds} approach is the description of flow-normalized trends that are independent of variation from freshwater inflows.  Flow-normalized trends have value for the interpretation of changes that are potentially caused by drivers other than  flow, such as \ac{wwtp} upgrades or phytoplankton grazing by benthic filter-feeders\cite{Beck15}. Although variation in nutrients is caused by the combined effects of several variables acting at different temporal and spatial scales, flow-normalization provides a basis for further exploration by removing a critical confounding variable that could affect the interpretation of trends. A flow-normalized value is the average of predictions at a given observation using all flow values that are expected to occur for the relevant month across years in the record.  Flow-normalized trends for each analyte at each station were used to describe long-term changes in different annual and seasonal periods.  Specifically, flow-normalized trends in each analyte were summarized as both medians and percent changes from the beginning to end of annual groupings from 1976-1995 and 1996-2013, and seasonal groupings of March-April-May (spring), June-July-August (summer), September-October-November (fall), and December-January-February (winter) within each annual grouping. These annual and seasonal groupings were chosen for continuity with similar comparisons reported in Ref.~\citenum{Jabusch16} and as approximate twenty year midway points in the time series.  
 
-Trends within each annual and seasonal grouping were based on seasonal Kendall tests of the flow-normalized predictions. This test is a modification of the non-parametric Kendall test that accounts for variation across seasons in the response variable \cite{Hirsch82}.  Results from the test can be used to evaluate the direction, magnitude, and significance of a monotonic change within the period of observation.  The estimated rate of change per year is also returned as the Theil-Sen slope and was interpreted as the percent change per year when divided by the median value of the response variable in the period of observation.  Trends within annual groupings were based on all monthly observations within relevant years, whereas seasonal groupings were based only on the relevant months across all years in the data set.  Seasonal Kendall tests weere also used to describe trends in the model predictions for the observed data.  These trends were compared with those based on the flow-normalized trends to evaluate the improved ability of \ac{wrtds} to describe trends that are independent of flow.  The analysis was similar to that in Ref.~\citenum{Jassby08} that evaluated trends after accounting for river inflow using a more generic form of locally weighted regression. Functions in the EnvStats package in R were used for the seasonal Kendall tests \cite{Millard13}. 
+Trends within each annual and seasonal grouping were based on seasonal Kendall tests of the flow-normalized predictions. This test is a modification of the non-parametric Kendall test that accounts for variation across seasons in the response variable \cite{Hirsch82}.  Results from the test can be used to evaluate the direction, magnitude, and significance of a monotonic change within the period of observation.  The estimated rate of change per year is also returned as the Theil-Sen slope and was interpreted as the percent change per year when divided by the median value of the response variable in the period of observation.\cite{Jassby08}  Trends within annual groupings were based on all monthly observations within relevant years, whereas seasonal groupings were based only on the relevant months across all years in the data set.  Seasonal Kendall tests weere also used to describe trends in the model predictions for the observed data.  These trends were compared with those based on the flow-normalized trends to evaluate the improved ability of \ac{wrtds} to describe trends that are independent of flow.  Functions in the EnvStats package in R were used for the seasonal Kendall tests \cite{Millard13}. 
 
 \section{Results and Discussion}
 
 \subsection{Observed Data}
 
+
+
+The observed time series for the ten Delta stations had substantial variation in scale among the nitrogen analytes and differences in apparent seasonal trends (\cref{fig:obsdat}).  In general, long-term (inter-annual) trends were not easily observed from the raw data.  
+
+averages by location
+averages by years, seasons
+seasonality vs no seasonality
+ammonium v nitrite/nitrate ratio, overall and by season
+spikes
+
 \subsection{Trends}
 
-kendall tests - observed
+kendall tests - observed, \cref{fig:trndcomp1,fig:trndcomp2,fig:trndcomp3}
 
 What about flow? \cref{fig:dinc10}, \cref{fig:dinc10dyna}
 
@@ -220,7 +232,7 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 
 \cref{fig:clmchl}, \cref{fig:d7c10trnds}, \cref{tab:d7chg}, \cref{tab:c10chg}
 
-\section{Discussion}
+\subsection{Implications}
 
 Implications of different flow varialbes - refer to \cite{Novick15}, a hybrid approach would be best for complex systems like the delta.
 
@@ -228,7 +240,10 @@ Second case study showed typical inverse relationships between nutrients and flo
 
 What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorohpyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
+\section{References} % omit on submit
+\begin{singlespace}
 \bibliography{refs}
+\end{singlespace}
 
 \begin{figure}
 \centering
@@ -281,22 +296,11 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 
 \begin{figure}[!ht]
 
-{\centering \includegraphics[width=\textwidth]{figs/stock-1} 
-
-}
-
-\caption[Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County]{Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in 2006 for nitrification/denitrification and tertiary filtration to convert ammonium to nitrate.}\label{fig:stock}
-\end{figure}
-
-
-
-\begin{figure}[!ht]
-
 {\centering \includegraphics[width=\textwidth]{figs/p8trnds-1} 
 
 }
 
-\caption{Nitrogen trends at P8 as observed (a, top), predicted and flow-normalized estimates from \ac{wrtds} (a, bottom), and relationships with flow over time (b).  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Stockton (San Joaquin County), were completed in May 2007 (\cref{fig:stock}), coincident with a dramatic decrease in ammonium at P8.}\label{fig:p8trnds}
+\caption{Nitrogen trends at P8 as observed (a, top), predicted and flow-normalized estimates from \ac{wrtds} (a, bottom), and relationships with flow over time (b).  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Stockton (San Joaquin County) were completed in 2006 (\cref{fig:stock}), coincident with a dramatic decrease in ammonium at P8.}\label{fig:p8trnds}
 \end{figure}
 
 
@@ -587,6 +591,17 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \caption{Results from seasonal Kendall tests on model predictions from \ac{wrtds}. Trends were evaluated using predicted (triangles) and flow-normalized (circles) results to identify potential effects of flow. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
 \label{fig:trndcomp3}   
 \end{figure}
+
+\begin{figure}[!ht]
+
+{\centering \includegraphics[width=\textwidth]{figs/stock-1} 
+
+}
+
+\caption[Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County]{Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in 2006 for nitrification/denitrification and tertiary filtration to convert ammonium to nitrate.}\label{fig:stock}
+\end{figure}
+
+
 
 \end{suppinfo}
 
