@@ -60,7 +60,7 @@
 \usepackage{paralist}
 \usepackage{bm}
 \usepackage{fixltx2e}
-% \usepackage{showlabels}
+\usepackage{showlabels}
 
 % cleveref options
 \crefname{table}{Table}{Tables}
@@ -125,9 +125,9 @@ The \ac{sfe} on the Pacific Coast of the United States is one of the most promin
 
 The goal of this study was to provide a comprehensive description of nutrient trends in the Delta that will inform understanding of eutrophication dynamics and potential causes of water quality change in the larger Bay. We applied the newly-adapted method of weighted regression for tidal waters to describe nitrogen trends in  different spatial and temporal contexts. The specific objectives were to \begin{inparaenum}[1\upshape)]  
 \item quantify and interpret trends over four decades at ten stations in the Delta, including annual, seasonal, and spatial changes in nitrogen analytes and response to flow variation,
-\item provide detailed descriptions of three case studies in the context of conceptual relationships modelled with \ac{wrtds}.
+\item provide detailed descriptions of two case studies in the context of conceptual relationships modelled with \ac{wrtds}.
 \end{inparaenum}
-The second objective evaluated three specific water quality stations in the Delta to demonstrate complexities with nutrient response to flow, effects of \ac{wwtp} upgrades on water quality, and effects of biological invasion by benthic filter feeders on primary production. Although quantitative descriptions of change can be ends in themselves, the results were expected to have greater impact as a means to more detailed understanding of ecosystem properties.  Products derived from \ac{wrtds} can be used to inform additional analyses, such as water quality response after removing annual, seasonal, or flow effects. Overall, this analysis is expected to further an ecological and management-based understanding of dynamics in San Francisco Bay, with implications for water quality restoration and protection of this prominent system. 
+The second objective evaluated two specific water quality stations in the Delta to demonstrate complexities with nutrient response to flow, effects of \ac{wwtp} upgrades on water quality, and effects of biological invasion by benthic filter feeders on primary production. Although quantitative descriptions of change can be ends in themselves, the results were expected to have greater impact as a means to more detailed understanding of ecosystem properties.  Products derived from \ac{wrtds} can be used to inform additional analyses, such as water quality response after removing annual, seasonal, or flow effects. Overall, this analysis is expected to further an ecological and management-based understanding of dynamics in San Francisco Bay, with implications for water quality restoration and protection of this prominent system. 
 
 \section{Methods}
 
@@ -159,22 +159,29 @@ A hallmark of the \ac{wrtds} approach is the description of flow-normalized tren
 
 Trends within each annual and seasonal grouping were based on seasonal Kendall tests of the flow-normalized predictions. This test is a modification of the non-parametric Kendall test that accounts for variation across seasons in the response variable \cite{Hirsch82}.  Results from the test can be used to evaluate the direction, magnitude, and significance of a monotonic change within the period of observation.  The estimated rate of change per year is also returned as the Theil-Sen slope and was interpreted as the percent change per year when divided by the median value of the response variable in the period of observation.  Trends within annual groupings were based on all monthly observations within relevant years, whereas seasonal groupings were based only on the relevant months across all years in the data set.  Seasonal Kendall tests weere also used to describe trends in the model predictions for the observed data.  These trends were compared with those based on the flow-normalized trends to evaluate the improved ability of \ac{wrtds} to describe trends that are independent of flow.  The analysis was similar to that in Ref.~\citenum{Jassby08} that evaluated trends after accounting for river inflow using a more generic form of locally weighted regression. Functions in the EnvStats package in R were used for the seasonal Kendall tests \cite{Millard13}. 
 
-\subsection{Case studies}
+\section{Results and Discussion}
 
-Three stations were chosen for closer evaluation to demonstrate use of \ac{wrtds} to develop a more comprehensive description of decadal trends in the Delta.  The stations were chosen to address ecological and management-based questions that have relevance outside of the region, having importance for the understanding of estuarine processes that influence eutrophication trends over several years.  The selected case studies focused on \begin{inparaenum}[1\upshape)]
-\item nitrogen trends and flow-effects of the San Joaquin river at C10, 
+\subsection{Observed Data}
+
+\subsection{Trends}
+
+kendall tests - observed
+
+What about flow? \cref{fig:dinc10}, \cref{fig:dinc10dyna}
+
+Emphasize the information the model provides relative to the observed time series.  A distinct annual trend with a maximum in the middle of the time series is observed, with lower values at the beginning and end of the period.  The seasonal patterns generally showed that \ac{din} concentrations were highest in January with higher values at moderate to low flow rates depending on the year. Interestingly, summer and fall concentrations have showed a slight increase later in the time series (~2004-2009).  The confounding effect of flow is also very apparent such that higher flows were associated with lower concentration.  Dynaplot showed that there was always a negative assocation between the two (i.e., no modal response).  Emphasize the summer/fall change in the 2000s, why is this?  Check \cite{Cloern07}, showed seasonal changes in early 2000s in chlorophyll (NE Pacific shifted to cool phase), is there a mechanism here with DIN? Relate to conceptual diagram.
+
+Estimated annual percent change of ammonium from 1976-1995 at P8 was more than twice that shown in Ref.~\citenum{Jabusch16}, suggesting that flow effects on the time series lead to an under-estimate of the actual change. \cref{tab:trnds} shows an approximate 5\% increase per year, compared to 2\% in Fig 2 from Ref.~\citenum{Jabusch16}.  Mid-1990s was high flow, which diluted the observed ammonium and removal of this component showed a steady, positive increase in the flow-normalized trend (\cref{fig:p8trnds}).  
+
+Effects of flow on trend interpration shown in \cref{fig:trndcomp1,fig:trndcomp2,fig:trndcomp3}.
+
+\subsection{Selected examples}
+
+Two stations were chosen for closer evaluation to demonstrate use of \ac{wrtds} to develop a more comprehensive description of decadal trends in the Delta.  The stations were chosen to address ecological and management-based questions that have relevance outside of the region, having importance for the understanding of estuarine processes that influence eutrophication trends over several years.  The selected case studies focused on \begin{inparaenum}[1\upshape)]
 \item effects of wastewater treatment upgrades upstream of P8, and
 \item effects of biological invasion on nutrient dynamics in Suisun Bay.
 \end{inparaenum}
 Each case study is built around hypotheses that results from \ac{wrtds} models were expected to support, both as a general description and for additional testing with alternative methods. 
-
-\subsubsection{Disaggregating observed nitrogen time series}
-
-Multiple biological and physical factors influence nutrient concentrations at different temporal scales \cite{Cloern10}.  As a result, relationships between nutrients, time, and flow that could be described by quantitative methods like \ac{wrtds} are espected to be non-linear and complex as compared to more conventional methods for time series analysis.  A detailed evaluation of nitrogen dynamics at C10 using \ac{wrtds}, including the effects of flow, was expected to reveal \begin{inparaenum}[1\upshape)]
-\item an annual trend independent of a seasonal trend, and 
-\item varying flow contribution to nutrient dynamics, either as a difference between predicted and flow-normalized results or changes in the nutrient versus flow relationship at different annual periods.
-\end{inparaenum}
-Results from this case study were used to demonstrate the breadth of information that can be obtained from the observed time series with \ac{wrtds}. 
 
 \subsubsection{Effects of wastewater treatment}
 
@@ -186,6 +193,12 @@ Wastewater treatment plants upstream of and within the Delta are a major source 
 The use of \ac{wrtds} to describe downstream effects of \ac{wwtp} upgrades could reveal flow-independent trends that have not been previously described.
 %See \href{http://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/san_joaquin/r5-2008-0086_res.pdf}{here}
 
+Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:stock}).  Nitrate is the primary constituent of total nitrogen after 2007.  Organic nitrogen is a larger percentage of the total after nitrification. What was reduction in ammonium starting in 2002? 
+
+Nitrogen trends at P8 shifted in response to upstream \ac{wwtp} upgrades (\cref{fig:p8trnds}), with ammonium showing the largest reduction.  Interestingly, nitrite/nitrate concentrations also showed a similar but less dramatic decrease.  Percent changes are shown in \cref{tab:p8chg}, where both nitrogen species shows large percent increases prior to \ac{wwtp} upgrades followed by decreases after upgrades with ammonium showing the largest pecentage.  Seasonally, increases prior to upgrades were most apparent in the \ac{jas} months for both analytes.  Seasonal reductions post-upgrades were also largest in \ac{jas} for nitrite/nitrate, whereas percent reductions were similar across all monthly groupings for ammonium.  
+
+Relationships of nitrogen with flow showed the typical inverse flow/concentration dynamic with flushing at high flow, although patterns differed by nitrogen species.  Seasonal variation was more apparent for ammonium, although both typically had the highest concentrations in the winter.  Additionally, strength of the flow/nutrient relationship changed throughout the time series the year where the strongest relationship differed by analyte.  Nitrite/nitrate typically had the strongest relationship flow later in the time series, whereas ammonium had the strongest relationship with flow in the early 2000s.  
+
 \subsubsection{Effects of biological invasions}
 
 The \acl{sfe} is considered one of the most invaded ecosystems in the world with an estimated 234 exotic species by the turn of the century, half of which have been reported after 1965 \cite{Cohen98}.  The invasion of benthic grazers as ecosystem engineers is one of the more notable events that has been characterized by dramatic shifts in primary production of the Bay's trophic network \cite{Carlton90,Nichols90,Werner93,Crauder16}.  In particular, invasion of the upper estuary by the Asian clam \textit{Potamocorbula amurensis} in 1986 caused dramatic changes in phytoplankton abundance and species composition with increased grazing.  Reduction in phytoplankton biomass has altered trophic networks in the Bay and is considered a primary mechanism in the decline of the protected delta smelt and other important fisheries \cite{Feyrer03,MacNally10}.  Changes in the physical environment have also occurred with the most notable effect being increased water clarity following a reduction of phytoplankton \cite{MacNally10}. The clams are halophilic such that drought years are generally correlated with an increase in biomass and further upstream invasion of the species \cite{Parchaso02,Cloern12b}.
@@ -196,36 +209,6 @@ We hypothesized that \ac{wrtds} models applied to water quality observations in 
 \item seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession. 
 \end{inparaenum}
 The application of \ac{wrtds} to water quality observations at station D7 in Suisun Bay and comparison with clam abundance and biomass data from \cite{Crauder16} was expected to reveal the competing effects of inflow on phytoplankton and benthic grazers.
-
-\section{Results and Discussion}
-
-\subsection{Observed Data}
-
-\subsection{Trends}
-
-Estimated annual percent change of ammonium from 1976-1995 at P8 was more than twice that shown in Ref.~\citenum{Jabusch16}, suggesting that flow effects on the time series lead to an under-estimate of the actual change. \cref{tab:trnds} shows an approximate 5\% increase per year, compared to 2\% in Fig 2 from Ref.~\citenum{Jabusch16}.  Mid-1990s was high flow, which diluted the observed ammonium and removal of this component showed a steady, positive increase in the flow-normalized trend (\cref{fig:p8trnds}).  
-
-Effects of flow on trend interpration shown in \cref{fig:trndcomp1,fig:trndcomp2,fig:trndcomp3}.
-
-\subsection{Selected examples}
-
-\subsubsection{Disaggregating observed nitrogen time series}
-
-\cref{fig:dinc10}, \cref{fig:dinc10dyna}
-
-Emphasize the information the model provides relative to the observed time series.  A distinct annual trend with a maximum in the middle of the time series is observed, with lower values at the beginning and end of the period.  The seasonal patterns generally showed that \ac{din} concentrations were highest in January with higher values at moderate to low flow rates depending on the year. Interestingly, summer and fall concentrations have showed a slight increase later in the time series (~2004-2009).  The confounding effect of flow is also very apparent such that higher flows were associated with lower concentration.  Dynaplot showed that there was always a negative assocation between the two (i.e., no modal response).  The quantile distributions showed similar trends over time in both predicted values and flow-normalized predictions, although some exceptions were observed.  In particular, high flow (1984, 2008) reduced concentrations of all quantiles but the magniutude of the effect increased at higher quantiles (i.e., the effect was disproportionate).  The opposite was observed for low flow, i.e., the ninetieth percent showed the greatest increase for low flow.     
-
-Emphasize the summer/fall change in the 2000s, why is this?  Check \cite{Cloern07}, showed seasonal changes in early 2000s in chlorophyll (NE Pacific shifted to cool phase), is there a mechanism here with DIN? Relate to conceptual diagram.
-
-\subsubsection{Effects of wastewater treatment}
-
-Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:stock}).  Nitrate is the primary constituent of total nitrogen after 2007.  Organic nitrogen is a larger percentage of the total after nitrification. What was reduction in ammonium starting in 2002? 
-
-Nitrogen trends at P8 shifted in response to upstream \ac{wwtp} upgrades (\cref{fig:p8trnds}), with ammonium showing the largest reduction.  Interestingly, nitrite/nitrate concentrations also showed a similar but less dramatic decrease.  Percent changes are shown in \cref{tab:p8chg}, where both nitrogen species shows large percent increases prior to \ac{wwtp} upgrades followed by decreases after upgrades with ammonium showing the largest pecentage.  Seasonally, increases prior to upgrades were most apparent in the \ac{jas} months for both analytes.  Seasonal reductions post-upgrades were also largest in \ac{jas} for nitrite/nitrate, whereas percent reductions were similar across all monthly groupings for ammonium.  
-
-Relationships of nitrogen with flow showed the typical inverse flow/concentration dynamic with flushing at high flow, although patterns differed by nitrogen species.  Seasonal variation was more apparent for ammonium, although both typically had the highest concentrations in the winter.  Additionally, strength of the flow/nutrient relationship changed throughout the time series the year where the strongest relationship differed by analyte.  Nitrite/nitrate typically had the strongest relationship flow later in the time series, whereas ammonium had the strongest relationship with flow in the early 2000s.  
-
-\subsubsection{Effects of biological invasions}
 
 Data from \cite{Crauder16,Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in Ref.~\citenum{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
 
@@ -249,7 +232,7 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 
 \begin{figure}
 \centering
-\includegraphics[width=1\textwidth,page=1]{figs/delt_map.pdf}
+\includegraphics[width=0.8\textwidth,page=1]{figs/delt_map.pdf}
 \caption{The \acl{sfe} Delta and monitoring stations used for analysis. The Delta drains the combined watershed from the Sacramento and San Joaquin rivers (bottom left). All data were obtained from the \acl{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm})\cite{IEP13}.}
 \label{fig:delt_map}   
 \end{figure}
@@ -276,33 +259,22 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 
 \begin{figure}[!ht]
 
+{\centering \includegraphics[width=0.75\textwidth]{figs/dinc10-1} 
+
+}
+
+\caption{Time series of \ac{din} and flow at station C10.  Subfigure (a) shows the observed \ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \ac{wrtds} at different conditional quantiles ($\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend. Subfigure (e) shows the modelled relationships between \ac{din}, flow, and time.}\label{fig:dinc10}
+\end{figure}
+
+
+
+\begin{figure}[!ht]
+
 {\centering \includegraphics[width=0.7\textwidth]{figs/trndmap-1} 
 
 }
 
 \caption{Percent change per year in nitrogen analytes for aggregations by (a) year, (b) seasons from 1976-1995, and (c) seasons from 1996-2013.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Values less than -9\% change were truncated for visual clarity of the bar plots, see \cref{tab:trndsann,tab:trndsbef,tab:trndsaft} for actual values. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.}\label{fig:trndmap}
-\end{figure}
-
-
-
-\begin{figure}[!ht]
-
-{\centering \includegraphics[width=0.75\textwidth]{figs/dinc10-1} 
-
-}
-
-\caption{Time series of \ac{din} and flow at station C10.  Subfigure (a) shows the observed \ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \ac{wrtds} at different conditional quantiles ($\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend.}\label{fig:dinc10}
-\end{figure}
-
-
-
-\begin{figure}[!ht]
-
-{\centering \includegraphics[width=\textwidth]{figs/dinc10dyna-1} 
-
-}
-
-\caption{Modelled relationships between \ac{din}, flow, and time at station C10.  The top figure shows the annual and seasonal variation over the entire time series and the bottom figure shows annual variation for selected months to remove seasonal variation.  Warmer colors indicate higher \ac{din} concentrations.  The y-axis on the bottom figure is truncated by the fifth and ninety-fifth percentiles of flow within each month.  Model results are for the fiftieth conditional quantile of \ac{din}.}\label{fig:dinc10dyna}
 \end{figure}
 
 
