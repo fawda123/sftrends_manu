@@ -117,7 +117,7 @@ The Delta region is of particular interest for understanding historical patterns
 
 \subsection{Data sources}
 
-Multi-decadal time series of nutrients and flow records were used to develop a quantitative description of nitrogen trends in the Delta.  The \ac{iep} is a consortium of state and federal agencies that have maintained the \ac{emp} in the Delta region since 1975 \cite{IEP13}.  The \ac{emp} collects monthly water quality samples at 19 stations in the Delta, Suisun Bay, and northeastern San Pablo Bay.  Water samples were collected using a Van Dorn sample, a submersible pump, or a flow through system depending on site.  All samples were processed with standard QA/QC at the California Department of Water Resources Bryte Laboratory in Sacramento \cite{IEP13}.  Nutrient time series were obtained from the \ac{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}) at ten discrete sampling stations from 1976 through 2013 (\cref{fig:delt_map}).  Three representative stations from  three locations in the Delta and Suisun Bay were used: Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; middle stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations were chosen based on continuity of the water quality time series and geographic location for understanding trends.  Data were minimally processed with the exception of averaging replicates that occurred on the same day.  Detection limits throughout the period of record were obtained from the metadata, although few observations were censored ($<$ 3\%).  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two).  
+Multi-decadal time series of nutrients and flow records were used to develop a quantitative description of nitrogen trends in the Delta.  The \ac{iep} is a consortium of state and federal agencies that have maintained the \ac{emp} in the Delta region since 1975 \cite{IEP13}.  The \ac{emp} collects monthly water quality samples at 19 stations in the Delta, Suisun Bay, and northeastern San Pablo Bay.  Water samples were collected using a Van Dorn sample, a submersible pump, or a flow through system depending on site.  All samples were processed with standard QA/QC at the California Department of Water Resources Bryte Laboratory in Sacramento \cite{IEP13}.  Nutrient time series were obtained from the \ac{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}) at ten discrete sampling stations from 1976 through 2013 (\cref{fig:delt_map}).  Representative stations from  three locations in the Delta and Suisun Bay were used: Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; middle stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations were chosen based on continuity of the water quality time series and geographic location for understanding trends.  Data were minimally processed with the exception of averaging replicates that occurred on the same day.  Detection limits throughout the period of record were obtained from the metadata, although few observations were censored ($<$ 3\%).  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two).  
 
 Daily flow estimates for the Delta region were obtained from the Dayflow software program that provides estimates of average Delta outflow \cite{IEP16}.  Because of the complexity of water inflow, exports, and outflows from the Delta, the Dayflow program combines observations with estimates based on mass balance to reconstruct historical and daily flow estimates.  The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to acount for flow effects at C3, D19, D26, and D28, and the San Joaquin time series was used for C10 and P8.  The salinity observations at D4, D6, and D7 in Suisun Bay were used as a more appropriate measure of variation in freshwater balance given the stronger tidal influence at these stations.  Salinity has been used a tracer of freshwater influence for the application of WRTDS models in tidal waters \cite{Beck15}.  
 
@@ -229,6 +229,54 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \caption{The \acl{sfe} Delta and monitoring stations used for analysis. The Delta drains the combined watershed from the Sacramento and San Joaquin rivers (bottom left). All data were obtained from the \acl{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm})\cite{IEP13}.}
 \label{fig:delt_map}   
 \end{figure}
+
+<<obsdat, fig.cap = 'Observed \\ac{din} from ten stations in the upper \\ac{sfe} Delta.  Data were collected monthly and evaluated with \\ac{wrtds} models from 1976 to 2013. Note different y-axis scales.  See \\cref{fig:delt_map} for station locations.', fig.height = 8, fig.width = 6, cache = T, out.width = '0.8\\textwidth'>>=
+data(delt_dat)
+
+missvals <- c('1996-01-01', '2004-04-01') %>% 
+  as.Date
+missvals <- seq(missvals[1], missvals[2], by = 'month')
+missvals <- data.frame(Site_Code = 'D19', Date = missvals, nh = 0, no23 = 0)
+
+toplo <- delt_dat %>% 
+  select(Site_Code, Date, nh, no23) %>% 
+  rbind(., missvals) %>% 
+  gather('var', 'val', nh:no23) %>% 
+  mutate(Site_Code = factor(Site_Code, 
+    levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'MD10', 'P8', 'C10', 'C3'))
+    )
+
+mythm <- theme_minimal() +
+  theme(
+    legend.position = 'top', 
+    legend.title = element_blank(),
+    panel.border = element_rect(colour = "black", fill = NA, size = 0.5),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.title.x = element_blank(),
+    axis.text.y = element_text(size = 6),
+    axis.ticks.length = unit(.1, "cm"), 
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank()
+  )  
+
+cols <- RColorBrewer::brewer.pal(9, 'Blues')[c(4, 7)]
+ylab <- expression(paste('DIN (mg ', L^-1, ')'))
+
+leglabs <- list(
+  expression(NH [4] ^ '+'),
+  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
+  )
+
+ggplot(toplo, aes(x = Date)) +
+  geom_area(aes(y = val, group = var, fill = var), stat = 'identity', position = 'stack') + 
+  scale_x_date(expand = c(0, 0)) + 
+  scale_y_continuous(ylab, expand = c(0, 0)) + 
+  facet_grid(Site_Code~., scales = 'free_y') +
+  scale_fill_manual(values = cols, labels = leglabs) +
+  mythm 
+
+@
 
 <<trndcomp, echo = F, warning = F, message = F, cache = T, results = 'hide'>>=
 data(trnds_seasyr)

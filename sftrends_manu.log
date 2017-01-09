@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  9 JAN 2017 10:50
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  9 JAN 2017 12:48
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -655,87 +655,94 @@ File: figs/delt_map.pdf Graphic file (type pdf)
 Package pdftex.def Info: figs/delt_map.pdf, page1 used on input line 252.
 (pdftex.def)             Requested size: 469.75539pt x 469.7611pt.
 
-<figs/trndcomp1.pdf, id=348, page=1, 650.43pt x 361.35pt>
+<figs/obsdat-1.pdf, id=348, 433.62pt x 578.16pt>
+File: figs/obsdat-1.pdf Graphic file (type pdf)
+ <use figs/obsdat-1.pdf>
+Package pdftex.def Info: figs/obsdat-1.pdf used on input line 259.
+(pdftex.def)             Requested size: 375.80574pt x 501.0984pt.
+
+<figs/trndcomp1.pdf, id=351, page=1, 650.43pt x 361.35pt>
 File: figs/trndcomp1.pdf Graphic file (type pdf)
 
 <use figs/trndcomp1.pdf, page 1>
-Package pdftex.def Info: figs/trndcomp1.pdf, page1 used on input line 261.
+Package pdftex.def Info: figs/trndcomp1.pdf, page1 used on input line 272.
 (pdftex.def)             Requested size: 469.75539pt x 260.98232pt.
 
-<figs/trndmap-1.pdf, id=353, 578.16pt x 578.16pt>
+<figs/trndmap-1.pdf, id=356, 578.16pt x 578.16pt>
 File: figs/trndmap-1.pdf Graphic file (type pdf)
  <use figs/trndmap-1.pdf>
-Package pdftex.def Info: figs/trndmap-1.pdf used on input line 268.
+Package pdftex.def Info: figs/trndmap-1.pdf used on input line 279.
 (pdftex.def)             Requested size: 469.75539pt x 469.75385pt.
 
-<figs/dinc10-1.pdf, id=358, 505.89pt x 578.16pt>
+<figs/dinc10-1.pdf, id=361, 505.89pt x 578.16pt>
 File: figs/dinc10-1.pdf Graphic file (type pdf)
  <use figs/dinc10-1.pdf>
-Package pdftex.def Info: figs/dinc10-1.pdf used on input line 279.
+Package pdftex.def Info: figs/dinc10-1.pdf used on input line 290.
 (pdftex.def)             Requested size: 352.31653pt x 402.65372pt.
 
-<figs/dinc10dyna-1.pdf, id=359, 650.43pt x 433.62pt>
+<figs/dinc10dyna-1.pdf, id=362, 650.43pt x 433.62pt>
 File: figs/dinc10dyna-1.pdf Graphic file (type pdf)
 
 <use figs/dinc10dyna-1.pdf>
-Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 290.
+Package pdftex.def Info: figs/dinc10dyna-1.pdf used on input line 301.
 (pdftex.def)             Requested size: 469.75539pt x 313.17879pt.
- <figs/stock-1.pdf, id=360, 578.16pt x 216.81pt>
+ <figs/stock-1.pdf, id=363, 578.16pt x 216.81pt>
 File: figs/stock-1.pdf Graphic file (type pdf)
 
 <use figs/stock-1.pdf>
-Package pdftex.def Info: figs/stock-1.pdf used on input line 301.
+Package pdftex.def Info: figs/stock-1.pdf used on input line 312.
 (pdftex.def)             Requested size: 469.75539pt x 176.15768pt.
- <figs/p8trnds-1.pdf, id=361, 650.43pt x 578.16pt>
+ <figs/p8trnds-1.pdf, id=364, 650.43pt x 578.16pt>
 File: figs/p8trnds-1.pdf Graphic file (type pdf)
 
 <use figs/p8trnds-1.pdf>
-Package pdftex.def Info: figs/p8trnds-1.pdf used on input line 312.
+Package pdftex.def Info: figs/p8trnds-1.pdf used on input line 323.
 (pdftex.def)             Requested size: 469.75539pt x 417.57172pt.
- <figs/clmchl-1.pdf, id=364, 578.16pt x 505.89pt>
+ <figs/clmchl-1.pdf, id=367, 578.16pt x 505.89pt>
 File: figs/clmchl-1.pdf Graphic file (type pdf)
 
 <use figs/clmchl-1.pdf>
-Package pdftex.def Info: figs/clmchl-1.pdf used on input line 323.
+Package pdftex.def Info: figs/clmchl-1.pdf used on input line 334.
 (pdftex.def)             Requested size: 469.75539pt x 411.0346pt.
- <figs/d7c10trnds-1.pdf, id=365, 650.43pt x 722.7pt>
+ <figs/d7c10trnds-1.pdf, id=368, 650.43pt x 722.7pt>
 File: figs/d7c10trnds-1.pdf Graphic file (type pdf)
 
 <use figs/d7c10trnds-1.pdf>
-Package pdftex.def Info: figs/d7c10trnds-1.pdf used on input line 334.
+Package pdftex.def Info: figs/d7c10trnds-1.pdf used on input line 345.
 (pdftex.def)             Requested size: 469.75539pt x 521.96465pt.
  [24] [25 <M:/docs/manuscripts/sftrends_manu/figs/delt_map.pdf>] [26 <M:/docs/m
-anuscripts/sftrends_manu/figs/trndcomp1.pdf>]
-[27 <M:/docs/manuscripts/sftrends_manu/figs/trndmap-1.pdf>] [28 <M:/docs/manusc
-ripts/sftrends_manu/figs/dinc10-1.pdf>] [29 <M:/docs/manuscripts/sftrends_manu/
-figs/dinc10dyna-1.pdf>] [30 <M:/docs/manuscripts/sftrends_manu/figs/stock-1.pdf
->] [31 <M:/docs/manuscripts/sftrends_manu/figs/p8trnds-1.pdf>] [32 <M:/docs/man
-uscripts/sftrends_manu/figs/clmchl-1.pdf>] [33 <M:/docs/manuscripts/sftrends_ma
-nu/figs/d7c10trnds-1.pdf>] [34] [35] [36] [37] [38] [39]
-<figs/trndcomp2.pdf, id=564, page=1, 650.43pt x 578.16pt>
+anuscripts/sftrends_manu/figs/obsdat-1.pdf>]
+[27 <M:/docs/manuscripts/sftrends_manu/figs/trndcomp1.pdf>] [28 <M:/docs/manusc
+ripts/sftrends_manu/figs/trndmap-1.pdf>] [29 <M:/docs/manuscripts/sftrends_manu
+/figs/dinc10-1.pdf>] [30 <M:/docs/manuscripts/sftrends_manu/figs/dinc10dyna-1.p
+df>] [31 <M:/docs/manuscripts/sftrends_manu/figs/stock-1.pdf>] [32 <M:/docs/man
+uscripts/sftrends_manu/figs/p8trnds-1.pdf>] [33 <M:/docs/manuscripts/sftrends_m
+anu/figs/clmchl-1.pdf>] [34 <M:/docs/manuscripts/sftrends_manu/figs/d7c10trnds-
+1.pdf>] [35] [36] [37] [38] [39] [40]
+<figs/trndcomp2.pdf, id=578, page=1, 650.43pt x 578.16pt>
 File: figs/trndcomp2.pdf Graphic file (type pdf)
 
 <use figs/trndcomp2.pdf, page 1>
-Package pdftex.def Info: figs/trndcomp2.pdf, page1 used on input line 596.
+Package pdftex.def Info: figs/trndcomp2.pdf, page1 used on input line 607.
 (pdftex.def)             Requested size: 469.75539pt x 417.57172pt.
 
-<figs/trndcomp3.pdf, id=567, page=1, 650.43pt x 578.16pt>
+<figs/trndcomp3.pdf, id=581, page=1, 650.43pt x 578.16pt>
 File: figs/trndcomp3.pdf Graphic file (type pdf)
 
 <use figs/trndcomp3.pdf, page 1>
-Package pdftex.def Info: figs/trndcomp3.pdf, page1 used on input line 603.
+Package pdftex.def Info: figs/trndcomp3.pdf, page1 used on input line 614.
 (pdftex.def)             Requested size: 469.75539pt x 417.57172pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 610.
- [40
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 621.
+ [41
 
 
-] [41 <M:/docs/manuscripts/sftrends_manu/figs/trndcomp2.pdf>] [42 <M:/docs/manu
+] [42 <M:/docs/manuscripts/sftrends_manu/figs/trndcomp2.pdf>] [43 <M:/docs/manu
 scripts/sftrends_manu/figs/trndcomp3.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 610.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 621.
 
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 610.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 610.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 621.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 621.
 Package rerunfilecheck Info: File `sftrends_manu.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -745,13 +752,13 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 610.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 621.
  ) 
 Here is how much of TeX's memory you used:
- 11907 strings out of 493921
- 190148 string characters out of 3147282
+ 11918 strings out of 493921
+ 190329 string characters out of 3147282
  338134 words of memory out of 3000000
- 14857 multiletter control sequences out of 15000+200000
+ 14865 multiletter control sequences out of 15000+200000
  28370 words of font info for 67 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  60i,10n,94p,2361b,733s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -781,9 +788,9 @@ sers\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1440
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/public/amsfonts/cm/cmsy8.pfb>
-Output written on sftrends_manu.pdf (42 pages, 2444960 bytes).
+Output written on sftrends_manu.pdf (43 pages, 2535305 bytes).
 PDF statistics:
- 1162 PDF objects out of 1200 (max. 8388607)
- 161 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1178 PDF objects out of 1200 (max. 8388607)
+ 163 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
