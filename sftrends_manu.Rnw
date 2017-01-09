@@ -100,7 +100,7 @@ Appropriate methods for the analysis of change depend largely on the question of
 The \ac{sfe} on the Pacific Coast of the United States is one of the most prominent and culturally significant estuaries in the western hemisphere \cite{Cloern15}.  Background nutrient concentrations in the Bay often exceed those associated with excessive primary production, although eutrophication events have historically been infrequent.  Recent changes in response to additional stressors (e.g., variation in freshwater inputs/withdrawals, invasive species, climate change) suggests that Bay condition has not followed past trajectories and more subtle spatial and temporal variation could provide clues that describe underlying properties of this system \cite{Cloern12b}.  The unique ecological and social context of the Bay provides a valuable opportunity to gain insight into ecosystem properties of estuaries that define water quality dynamics at different scales. The Delta region of \ac{sfe} in particular is a mosaic of inflows that receives and processes inputs from the larger watershed to the lower Bay \cite{Jassby00,Jassby02,Jassby08}. A comprehensive monitoring dataset has been collected at several fixed locations in the Delta for the last four decades \cite{Jabusch16}.  Morever, nutrient dynamics in the Delta are inherently linked to flow variation from inputs, withdrawal, impoundments, and downstream transport \cite{Novick15}, suggesting an approach that explicitly considers flow effects is critical for trend analysis.  To date, the Delta monitoring dataset is an under-utitilized data source and a comprehensive analysis with \ac{wrtds} could facilitate an understanding of historical and recent changes in \ac{sfe} water quality.
 
 The goal of this study was to provide a comprehensive description of nutrient trends in the Delta that will inform understanding of eutrophication dynamics and potential causes of water quality change in the larger Bay. We applied the newly-adapted method of weighted regression for tidal waters to describe nitrogen trends in  different spatial and temporal contexts. The specific objectives were to \begin{inparaenum}[1\upshape)]  
-\item quantify and interpret trends over four decades at nine stations in the Delta, including annual, seasonal, and spatial changes in nitrogen analytes and response to flow variation,
+\item quantify and interpret trends over four decades at ten stations in the Delta, including annual, seasonal, and spatial changes in nitrogen analytes and response to flow variation,
 \item provide detailed descriptions of three case studies in the context of conceptual relationships modelled with \ac{wrtds}.
 \end{inparaenum}
 The second objective evaluated three specific water quality stations in the Delta to demonstrate complexities with nutrient response to flow, effects of \ac{wwtp} upgrades on water quality, and effects of biological invasion by benthic filter feeders on primary production. Although quantitative descriptions of change can be ends in themselves, the results were expected to have greater impact as a means to more detailed understanding of ecosystem properties.  Products derived from \ac{wrtds} can be used to inform additional analyses, such as water quality response after removing annual, seasonal, or flow effects. Overall, this analysis is expected to further an ecological and management-based understanding of dynamics in San Francisco Bay, with implications for water quality restoration and protection of this prominent system. 
@@ -228,6 +228,111 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \includegraphics[width=1\textwidth,page=1]{figs/delt_map.pdf}
 \caption{The \acl{sfe} Delta and monitoring stations used for analysis. The Delta drains the combined watershed from the Sacramento and San Joaquin rivers (bottom left). All data were obtained from the \acl{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm})\cite{IEP13}.}
 \label{fig:delt_map}   
+\end{figure}
+
+<<trndcomp, echo = F, warning = F, message = F, cache = T, results = 'hide'>>=
+data(trnds_seasyr)
+
+# response labels 
+reslabs <- list(
+  shrt = c('din', 'nh', 'no23'),
+  expr = c(
+    'DIN', 
+    expression(paste(NH [4] ^ '+')),
+    expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
+  )
+)
+
+# combine all
+trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>% 
+  select(Site_Code, resvar, cat, ztest, tau, perchg, ann, trndvar) %>% 
+  filter(!trndvar %in% 'res') %>% 
+  mutate(
+    Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'C10', 'C3')),
+    ztest = ifelse(ztest < 0.05, '(< 0.05)', '(ns)'),
+    resvar = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr), 
+    trndvar = factor(trndvar, levels = c('fits', 'norm'), labels = c('Pred.', 'Flow-norm.'))
+  ) %>% 
+  unite('trnd', trndvar, ztest, sep = ' ')
+
+# ggplot theme
+mythm <- theme_minimal() +
+  theme(
+    legend.position = 'top', 
+    legend.title = element_blank(),
+    panel.border = element_rect(colour = "black", fill = NA, size = 0.5),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"), 
+    panel.grid.major = element_blank(), 
+    panel.grid.minor = element_blank()
+  )  
+
+# year only
+toplo1 <- filter(trnds_seasyr, cat %in% c('1976-1995', '1996-2013'))
+p1 <- ggplot(toplo1, aes(x = tau, y = Site_Code)) + 
+  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
+  facet_grid(cat~resvar, labeller = label_parsed
+    ) + 
+  geom_vline(xintercept = 0, linetype = 'dashed') + 
+  mythm + 
+  xlab(expression(tau)) +
+  scale_shape_manual(values = c(16, 1, 17, 2)) +
+  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
+  scale_x_continuous(limits = c(-1, 1)) + 
+  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
+  scale_y_discrete('Stations')
+
+# seasonal, first years
+toplo2 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'bef') 
+p2 <- ggplot(toplo2, aes(x = tau, y = Site_Code)) + 
+  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
+  facet_grid(cat~resvar, labeller = label_parsed
+    ) + 
+  geom_vline(xintercept = 0, linetype = 'dashed') + 
+  mythm + 
+  xlab(expression(tau)) +
+  scale_shape_manual(values = c(16, 1, 17, 2)) +
+  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
+  scale_x_continuous(limits = c(-1, 1)) + 
+  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
+  scale_y_discrete('Stations')
+
+# seasonal, first years
+toplo3 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'aft')
+p3 <- ggplot(toplo3, aes(x = tau, y = Site_Code)) + 
+  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
+  facet_grid(cat~resvar, labeller = label_parsed
+    ) + 
+  geom_vline(xintercept = 0, linetype = 'dashed') + 
+  mythm + 
+  xlab(expression(tau)) +
+  scale_shape_manual(values = c(16, 1, 17, 2)) +
+  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
+  scale_x_continuous(limits = c(-1, 1)) + 
+  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
+  scale_y_discrete('Stations')
+
+pdf('figs/trndcomp1.pdf', height = 5, width = 9, family = 'serif')
+p1
+dev.off()
+
+
+pdf('figs/trndcomp2.pdf', height = 8, width = 9, family = 'serif')
+p2
+dev.off()
+
+
+pdf('figs/trndcomp3.pdf', height = 8, width = 9, family = 'serif')
+p3
+dev.off()
+@
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,page=1]{figs/trndcomp1.pdf}
+\caption{Results from seasonal Kendall tests on model predictions from \ac{wrtds}. Trends were evaluated using predicted (triangles) and flow-normalized (circles) results to identify potential effects of flow. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different annual groupings. See \cref{fig:trndcomp2,fig:trndcomp3} for seasonal groupings.}
+\label{fig:trndcomp1}   
 \end{figure}
 
 <<trndmap, fig.cap = 'Percent change per year in nitrogen analytes for aggregations by (a) year, (b) seasons from 1976-1995, and (c) seasons from 1996-2013.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Values less than -9\\% change were truncated for visual clarity of the bar plots, see \\cref{tab:trndsann,tab:trndsbef,tab:trndsaft} for actual values. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.', fig.height = 8, fig.width = 8, cache = T, out.width = '\\textwidth'>>=
@@ -1181,111 +1286,6 @@ grid.arrange(
 )
 
 @
-
-<<trndcomp, echo = F, warning = F, message = F, cache = T, results = 'hide'>>=
-data(trnds_seasyr)
-
-# response labels 
-reslabs <- list(
-  shrt = c('din', 'nh', 'no23'),
-  expr = c(
-    'DIN', 
-    expression(paste(NH [4] ^ '+')),
-    expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
-  )
-)
-
-# combine all
-trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>% 
-  select(Site_Code, resvar, cat, ztest, tau, perchg, ann, trndvar) %>% 
-  filter(!trndvar %in% 'res') %>% 
-  mutate(
-    Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'C10', 'C3')),
-    ztest = ifelse(ztest < 0.05, '(< 0.05)', '(ns)'),
-    resvar = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr), 
-    trndvar = factor(trndvar, levels = c('fits', 'norm'), labels = c('Pred.', 'Flow-norm.'))
-  ) %>% 
-  unite('trnd', trndvar, ztest, sep = ' ')
-
-# ggplot theme
-mythm <- theme_minimal() +
-  theme(
-    legend.position = 'top', 
-    legend.title = element_blank(),
-    panel.border = element_rect(colour = "black", fill = NA, size = 0.5),
-    axis.ticks.x = element_line(),
-    axis.ticks.y = element_line(),
-    axis.ticks.length = unit(.1, "cm"), 
-    panel.grid.major = element_blank(), 
-    panel.grid.minor = element_blank()
-  )  
-
-# year only
-toplo1 <- filter(trnds_seasyr, cat %in% c('1976-1995', '1996-2013'))
-p1 <- ggplot(toplo1, aes(x = tau, y = Site_Code)) + 
-  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
-  facet_grid(cat~resvar, labeller = label_parsed
-    ) + 
-  geom_vline(xintercept = 0, linetype = 'dashed') + 
-  mythm + 
-  xlab(expression(tau)) +
-  scale_shape_manual(values = c(16, 1, 17, 2)) +
-  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
-  scale_x_continuous(limits = c(-1, 1)) + 
-  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
-  scale_y_discrete('Stations')
-
-# seasonal, first years
-toplo2 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'bef') 
-p2 <- ggplot(toplo2, aes(x = tau, y = Site_Code)) + 
-  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
-  facet_grid(cat~resvar, labeller = label_parsed
-    ) + 
-  geom_vline(xintercept = 0, linetype = 'dashed') + 
-  mythm + 
-  xlab(expression(tau)) +
-  scale_shape_manual(values = c(16, 1, 17, 2)) +
-  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
-  scale_x_continuous(limits = c(-1, 1)) + 
-  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
-  scale_y_discrete('Stations')
-
-# seasonal, first years
-toplo3 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'aft')
-p3 <- ggplot(toplo3, aes(x = tau, y = Site_Code)) + 
-  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
-  facet_grid(cat~resvar, labeller = label_parsed
-    ) + 
-  geom_vline(xintercept = 0, linetype = 'dashed') + 
-  mythm + 
-  xlab(expression(tau)) +
-  scale_shape_manual(values = c(16, 1, 17, 2)) +
-  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
-  scale_x_continuous(limits = c(-1, 1)) + 
-  geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
-  scale_y_discrete('Stations')
-
-pdf('figs/trndcomp1.pdf', height = 5, width = 9, family = 'serif')
-p1
-dev.off()
-
-
-pdf('figs/trndcomp2.pdf', height = 8, width = 9, family = 'serif')
-p2
-dev.off()
-
-
-pdf('figs/trndcomp3.pdf', height = 8, width = 9, family = 'serif')
-p3
-dev.off()
-@
-
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,page=1]{figs/trndcomp1.pdf}
-\caption{Results from seasonal Kendall tests on model predictions from \ac{wrtds}. Trends were evaluated using predicted (triangles) and flow-normalized (circles) results to identify potential effects of flow. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different annual groupings. See \cref{fig:trndcomp2,fig:trndcomp3} for seasonal groupings.}
-\label{fig:trndcomp1}   
-\end{figure}
 
 \clearpage
 %%%%%%
