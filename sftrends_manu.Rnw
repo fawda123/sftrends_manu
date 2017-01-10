@@ -139,7 +139,7 @@ cvals <- arrange(cvals_all, -cper) %>%
 
 Multi-decadal time series of nutrients and flow records were used to develop a quantitative description of nitrogen trends in the Delta.  The \ac{iep} is a consortium of state and federal agencies that have maintained the \ac{emp} in the Delta region since 1975 \cite{IEP13}.  The \ac{emp} collects monthly water quality samples at 19 stations in the Delta, Suisun Bay, and northeastern San Pablo Bay.  Water samples were collected using a Van Dorn sample, a submersible pump, or a flow through system depending on site.  All samples were processed with standard QA/QC at the California Department of Water Resources Bryte Laboratory in Sacramento \cite{IEP13}.  Nutrient time series were obtained from the \ac{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}) at ten discrete sampling stations from 1976 through 2013 (\cref{fig:delt_map}).  Stations were grouped by location in the study area for comparison: Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; middle stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations were chosen based on continuity of the water quality time series and geographic location for understanding trends.  Time series were complete for all stations except for an approximate ten year gap from 1996-2014 for D19.  Data were minimally processed with the exception of averaging replicates that occurred on the same day.  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two). Less than 3\% of all observations were left-censored, although variation was observed between analytes and location.  The most censored observations were observed for ammonium time series at sites \Sexpr{cvals$Site_Code[1]} (\Sexpr{cvals$cper[1]}\%), \Sexpr{cvals$Site_Code[2]} (\Sexpr{cvals$cper[2]}\%), \Sexpr{cvals$Site_Code[3]} (\Sexpr{cvals$cper[3]}\%), \Sexpr{cvals$Site_Code[4]} (\Sexpr{cvals$cper[4]}\%), and \Sexpr{cvals$Site_Code[5]} (\Sexpr{cvals$cper[5]}\%).
 
-Daily flow estimates for the Delta region were obtained from the Dayflow software program that provides estimates of average Delta outflow \cite{IEP16}.  Because of the complexity of water inflow, exports, and outflows from the Delta, the Dayflow program combines observations with estimates based on mass balance to reconstruct historical and daily flow estimates.  The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to acount for flow effects at C3, D19, D26, and D28, and the San Joaquin time series was used for C10 and P8.  The salinity observations at D4, D6, and D7 in Suisun Bay were used as a more appropriate measure of variation in freshwater balance given the stronger tidal influence at these stations.  Salinity has been used a tracer of freshwater influence for the application of WRTDS models in tidal waters \cite{Beck15}.  
+Daily flow estimates for the Delta region were obtained from the Dayflow software program that provides estimates of average Delta outflow \cite{IEP16}.  Because of the complexity of water inflow, exports, and outflows from the Delta, the Dayflow program combines observations with estimates based on mass balance to reconstruct historical and daily flow estimates.  The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to acount for flow effects at C3, D19, D26, and D28, and the San Joaquin time series was used for C10 and P8.  The salinity observations at D4, D6, and D7 in Suisun Bay were used as a more appropriate measure of variation in freshwater balance given the stronger tidal influence at these stations.  Salinity has been used as a tracer of freshwater influence for the application of WRTDS models in tidal waters \cite{Beck15}.  
 
 \subsection{Analysis method and application}
 
@@ -153,7 +153,7 @@ A total of twenty-seven \ac{wrtds} models were created, one for each nitrogen an
 
 A hallmark of the \ac{wrtds} approach is the description of flow-normalized trends that are independent of variation from freshwater inflows.  Flow-normalized trends have value for the interpretation of changes that are potentially caused by drivers other than  flow, such as \ac{wwtp} upgrades or phytoplankton grazing by benthic filter-feeders\cite{Beck15}. Although variation in nutrients is caused by the combined effects of several variables acting at different temporal and spatial scales, flow-normalization provides a basis for further exploration by removing a critical confounding variable that could affect the interpretation of trends. A flow-normalized value is the average of predictions at a given observation using all flow values that are expected to occur for the relevant month across years in the record.  Flow-normalized trends for each analyte at each station were used to describe long-term changes in different annual and seasonal periods.  Specifically, flow-normalized trends in each analyte were summarized as both medians and percent changes from the beginning to end of annual groupings from 1976-1995 and 1996-2013, and seasonal groupings of March-April-May (spring), June-July-August (summer), September-October-November (fall), and December-January-February (winter) within each annual grouping. These annual and seasonal groupings were chosen for continuity with similar comparisons reported in Ref.~\citenum{Jabusch16} and as approximate twenty year midway points in the time series.  
 
-Trends within each annual and seasonal grouping were based on seasonal Kendall tests of the flow-normalized predictions. This test is a modification of the non-parametric Kendall test that accounts for variation across seasons in the response variable \cite{Hirsch82}.  Results from the test can be used to evaluate the direction, magnitude, and significance of a monotonic change within the period of observation.  The estimated rate of change per year is also returned as the Theil-Sen slope and was interpreted as the percent change per year when divided by the median value of the response variable in the period of observation.\cite{Jassby08}  Trends within annual groupings were based on all monthly observations within relevant years, whereas seasonal groupings were based only on the relevant months across all years in the data set.  Seasonal Kendall tests weere also used to describe trends in the model predictions for the observed data.  These trends were compared with those based on the flow-normalized trends to evaluate the improved ability of \ac{wrtds} to describe trends that are independent of flow.  Functions in the EnvStats package in R were used for the seasonal Kendall tests \cite{Millard13}. 
+Trends within each annual and seasonal grouping were based on seasonal Kendall tests of the flow-normalized predictions. This test is a modification of the non-parametric Kendall test that accounts for variation across seasons in the response variable \cite{Hirsch82}.  Results from the test can be used to evaluate the direction, magnitude, and significance of a monotonic change within the period of observation.  The estimated rate of change per year is also returned as the Theil-Sen slope and was interpreted as the percent change per year when divided by the median value of the response variable in the period of observation.\cite{Jassby08}  Trends within annual groupings were based on all monthly observations within relevant years, whereas seasonal groupings were based only on the relevant months across years.  Seasonal Kendall tests were also used to describe trends in the model predictions for the observed data.  These trends were compared with those based on the flow-normalized trends to evaluate the improved ability of \ac{wrtds} to describe trends that are independent of flow.  Functions in the EnvStats package in R were used for the seasonal Kendall tests \cite{Millard13}. 
 
 \section{Results and Discussion}
 
@@ -266,7 +266,8 @@ The observed time series for the ten Delta stations had substantial variation in
 
 \subsection{Trends}
 
-Formal trend analyses of the observed data suggested that 
+Application of seasonal Kendall tests to evaluate trends in observed data provided explicit information on the direction, magnitude, and statistical significance of changes between years. Trends from 1976-1995 and 1996-2013 varied considerably between sites and analytes.  Overall, 
+
 
 kendall tests - observed, \cref{fig:trndcomp1,fig:trndcomp2,fig:trndcomp3}
 
@@ -403,6 +404,11 @@ reslabs <- list(
   )
 )
 
+# color gradients
+blues <- RColorBrewer::brewer.pal(9, 'Blues')
+collo <- blues[5] #'grey60'
+colhi <- blues[9] #'black'
+
 # combine all
 trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>% 
   select(Site_Code, resvar, cat, ztest, tau, perchg, ann, trndvar) %>% 
@@ -418,84 +424,90 @@ trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>%
 # ggplot theme
 mythm <- theme_minimal() +
   theme(
-    legend.position = 'top', 
     legend.title = element_blank(),
     panel.border = element_rect(colour = "black", fill = NA, size = 0.5),
     axis.ticks.x = element_line(),
     axis.ticks.y = element_line(),
     axis.ticks.length = unit(.1, "cm"), 
     panel.grid.major = element_blank(), 
-    panel.grid.minor = element_blank()
+    panel.grid.minor = element_blank(), 
+    legend.position = 'none'
   )  
 
-# year only
+# stupid legend
 toplo1 <- filter(trnds_seasyr, cat %in% c('1976-1995', '1996-2013'))
-p1 <- ggplot(toplo1, aes(x = tau, y = Site_Code)) + 
-  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
-  facet_grid(cat~resvar, labeller = label_parsed
-    ) + 
-  geom_vline(xintercept = 0, linetype = 'dashed') + 
-  mythm + 
-  xlab(expression(tau)) +
+pleg <- ggplot(toplo1, aes(x = perchg, y = Site_Code)) + 
+  geom_point(aes(pch = trnd), colour = blues[7], size = 4, alpha = 0.8) + 
   scale_shape_manual(values = c(1, 16, 2, 17)) +
-  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
-  scale_x_continuous(limits = c(-1, 1)) + 
+  scale_colour_gradient(low = collo, high = colhi) +
+  mythm + 
+  theme(legend.position = 'top')
+pleg <- g_legend(pleg)
+
+# year only
+p1 <- ggplot(toplo1, aes(x = perchg, y = Site_Code)) + 
+  geom_vline(xintercept = 0, linetype = 'dashed') +
+  geom_point(aes(pch = trnd, colour = abs(perchg)), size = 4, alpha = 0.8) + 
+  facet_grid(cat~resvar, labeller = label_parsed, scales = 'free_x'
+    ) + 
+  mythm + 
+  xlab(expression('% chg yr' ^-1)) +
+  scale_shape_manual(values = c(1, 16, 2, 17)) +
+  scale_colour_gradient(low = collo, high = colhi, guide = F) + 
   geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
   scale_y_discrete('Stations')
 
 # seasonal, first years
 toplo2 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'bef') 
-p2 <- ggplot(toplo2, aes(x = tau, y = Site_Code)) + 
-  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
-  facet_grid(cat~resvar, labeller = label_parsed
-    ) + 
-  geom_vline(xintercept = 0, linetype = 'dashed') + 
+p2 <- ggplot(toplo2, aes(x = perchg, y = Site_Code)) + 
+  geom_vline(xintercept = 0, linetype = 'dashed') +
+  geom_point(aes(pch = trnd, colour = abs(perchg)), size = 4, alpha = 0.8) + 
+  facet_grid(cat~resvar, labeller = label_parsed, scales = 'free_x'
+    ) +
   mythm + 
-  xlab(expression(tau)) +
+  xlab(expression('% chg yr' ^-1)) +
   scale_shape_manual(values = c(1, 16, 2, 17)) +
-  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
-  scale_x_continuous(limits = c(-1, 1)) + 
+  scale_colour_gradient(low = collo, high = colhi, guide = F) + 
   geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
   scale_y_discrete('Stations')
 
 # seasonal, first years
 toplo3 <- filter(trnds_seasyr, !cat %in% c('1976-1995', '1996-2013')& ann == 'aft')
-p3 <- ggplot(toplo3, aes(x = tau, y = Site_Code)) + 
-  geom_point(aes(pch = trnd, colour = abs(tau)), size = 4, alpha = 0.8) + 
-  facet_grid(cat~resvar, labeller = label_parsed
-    ) + 
+p3 <- ggplot(toplo3, aes(x = perchg, y = Site_Code)) + 
   geom_vline(xintercept = 0, linetype = 'dashed') + 
+  geom_point(aes(pch = trnd, colour = abs(perchg)), size = 4, alpha = 0.8) + 
+  facet_grid(cat~resvar, labeller = label_parsed, scales = 'free_x'
+    ) + 
   mythm + 
-  xlab(expression(tau)) +
+  xlab(expression('% chg yr' ^-1)) +
   scale_shape_manual(values = c(1, 16, 2, 17)) +
-  scale_colour_gradient(low = 'grey60', high = 'black', guide = F) + 
-  scale_x_continuous(limits = c(-1, 1)) + 
+  scale_colour_gradient(low = collo, high = colhi, guide = F) + 
   geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
   scale_y_discrete('Stations')
 
 pdf('figs/trndcomp1.pdf', height = 5, width = 9, family = 'serif')
-p1
+grid.arrange(pleg, p1, ncol = 1, heights = c(0.1, 1))
 dev.off()
 
 
 pdf('figs/trndcomp2.pdf', height = 8, width = 9, family = 'serif')
-p2
+grid.arrange(pleg, p2, ncol = 1, heights = c(0.06, 1))
 dev.off()
 
 
 pdf('figs/trndcomp3.pdf', height = 8, width = 9, family = 'serif')
-p3
+grid.arrange(pleg, p3, ncol = 1, heights = c(0.06, 1))
 dev.off()
 @
 
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/trndcomp1.pdf}
-\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different annual groupings. See \cref{fig:trndcomp2,fig:trndcomp3} for seasonal groupings.}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different annual groupings. See \cref{fig:trndcomp2,fig:trndcomp3} for seasonal groupings.}
 \label{fig:trndcomp1}   
 \end{figure}
 
-<<dinc10, fig.height = 9, fig.width = 7, cache = T, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \\ac{wrtds} at different conditional quantiles ($\\tau$ = 0.1, 0.5, 0.9).  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions at the fiftieth conditional quantile.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend. Subfigure (e) shows the modelled relationships between \\ac{din}, flow, and time.'>>=
+<<dinc10, fig.height = 9, fig.width = 7, cache = T, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \\ac{wrtds} for the conditional mean response.  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend. Subfigure (e) shows the modelled relationships between \\ac{din}, flow, and time.'>>=
 
 # data
 data(h1dat)
@@ -1768,14 +1780,14 @@ latex(
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/trndcomp2.pdf}
-\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
 \label{fig:trndcomp2}   
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/trndcomp3.pdf}
-\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
 \label{fig:trndcomp3}   
 \end{figure}
 
