@@ -144,7 +144,7 @@ Trends within each annual and seasonal grouping were based on seasonal Kendall t
 <<echo = F>>=
 data(delt_dat)
 
-
+obs_sm <- group_by(delt_dat, Site_Code)
 @
 
 The observed time series for the ten Delta stations had substantial variation in scale among the nitrogen analytes and differences in apparent seasonal trends (\cref{fig:obsdat}).  In general, long-term (inter-annual) trends were not easily observed from the raw data.  
@@ -159,11 +159,9 @@ spikes
 
 kendall tests - observed, \cref{fig:trndcomp1,fig:trndcomp2,fig:trndcomp3}
 
-What about flow? \cref{fig:dinc10}, \cref{fig:dinc10dyna}
+What about flow? \cref{fig:dinc10}
 
 Emphasize the information the model provides relative to the observed time series.  A distinct annual trend with a maximum in the middle of the time series is observed, with lower values at the beginning and end of the period.  The seasonal patterns generally showed that \ac{din} concentrations were highest in January with higher values at moderate to low flow rates depending on the year. Interestingly, summer and fall concentrations have showed a slight increase later in the time series (~2004-2009).  The confounding effect of flow is also very apparent such that higher flows were associated with lower concentration.  Dynaplot showed that there was always a negative assocation between the two (i.e., no modal response).  Emphasize the summer/fall change in the 2000s, why is this?  Check \cite{Cloern07}, showed seasonal changes in early 2000s in chlorophyll (NE Pacific shifted to cool phase), is there a mechanism here with DIN? Relate to conceptual diagram.
-
-Estimated annual percent change of ammonium from 1976-1995 at P8 was more than twice that shown in Ref.~\citenum{Jabusch16}, suggesting that flow effects on the time series lead to an under-estimate of the actual change. \cref{tab:trnds} shows an approximate 5\% increase per year, compared to 2\% in Fig 2 from Ref.~\citenum{Jabusch16}.  Mid-1990s was high flow, which diluted the observed ammonium and removal of this component showed a steady, positive increase in the flow-normalized trend (\cref{fig:p8trnds}).  
 
 Effects of flow on trend interpration shown in \cref{fig:trndcomp1,fig:trndcomp2,fig:trndcomp3}.
 
@@ -382,7 +380,7 @@ dev.off()
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/trndcomp1.pdf}
-\caption{Results from seasonal Kendall tests on model predictions from \ac{wrtds}. Trends were evaluated using predicted (triangles) and flow-normalized (circles) results to identify potential effects of flow. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different annual groupings. See \cref{fig:trndcomp2,fig:trndcomp3} for seasonal groupings.}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different annual groupings. See \cref{fig:trndcomp2,fig:trndcomp3} for seasonal groupings.}
 \label{fig:trndcomp1}   
 \end{figure}
 
@@ -726,14 +724,16 @@ nhmod <- filter(h2dat, resvar == 'nh') %>%
 ylab1 <- expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-', ' (mg ', L^-1, ')'))
 ylab2 <- expression(paste(NH [4] ^ '+', ' (mg ', L^-1, ')'))
 flolab <- expression(paste('ln-Flow (', m^3, ' ', s^-1, ')'))
-ptheme <- theme_minimal() + 
+ptheme <- theme_minimal() +
   theme(
     axis.line.x = element_line(), 
     axis.line.y = element_line(), 
     axis.ticks.x = element_line(),
     axis.ticks.y = element_line(),
-    axis.ticks.length = unit(.1, "cm")
+    axis.ticks.length = unit(.1, "cm"),
+    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
   )
+
 col_vec <- RColorBrewer::brewer.pal(9, 'Blues')[c(9, 8, 7)]
 dynacol_vec <- RColorBrewer::brewer.pal(9, 'Spectral')
 xlims <- range(nomod$date)
@@ -743,80 +743,68 @@ toplo1 <- select(nomod, date, res) %>%
   na.omit()
 toplo2 <- select(nhmod, date, res) %>% 
   na.omit()
-lndate <- as.Date('2006/01/01')
 p1 <- ggplot(toplo1, aes(x = date, y = exp(res))) + 
   geom_line() + 
-  ptheme + 
+  scale_x_date(limits = xlims) +
   scale_y_continuous(ylab1) +
+  ptheme %+replace%
   theme(
     axis.text.x = element_blank(),
-    axis.title.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
-  ) +
-  geom_label_repel(
-    data = data.frame(x = lndate, y = 35), 
-    aes(x, y, label = 'WWTP upgrades'), 
-    box.padding = grid::unit(2, "lines"), 
-    nudge_x = 1
-    ) + 
-  scale_x_date(limits = xlims) 
+    axis.title.x = element_blank()
+    )
 p2 <- ggplot(toplo2, aes(x = date, y = exp(res))) + 
-  geom_line() + 
-  ptheme + 
+  geom_line() +
+  scale_x_date(limits = xlims) +
   scale_y_continuous(ylab2) +
+  ptheme %+replace% 
   theme(
     axis.text.x = element_blank(),
-    axis.title.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
-  ) +
-  geom_label_repel(
-    data = data.frame(x = lndate, y = 35), 
-    aes(x, y, label = 'WWTP upgrades'), 
-    box.padding = grid::unit(2, "lines"), 
-    nudge_x = 1
-    ) + 
-  scale_x_date(limits = xlims)  
+    axis.title.x = element_blank()
+    )
 
 # prdnrmplots
 p3 <- prdnrmplot(nomod, logspace = F, col_vec = col_vec, min_mo = 10) + 
-  ptheme + 
+  scale_x_date(limits = xlims) +
   scale_y_continuous(ylab1) +
+  ptheme %+replace% 
   theme(
     legend.position = 'top', 
     legend.title = element_blank(),
-    axis.title.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
-  ) +
-  scale_x_date(limits = xlims) 
+    axis.title.x = element_blank()
+  )
 pleg1 <- g_legend(p3)
-p3 <- p3 + theme(legend.position = 'none')
+p3 <- p3 + 
+  ptheme %+replace% 
+  theme(
+    legend.position = 'none', 
+    axis.title.x = element_blank()
+    )
 p4 <- prdnrmplot(nhmod, logspace = F, col_vec = col_vec, min_mo = 10) + 
-  ptheme + 
+  scale_x_date(limits = xlims) +
   scale_y_continuous(ylab2) +
+  ptheme %+replace% 
   theme(
     legend.position = 'none',
     legend.title = element_blank(),
-    axis.title.x = element_blank(),
-    plot.margin = grid::unit(c(6, 6, 0, 6), 'pt')
-  ) +
-  scale_x_date(limits = xlims) 
-
+    axis.title.x = element_blank()
+  )
+ 
 # dynaplots
 p5 <- dynaplot(nomod, logspace = F, col_vec = dynacol_vec, month = c(1, 4, 7, 10), floscl = F) + 
-  ptheme + 
+  scale_x_continuous(flolab) + 
   scale_y_continuous(ylab1) +
+  ptheme %+replace% 
   theme(
     legend.position = 'top', 
     legend.title = element_blank()
   ) +
-  scale_x_continuous(flolab) + 
   guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10))
 pleg2 <- g_legend(p5)
-p5 <- p5 + theme(legend.position = 'none')
+p5 <- p5 + ptheme %+replace% theme(legend.position = 'none')
 p6 <- dynaplot(nhmod, logspace = F, col_vec = dynacol_vec, month = c(1, 4, 7, 10), floscl = F) + 
-  ptheme + 
-  scale_y_continuous(ylab2) +
   scale_x_continuous(flolab) +
+  scale_y_continuous(ylab2) +
+  ptheme %+replace% 
   theme(
     legend.position = 'none', 
     legend.title = element_blank()
@@ -1669,14 +1657,14 @@ latex(
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/trndcomp2.pdf}
-\caption{Results from seasonal Kendall tests on model predictions from \ac{wrtds}. Trends were evaluated using predicted (triangles) and flow-normalized (circles) results to identify potential effects of flow. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
 \label{fig:trndcomp2}   
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/trndcomp3.pdf}
-\caption{Results from seasonal Kendall tests on model predictions from \ac{wrtds}. Trends were evaluated using predicted (triangles) and flow-normalized (circles) results to identify potential effects of flow. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are the estimated direction and magnitude of the trend ($\tau$, varying from -1 to 1 with significance at $\alpha = 0.05$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
 \label{fig:trndcomp3}   
 \end{figure}
 
