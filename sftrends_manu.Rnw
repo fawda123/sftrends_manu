@@ -119,7 +119,23 @@ The Delta region is of particular interest for understanding historical patterns
 
 \subsection{Data sources}
 
-Multi-decadal time series of nutrients and flow records were used to develop a quantitative description of nitrogen trends in the Delta.  The \ac{iep} is a consortium of state and federal agencies that have maintained the \ac{emp} in the Delta region since 1975 \cite{IEP13}.  The \ac{emp} collects monthly water quality samples at 19 stations in the Delta, Suisun Bay, and northeastern San Pablo Bay.  Water samples were collected using a Van Dorn sample, a submersible pump, or a flow through system depending on site.  All samples were processed with standard QA/QC at the California Department of Water Resources Bryte Laboratory in Sacramento \cite{IEP13}.  Nutrient time series were obtained from the \ac{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}) at ten discrete sampling stations from 1976 through 2013 (\cref{fig:delt_map}).  Stations were grouped by location in the study area for comparison: Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; middle stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations were chosen based on continuity of the water quality time series and geographic location for understanding trends.  Time series were complete for all stations except for an approximate ten year gap from 1996-2014 for D19.  Data were minimally processed with the exception of averaging replicates that occurred on the same day.  Detection limits throughout the period of record were obtained from the metadata, although few observations were censored ($<$ 3\%).  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two).  
+% censored percentages
+<<echo = F, cache = T>>=
+data(mods)
+cvals <- mutate(mods, 
+  cper = map(data, function(x){
+    
+    x <- !na.omit(x$not_cens)
+    round(100 * sum(x)/length(x), 1)
+    
+  })) %>% 
+  select(Site_Code, resvar, cper) %>% 
+  unnest %>% 
+  arrange(-cper) %>% 
+  filter(cper > 3)
+@
+
+Multi-decadal time series of nutrients and flow records were used to develop a quantitative description of nitrogen trends in the Delta.  The \ac{iep} is a consortium of state and federal agencies that have maintained the \ac{emp} in the Delta region since 1975 \cite{IEP13}.  The \ac{emp} collects monthly water quality samples at 19 stations in the Delta, Suisun Bay, and northeastern San Pablo Bay.  Water samples were collected using a Van Dorn sample, a submersible pump, or a flow through system depending on site.  All samples were processed with standard QA/QC at the California Department of Water Resources Bryte Laboratory in Sacramento \cite{IEP13}.  Nutrient time series were obtained from the \ac{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}) at ten discrete sampling stations from 1976 through 2013 (\cref{fig:delt_map}).  Stations were grouped by location in the study area for comparison: Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; middle stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations were chosen based on continuity of the water quality time series and geographic location for understanding trends.  Time series were complete for all stations except for an approximate ten year gap from 1996-2014 for D19.  Data were minimally processed with the exception of averaging replicates that occurred on the same day.  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two). Less than 3\% of all observations were left-censored, although variation was observed between analytes and location.  The most censored observations were observed for ammonium time series at sites \Sexpr{cvals$Site_Code[1]} (\Sexpr{cvals$cper[1]}\%), \Sexpr{cvals$Site_Code[2]} (\Sexpr{cvals$cper[2]}\%), \Sexpr{cvals$Site_Code[3]} (\Sexpr{cvals$cper[3]}\%), \Sexpr{cvals$Site_Code[4]} (\Sexpr{cvals$cper[4]}\%), and \Sexpr{cvals$Site_Code[5]} (\Sexpr{cvals$cper[5]}\%).
 
 Daily flow estimates for the Delta region were obtained from the Dayflow software program that provides estimates of average Delta outflow \cite{IEP16}.  Because of the complexity of water inflow, exports, and outflows from the Delta, the Dayflow program combines observations with estimates based on mass balance to reconstruct historical and daily flow estimates.  The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to acount for flow effects at C3, D19, D26, and D28, and the San Joaquin time series was used for C10 and P8.  The salinity observations at D4, D6, and D7 in Suisun Bay were used as a more appropriate measure of variation in freshwater balance given the stronger tidal influence at these stations.  Salinity has been used a tracer of freshwater influence for the application of WRTDS models in tidal waters \cite{Beck15}.  
 
@@ -144,10 +160,16 @@ Trends within each annual and seasonal grouping were based on seasonal Kendall t
 <<echo = F>>=
 data(delt_dat)
 
-obs_sm <- group_by(delt_dat, Site_Code)
+data(mods)
+
+obs_sm <- select(delt_dat, Site_Code, Location, Date, nh, no23, din) %>% 
+  gather('var', 'val', nh:din) %>% 
+  group_by(Location, var) %>% 
+  summarise(val = mean(val, na.rm = T))
+  
 @
 
-The observed time series for the ten Delta stations had substantial variation in scale among the nitrogen analytes and differences in apparent seasonal trends (\cref{fig:obsdat}).  In general, long-term (inter-annual) trends were not easily observed from the raw data.  
+The observed time series for the ten Delta stations had substantial variation in scale among the nitrogen analytes and differences in apparent seasonal trends (\cref{fig:obsdat}).  In general, long-term (inter-annual) trends were not easily observed from the raw data.  Total \ac{din} for most stations was dominated by nitrite/nitrate whereas ammonium was present at lower concentrations.  However, C3 had a majority of \ac{din} composed of ammonium and others had larger concentrations ammonium relative to nitrite/nitrate depending on the time of year (e.g., P8, D26).  By location, observed concentrations decreased on average from the upper Delta (C3, C10, MD10, P8), to the middle (D19, D26, D28), and to the Suisun stations(D4, D6, D7). 
 
 averages by location
 averages by years, seasons
@@ -243,7 +265,7 @@ toplo <- delt_dat %>%
   rbind(., missvals) %>% 
   gather('var', 'val', nh:no23) %>% 
   mutate(Site_Code = factor(Site_Code, 
-    levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'MD10', 'P8', 'C10', 'C3'))
+    levels = rev(c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'MD10', 'C10', 'C3')))
     )
 
 mythm <- theme_minimal() +
