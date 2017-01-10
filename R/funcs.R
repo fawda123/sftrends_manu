@@ -40,6 +40,50 @@ p_ast <- function(x){
 }
 
 ######
+# scientific notation from R to LaTeX
+# x is numeric to convert
+# pow is minimum exponent (positive or negative) to use for notation
+# digits numeric for rounding
+# showdollar logical if output is enclosed in dollar for latex
+# from https://dankelley.github.io/r/2015/03/22/scinot.html
+scinot <- function(x, pow = 2, digits = 2, showDollar = TRUE)
+{
+  
+  x <- as.numeric(x)
+  
+  # only do this is x is not equal to zero
+  if(x != 0){
+    
+    sign <- ""
+    if (x < 0) {
+        sign <- "-"
+        x <- -x
+    }
+    exponent <- floor(log10(x))
+    if (exponent & abs(exponent) > pow) {
+        xx <- round(x / 10^exponent, digits=digits)
+        e <- paste("\\times 10^{", as.integer(exponent), "}", sep="")
+    } else {
+        xx <- round(x, digits=digits)
+        e <- ""
+    }
+    
+    out <- paste(sign, xx, e, sep="")
+    
+  } else {
+    
+    out <- x
+    
+  }
+  
+  # add dollars if true
+  if (showDollar) out <- paste("$", out, "$", sep="")
+  
+  return(out)
+  
+}
+
+######
 # trend maps
 # 
 # library(dplyr)

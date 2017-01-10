@@ -35,6 +35,10 @@
         \renewcommand{\thefigure}{S\arabic{figure}}%
      }
 
+% for unit macros
+\newcommand{\mgl}{mg L$^{-1}$}
+\newcommand{\mugl}{$\mu$g L$^{-1}$}
+
 % turn this off for submission
 \SectionNumbersOn
 
@@ -47,16 +51,13 @@ options(replace.assign = TRUE, width = 90)
 
 source('R/funcs.r')
 library(WRTDStidal)
-library(ggplot2)
-library(dplyr)
+library(tidyverse)
 library(gridExtra)
 library(grid)
-library(purrr)
-library(tidyr)
 library(Hmisc)
 library(ggrepel)
 library(ggtree)
-library(forcats)
+library(NADA)
 @
 
 % get the version based on commit date
@@ -122,7 +123,7 @@ The Delta region is of particular interest for understanding historical patterns
 % censored percentages
 <<echo = F, cache = T>>=
 data(mods)
-cvals <- mutate(mods, 
+cvals_all <- mutate(mods, 
   cper = map(data, function(x){
     
     x <- !na.omit(x$not_cens)
@@ -130,8 +131,9 @@ cvals <- mutate(mods,
     
   })) %>% 
   select(Site_Code, resvar, cper) %>% 
-  unnest %>% 
-  arrange(-cper) %>% 
+  unnest
+ 
+cvals <- arrange(cvals_all, -cper) %>% 
   filter(cper > 3)
 @
 
@@ -157,27 +159,114 @@ Trends within each annual and seasonal grouping were based on seasonal Kendall t
 
 \subsection{Observed Data}
 
-<<echo = F>>=
-data(delt_dat)
-
+% mle summaries of obs data
+<<echo = F, cache = T>>=
 data(mods)
 
-obs_sm <- select(delt_dat, Site_Code, Location, Date, nh, no23, din) %>% 
-  gather('var', 'val', nh:din) %>% 
-  group_by(Location, var) %>% 
-  summarise(val = mean(val, na.rm = T))
-  
+# averages across Location
+obslo <- select(mods, Location, resvar, data) %>% 
+  filter(resvar == 'din') %>% 
+  unnest %>% 
+  select(Location, resvar, res, not_cens) %>% 
+  na.omit %>% 
+  group_by(Location) %>%
+  mutate(res = exp(res)) %>% 
+  nest %>% 
+  mutate(
+    ests = map(data, function(x){
+      cenmle(x$res, !x$not_cens, conf.int = 0.95) %>%   
+        mean %>% 
+        as.list
+    })
+  ) %>% 
+  select(-data) %>% 
+  mutate(ests = map(ests, bind_rows)) %>% 
+  unnest %>% 
+  split(., .$Location)
+
+# averages by site
+obssi <- select(mods, Site_Code, resvar, data) %>% 
+  unnest %>% 
+  select(Site_Code, resvar, res, not_cens) %>% 
+  na.omit %>% 
+  group_by(Site_Code, resvar) %>%
+  mutate(res = exp(res)) %>% 
+  nest %>% 
+  mutate(
+    ests = map(data, function(x){
+      cenmle(x$res, !x$not_cens, conf.int = 0.95) %>% 
+        mean %>% 
+        as.list
+    })
+  ) %>% 
+  select(-data) %>% 
+  mutate(ests = map(ests, bind_rows)) %>% 
+  unnest %>% 
+  group_by(resvar) %>% 
+  filter(mean %in% range(mean)) %>% 
+  arrange(resvar, -mean) %>% 
+  split(., .$resvar)
+
+# averages across years
+obsyr <- select(mods, Site_Code, resvar, data) %>% 
+  unnest %>% 
+  select(Site_Code, resvar, date, res, not_cens) %>% 
+  na.omit %>% 
+  mutate(
+    res = exp(res), 
+    yr = lubridate::year(date), 
+    yr = ifelse(yr < 1996, '1976-1995', '1996-2013') 
+    ) %>% 
+  group_by(resvar, yr) %>% 
+  nest %>% 
+  mutate(
+    ests = map(data, function(x){
+      cenmle(x$res, !x$not_cens, conf.int = 0.95) %>% 
+        mean %>% 
+        as.list
+    })
+  ) %>% 
+  select(-data) %>% 
+  mutate(ests = map(ests, bind_rows)) %>% 
+  unnest %>% 
+  split(., .$resvar)
+
+# averages by season
+obsmo <- select(mods, Site_Code, resvar, data) %>% 
+  unnest %>% 
+  select(Site_Code, resvar, date, res, not_cens) %>% 
+  na.omit %>% 
+  mutate(
+    res = exp(res), 
+    mo = lubridate::month(date), 
+    mo = factor(mo), 
+    mo = fct_collapse(mo, 
+      Spring = c('3', '4', '5'),
+      Summer = c('6', '7', '8'), 
+      Fall = c('9', '10', '11'), 
+      Winter = c('12', '1', '2')
+      )
+    ) %>% 
+  group_by(resvar, mo) %>% 
+  nest %>% 
+  mutate(
+    ests = map(data, function(x){
+      cenmle(x$res, !x$not_cens, conf.int = 0.95) %>% 
+        mean %>% 
+        as.list
+    })
+  ) %>% 
+  select(-data) %>% 
+  mutate(ests = map(ests, bind_rows)) %>% 
+  unnest
+
 @
 
-The observed time series for the ten Delta stations had substantial variation in scale among the nitrogen analytes and differences in apparent seasonal trends (\cref{fig:obsdat}).  In general, long-term (inter-annual) trends were not easily observed from the raw data.  Total \ac{din} for most stations was dominated by nitrite/nitrate whereas ammonium was present at lower concentrations.  However, C3 had a majority of \ac{din} composed of ammonium and others had larger concentrations ammonium relative to nitrite/nitrate depending on the time of year (e.g., P8, D26).  By location, observed concentrations decreased on average from the upper Delta (C3, C10, MD10, P8), to the middle (D19, D26, D28), and to the Suisun stations(D4, D6, D7). 
-
-averages by location
-averages by years, seasons
-seasonality vs no seasonality
-ammonium v nitrite/nitrate ratio, overall and by season
-spikes
+The observed time series for the ten Delta stations had substantial variation in scale among the nitrogen analytes and differences in apparent seasonal trends (\cref{fig:obsdat}).  In general, long-term (inter-annual) trends were not easily observed from the raw data.  Total \ac{din} for most stations was dominated by nitrite/nitrate, whereas ammonium was a smaller percentage of the total.  However, C3 had a majority of \ac{din} composed of ammonium and other stations (e.g., P8, D16) had higher concentrations of ammonium depending on the time of year.  By location, observed concentrations of \ac{din} for the entire time series were higher on average for the upper Delta stations (C3, C10, MD10, P8; maximum likelihood estimation of mean $\pm$ standard error: \Sexpr{scinot(obslo$Delta['mean'])}$\pm$\Sexpr{scinot(obslo$Delta['se'])} \mgl) and similar for the middle (D19, D26, D28, \Sexpr{scinot(obslo$Middle['mean'])}$\pm$\Sexpr{scinot(obslo$Middle['se'], 3)}) and Suisuan Bay stations (D4, D6, D7, \Sexpr{scinot(obslo$Suisun['mean'])}$\pm$\Sexpr{scinot(obslo$Suisun['se'], 3)}).  Average concentrations were highest at \Sexpr{obssi$din[1, 'Site_Code']} (\Sexpr{scinot(obssi$din[1, 'mean'])}$\pm$\Sexpr{scinot(obssi$din[1, 'se'])} \mgl) and lowest at \Sexpr{obssi$din[2, 'Site_Code']} (\Sexpr{scinot(obssi$din[2, 'mean'])}$\pm$\Sexpr{scinot(obssi$din[2, 'se'], 3)}) for \ac{din}, highest at \Sexpr{obssi$nh[1, 'Site_Code']} (\Sexpr{scinot(obssi$nh[1, 'mean'])}$\pm$\Sexpr{scinot(obssi$nh[1, 'se'])}) and lowest at \Sexpr{obssi$nh[2, 'Site_Code']} (\Sexpr{scinot(obssi$nh[2, 'mean'])}$\pm$\Sexpr{scinot(obssi$nh[2, 'se'], 3, 3)}) for ammonium, and highest at \Sexpr{obssi$no23[1, 'Site_Code']} (\Sexpr{scinot(obssi$no23[1, 'mean'])}$\pm$\Sexpr{scinot(obssi$no23[1, 'se'])}) and lowest at \Sexpr{obssi$no23[2, 'Site_Code']} (\Sexpr{scinot(obssi$no23[2, 'mean'])}$\pm$\Sexpr{scinot(obssi$no23[2, 'se'], 3, 3)}) for nitrite/nitrate. Observed concentrations were also higher later in the time series for all analytes.  For example, average \ac{din} across all stations was \Sexpr{scinot(obsyr$din[1, 'mean'])}$\pm$\Sexpr{scinot(obsyr$din[1, 'se'])} \mgl for \Sexpr{obsyr$din[1, 'yr']}, compared to \Sexpr{scinot(obsyr$din[2, 'mean'])}$\pm$\Sexpr{scinot(obsyr$din[2, 'se'])} for \Sexpr{obsyr$din[2, 'yr']}. Seasonal changes across all years also suggested that nitrogen concentrations were lower in the summer and higher in the winter.  However, observed seasonality patterns were inconsistent between sites.  For example, site MD10 had distinct seasonal spikes for elevated \ac{din} in the winter, whereas other stations had less prominent variation between years (D6, D7, \cref{fig:obsdat}).  
 
 \subsection{Trends}
+
+Formal trend analyses of the observed data suggested that 
 
 kendall tests - observed, \cref{fig:trndcomp1,fig:trndcomp2,fig:trndcomp3}
 
