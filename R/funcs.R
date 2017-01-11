@@ -347,6 +347,14 @@ trnd_map <- function(res = c('din', 'nh', 'no23'), mods,
   
 }
 
+# capitalize all words in a string
+cap <- function(x) {
+  x <- as.character(x)
+  s <- strsplit(x, " ")[[1]]
+  paste(toupper(substring(s, 1,1)), substring(s, 2),
+      sep="", collapse=" ")
+}
+
 ######
 # gam equivalent of dynaplot function
 # looks at changes in in the chlorophyll-flow relationships by month over different years
