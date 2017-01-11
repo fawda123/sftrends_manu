@@ -328,7 +328,7 @@ Implications of different flow varialbes - refer to \cite{Novick15}, a hybrid ap
 
 Second case study showed typical inverse relationships between nutrients and flow, more flow means greater flushing and dilution of nutrient concentrations.  Conversely, low flow means less flushing and higher nutrient concentrations, although this may not always be observed if the available nutrients are biologically available.  Low-flow events during warmer months show the lowest ammonium concentrations, which corresponds to seasonal maxima in chlorophyll concentration.  A similar but weaker relationship was observed with nitrite/nitrate where increased flow was related to decreased concentration and lower concentrations overall were observed in the summer.  However, low-flow events still had higher concentrations than high-flow events in July, as compared to ammonium which was low regardless of flow.  This suggests that ammonium concentrations are driving phytoplankton production at P8.  Annual trends in chlorophyll concentration (not shown) showed an overall decrease from the 1970s to present, although a slight peak is observed in the 2000s.  This peak is likely related to the maximum ammonium concentration shown in \cref{fig:p8trnds}.  Moreover, flow/chlorophyll relationships have generally been constant throughout the period of record such that a change in flow has not been related to a change in phytoplankton production.  This suggests that nutrient loads that contribute to production at P8 are primarily from point sources at \ac{wwtp} outflows as a change in flow does not affect the load output.  But what are watershed loads?  
 
-What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorohpyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
+What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorophyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
 \section{References} % omit on submit
 \begin{singlespace}
@@ -414,7 +414,7 @@ trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>%
   select(Site_Code, resvar, cat, ztest, tau, perchg, ann, trndvar) %>% 
   filter(!trndvar %in% 'fits') %>% 
   mutate(
-    Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'C10', 'C3')),
+    Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'MD10', 'P8', 'C10', 'C3')),
     ztest = ifelse(ztest < 0.05, '(p < 0.05)', '(ns)'),
     resvar = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr), 
     trndvar = factor(trndvar, levels = c('res', 'norm'), labels = c('Obs.', 'Flow-norm.'))
@@ -616,7 +616,7 @@ grid.arrange(
 
 @
 
-<<trndmap, fig.cap = 'Percent change per year in nitrogen analytes for aggregations by (a) year, (b) seasons from 1976-1995, and (c) seasons from 1996-2013.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Values less than -9\\% change were truncated for visual clarity of the bar plots, see \\cref{tab:trndsann,tab:trndsbef,tab:trndsaft} for actual values. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.', fig.height = 8, fig.width = 5.3, cache = T, out.width = '0.7\\textwidth'>>=
+<<trndmap, fig.cap = 'Percent change per year in nitrogen analytes for aggregations by seasons from (a) 1976-1995 and (b) 1996-2013.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Station locations have been jittered to reduce overlap. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.', fig.height = 8, fig.width = 5.3, cache = T, out.width = '0.7\\textwidth'>>=
 
 # load required data
 data(delt_dat)
@@ -627,7 +627,7 @@ data(trnds_seasyr)
 trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>% 
   select(Site_Code, resvar, cat, perchg, ann, trndvar) %>% 
   spread(trndvar, perchg) %>% 
-  mutate(Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'C10', 'C3')))
+  mutate(Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'MD10', 'P8', 'C10', 'C3')))
 
 ##
 # get a bounding box for the stations
@@ -648,12 +648,16 @@ lims <- c(
 names(lims) <- c('left', 'bottom', 'right', 'top')
 
 # need to shift locations of some stations
-statmeta[statmeta$Site_Code %in% 'D26', 'Latitude'] <- 38.12
+statmeta[statmeta$Site_Code %in% 'D26', 'Latitude'] <- 38.14
 statmeta[statmeta$Site_Code %in% 'D26', 'Longitude'] <--121.55
 statmeta[statmeta$Site_Code %in% 'D7', 'Latitude'] <- 38.13
-statmeta[statmeta$Site_Code %in% 'D7', 'Longitude'] <--122.015 
-statmeta[statmeta$Site_Code %in% 'C10', 'Latitude'] <-37.68 
-statmeta[statmeta$Site_Code %in% 'C10', 'Longitude'] <--121.28 
+statmeta[statmeta$Site_Code %in% 'D7', 'Longitude'] <--122.015
+statmeta[statmeta$Site_Code %in% 'C10', 'Latitude'] <-37.68
+statmeta[statmeta$Site_Code %in% 'C10', 'Longitude'] <--121.28
+statmeta[statmeta$Site_Code %in% 'D28', 'Latitude'] <-37.94
+statmeta[statmeta$Site_Code %in% 'MD10', 'Latitude'] <-38.1
+statmeta[statmeta$Site_Code %in% 'P8', 'Latitude'] <-37.93
+statmeta[statmeta$Site_Code %in% 'D19', 'Latitude'] <-38.06
 
 # response labels 
 reslabs <- c('din an', 'nh an', 'no23 an', 'din mobef', 'nh mobef', 'no23 mobef', 'din moaft', 'nh moaft', 'no23 moaft')
@@ -697,7 +701,8 @@ pbase <- ggplot(delt_map, aes(x = long, y = lat)) +
   scale_fill_manual(values=c(alpha("lightblue", alph), "white"), guide="none")
 
 # bounds on limits
-yrng <- c(-9, 9)
+yrng <- max(abs(range(trnds_seasyr$norm)))
+yrng <- c(-1 * yrng, yrng)
 
 # color ramp, red for pos, green for neg
 colpos <- RColorBrewer::brewer.pal(9, 'Reds')[3:9]
@@ -795,7 +800,7 @@ for(uni in unis){
   
       nms <- names(bars)[i]
       dat <- statmeta[statmeta$Site_Code %in% nms,]
-      pall <- subview(pall, bars[[i]], x = dat$Longitude, y = dat$Latitude, subwid, 0.148) # change bar heights here
+      pall <- subview(pall, bars[[i]], x = dat$Longitude, y = dat$Latitude, subwid, 0.21) # change bar heights here
 
   }
   
@@ -808,7 +813,7 @@ for(uni in unis){
 }
 
 # setup legend
-rngs <- seq(-9, 7, by = 3)
+rngs <- seq(yrng[1], yrng[2], length = length(c(colneg, colpos)))
 leg <- ggplot(data.frame(x = seq_along(rngs), y = seq_along(rngs), z = rngs), aes(x, y, colour = z)) + 
   geom_point() + 
   scale_colour_gradientn(colours = c(rev(colneg), colpos)) + 
@@ -911,7 +916,7 @@ p4 <- prdnrmplot(nhmod, logspace = F, col_vec = col_vec, min_mo = 10) +
   )
  
 # dynaplots
-p5 <- dynaplot(nomod, logspace = F, col_vec = dynacol_vec, month = c(1, 4, 7, 10), floscl = F) + 
+p5 <- dynaplot(nomod, logspace = F, col_vec = dynacol_vec, month = c(1, 4, 7, 10), floscl = F, size = 0.5) + 
   scale_x_continuous(flolab) + 
   scale_y_continuous(ylab1) +
   ptheme %+replace% 
@@ -922,7 +927,7 @@ p5 <- dynaplot(nomod, logspace = F, col_vec = dynacol_vec, month = c(1, 4, 7, 10
   guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10))
 pleg2 <- g_legend(p5)
 p5 <- p5 + ptheme %+replace% theme(legend.position = 'none')
-p6 <- dynaplot(nhmod, logspace = F, col_vec = dynacol_vec, month = c(1, 4, 7, 10), floscl = F) + 
+p6 <- dynaplot(nhmod, logspace = F, col_vec = dynacol_vec, month = c(1, 4, 7, 10), floscl = F, size = 0.5) + 
   scale_x_continuous(flolab) +
   scale_y_continuous(ylab2) +
   ptheme %+replace% 
@@ -962,13 +967,12 @@ grid.arrange(
   )
 @
 
-<<clmchl, fig.height = 7, fig.width = 8, out.width = '\\textwidth', cache = T, fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2014 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means).  A coincident decrease in \\ac{chla} concentration was also observed (c).  A weak but significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (b).  Flow relationships with \\ac{chla} concentration have also changed over time (d, observations from June). Chlorophyll shows a slight positive then dominantly negative association with increasing flow (decreasing salinity) early in the time series, whereas the trend is reversed in recent years.'>>=
-
+<<clmchl, fig.height = 9, fig.width = 8, out.width = '0.9\\textwidth', cache = T, fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2013 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means),with biomass linked to salinity (b).  A coincident decrease in \\ac{chla} concentration was also observed by changes in annual (c) and seasonal trends(d).  A significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (e).  Flow relationships with \\ac{chla} concentration have also changed over time (f, observations from June).'>>=
 # clam and model data at D7
 data(clams)
 data(h3dat)
 data(flow_dat)
-chld7 <- filter(h3dat, Site_Code %in% 'D7' & resvar %in% 'chl')$data[[1]]
+chld7 <- filter(h3dat, Site_Code %in% 'D7' & resvar %in% 'chl')$mod[[1]]
 
 clmdat <- group_by(clams, yr, species) %>% 
   dplyr::summarize(
@@ -981,29 +985,31 @@ clmdat <- group_by(clams, yr, species) %>%
 # make sure date range is same on both
 xlims <- as.Date(c('1976-10-01', '2014-10-01'))
 
-# subfig labs
-txt <- data.frame(
-  x = c(as.numeric(as.Date('1979-10-01')), 2500, 25, 0.25),
-  y =  c(10000, 14, 4, 3.3), 
-  txt = c('(a)', '(c)', '(b)', '(d)')
-)
-size <- 6
+# colors 
+cols <- RColorBrewer::brewer.pal(10, 'Set2')[1:2]
 
-##
-# annual clam time series
-p1 <- ggplot(clmdat, aes(x = yr, y = clams_smp, fill = species)) + 
-  geom_bar(stat = 'identity') + 
-  theme_minimal() + 
+# theme
+pmar <- grid::unit(c(0, 6, 0, 6), 'pt')
+thjust <- 0; tvjust <- -10
+mythm <- theme_minimal() + 
   theme(
     axis.line.x = element_line(), 
     axis.line.y = element_line(), 
     axis.ticks.x = element_line(),
     axis.ticks.y = element_line(),
     axis.ticks.length = unit(.1, "cm"), 
-    # axis.title.x = element_blank(),
     legend.position = 'top', 
-    legend.title = element_blank()
-    ) + 
+    legend.title = element_blank(), 
+    legend.box = 'horizontal',    
+    plot.title = element_text(hjust = thjust, vjust = tvjust),
+    plot.margin = pmar
+    )
+
+##
+# annual clam time series
+p1 <- ggplot(clmdat, aes(x = yr, y = clams_smp, fill = species)) + 
+  geom_bar(stat = 'identity') + 
+  mythm +
   scale_fill_brewer(
     palette = 'Set2',
     labels = parse(text = c('italic(Corbicula)', 'italic(Potamocorbula)'))
@@ -1011,7 +1017,7 @@ p1 <- ggplot(clmdat, aes(x = yr, y = clams_smp, fill = species)) +
   scale_x_date('Year', limits = xlims) +
   scale_y_continuous('Clams per sample') +
   guides(fill = guide_legend(keywidth = 0.5, keyheight = 0.5)) +
-  with(txt[1, ], annotate('text', x = xlims[1] + 365 * 2, y = y, label = txt, size = size))
+  labs(title = '(a)')
 
 ##
 # clam biomass related to daily sacramento flow
@@ -1043,26 +1049,44 @@ xlab <- expression(paste("Sacramento daily flow (", m^3, ' ', s^-1, ")"))
 p2 <- ggplot(clmflo, aes(x = q, y = biomass)) + 
   geom_point(size = 3, alpha = 0.8, colour = 'darkgrey') + 
   geom_line(data = data.frame(x = xvals, y = yvals), aes(x, y, colour = 'black'), lwd = 1) +
-  theme_minimal() + 
+  mythm + 
+  scale_colour_manual(label = 'log(1 + biomass) = 5.2 - 0.6log(1 + flow)', values = 'black') +
+  scale_x_continuous(xlab) + 
+  scale_y_continuous(ylab, limits = c(0,15)) +
+  labs(title = '(b)')
+
+# prdnrmplot
+ylab <- expression(paste("ln-chlorophyll (", italic(mu), "g ", L^-1, ")"))
+
+p3 <- prdnrmplot(chld7, predicted = F, col_vec = cols, min_mo = 10) + 
+  mythm + 
+  scale_x_date('Year') +
+  scale_y_continuous(ylab) +
+  labs(title = '(c)')
+
+# seasyrplot
+p4 <- seasyrplot(chld7, predicted = F, col_vec = cols, min_mo = 10) + 
   theme(
     axis.line.x = element_line(), 
     axis.line.y = element_line(), 
     axis.ticks.x = element_line(),
     axis.ticks.y = element_line(),
     axis.ticks.length = unit(.1, "cm"), 
-    legend.position = 'top', 
     legend.title = element_blank(), 
-    legend.box = 'horizontal'
-    ) +
-  scale_colour_manual(label = 'log(1 + biomass) = 5.2 - 0.6log(1 + flow)', values = 'black') +
-  scale_x_continuous(xlab) + 
-  scale_y_continuous(ylab, limits = c(0,15)) +
-  geom_text(data = txt[2, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size)
+    panel.border = element_blank(), 
+    axis.title.x = element_text(),
+    plot.title = element_text(hjust = thjust, vjust = tvjust),
+    plot.margin = pmar
+    ) + 
+  scale_x_date('Day of year', date_labels = "%m/%d") +
+  guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10)) +
+  scale_y_continuous(ylab) + 
+  labs(title = '(d)')
 
 ##
 # chlorophyll by month
 chldat <- filter(h3dat, resvar %in% 'chl' & Site_Code %in% 'D7') %>% 
-  .$data %>% 
+  .$mod %>% 
   .[[1]] %>% 
   select(year, month, res, bt_norm) %>% 
   mutate(res = exp(res)) %>% 
@@ -1093,251 +1117,61 @@ xvals <- seq(xvals[1], xvals[2], length = 100)
 yvals <- (exp(mod[1] + mod[2] * log(1 + xvals))) - 1
 
 xlab <- expression(paste(italic(Potamocorbula), " biomass (g ", m^-2, ")"))
-ylab <- expression(paste("Flow-normalized chlorophyll (", italic(mu), "g ", L^-1, ")"))
 
-# scatter plot of concetration x biomass with model 
-p3 <- ggplot(toplo, aes(x = biomass, y = bt_norm)) + 
+# scatter plot of concentration x biomass with model 
+p5 <- ggplot(toplo, aes(x = biomass, y = bt_norm)) + 
   geom_point(size = 3, alpha = 0.8, colour = 'darkgrey') + 
   geom_line(data = data.frame(x = xvals, y = yvals), aes(x, y, colour = 'black'), lwd = 1) +
-  theme_minimal() + 
-  theme(
-    axis.line.x = element_line(), 
-    axis.line.y = element_line(), 
-    axis.ticks.x = element_line(),
-    axis.ticks.y = element_line(),
-    axis.ticks.length = unit(.1, "cm"),
-    legend.position = 'top', 
-    legend.title = element_blank(), 
-    legend.box = 'horizontal'
-    ) +
+  mythm + 
   scale_colour_manual(label = 'log(1 + chl) = 1.35 - 0.1log(1 + biomass)', values = 'black') +
   scale_x_continuous(xlab) + 
   scale_y_continuous(ylab, limits = c(0.8, 4)) +
-  geom_text(data = txt[3, ], aes(x = x, y = y, label = txt, colour = NULL), show.legend = F, size = size)
+  labs(title = '(e)')
 
 ##
 # dynaplot for chl, june
-cols <- RColorBrewer::brewer.pal(10, 'Set2')[1:2]
-ylab <- attr(chld7, 'reslab')
-
-p4 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F) +
-  theme_minimal() +
+p6 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F, size = 0.5) +
+  mythm %+replace%
   theme(
-    axis.line.x = element_line(), 
-    axis.line.y = element_line(), 
-    axis.ticks.x = element_line(),
-    axis.ticks.y = element_line(),
-    axis.ticks.length = unit(.1, "cm"),
-    legend.position = 'top', 
-    legend.title = element_blank(), 
-    legend.box = 'horizontal',
     strip.background = element_blank(),
     strip.text.x = element_blank()
     ) + 
-  scale_x_continuous('ln-Salinity (psu)') + 
+  scale_x_continuous('Salinity (psu)') + 
   scale_y_continuous(ylab, limits = c(0.4, 3.3)) +
   guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10)) + 
-  annotate('text', x = txt[4, 'x'], y = txt[4, 'y'], label = txt[4, 'txt'], size = size)
-  
-# align widths of plots in first column, first two
+  labs(title = '(f)')
+
+##
+# dimension formatting
+
+# align widths of plots in first column
 pA <- ggplot_gtable(ggplot_build(p1))
-pB <- ggplot_gtable(ggplot_build(p2))
-maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3])
+pB <- ggplot_gtable(ggplot_build(p3))
+pC <- ggplot_gtable(ggplot_build(p5))
+maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3], pC$widths[c(2:3)])
 
 # Set the widths
 pA$widths[2:3] <- maxWidth
 pB$widths[2:3] <- maxWidth
+pC$widths[2:3] <- maxWidth
 
-# align widths of plots in first column, first two
-pC <- ggplot_gtable(ggplot_build(p3))
-pD <- ggplot_gtable(ggplot_build(p4))
-maxWidth = unit.pmax(pC$widths[2:3], pD$widths[2:3])
+# align widths of plots in second column
+pD <- ggplot_gtable(ggplot_build(p2))
+pE <- ggplot_gtable(ggplot_build(p4))
+pF <- ggplot_gtable(ggplot_build(p6))
+maxWidth = unit.pmax(pD$widths[2:3], pE$widths[2:3], pF$widths[2:3])
 
 # Set the widths
-pC$widths[2:3] <- maxWidth
 pD$widths[2:3] <- maxWidth
+pE$widths[2:3] <- maxWidth
+pF$widths[2:3] <- maxWidth
 
 # combine all
 grid.arrange(
-  arrangeGrob(pA, pB, ncol = 1, heights = c(1, 1)), 
-  arrangeGrob(pC, pD, ncol = 1, heights = c(1.05, 1)), 
+  arrangeGrob(pA, pB, pC, ncol = 1, heights = c(1, 1, 1)), 
+  arrangeGrob(pD, pE, pF, ncol = 1, heights = c(1, 1, 1)), 
   ncol = 2, widths = c(1, 1)
   )
-@
-
-<<d7c10trnds, fig.cap = 'Flow-normalized trends of annual (left) and seasonal (right) variation in DIN, chl-{\\it\\footnotesize a}, and SiO$_2$ at station D7 (top) and C10 (bottom).  Covariation between nutrients, chl-{\\it\\footnotesize a}, and SiO$_2$ is observed at D7 but not C10, although an overall decrease in SiO$_2$ at C10 is shown.  Seasonal changes at D7 are most pronounced during the summer.', fig.width = 9, fig.height = 10, cache = T>>=
-data(h3dat)
-
-# separate each site
-toplo1 <- filter(h3dat, Site_Code %in% 'D7')
-toplo2 <- filter(h3dat, Site_Code %in% 'C10')
-
-# y axis labels
-ylab1 <- expression(paste("DIN (mg ", L^-1, ")"))
-ylab2 <- expression(paste("Chl-", italic(a), " (", italic(mu), "g ", L^-1, ")"))
-ylab3 <- expression(paste("Si", O[2], " (mg ", L^-1, ")"))
-
-# generic theme for all plots
-ptheme <- theme_minimal() + 
-  theme(
-    axis.line.x = element_line(), 
-    axis.line.y = element_line(), 
-    axis.ticks.x = element_line(),
-    axis.ticks.y = element_line(),
-    axis.ticks.length = unit(.1, "cm"),  
-    axis.title.x = element_blank(), 
-    axis.text.x = element_blank()
-  )
-
-# colors
-cols <- RColorBrewer::brewer.pal(9, 'Set1')[1:3]
-col_vec <- RColorBrewer::brewer.pal(9, 'Blues')[c(9, 8, 7)]
-
-## first set of plots
-d7din<- filter(toplo1, resvar == 'din') %>% 
-  .$data %>% 
-  .[[1]]
-pdin1 <- prdnrmplot(d7din, col_vec = col_vec, logspace = F, min_mo = 10) +
-  ptheme + 
-  scale_y_continuous(ylab1) +
-  theme(legend.position = 'top', legend.title = element_blank())
-pleg1 <- g_legend(pdin1)
-pdin1 <- pdin1 + theme(legend.position = 'none')
-
-pdinsy1 <- seasyrplot(d7din, col_vec = cols, logspace = F, predicted = F) +
-  ptheme + 
-  theme(legend.position = 'top', axis.title.y = element_blank()) + 
-  guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10))
-pleg2 <- g_legend(pdinsy1)
-pdinsy1 <- pdinsy1 + theme(legend.position = 'none')
-
-d7chl<- filter(toplo1, resvar == 'chl') %>% 
-  .$data %>% 
-  .[[1]]
-pchl1 <- prdnrmplot(d7chl, col_vec = col_vec, logspace = F, min_mo = 10) +
-  ptheme + 
-  theme(legend.position = 'none') + 
-  scale_y_continuous(ylab2)
-
-pchlsy1 <- seasyrplot(d7chl, col_vec = cols, logspace = F, predicted = F) +
-  ptheme + 
-  theme(legend.position = 'none', axis.title.y = element_blank())
-
-d7sio2 <- filter(toplo1, resvar == 'sio2') %>% 
-  .$data %>% 
-  .[[1]]
-psio1 <- prdnrmplot(d7sio2, col_vec = col_vec, logspace = F, min_mo = 10) +
-  ptheme + 
-  theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text()) +
-  scale_x_date('Year') +
-  scale_y_continuous(ylab3)
-
-psiosy1 <- seasyrplot(d7sio2, col_vec = cols, logspace = F, predicted = F) + 
-  ptheme + 
-  theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text(), axis.title.y = element_blank()) +
-  scale_x_date('Day of year', date_labels = "%m/%d")
-
-# Set the widths
-pA1 <- ggplot_gtable(ggplot_build(pdin1))
-pB1 <- ggplot_gtable(ggplot_build(pchl1))
-pC1 <- ggplot_gtable(ggplot_build(psio1))
-maxWidth = unit.pmax(pA1$widths[2:3], pB1$widths[2:3], pC1$widths[2:3])
-pA1$widths[2:3] <- maxWidth
-pB1$widths[2:3] <- maxWidth
-pC1$widths[2:3] <- maxWidth
-
-# Set the widths for seasyrplots
-pAsy1 <- ggplot_gtable(ggplot_build(pdinsy1))
-pBsy1 <- ggplot_gtable(ggplot_build(pchlsy1))
-pCsy1 <- ggplot_gtable(ggplot_build(psiosy1))
-maxWidth = unit.pmax(pAsy1$widths[2:3], pBsy1$widths[2:3], pCsy1$widths[2:3])
-pAsy1$widths[2:3] <- maxWidth
-pBsy1$widths[2:3] <- maxWidth
-pCsy1$widths[2:3] <- maxWidth
-
-## second set of plots
-c10din <- filter(toplo2, resvar == 'din') %>% 
-  .$data %>% 
-  .[[1]]
-pdin2 <- prdnrmplot(c10din, col_vec = col_vec, logspace = F, min_mo = 10) +
-  ptheme + 
-  scale_y_continuous(ylab1) +
-  theme(legend.position = 'none')
-
-pdinsy2 <- seasyrplot(c10din, col_vec = cols, logspace = F, predicted = F) +
-  ptheme + 
-  theme(legend.position = 'none', axis.title.y = element_blank())
-
-c10chl <- filter(toplo2, resvar == 'chl') %>% 
-  .$data %>% 
-  .[[1]]
-pchl2 <- prdnrmplot(c10chl, col_vec = col_vec, logspace = F, min_mo = 10) +
-  ptheme + 
-  theme(legend.position = 'none') + 
-  scale_y_continuous(ylab2)
-
-pchlsy2 <- seasyrplot(c10chl, col_vec = cols, logspace = F, predicted = F) +
-  ptheme + 
-  theme(legend.position = 'none', axis.title.y = element_blank())
-
-c10sio2 <- filter(toplo2, resvar == 'sio2') %>% 
-  .$data %>% 
-  .[[1]]
-psio2 <- prdnrmplot(c10sio2, col_vec = col_vec, logspace = F, min_mo = 10) +
-  ptheme + 
-  theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text()) +
-  scale_x_date('Year') +
-  scale_y_continuous(ylab3)
-
-psiosy2 <- seasyrplot(c10sio2, col_vec = cols, logspace = F, predicted = F) + 
-  ptheme + 
-  theme(legend.position = 'none', axis.title.x = element_text(), axis.text.x = element_text(), axis.title.y = element_blank()) +
-  scale_x_date('Day of year', date_labels = "%m/%d")
-
-# Set the widths
-pA2 <- ggplot_gtable(ggplot_build(pdin2))
-pB2 <- ggplot_gtable(ggplot_build(pchl2))
-pC2 <- ggplot_gtable(ggplot_build(psio2))
-maxWidth = unit.pmax(pA2$widths[2:3], pB2$widths[2:3], pC2$widths[2:3])
-pA2$widths[2:3] <- maxWidth
-pB2$widths[2:3] <- maxWidth
-pC2$widths[2:3] <- maxWidth
-
-# Set the widths for seasyrplots
-pAsy2 <- ggplot_gtable(ggplot_build(pdinsy2))
-pBsy2 <- ggplot_gtable(ggplot_build(pchlsy2))
-pCsy2 <- ggplot_gtable(ggplot_build(psiosy2))
-maxWidth = unit.pmax(pAsy2$widths[2:3], pBsy2$widths[2:3], pCsy2$widths[2:3])
-pAsy2$widths[2:3] <- maxWidth
-pBsy2$widths[2:3] <- maxWidth
-pCsy2$widths[2:3] <- maxWidth
-
-grid.arrange(
-  arrangeGrob(
-    ncol = 1, heights = c(0.05, 1),
-    arrangeGrob(pleg1, pleg2, ncol = 2),
-    arrangeGrob(
-      arrangeGrob(
-        textGrob('(a) Station D7, Suisun Bay'), heights = c(0.1, 1), 
-        arrangeGrob(
-          arrangeGrob(pA1, pB1, pC1, ncol = 1, heights = c(0.85, 0.85, 1)),
-          arrangeGrob(pAsy1, pBsy1, pCsy1, ncol = 1, heights = c(0.85, 0.85, 1)),
-          ncol = 2
-        )
-      ),
-      arrangeGrob(
-        textGrob('(b) Station C10, Delta'), heights = c(0.1, 1),
-        arrangeGrob(
-          arrangeGrob(pA2, pB2, pC2, ncol = 1, heights = c(0.85, 0.85, 1)),
-          arrangeGrob(pAsy2, pBsy2, pCsy2, ncol = 1, heights = c(0.85, 0.85, 1)),
-          ncol = 2
-        )
-      ),
-      ncol = 1 
-    )
-  )
-)
-
 @
 
 \clearpage
@@ -1385,7 +1219,7 @@ latex(
   caption = cap.val,
   caption.loc = 'top',
   rgroup = vars,
-  n.rgroup = c(9, 9, 9),
+  n.rgroup = rep(nrow(tab)/3, 3),
   cgroup = c('Annual'),
   n.cgroup = c(2),
   rowname = stats,
@@ -1438,7 +1272,7 @@ latex(
   caption = cap.val,
   caption.loc = 'top',
   rgroup = vars,
-  n.rgroup = c(9, 9, 9),
+  n.rgroup = rep(nrow(tab)/3, 3),
   cgroup = c('Seasonal, 1976-1995'),
   n.cgroup = c(4),
   rowname = stats,
@@ -1491,7 +1325,7 @@ latex(
   caption = cap.val,
   caption.loc = 'top',
   rgroup = vars,
-  n.rgroup = c(9, 9, 9),
+  n.rgroup = rep(nrow(tab)/3, 3),
   cgroup = c('Seasonal, 1996-2013'),
   n.cgroup = c(4),
   rowname = stats,
@@ -1676,94 +1510,6 @@ latex(
   n.cgroup = c(2, 2, 2),
   rowname = cats,
   label = 'tab:d7chg', 
-  insert.bottom = foot.val
-  )
-
-@
-
-% trends in din, chl, sio2 at c10
-<<c10chg>>=
-
-data(h3dat)
-
-c10dat <- filter(h3dat, Site_Code %in% 'C10')
-
-dinraw <- filter(c10dat, resvar %in% 'din') %>% 
-  .$data %>% 
-  .[[1]]
-chlraw <- filter(c10dat, resvar %in% 'chl') %>% 
-  .$data %>% 
-  .[[1]]
-sioraw <- filter(c10dat, resvar %in% 'sio2') %>% 
-  .$data %>% 
-  .[[1]]
-
-mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
-yrbrks <- c(1975, 1985, 1994, 2003, 2013)
-molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
-yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
-
-# summarize din, sio2, chl trends
-din <- wrtdstrnd_sk(dinraw, mobrks, yrbrks, molabs, yrlabs)
-din <- wrtdstrnd_sk(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
-  .[1, ] %>% 
-  rbind(., din) %>% 
-  data.frame(res = 'din', .)
-chl <- wrtdstrnd_sk(chlraw, mobrks, yrbrks, molabs, yrlabs)
-chl <- wrtdstrnd_sk(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
-  .[1, ] %>% 
-  rbind(., chl) %>% 
-  data.frame(res = 'chl', .)
-sio <- wrtdstrnd_sk(sioraw, mobrks, yrbrks, molabs, yrlabs)
-sio <- wrtdstrnd_sk(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
-  .[1, ] %>% 
-  rbind(., sio) %>% 
-  data.frame(res = 'sio', .)
-
-# combine for trends for table
-totab <- rbind(din, chl, sio) %>% 
-  select(res, cat, med, perchg, ztest) %>% 
-  mutate(
-    med = round(med, 1), 
-    perchg = round(perchg, 1),
-    perchg = ifelse(
-      perchg < 0, 
-      perchg, 
-      paste0('\\textit{\\textbf{', perchg, '}}')
-      ), 
-    ztest = p_ast(ztest)
-  ) %>% 
-  unite('perchg', perchg, ztest, sep = '') %>% 
-  gather('var', 'val', med:perchg) %>% 
-  unite('col', res, var) %>% 
-  spread(col, val) %>% 
-  mutate(cat = factor(cat, levels = c('1976-2013', yrlabs, molabs), labels = c('1976-2013', yrlabs, molabs))) %>% 
-  arrange(cat) %>% 
-  data.frame(sep = c(rep('Annual', 5), rep('Seasonal', 4)), .) %>% 
-  select(sep, cat, din_med, din_perchg, chl_med, chl_perchg, sio_med, sio_perchg)
-
-# final table formatting
-segs <- c('All', 'Annual', 'Seasonal')
-cats <- totab$cat
-totab <- totab[,-c(1:2)]
-vars <- c('DIN', 'Chl-\\textit{a}', 'SiO$_2$')
-names(totab) <- rep(c('Median', '\\% change'), 3)
-
-cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station C10. Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
-foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
-
-latex( 
-  totab,
-  file = '',
-  rowlabel = 'Period',
-  caption = cap.val,
-  caption.loc = 'top',
-  rgroup = segs,
-  n.rgroup = c(1, rep(4, 2)),
-  cgroup = vars,
-  n.cgroup = c(2, 2, 2),
-  rowname = cats,
-  label = 'tab:c10chg', 
   insert.bottom = foot.val
   )
 
