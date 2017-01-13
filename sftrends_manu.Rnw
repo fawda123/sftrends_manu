@@ -403,8 +403,12 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \label{fig:delt_map}   
 \end{figure}
 
-<<obsdat, fig.cap = 'Observed \\ac{din} (NH$_4^{+}$ + NO$_2^{-}$/NO$_3^{2-}$) from ten stations in the upper \\ac{sfe} Delta.  Data were collected monthly and evaluated with \\ac{wrtds} models from 1976 to 2013. Note different y-axis scales.  See \\cref{fig:delt_map} for station locations.', fig.height = 7, fig.width = 6, cache = T, out.width = '0.9\\textwidth'>>=
+<<obsdat, fig.cap = 'Observed \\ac{din} (NH$_4^{+}$ + NO$_2^{-}$/NO$_3^{2-}$) from ten stations in the upper \\ac{sfe} Delta and flow from the Sacramento and San Joaquin rivers.  Data were collected monthly and evaluated with \\ac{wrtds} models using daily flow estimates from 1976 to 2013. Note different y-axis scales.  See \\cref{fig:delt_map} for station locations.', fig.height = 7.5, fig.width = 6, cache = T, out.width = '0.9\\textwidth'>>=
 data(delt_dat)
+data(flow_dat)
+
+## 
+# obs data
 
 missvals <- c('1996-01-01', '2004-04-01') %>% 
   as.Date
@@ -430,7 +434,8 @@ mythm <- theme_minimal() +
     axis.text.y = element_text(size = 6),
     axis.ticks.length = unit(.1, "cm"), 
     panel.grid.major = element_line(size = 0.25),
-    panel.grid.minor = element_blank()
+    panel.grid.minor = element_blank(),
+    plot.margin = grid::unit(c(3, 6, 3, 6), 'pt')
   )  
 
 cols <- RColorBrewer::brewer.pal(9, 'Blues')[c(5, 7)] %>% 
@@ -442,14 +447,45 @@ leglabs <- list(
   expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
   )
 
-ggplot(toplo, aes(x = Date)) +
+p1 <- ggplot(toplo, aes(x = Date)) +
   geom_area(aes(y = val, group = var, fill = var), stat = 'identity', position = 'stack', alpha = 0.75) + 
   scale_x_date(expand = c(0, 0)) + 
   scale_y_continuous(ylab, expand = c(0, 0)) + 
   facet_grid(Site_Code~., scales = 'free_y') +
   scale_fill_manual(values = cols, labels = leglabs) +
-  mythm 
+  mythm %+replace% 
+  theme(axis.text.x = element_blank())
 
+## 
+# flo data
+toplo2 <- filter(flow_dat, 
+    !station %in% 'east' &
+    Date >= as.Date('1976-01-13') &
+    Date <= as.Date('2013-12-13')
+  ) %>% 
+  mutate(
+    q = log(q),
+    station = factor(station, levels = c('sac', 'sjr'), labels = c('Sac.', 'S. Jo.'))
+    )
+ylab <- expression(paste('ln-Flow (', m^3, ' ', s^-1, ')'))
+p2 <- ggplot(toplo2, aes(x = Date, y = q)) +
+  geom_line(size = 0.25) +
+  scale_x_date(expand = c(0, 0)) + 
+  scale_y_continuous(ylab) + 
+  facet_grid(station~., scales = 'free_y') + 
+  mythm
+
+# fix widths
+# align widths of plots in first column, first two
+pA <- ggplot_gtable(ggplot_build(p1))
+pB <- ggplot_gtable(ggplot_build(p2))
+
+maxWidth = grid::unit.pmax(pA$widths[2:3], pB$widths[2:3])
+
+pA$widths[2:3] <- maxWidth
+pB$widths[2:3] <- maxWidth
+
+grid.arrange(pA, pB, ncol = 1, heights = c(1, 0.21))
 @
 
 <<trndcomp, echo = F, warning = F, message = F, cache = T, results = 'hide'>>=
