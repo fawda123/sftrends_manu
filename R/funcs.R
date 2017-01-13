@@ -83,6 +83,16 @@ scinot <- function(x, pow = 2, digits = 2, showDollar = TRUE)
   
 }
 
+# wrapper for as.character to english function
+eng <- function(chr){
+  
+  out <- english(chr)
+  out <- as.character(out)
+  
+  return(out)
+  
+}
+
 ######
 # trend maps
 # 

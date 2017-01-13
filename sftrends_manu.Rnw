@@ -296,7 +296,36 @@ Application of seasonal Kendall tests to evaluate trends in observed data provid
 
 Relationships between flow and observed water quality are complex and can change significantly through space and time\cite{Hirsch10,Zhang16}. These principles have been demonstrated for monitoring data in the Delta region\cite{Jassby08,Novick15,Jabusch16}, suggesting that trend analyses using the observed time series are confounded by flow effects.  Change over for time in the observed reflect could reflect mobilization or dilution effects of flow on concentration rather than an empirical system response to changes in nutrient sources.  As a proof of concept, \cref{fig:dinc10} demonstrates use of \ac{wrtds} to isolate a flow-normalized time series from the observed data. Raw data are presented in \cref{fig:dinc10}a and the annual results by water year (October through September) from \ac{wrtds} are shown in \cref{fig:dinc10}b. In addition to removing the seasonal component, \cref{fig:dinc10}b shows the flow-normalized component (solid line) independent of the model predictions.  The difference between the two is shown in \cref{fig:dinc10}c such that years with predictions greater or less than the flow-normalized values correspond with long-term trends in flow shown in \cref{fig:dinc10}d.  For example, 1984 is a period of high flow and a large, negative difference between prediction and flow-normalized concentration, suggesting a dilution effect of increased flow on nutrient concentration.  Further, \cref{fig:dinc10}e shows seasonal variation in the relationships of \ac{din} with flow throughout the period of record. Increases in flow (y-axis) were associated with an increase in \ac{din} (colors) for flow values within the observed range.  Seasonal patterns also differed througout the time period with a wider range of \ac{din} within a growing season in the early 2000s relative to the 1980s. % The seasonal shifts are potentially linked to seasonal upwelling linked to ENSO \cite{Cloern07}
 
-A comparison of trends with flow-normalized components relative to observed data is justified because flow and nutrient concentrations were linked at many of the stations in the study area, similar to \cref{fig:dinc10}.  These comparisons are made relative to changes in the magnitude, significance, and direction of the trend, all of which have important implications for decision-making. Overall, the differences in apparent trends underscore the critical importance of considering flow effects in decision-making, where flow is affected by complex relationships between inflow, water withdrawals, and exchange with the larger Bay.     
+<<echo = F, cache = F>>=
+data(trnds_seasyr)
+
+cmp <- data.frame(trnds_obs, dat = 'obs') %>% 
+  rbind(., data.frame(trnds_nrm, dat = 'nrm')) %>% 
+  filter(cat %in% c('1976-1995', '1996-2013')) %>% 
+  select(dat, Site_Code, resvar, cat, ztest, perchg) 
+
+zcmp <- select(cmp, -perchg) %>% 
+  mutate(ztest = ifelse(ztest < .05, 'sig', 'ns')) %>% 
+  spread(dat, ztest) %>% 
+  mutate(
+    sigtons = ifelse(obs == 'sig' & nrm == 'ns', 1, 0), 
+    nstosig = ifelse(obs == 'ns' & nrm == 'sig', 1, 0)
+  )
+
+chgcmp <- select(cmp, -ztest)# %>% 
+  # mutate(ztest = ifelse(ztest < .05, 'sig', 'ns')) %>% 
+  # spread(dat, ztest) %>% 
+  # mutate(
+  #   sigtons = ifelse(obs == 'sig' & nrm == 'ns', 1, 0), 
+  #   nstosig = ifelse(obs == 'ns' & nrm == 'sig', 1, 0)
+  # )
+
+@
+
+A comparison of trends with flow-normalized results from \ac{wrtds} relative to observed data is justified because flow and nutrient concentrations were linked at many of the stations in the study area, similar to \cref{fig:dinc10}.  These comparisons are made relative to changes in the magnitude, significance, and direction of trends, all of which have important implications for decision-making. For all \Sexpr{eng(nrow(zcmp))} trend comparisons in \cref{fig:trndcomp1} regardless of site, nitrogen analyte, and time period, \Sexpr{eng(sum(zcmp$nstosig))} comparisons had trends that were insignificant with the observed data but significant with flow-normalized results. The magnitude of all comparisons changed  
+
+
+Overall, the differences in apparent trends underscore the critical importance of considering flow effects in the interpretation of environmental changes, where flow in the Delta is affected by complex relationships between river inputs, water withdrawals, and tidal exchange with the larger Bay.     
 
 \subsection{Selected examples}
 
