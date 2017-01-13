@@ -75,6 +75,17 @@ refs <- rawToChar(refs$content)
 writeLines(refs, con = file('refs.bib'))
 @
 
+% get the version from git log
+<<echo = FALSE, cache = FALSE>>=
+raw <- system('git log -1', intern = TRUE)
+date <- raw[grep('^Date', raw)]
+date <- gsub('^Date:\\s*', '', date)
+commit <- raw[grep('^commit', raw)]
+commit <- gsub('^commit ', '', commit)
+commit <- paste0('\\href{https://github.com/fawda123/sftrends_manu/commit/', commit, '}{', commit, '}')
+vers <- paste0('Version: ', date, ', ', commit)
+@
+
 \author{Marcus W. Beck}
 \affiliation{USEPA National Health and Environmental Effects Research Laboratory, Gulf Ecology Division, Gulf Breeze, FL}
 \email{beck.marcus@epa.gov}
@@ -85,7 +96,7 @@ writeLines(refs, con = file('refs.bib'))
 \author{Phil Trowbridge}
 \affiliation{San Francisco Estuary Institute, Richmond, CA}
 
-\title[Water quality change in the upper SFE]{Four decades of water quality change in the upper San Francisco Estuary}
+\title[Water quality change in the upper SFE]{Four decades of water quality change in the upper San Francisco Estuary\footnote{\Sexpr{vers}}}
 
 \begin{document}
 \linenumbers
