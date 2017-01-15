@@ -347,35 +347,69 @@ chgtb <- table(chgcmp$chgs)
 
 A comparison of trends with flow-normalized results from \ac{wrtds} relative to observed data is justified because flow and nutrient concentrations were linked at many of the stations in the study area, similar to \cref{fig:dinc10}.  These comparisons are made relative to changes in the magnitude, significance, and direction of trends, all of which have important implications for decision-making. For all \Sexpr{eng(nrow(zcmp))} trend comparisons in \cref{fig:trndcomp1} (flow-normalized values in \cref{tab:trndsann}) regardless of site, nitrogen analyte, and time period, \Sexpr{eng(sum(zcmp$nstosig))} comparisons had trends that were insignificant with the observed data but significant with flow-normalized results, whereas only \Sexpr{eng(sum(zcmp$sigtons))} trend changed to insignificant. Changes in the magnitude of the estimated percent change per year were also apparent for the flow-normalized trends, such that \Sexpr{eng(sum(chgtb[c('morepos', 'moreneg')]))} comparisons showed an inrease in magnitude (more negative or more positive) and \Sexpr{eng(sum(chgtb[c('lesspos', 'lessneg')]))} had a decrease (less positve or less negative) compared to observed trends.  More importantly, \Sexpr{eng(chgtb['postoneg'])} comparisons showed a trend reversal from positive to negative estimated change and \Sexpr{eng(chgtb['somechg'])} sites went from no change to negative estimated trends for the flow-normalized results. Differences by season in the observed relative to flow-normalized results from \ac{wrtds} were also apparent (\cref{fig:trndcomp2,fig:trndcomp3,tab:trndsbef,tab:trndsaft}).  The most notable changes were an overall decrease in the estimated trend for most sites in the summer and fall seasons for 1996-2013.
 
-Differences in apparent trends underscore the importance of considering flow effects in the interpretation of environmental changes, where flow in the Delta is affected by complex relationships between river inputs, water withdrawals, and tidal exchange with the larger Bay.     
-
-Implications of different flow varialbes - refer to \cite{Novick15}, a hybrid approach would be best for complex systems like the delta. Huge effect on trend interpration
-
-What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorophyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
+Differences in apparent trends underscore the importance of considering flow effects in the interpretation of environmental changes.  Our results demonstrated the potential to misinterpret trends if flow effects are not considered, where the misinterpretation could vary from a simple change in the magnitude and significance of a trends, to more problematic changes where the flow-normalized trend could demonstrate a complete reversal relative to the observed. A more comprehensive evaluation of flow in the Delta demonstrated that flow contributions of different end members vary considerably over time at each station\cite{Novick15}.  For example, flow at MD10 represents a changing percentage by season of inputs from the Sacramento, San Joaquin, Cosumnes, Mokelumne rivers, and agricultural returns.   For simplicity, water quality observations in our analyses were matched with large-scale drivers of flow into the Delta where most sites were matched to Sacramentao or San Joaquin daily flow estimates.  Given that substantial differences with flow-normalized results were apparent from relatively coarse estimates of flow contributions, more precise differences could be obtained by considering the influence of multiple flow components at each locaiton. Output from the Dayflow software program\cite{IEP16} provides a complete mass balance of flow in the Delta that could be used to develop a more comprehensive description of flow-normalized trends that considers changing contributions over time.  
 
 \subsection{Selected examples}
 
-Two stations were chosen for closer evaluation to demonstrate use of \ac{wrtds} to develop a more comprehensive description of decadal trends in the Delta.  The stations were chosen to address ecological and management-based questions that have relevance outside of the region, having importance for the understanding of estuarine processes that influence eutrophication trends over several years.  The selected case studies focused on \begin{inparaenum}[1\upshape)]
+Two stations were chosen to demonstrate use of \ac{wrtds} to develop a more comprehensive description of decadal trends in the Delta.  The selected case studies focused on \begin{inparaenum}[1\upshape)]
 \item effects of wastewater treatment upgrades upstream of P8, and
-\item effects of biological invasion on nutrient dynamics in Suisun Bay.
+\item effects of biological invasion on nutrient dynamics in Suisun Bay using D7 as an example.
 \end{inparaenum}
 Each case study is built around hypotheses that results from \ac{wrtds} models were expected to support, both as a general description and for additional testing with alternative methods. 
 
 \subsubsection{Effects of wastewater treatment}
 
-Wastewater treatment plants upstream of and within the Delta are a major source of nutrient loading to the system.  As noted in \cite{Jassby08}, the Sacramento Regional \ac{wwtp} alone contributes 90\% of the ammonium load to the region.  Significant efforts have been made in recent years to reduce nitrogen loading from regional \acp{wwtp} given the disproportionate contribution of nutrients relative to other sources (e.g., watershed agricultural load, sediment flux, etc., )\cite{Cornwell14,Novick15}.  Several \acp{wwtp} have recently been or are planned to be upgraded to include tertiary filtration and nitrification to convert biologically available ammonium to nitrate. The City of Stockton \ac{wwtp} was upgraded in 2006 and is immediately upstream of station P8 \cite{Jabusch16}. Therefore, a modal response of nutrient concentrations at P8 centered around 2006 is expected as a result of upstream \ac{wwtp} upgrades, and water quality should exhibit \begin{inparaenum}[1\upshape)]
-\item a shift in load contributions before/after upgrade,
-\item a flow-normalized annual trend at P8 to show a change concurrent with WWTP upgrades, and 
-\item different nitrogen species will have different changes depending on change in load outputs. 
+Significant efforts have been made in recent years to reduce nitrogen loading from regional \acp{wwtp} given the disproportionate contribution of nutrients relative to other sources (e.g., watershed agricultural load, sediment flux, etc., )\cite{Cornwell14,Novick15}.  Several \acp{wwtp} in the Delta have recently been or are planned to be upgraded to include tertiary filtration and nitrification to convert biologically available ammonium to nitrate. The City of Stockton \ac{wwtp} was upgraded in 2006 and is immediately upstream of station P8 \cite{Jabusch16}. Therefore, a modal response of nutrient concentrations at P8 centered around 2006 is expected as a result of upstream \ac{wwtp} upgrades, and water quality should exhibit \begin{inparaenum}[1\upshape)]
+\item a shift in nutrient contributions from the \ac{wwtp} before/after upgrade, and
+\item a flow-normalized annual trend at P8 to show a change concurrent with \ac{wwtp} upgrades.
 \end{inparaenum}
-The use of \ac{wrtds} to describe downstream effects of \ac{wwtp} upgrades could reveal flow-independent trends that have not been previously described.
-%See \href{http://www.waterboards.ca.gov/centralvalley/board_decisions/adopted_orders/san_joaquin/r5-2008-0086_res.pdf}{here}
 
-Overall reduction in total nitrogen load was observed as a result of reduction in ammonium (\cref{fig:stock}).  Nitrate is the primary constituent of total nitrogen after 2007.  Organic nitrogen is a larger percentage of the total after nitrification. What was reduction in ammonium starting in 2002? 
+<<echo = F>>=
+# for inline text and tab:p8chg
 
-Nitrogen trends at P8 shifted in response to upstream \ac{wwtp} upgrades (\cref{fig:p8trnds}), with ammonium showing the largest reduction.  Interestingly, nitrite/nitrate concentrations also showed a similar but less dramatic decrease.  Percent changes are shown in \cref{tab:p8chg}, where both nitrogen species shows large percent increases prior to \ac{wwtp} upgrades followed by decreases after upgrades with ammonium showing the largest pecentage.  Seasonally, increases prior to upgrades were most apparent in the \ac{jas} months for both analytes.  Seasonal reductions post-upgrades were also largest in \ac{jas} for nitrite/nitrate, whereas percent reductions were similar across all monthly groupings for ammonium.  
+data(h2dat)
+dt <- as.Date('2006-01-01')
 
-Relationships of nitrogen with flow showed the typical inverse flow/concentration dynamic with flushing at high flow, although patterns differed by nitrogen species.  Seasonal variation was more apparent for ammonium, although both typically had the highest concentrations in the winter.  Additionally, strength of the flow/nutrient relationship changed throughout the time series the year where the strongest relationship differed by analyte.  Nitrite/nitrate typically had the strongest relationship flow later in the time series, whereas ammonium had the strongest relationship with flow in the early 2000s.  
+noraw_bf <- filter(h2dat, resvar %in% 'no23') %>% 
+  .$data %>% 
+  .[[1]] %>% 
+  .[which(.$date < dt), ]
+noraw_af <- filter(h2dat, resvar %in% 'no23') %>% 
+  .$data %>% 
+  .[[1]] %>% 
+  .[which(.$date >= dt), ]
+nhraw_bf <- filter(h2dat, resvar %in% 'nh') %>% 
+  .$data %>% 
+  .[[1]] %>% 
+  .[which(.$date < dt), ]
+nhraw_af <- filter(h2dat, resvar %in% 'nh') %>% 
+  .$data %>% 
+  .[[1]] %>% 
+  .[which(.$date >= dt), ]
+
+mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
+yrbrks_bf <- c(1975, 2005)
+yrbrks_af <- c(2006, 2013)
+molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
+yrlabs_bf <- '1976-2006'
+yrlabs_af <- '2007-2013'
+faclevs <- c('1976-2006_before', '2007-2013_after', paste0(molabs, '_before'), paste0(molabs, '_after'))
+
+# summarize din, sio2, chl trends
+no_bf <- wrtdstrnd_sk(noraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf) %>% 
+  mutate(period = 'before', var = 'no')
+no_af <- wrtdstrnd_sk(noraw_af, mobrks, yrbrks_af, molabs, yrlabs_af) %>% 
+  mutate(period = 'after', var = 'no')
+nh_bf <- wrtdstrnd_sk(nhraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf) %>% 
+  mutate(period = 'before', var = 'nh')
+nh_af <- wrtdstrnd_sk(nhraw_af, mobrks, yrbrks_af, molabs, yrlabs_af) %>% 
+  mutate(period = 'after', var = 'nh')
+
+@
+
+Effluent concentations measured from 2003 to 2009 from the Stockton \ac{wwtp} showed a gradual shift in ammonium relative to the total (\cref{fig:stock}).  Ammonium and nitrate concentrations were generally balanced prior to 2006, whereas nitrate was a majority of total nitrogen after the upgrade with much smaller percentages from ammonium and nitrite. As expected, flow-normalized nitrogen trends at P8 shifted in response to upstream \ac{wwtp} upgrades (\cref{fig:p8trnds}a), with ammonium showing an increase form 1976 followed by a large reduction in the 2000s.  Interestingly, nitrite/nitrate concentrations also showed a similar but less dramatic decrease.  Percent changes from seasonal Kendall tests on flow-normalized results showed that both nitrogen species increased prior to \ac{wwtp} upgrades (\Sexpr{scinot(no_bf[1, 'perchg'], 1, 1)}\% per year for nitrite/nitrate, \Sexpr{scinot(nh_bf[1, 'perchg'], 1, 1)}\% for ammonium), followed by decreases after upgrades (\Sexpr{scinot(no_af[1, 'perchg'], 1, 1)}\% for nitrite/nitrate, \Sexpr{scinot(nh_af[1, 'perchg'], 1, 1)}\% for ammonium, \cref{tab:p8chg}).  Seasonally, increases prior to upgrades were highest in the summer for nitrite/nitrate (\Sexpr{scinot(no_bf[3, 'perchg'], 1, 1)}\%) and in the fall for ammonium (\Sexpr{scinot(nh_bf[4, 'perchg'], 1, 1)}\%). Similarly, seasonal reductions post-upgrade were largest in the summer for nitrite/nitrate (\Sexpr{scinot(no_af[3, 'perchg'], 1, 1)}\%) and largest for ammonium in the winter (\Sexpr{scinot(nh_af[5, 'perchg'], 1, 1)}\%).
+
+Relationships of nitrogen with flow described by \ac{wrtds} showed an inverse flow and concentration dynamic with flushing at high flow (\cref{fig:p8trnds}b).  Seasonal variation was more apparent for ammonium, although both typically had the highest concentrations at low flow in the winter (January).  Additionally, strength of the flow/nutrient relationship changed between years. Nitrite/nitrate typically had the strongest relationshipwith flow later in the time series, whereas ammonium had the strongest relationship with flow in the early 2000s.  Using \ac{wrtds}, an empirical link is created between upstream changes and observed effects downstream that is characterized by differences in analyte beween years and season. A general conclusion is that ammonium reductions were concurrent with \ac{wwtp} upgrades, but the reduction was most apparent at low-flow in January.  These dynamics cannot be characterized from the observed time series, and further, results from \ac{wrtds} can be used to develop additional hypotheses of factors that influence nutrient concentrations at P8.  For example, estimated ammonium concentrations in July were low for all flow levels which could suggest either nitrogen inputs were low in the summer or nitrogen was available and uptake by primary consumers was high.  As such, trends from \ac{wrtds} can be used to develop additional hypotheses for further testing cause and effect mechanisms of nutrient impacts on adverse conditions.  
 
 \subsubsection{Effects of biological invasions}
 
@@ -398,9 +432,10 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 
 \cref{fig:clmchl}, \cref{tab:d7chg}
 
-\subsection{Implications}
-
 Second case study showed typical inverse relationships between nutrients and flow, more flow means greater flushing and dilution of nutrient concentrations.  Conversely, low flow means less flushing and higher nutrient concentrations, although this may not always be observed if the available nutrients are biologically available.  Low-flow events during warmer months show the lowest ammonium concentrations, which corresponds to seasonal maxima in chlorophyll concentration.  A similar but weaker relationship was observed with nitrite/nitrate where increased flow was related to decreased concentration and lower concentrations overall were observed in the summer.  However, low-flow events still had higher concentrations than high-flow events in July, as compared to ammonium which was low regardless of flow.  This suggests that ammonium concentrations are driving phytoplankton production at P8.  Annual trends in chlorophyll concentration (not shown) showed an overall decrease from the 1970s to present, although a slight peak is observed in the 2000s.  This peak is likely related to the maximum ammonium concentration shown in \cref{fig:p8trnds}.  Moreover, flow/chlorophyll relationships have generally been constant throughout the period of record such that a change in flow has not been related to a change in phytoplankton production.  This suggests that nutrient loads that contribute to production at P8 are primarily from point sources at \ac{wwtp} outflows as a change in flow does not affect the load output.  But what are watershed loads?  
+
+What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorophyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
+
 
 \section{References} % omit on submit
 \begin{singlespace}
@@ -1070,44 +1105,7 @@ grid.arrange(
 
 % trends in no23, nh at p8
 <<p8chg>>=
-
-data(h2dat)
-dt <- as.Date('2006-01-01')
-
-noraw_bf <- filter(h2dat, resvar %in% 'no23') %>% 
-  .$data %>% 
-  .[[1]] %>% 
-  .[which(.$date < dt), ]
-noraw_af <- filter(h2dat, resvar %in% 'no23') %>% 
-  .$data %>% 
-  .[[1]] %>% 
-  .[which(.$date >= dt), ]
-nhraw_bf <- filter(h2dat, resvar %in% 'nh') %>% 
-  .$data %>% 
-  .[[1]] %>% 
-  .[which(.$date < dt), ]
-nhraw_af <- filter(h2dat, resvar %in% 'nh') %>% 
-  .$data %>% 
-  .[[1]] %>% 
-  .[which(.$date >= dt), ]
-
-mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
-yrbrks_bf <- c(1975, 2005)
-yrbrks_af <- c(2006, 2013)
-molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
-yrlabs_bf <- '1976-2006'
-yrlabs_af <- '2007-2013'
-faclevs <- c('1976-2006_before', '2007-2013_after', paste0(molabs, '_before'), paste0(molabs, '_after'))
-
-# summarize din, sio2, chl trends
-no_bf <- wrtdstrnd_sk(noraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf) %>% 
-  mutate(period = 'before', var = 'no')
-no_af <- wrtdstrnd_sk(noraw_af, mobrks, yrbrks_af, molabs, yrlabs_af) %>% 
-  mutate(period = 'after', var = 'no')
-nh_bf <- wrtdstrnd_sk(nhraw_bf, mobrks, yrbrks_bf, molabs, yrlabs_bf) %>% 
-  mutate(period = 'before', var = 'nh')
-nh_af <- wrtdstrnd_sk(nhraw_af, mobrks, yrbrks_af, molabs, yrlabs_af) %>% 
-  mutate(period = 'after', var = 'nh')
+# uses data from chunk in results test
 
 # combine for trends for table
 totab <- rbind(no_bf, no_af, nh_bf, nh_af) %>% 
