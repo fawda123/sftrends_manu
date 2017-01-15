@@ -114,7 +114,7 @@
 \author{Phil Trowbridge}
 \affiliation{San Francisco Estuary Institute, Richmond, CA}
 
-\title[Water quality change in the upper SFE]{Four decades of water quality change in the upper San Francisco Estuary\footnote{Version: Fri Jan 13 15:40:02 2017 -0600, \href{https://github.com/fawda123/sftrends_manu/commit/f49c0a27672550b75425bf31fd1b561ddf59669e}{f49c0a27672550b75425bf31fd1b561ddf59669e}}}
+\title[Water quality change in the upper SFE]{Four decades of water quality change in the upper San Francisco Estuary\footnote{Version: Fri Jan 13 16:19:14 2017 -0600, \href{https://github.com/fawda123/sftrends_manu/commit/66d301f76d51fddfc7d4eeea2ed7b92995d7385f}{66d301f76d51fddfc7d4eeea2ed7b92995d7385f}}}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 \linenumbers
@@ -155,7 +155,7 @@ The Delta region is of particular interest for understanding historical patterns
 
 Multi-decadal time series of nutrients and flow records were used to develop a quantitative description of nitrogen trends in the Delta.  The \ac{iep} is a consortium of state and federal agencies that have maintained the \ac{emp} in the Delta region since 1975 \cite{IEP13}.  The \ac{emp} collects monthly water quality samples at 19 stations in the Delta, Suisun Bay, and northeastern San Pablo Bay.  Water samples were collected using a Van Dorn sample, a submersible pump, or a flow through system depending on site.  All samples were processed with standard QA/QC at the California Department of Water Resources Bryte Laboratory in Sacramento \cite{IEP13}.  Nutrient time series were obtained from the \ac{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}) at ten discrete sampling stations from 1976 through 2013 (\cref{fig:delt_map}).  Stations were grouped by location in the study area for comparison: Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; middle stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations were chosen based on continuity of the water quality time series and geographic location for understanding trends.  Time series were complete for all stations except for an approximate ten year gap from 1996-2014 for D19.  Data were minimally processed with the exception of averaging replicates that occurred on the same day.  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two). Less than 3\% of all observations were left-censored, although variation was observed between analytes and location.  The most censored observations were observed for ammonium time series at sites C10 (25.4\%), MD10 (18.1\%), D28 (17.8\%), D19 (12\%), and D7 (7.9\%).
 
-Daily flow estimates for the Delta region were obtained from the Dayflow software program that provides estimates of average Delta outflow \cite{IEP16}.  Because of the complexity of water inflow, exports, and outflows from the Delta, the Dayflow program combines observations with estimates based on mass balance to reconstruct historical and daily flow estimates.  The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to acount for flow effects at C3, D19, D26, and D28, and the San Joaquin time series was used for C10 and P8.  The salinity observations at D4, D6, and D7 in Suisun Bay were used as a more appropriate measure of variation in freshwater balance given the stronger tidal influence at these stations.  Salinity has been used as a tracer of freshwater influence for the application of WRTDS models in tidal waters \cite{Beck15}.  
+Daily flow estimates for the Delta region were obtained from the Dayflow software program that provides estimates of average Delta outflow \cite{IEP16}.  Because of the complexity of water inflow, exports, and outflows from the Delta, the Dayflow program combines observations with estimates based on mass balance to reconstruct historical and daily flow estimates.  The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to account for flow effects at C3, D19, D26, D28, and MD10, and the San Joaquin time series was used for C10 and P8.  The salinity observations at D4, D6, and D7 in Suisun Bay were used as a more appropriate measure of variation in freshwater balance given the stronger tidal influence at these stations.  Salinity has been used as a tracer of freshwater influence for the application of WRTDS models in tidal waters \cite{Beck15}.  
 
 \subsection{Analysis method and application}
 
@@ -186,14 +186,17 @@ The observed time series for the ten Delta stations had substantial variation in
 
 Application of seasonal Kendall tests to evaluate trends in observed data provided explicit information on the direction, magnitude, and statistical significance of changes between years. Trends estimated from the observed data for 1976-1995 and 1996-2013 varied considerably between sites and analytes (\cref{fig:trndcomp1}). Significant trends were observed from 1976-1995 for eight of ten sites for \ac{din} (seven increasing, one decreasing), eight sites for ammonium (six increasing, two decreasing), and six sites for nitrite/nitrate (five increasing, one decreasing).  More sites had decreasing trends for the observed data from 1996-2013.  Eight sites had significant trends for \ac{din} (four increasing, four decreasing), seven sites for ammonium (five increasing, two decreasing), and eight sites for nitrite/nitrate (four increasing, four decreasing). Trends by location (upper Delta, middle, and Suisun stations) were not apparent, suggesting individual sites had trends that differed independent of relative location.  For example, P8 had a relatively large decrease in ammonium ($-8.3$\% change per year) for the second annual period compared to all other sites. Trends by season were similar such that increases were generally observed in all seasons from 1976-1995 (\cref{fig:trndcomp2}) and decreases were observed for 1996-2013 (\cref{fig:trndcomp3}).  Trends for the seasonal comparisons were noisier and significant changes were less common compared to the annual comparisons.
 
-Relationships between flow and observed water quality are complex and can change significantly through space and time\cite{Hirsch10,Zhang16}. These principles have been demonstrated for monitoring data in the Delta region\cite{Jassby08,Novick15,Jabusch16}, suggesting that trend analyses using the observed time series are confounded by flow effects.  Change over for time in the observed reflect could reflect mobilization or dilution effects of flow on concentration rather than an empirical system response to changes in nutrient sources.  As a proof of concept, \cref{fig:dinc10} demonstrates use of \ac{wrtds} to isolate a flow-normalized time series from the observed data. Raw data are presented in \cref{fig:dinc10}a and the annual results by water year (October through September) from \ac{wrtds} are shown in \cref{fig:dinc10}b. In addition to removing the seasonal component, \cref{fig:dinc10}b shows the flow-normalized component (solid line) independent of the model predictions.  The difference between the two is shown in \cref{fig:dinc10}c such that years with predictions greater or less than the flow-normalized values correspond with long-term trends in flow shown in \cref{fig:dinc10}d.  For example, 1984 is a period of high flow and a large, negative difference between prediction and flow-normalized concentration, suggesting a dilution effect of increased flow on nutrient concentration.  Further, \cref{fig:dinc10}e shows seasonal variation in the relationships of \ac{din} with flow throughout the period of record. Increases in flow (y-axis) were associated with an increase in \ac{din} (colors) for flow values within the observed range.  Seasonal patterns also differed througout the time period with a wider range of \ac{din} within a growing season in the early 2000s relative to the 1980s. % The seasonal shifts are potentially linked to seasonal upwelling linked to ENSO \cite{Cloern07}
+Relationships between flow and observed water quality are complex and can change significantly through space and time\cite{Hirsch10,Zhang16}. These principles have been demonstrated for monitoring data in the Delta region\cite{Jassby08,Novick15,Jabusch16}, suggesting that trend analyses using the observed time series are confounded by flow effects.  Change over for time in observed data could reflect mobilization or dilution effects of flow on concentration rather than an interpretable system response to changes in nutrient sources.  As a proof of concept, \cref{fig:dinc10} demonstrates use of \ac{wrtds} to isolate a flow-normalized time series from the observed \ac{din} data at C10. Raw data are presented in \cref{fig:dinc10}a and the annual results by water year (October through September) from \ac{wrtds} are shown in \cref{fig:dinc10}b. In addition to removing the seasonal component, \cref{fig:dinc10}b shows the flow-normalized component (solid line) independent of the model predictions.  The difference between the two is shown in \cref{fig:dinc10}c such that years with predictions greater or less than the flow-normalized values correspond with long-term trends in flow shown in \cref{fig:dinc10}d.  For example, 1984 is a period of high flow and a large, negative difference between prediction and flow-normalized concentration, suggesting a dilution effect of increased flow on nutrient concentration.  Further, \cref{fig:dinc10}e shows seasonal variation in the relationships of \ac{din} with flow throughout the period of record. Increases in flow (y-axis) were associated with an increase in \ac{din} (colors) for flow values within the observed range.  Seasonal patterns also differed througout the time period with a wider range of \ac{din} within a growing season in the early 2000s relative to the 1980s. % The seasonal shifts are potentially linked to seasonal upwelling linked to ENSO \cite{Cloern07}
 
 
 
-A comparison of trends with flow-normalized results from \ac{wrtds} relative to observed data is justified because flow and nutrient concentrations were linked at many of the stations in the study area, similar to \cref{fig:dinc10}.  These comparisons are made relative to changes in the magnitude, significance, and direction of trends, all of which have important implications for decision-making. For all sixty trend comparisons in \cref{fig:trndcomp1} regardless of site, nitrogen analyte, and time period, thirteen comparisons had trends that were insignificant with the observed data but significant with flow-normalized results. The magnitude of all comparisons changed  
+A comparison of trends with flow-normalized results from \ac{wrtds} relative to observed data is justified because flow and nutrient concentrations were linked at many of the stations in the study area, similar to \cref{fig:dinc10}.  These comparisons are made relative to changes in the magnitude, significance, and direction of trends, all of which have important implications for decision-making. For all sixty trend comparisons in \cref{fig:trndcomp1} (flow-normalized values in \cref{tab:trndsann}) regardless of site, nitrogen analyte, and time period, thirteen comparisons had trends that were insignificant with the observed data but significant with flow-normalized results, whereas only one trend changed to insignificant. Changes in the magnitude of the estimated percent change per year were also apparent for the flow-normalized trends, such that fourteen comparisons showed an inrease in magnitude (more negative or more positive) and twenty five had a decrease (less positve or less negative) compared to observed trends.  More importantly, eleven comparisons showed a trend reversal from positive to negative estimated change and ten sites went from no change to negative estimated trends for the flow-normalized results. Differences by season in the observed relative to flow-normalized results from \ac{wrtds} were also apparent (\cref{fig:trndcomp2,fig:trndcomp3,tab:trndsbef,tab:trndsaft}).  The most notable changes were an overall decrease in the estimated trend for most sites in the summer and fall seasons for 1996-2013.
 
+Differences in apparent trends underscore the importance of considering flow effects in the interpretation of environmental changes, where flow in the Delta is affected by complex relationships between river inputs, water withdrawals, and tidal exchange with the larger Bay.     
 
-Overall, the differences in apparent trends underscore the critical importance of considering flow effects in the interpretation of environmental changes, where flow in the Delta is affected by complex relationships between river inputs, water withdrawals, and tidal exchange with the larger Bay.     
+Implications of different flow varialbes - refer to \cite{Novick15}, a hybrid approach would be best for complex systems like the delta. Huge effect on trend interpration
+
+What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorophyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
 \subsection{Selected examples}
 
@@ -242,11 +245,7 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 
 \subsection{Implications}
 
-Implications of different flow varialbes - refer to \cite{Novick15}, a hybrid approach would be best for complex systems like the delta.
-
 Second case study showed typical inverse relationships between nutrients and flow, more flow means greater flushing and dilution of nutrient concentrations.  Conversely, low flow means less flushing and higher nutrient concentrations, although this may not always be observed if the available nutrients are biologically available.  Low-flow events during warmer months show the lowest ammonium concentrations, which corresponds to seasonal maxima in chlorophyll concentration.  A similar but weaker relationship was observed with nitrite/nitrate where increased flow was related to decreased concentration and lower concentrations overall were observed in the summer.  However, low-flow events still had higher concentrations than high-flow events in July, as compared to ammonium which was low regardless of flow.  This suggests that ammonium concentrations are driving phytoplankton production at P8.  Annual trends in chlorophyll concentration (not shown) showed an overall decrease from the 1970s to present, although a slight peak is observed in the 2000s.  This peak is likely related to the maximum ammonium concentration shown in \cref{fig:p8trnds}.  Moreover, flow/chlorophyll relationships have generally been constant throughout the period of record such that a change in flow has not been related to a change in phytoplankton production.  This suggests that nutrient loads that contribute to production at P8 are primarily from point sources at \ac{wwtp} outflows as a change in flow does not affect the load output.  But what are watershed loads?  
-
-What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorophyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
 \section{References} % omit on submit
 \begin{singlespace}
@@ -293,17 +292,6 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 
 \begin{figure}[!ht]
 
-{\centering \includegraphics[width=0.7\textwidth]{figs/trndmap-1} 
-
-}
-
-\caption[Percent change per year in nitrogen analytes for aggregations by seasons from (a) 1976-1995 and (b) 1996-2013]{Percent change per year in nitrogen analytes for aggregations by seasons from (a) 1976-1995 and (b) 1996-2013.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Station locations have been jittered to reduce overlap. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.}\label{fig:trndmap}
-\end{figure}
-
-
-
-\begin{figure}[!ht]
-
 {\centering \includegraphics[width=\textwidth]{figs/p8trnds-1} 
 
 }
@@ -327,6 +315,100 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \clearpage
 %%%%%%
 % tables
+
+% trends in no23, nh at p8
+%latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(2, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2), rowname = cats,     label = "tab:p8chg", insert.bottom = foot.val)%
+\begin{table}[!tbp]
+\caption{Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \ac{wwtp} upgrades upstream of station P8. Upgrades were completed in 2006 at the City of Stockton \ac{wwtp} (San Joaquin County, \cref{fig:stock}).  Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.\label{tab:p8chg}} 
+\begin{center}
+\begin{tabular}{lllcll}
+\hline\hline
+\multicolumn{1}{l}{\bfseries Period}&\multicolumn{2}{c}{\bfseries NO$_{2}^{-}$/NO$_{3}^{2-}$}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries NH$_{4}^{+}$}\tabularnewline
+\cline{2-3} \cline{5-6}
+\multicolumn{1}{l}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}\tabularnewline
+\hline
+{\bfseries Annual}&&&&&\tabularnewline
+~~1976-2006&1.3&\textit{\textbf{2}}**&&0.2&\textit{\textbf{2.8}}**\tabularnewline
+~~2007-2013&1.4&-1.9**&&0.1&-16.6**\tabularnewline
+\hline
+{\bfseries Seasonal, pre}&&&&&\tabularnewline
+~~Spring&1.2&\textit{\textbf{1.6}}**&&0.2&\textit{\textbf{1.4}}**\tabularnewline
+~~Summer&1&\textit{\textbf{2.4}}**&&0.1&\textit{\textbf{3.3}}**\tabularnewline
+~~Fall&1.3&\textit{\textbf{2.2}}**&&0.2&\textit{\textbf{4.9}}**\tabularnewline
+~~Winter&1.5&\textit{\textbf{2.1}}**&&0.7&\textit{\textbf{4.8}}**\tabularnewline
+\hline
+{\bfseries Seasonal, post}&&&&&\tabularnewline
+~~Spring&1.3&-1.6**&&0.1&-16.2**\tabularnewline
+~~Summer&0.9&-4.3**&&0.1&-15.7**\tabularnewline
+~~Fall&1.5&-1.7**&&0.1&-19.3**\tabularnewline
+~~Winter&2.2&-0.8**&&0.2&-26.7**\tabularnewline
+\hline
+\end{tabular}\end{center}
+
+\footnotesize *$p<0.05$; **$p<0.005$\end{table}
+
+
+% trends in din, chl, sio2 at d7
+%latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(1, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2, 2), rowname = cats,     label = "tab:d7chg", insert.bottom = foot.val)%
+\begin{table}[!tbp]
+\caption{Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station D7. Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.\label{tab:d7chg}} 
+\begin{center}
+\begin{tabular}{lllcllcll}
+\hline\hline
+\multicolumn{1}{l}{\bfseries Period}&\multicolumn{2}{c}{\bfseries DIN}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries Chl-\textit{a}}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries SiO$_2$}\tabularnewline
+\cline{2-3} \cline{5-6} \cline{8-9}
+\multicolumn{1}{l}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}\tabularnewline
+\hline
+{\bfseries All}&&&&&&&&\tabularnewline
+~~1976-2013&0.4&\textit{\textbf{0.6}}**&&3&-6.7**&&12.7&\textit{\textbf{0.7}}**\tabularnewline
+\hline
+{\bfseries Annual}&&&&&&&&\tabularnewline
+~~1976-1985&0.4&-2.1**&&8.8&-10.7**&&10.2&-0.2\tabularnewline
+~~1986-1994&0.4&\textit{\textbf{3.6}}**&&2.6&-13.5**&&11.9&\textit{\textbf{2.3}}**\tabularnewline
+~~1995-2003&0.5&-0.1&&1.8&\textit{\textbf{1.9}}**&&13.3&\textit{\textbf{0.7}}**\tabularnewline
+~~2004-2013&0.5&-1.3**&&2.1&\textit{\textbf{2.9}}**&&13.1&-0.3**\tabularnewline
+\hline
+{\bfseries Seasonal}&&&&&&&&\tabularnewline
+~~Spring&0.5&-0.1&&3.4&-1&&14.7&\textit{\textbf{0.1}}**\tabularnewline
+~~Summer&0.4&\textit{\textbf{1.5}}**&&3.4&-8.8**&&12.2&\textit{\textbf{1.2}}**\tabularnewline
+~~Fall&0.4&\textit{\textbf{0.6}}**&&1.7&-8.8**&&12.1&\textit{\textbf{1}}**\tabularnewline
+~~Winter&0.6&-0.2&&1.4&-3.1**&&14.5&\textit{\textbf{0.3}}**\tabularnewline
+\hline
+\end{tabular}\end{center}
+
+\footnotesize *$p<0.05$; **$p<0.005$\end{table}
+
+
+\clearpage
+
+% supplementary material
+\begin{suppinfo}
+\beginsupplement
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,page=1]{figs/trndcomp2.pdf}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\label{fig:trndcomp2}   
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,page=1]{figs/trndcomp3.pdf}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\label{fig:trndcomp3}   
+\end{figure}
+
+\begin{figure}[!ht]
+
+{\centering \includegraphics[width=\textwidth]{figs/stock-1} 
+
+}
+
+\caption[Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County]{Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in 2006 for nitrification/denitrification and tertiary filtration to convert ammonium to nitrate.}\label{fig:stock}
+\end{figure}
+
+
 
 % overall trends, years
 %latex.default(tab[, -c(1, 2)], file = "", rowlabel = "Analyte/Station",     caption = cap.val, caption.loc = "top", rgroup = vars, n.rgroup = rep(nrow(tab)/3,         3), cgroup = c("Annual"), n.cgroup = c(2), rowname = stats,     label = "tab:trndsann", insert.bottom = foot.val)%
@@ -482,99 +564,6 @@ What do nitrogen trends mean?  Have to interpret relative to trends in other var
 \end{tabular}\end{center}
 
 \footnotesize *$p<0.05$; **$p<0.005$\end{table}
-
-
-% trends in no23, nh at p8
-%latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(2, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2), rowname = cats,     label = "tab:p8chg", insert.bottom = foot.val)%
-\begin{table}[!tbp]
-\caption{Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \ac{wwtp} upgrades upstream of station P8. Upgrades were completed in 2006 at the City of Stockton \ac{wwtp} (San Joaquin County, \cref{fig:stock}).  Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.\label{tab:p8chg}} 
-\begin{center}
-\begin{tabular}{lllcll}
-\hline\hline
-\multicolumn{1}{l}{\bfseries Period}&\multicolumn{2}{c}{\bfseries NO$_{2}^{-}$/NO$_{3}^{2-}$}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries NH$_{4}^{+}$}\tabularnewline
-\cline{2-3} \cline{5-6}
-\multicolumn{1}{l}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}\tabularnewline
-\hline
-{\bfseries Annual}&&&&&\tabularnewline
-~~1976-2006&1.3&\textit{\textbf{2}}**&&0.2&\textit{\textbf{2.8}}**\tabularnewline
-~~2007-2013&1.4&-1.9**&&0.1&-16.6**\tabularnewline
-\hline
-{\bfseries Seasonal, pre}&&&&&\tabularnewline
-~~Spring&1.2&\textit{\textbf{1.6}}**&&0.2&\textit{\textbf{1.4}}**\tabularnewline
-~~Summer&1&\textit{\textbf{2.4}}**&&0.1&\textit{\textbf{3.3}}**\tabularnewline
-~~Fall&1.3&\textit{\textbf{2.2}}**&&0.2&\textit{\textbf{4.9}}**\tabularnewline
-~~Winter&1.5&\textit{\textbf{2.1}}**&&0.7&\textit{\textbf{4.8}}**\tabularnewline
-\hline
-{\bfseries Seasonal, post}&&&&&\tabularnewline
-~~Spring&1.3&-1.6**&&0.1&-16.2**\tabularnewline
-~~Summer&0.9&-4.3**&&0.1&-15.7**\tabularnewline
-~~Fall&1.5&-1.7**&&0.1&-19.3**\tabularnewline
-~~Winter&2.2&-0.8**&&0.2&-26.7**\tabularnewline
-\hline
-\end{tabular}\end{center}
-
-\footnotesize *$p<0.05$; **$p<0.005$\end{table}
-
-
-% trends in din, chl, sio2 at d7
-%latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(1, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2, 2), rowname = cats,     label = "tab:d7chg", insert.bottom = foot.val)%
-\begin{table}[!tbp]
-\caption{Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station D7. Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.\label{tab:d7chg}} 
-\begin{center}
-\begin{tabular}{lllcllcll}
-\hline\hline
-\multicolumn{1}{l}{\bfseries Period}&\multicolumn{2}{c}{\bfseries DIN}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries Chl-\textit{a}}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries SiO$_2$}\tabularnewline
-\cline{2-3} \cline{5-6} \cline{8-9}
-\multicolumn{1}{l}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}\tabularnewline
-\hline
-{\bfseries All}&&&&&&&&\tabularnewline
-~~1976-2013&0.4&\textit{\textbf{0.6}}**&&3&-6.7**&&12.7&\textit{\textbf{0.7}}**\tabularnewline
-\hline
-{\bfseries Annual}&&&&&&&&\tabularnewline
-~~1976-1985&0.4&-2.1**&&8.8&-10.7**&&10.2&-0.2\tabularnewline
-~~1986-1994&0.4&\textit{\textbf{3.6}}**&&2.6&-13.5**&&11.9&\textit{\textbf{2.3}}**\tabularnewline
-~~1995-2003&0.5&-0.1&&1.8&\textit{\textbf{1.9}}**&&13.3&\textit{\textbf{0.7}}**\tabularnewline
-~~2004-2013&0.5&-1.3**&&2.1&\textit{\textbf{2.9}}**&&13.1&-0.3**\tabularnewline
-\hline
-{\bfseries Seasonal}&&&&&&&&\tabularnewline
-~~Spring&0.5&-0.1&&3.4&-1&&14.7&\textit{\textbf{0.1}}**\tabularnewline
-~~Summer&0.4&\textit{\textbf{1.5}}**&&3.4&-8.8**&&12.2&\textit{\textbf{1.2}}**\tabularnewline
-~~Fall&0.4&\textit{\textbf{0.6}}**&&1.7&-8.8**&&12.1&\textit{\textbf{1}}**\tabularnewline
-~~Winter&0.6&-0.2&&1.4&-3.1**&&14.5&\textit{\textbf{0.3}}**\tabularnewline
-\hline
-\end{tabular}\end{center}
-
-\footnotesize *$p<0.05$; **$p<0.005$\end{table}
-
-
-\clearpage
-
-% supplementary material
-\begin{suppinfo}
-\beginsupplement
-
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,page=1]{figs/trndcomp2.pdf}
-\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
-\label{fig:trndcomp2}   
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,page=1]{figs/trndcomp3.pdf}
-\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
-\label{fig:trndcomp3}   
-\end{figure}
-
-\begin{figure}[!ht]
-
-{\centering \includegraphics[width=\textwidth]{figs/stock-1} 
-
-}
-
-\caption[Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County]{Nitrogen concentration measurements (mg L$^{-1}$) from the City of Stockton Wastewater Treatment Plant, San Joaquin County.  Wastewater discharge requirements were implemented in 2006 for nitrification/denitrification and tertiary filtration to convert ammonium to nitrate.}\label{fig:stock}
-\end{figure}
 
 
 

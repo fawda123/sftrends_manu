@@ -151,7 +151,7 @@ cvals <- arrange(cvals_all, -cper) %>%
 
 Multi-decadal time series of nutrients and flow records were used to develop a quantitative description of nitrogen trends in the Delta.  The \ac{iep} is a consortium of state and federal agencies that have maintained the \ac{emp} in the Delta region since 1975 \cite{IEP13}.  The \ac{emp} collects monthly water quality samples at 19 stations in the Delta, Suisun Bay, and northeastern San Pablo Bay.  Water samples were collected using a Van Dorn sample, a submersible pump, or a flow through system depending on site.  All samples were processed with standard QA/QC at the California Department of Water Resources Bryte Laboratory in Sacramento \cite{IEP13}.  Nutrient time series were obtained from the \ac{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}) at ten discrete sampling stations from 1976 through 2013 (\cref{fig:delt_map}).  Stations were grouped by location in the study area for comparison: Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; middle stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations were chosen based on continuity of the water quality time series and geographic location for understanding trends.  Time series were complete for all stations except for an approximate ten year gap from 1996-2014 for D19.  Data were minimally processed with the exception of averaging replicates that occurred on the same day.  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two). Less than 3\% of all observations were left-censored, although variation was observed between analytes and location.  The most censored observations were observed for ammonium time series at sites \Sexpr{cvals$Site_Code[1]} (\Sexpr{cvals$cper[1]}\%), \Sexpr{cvals$Site_Code[2]} (\Sexpr{cvals$cper[2]}\%), \Sexpr{cvals$Site_Code[3]} (\Sexpr{cvals$cper[3]}\%), \Sexpr{cvals$Site_Code[4]} (\Sexpr{cvals$cper[4]}\%), and \Sexpr{cvals$Site_Code[5]} (\Sexpr{cvals$cper[5]}\%).
 
-Daily flow estimates for the Delta region were obtained from the Dayflow software program that provides estimates of average Delta outflow \cite{IEP16}.  Because of the complexity of water inflow, exports, and outflows from the Delta, the Dayflow program combines observations with estimates based on mass balance to reconstruct historical and daily flow estimates.  The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to acount for flow effects at C3, D19, D26, and D28, and the San Joaquin time series was used for C10 and P8.  The salinity observations at D4, D6, and D7 in Suisun Bay were used as a more appropriate measure of variation in freshwater balance given the stronger tidal influence at these stations.  Salinity has been used as a tracer of freshwater influence for the application of WRTDS models in tidal waters \cite{Beck15}.  
+Daily flow estimates for the Delta region were obtained from the Dayflow software program that provides estimates of average Delta outflow \cite{IEP16}.  Because of the complexity of water inflow, exports, and outflows from the Delta, the Dayflow program combines observations with estimates based on mass balance to reconstruct historical and daily flow estimates.  The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to account for flow effects at C3, D19, D26, D28, and MD10, and the San Joaquin time series was used for C10 and P8.  The salinity observations at D4, D6, and D7 in Suisun Bay were used as a more appropriate measure of variation in freshwater balance given the stronger tidal influence at these stations.  Salinity has been used as a tracer of freshwater influence for the application of WRTDS models in tidal waters \cite{Beck15}.  
 
 \subsection{Analysis method and application}
 
@@ -305,7 +305,7 @@ P8dec <- filter(trndsyr,
 
 Application of seasonal Kendall tests to evaluate trends in observed data provided explicit information on the direction, magnitude, and statistical significance of changes between years. Trends estimated from the observed data for 1976-1995 and 1996-2013 varied considerably between sites and analytes (\cref{fig:trndcomp1}). Significant trends were observed from 1976-1995 for \Sexpr{obsdir$din[1, 5]} of ten sites for \ac{din} (\Sexpr{obsdir$din[1, 3]} increasing, \Sexpr{obsdir$din[1, 4]} decreasing), \Sexpr{obsdir$nh[1, 5]} sites for ammonium (\Sexpr{obsdir$nh[1, 3]} increasing, \Sexpr{obsdir$nh[1, 4]} decreasing), and \Sexpr{obsdir$no23[1, 5]} sites for nitrite/nitrate (\Sexpr{obsdir$no23[1, 3]} increasing, \Sexpr{obsdir$no23[1, 4]} decreasing).  More sites had decreasing trends for the observed data from 1996-2013.  \Sexpr{cap(obsdir$din[2, 5])} sites had significant trends for \ac{din} (\Sexpr{obsdir$din[2, 3]} increasing, \Sexpr{obsdir$din[2, 4]} decreasing), \Sexpr{obsdir$nh[2, 5]} sites for ammonium (\Sexpr{obsdir$nh[2, 3]} increasing, \Sexpr{obsdir$nh[2, 4]} decreasing), and \Sexpr{obsdir$no23[2, 5]} sites for nitrite/nitrate (\Sexpr{obsdir$no23[2, 3]} increasing, \Sexpr{obsdir$no23[2, 4]} decreasing). Trends by location (upper Delta, middle, and Suisun stations) were not apparent, suggesting individual sites had trends that differed independent of relative location.  For example, P8 had a relatively large decrease in ammonium (\Sexpr{scinot(P8dec[2, 'perchg'], 1, 1)}\% change per year) for the second annual period compared to all other sites. Trends by season were similar such that increases were generally observed in all seasons from 1976-1995 (\cref{fig:trndcomp2}) and decreases were observed for 1996-2013 (\cref{fig:trndcomp3}).  Trends for the seasonal comparisons were noisier and significant changes were less common compared to the annual comparisons.
 
-Relationships between flow and observed water quality are complex and can change significantly through space and time\cite{Hirsch10,Zhang16}. These principles have been demonstrated for monitoring data in the Delta region\cite{Jassby08,Novick15,Jabusch16}, suggesting that trend analyses using the observed time series are confounded by flow effects.  Change over for time in the observed reflect could reflect mobilization or dilution effects of flow on concentration rather than an empirical system response to changes in nutrient sources.  As a proof of concept, \cref{fig:dinc10} demonstrates use of \ac{wrtds} to isolate a flow-normalized time series from the observed data. Raw data are presented in \cref{fig:dinc10}a and the annual results by water year (October through September) from \ac{wrtds} are shown in \cref{fig:dinc10}b. In addition to removing the seasonal component, \cref{fig:dinc10}b shows the flow-normalized component (solid line) independent of the model predictions.  The difference between the two is shown in \cref{fig:dinc10}c such that years with predictions greater or less than the flow-normalized values correspond with long-term trends in flow shown in \cref{fig:dinc10}d.  For example, 1984 is a period of high flow and a large, negative difference between prediction and flow-normalized concentration, suggesting a dilution effect of increased flow on nutrient concentration.  Further, \cref{fig:dinc10}e shows seasonal variation in the relationships of \ac{din} with flow throughout the period of record. Increases in flow (y-axis) were associated with an increase in \ac{din} (colors) for flow values within the observed range.  Seasonal patterns also differed througout the time period with a wider range of \ac{din} within a growing season in the early 2000s relative to the 1980s. % The seasonal shifts are potentially linked to seasonal upwelling linked to ENSO \cite{Cloern07}
+Relationships between flow and observed water quality are complex and can change significantly through space and time\cite{Hirsch10,Zhang16}. These principles have been demonstrated for monitoring data in the Delta region\cite{Jassby08,Novick15,Jabusch16}, suggesting that trend analyses using the observed time series are confounded by flow effects.  Change over for time in observed data could reflect mobilization or dilution effects of flow on concentration rather than an interpretable system response to changes in nutrient sources.  As a proof of concept, \cref{fig:dinc10} demonstrates use of \ac{wrtds} to isolate a flow-normalized time series from the observed \ac{din} data at C10. Raw data are presented in \cref{fig:dinc10}a and the annual results by water year (October through September) from \ac{wrtds} are shown in \cref{fig:dinc10}b. In addition to removing the seasonal component, \cref{fig:dinc10}b shows the flow-normalized component (solid line) independent of the model predictions.  The difference between the two is shown in \cref{fig:dinc10}c such that years with predictions greater or less than the flow-normalized values correspond with long-term trends in flow shown in \cref{fig:dinc10}d.  For example, 1984 is a period of high flow and a large, negative difference between prediction and flow-normalized concentration, suggesting a dilution effect of increased flow on nutrient concentration.  Further, \cref{fig:dinc10}e shows seasonal variation in the relationships of \ac{din} with flow throughout the period of record. Increases in flow (y-axis) were associated with an increase in \ac{din} (colors) for flow values within the observed range.  Seasonal patterns also differed througout the time period with a wider range of \ac{din} within a growing season in the early 2000s relative to the 1980s. % The seasonal shifts are potentially linked to seasonal upwelling linked to ENSO \cite{Cloern07}
 
 <<echo = F, cache = F>>=
 data(trnds_seasyr)
@@ -315,6 +315,7 @@ cmp <- data.frame(trnds_obs, dat = 'obs') %>%
   filter(cat %in% c('1976-1995', '1996-2013')) %>% 
   select(dat, Site_Code, resvar, cat, ztest, perchg) 
 
+# descriptsions for sig changes
 zcmp <- select(cmp, -perchg) %>% 
   mutate(ztest = ifelse(ztest < .05, 'sig', 'ns')) %>% 
   spread(dat, ztest) %>% 
@@ -323,20 +324,34 @@ zcmp <- select(cmp, -perchg) %>%
     nstosig = ifelse(obs == 'ns' & nrm == 'sig', 1, 0)
   )
 
-chgcmp <- select(cmp, -ztest)# %>% 
-  # mutate(ztest = ifelse(ztest < .05, 'sig', 'ns')) %>% 
-  # spread(dat, ztest) %>% 
-  # mutate(
-  #   sigtons = ifelse(obs == 'sig' & nrm == 'ns', 1, 0), 
-  #   nstosig = ifelse(obs == 'ns' & nrm == 'sig', 1, 0)
-  # )
+# descriptions for magnitude changes
+chgcmp <- select(cmp, -ztest) %>% 
+  spread(dat, perchg) %>%
+  mutate(
+    signobs = sign(obs), 
+    signnrm = sign(nrm),
+    chgs = ifelse(
+      signobs == -1 & nrm < obs, 'moreneg', 
+      ifelse(signobs == 1 & nrm > obs, 'morepos',
+      ifelse(signobs == 1 & signnrm == -1, 'postoneg', 
+      ifelse(signobs == -1 & signnrm == 1, 'negtopos', 
+      ifelse(signobs == -1 & signnrm == -1 & nrm > obs, 'lessneg', 
+      ifelse(signobs == 1 & signnrm == 1 & nrm < obs, 'lesspos', 
+        'somechg')
+    )))))
+  )
+# table of results for shorter sexpr
+chgtb <- table(chgcmp$chgs)
 
 @
 
-A comparison of trends with flow-normalized results from \ac{wrtds} relative to observed data is justified because flow and nutrient concentrations were linked at many of the stations in the study area, similar to \cref{fig:dinc10}.  These comparisons are made relative to changes in the magnitude, significance, and direction of trends, all of which have important implications for decision-making. For all \Sexpr{eng(nrow(zcmp))} trend comparisons in \cref{fig:trndcomp1} regardless of site, nitrogen analyte, and time period, \Sexpr{eng(sum(zcmp$nstosig))} comparisons had trends that were insignificant with the observed data but significant with flow-normalized results. The magnitude of all comparisons changed  
+A comparison of trends with flow-normalized results from \ac{wrtds} relative to observed data is justified because flow and nutrient concentrations were linked at many of the stations in the study area, similar to \cref{fig:dinc10}.  These comparisons are made relative to changes in the magnitude, significance, and direction of trends, all of which have important implications for decision-making. For all \Sexpr{eng(nrow(zcmp))} trend comparisons in \cref{fig:trndcomp1} (flow-normalized values in \cref{tab:trndsann}) regardless of site, nitrogen analyte, and time period, \Sexpr{eng(sum(zcmp$nstosig))} comparisons had trends that were insignificant with the observed data but significant with flow-normalized results, whereas only \Sexpr{eng(sum(zcmp$sigtons))} trend changed to insignificant. Changes in the magnitude of the estimated percent change per year were also apparent for the flow-normalized trends, such that \Sexpr{eng(sum(chgtb[c('morepos', 'moreneg')]))} comparisons showed an inrease in magnitude (more negative or more positive) and \Sexpr{eng(sum(chgtb[c('lesspos', 'lessneg')]))} had a decrease (less positve or less negative) compared to observed trends.  More importantly, \Sexpr{eng(chgtb['postoneg'])} comparisons showed a trend reversal from positive to negative estimated change and \Sexpr{eng(chgtb['somechg'])} sites went from no change to negative estimated trends for the flow-normalized results. Differences by season in the observed relative to flow-normalized results from \ac{wrtds} were also apparent (\cref{fig:trndcomp2,fig:trndcomp3,tab:trndsbef,tab:trndsaft}).  The most notable changes were an overall decrease in the estimated trend for most sites in the summer and fall seasons for 1996-2013.
 
+Differences in apparent trends underscore the importance of considering flow effects in the interpretation of environmental changes, where flow in the Delta is affected by complex relationships between river inputs, water withdrawals, and tidal exchange with the larger Bay.     
 
-Overall, the differences in apparent trends underscore the critical importance of considering flow effects in the interpretation of environmental changes, where flow in the Delta is affected by complex relationships between river inputs, water withdrawals, and tidal exchange with the larger Bay.     
+Implications of different flow varialbes - refer to \cite{Novick15}, a hybrid approach would be best for complex systems like the delta. Huge effect on trend interpration
+
+What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorophyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
 \subsection{Selected examples}
 
@@ -385,11 +400,7 @@ What about biomass/density relationships for Potamocorbula?  Although clam densi
 
 \subsection{Implications}
 
-Implications of different flow varialbes - refer to \cite{Novick15}, a hybrid approach would be best for complex systems like the delta.
-
 Second case study showed typical inverse relationships between nutrients and flow, more flow means greater flushing and dilution of nutrient concentrations.  Conversely, low flow means less flushing and higher nutrient concentrations, although this may not always be observed if the available nutrients are biologically available.  Low-flow events during warmer months show the lowest ammonium concentrations, which corresponds to seasonal maxima in chlorophyll concentration.  A similar but weaker relationship was observed with nitrite/nitrate where increased flow was related to decreased concentration and lower concentrations overall were observed in the summer.  However, low-flow events still had higher concentrations than high-flow events in July, as compared to ammonium which was low regardless of flow.  This suggests that ammonium concentrations are driving phytoplankton production at P8.  Annual trends in chlorophyll concentration (not shown) showed an overall decrease from the 1970s to present, although a slight peak is observed in the 2000s.  This peak is likely related to the maximum ammonium concentration shown in \cref{fig:p8trnds}.  Moreover, flow/chlorophyll relationships have generally been constant throughout the period of record such that a change in flow has not been related to a change in phytoplankton production.  This suggests that nutrient loads that contribute to production at P8 are primarily from point sources at \ac{wwtp} outflows as a change in flow does not affect the load output.  But what are watershed loads?  
-
-What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorophyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
 
 \section{References} % omit on submit
 \begin{singlespace}
@@ -709,224 +720,6 @@ grid.arrange(
   pA, pB, pC, pD, pE,
   heights = c(1, 1.3, 1, 1, 1.5),
   ncol = 1
-  )
-
-@
-
-<<trndmap, fig.cap = 'Percent change per year in nitrogen analytes for aggregations by seasons from (a) 1976-1995 and (b) 1996-2013.  Changes are based on seasonal Kendall tests of flow-normalized results within each time period. Station names are shown in the top left panel. Station locations have been jittered to reduce overlap. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.', fig.height = 8, fig.width = 5.3, cache = T, out.width = '0.7\\textwidth'>>=
-
-# load required data
-data(delt_dat)
-data(delt_map)
-data(trnds_seasyr)
-
-# combine all
-trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>% 
-  select(Site_Code, resvar, cat, perchg, ann, trndvar) %>% 
-  spread(trndvar, perchg) %>% 
-  mutate(Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'MD10', 'P8', 'C10', 'C3')))
-
-##
-# get a bounding box for the stations
-statmeta <- select(delt_dat, Site_Code, Latitude, Longitude) %>% 
-  unique
-
-# bounding box
-buffx <- 0.00035
-buffy <- 0.0022
-lims<- select(statmeta, -Site_Code) %>% 
-  apply(., 2, function(x) range(x, na.rm = TRUE))
-lims <- c(
-  (1 + buffx) * lims[1, 2], 
-  (1 - buffy) * lims[1, 1], 
-  (1 - buffx) * lims[2, 2], 
-  (1 + buffy) * lims[2, 1]
-  )    
-names(lims) <- c('left', 'bottom', 'right', 'top')
-
-# need to shift locations of some stations
-statmeta[statmeta$Site_Code %in% 'D26', 'Latitude'] <- 38.14
-statmeta[statmeta$Site_Code %in% 'D26', 'Longitude'] <--121.55
-statmeta[statmeta$Site_Code %in% 'D7', 'Latitude'] <- 38.13
-statmeta[statmeta$Site_Code %in% 'D7', 'Longitude'] <--122.015
-statmeta[statmeta$Site_Code %in% 'C10', 'Latitude'] <-37.68
-statmeta[statmeta$Site_Code %in% 'C10', 'Longitude'] <--121.28
-statmeta[statmeta$Site_Code %in% 'D28', 'Latitude'] <-37.94
-statmeta[statmeta$Site_Code %in% 'MD10', 'Latitude'] <-38.1
-statmeta[statmeta$Site_Code %in% 'P8', 'Latitude'] <-37.93
-statmeta[statmeta$Site_Code %in% 'D19', 'Latitude'] <-38.06
-
-# response labels 
-reslabs <- c('din an', 'nh an', 'no23 an', 'din mobef', 'nh mobef', 'no23 mobef', 'din moaft', 'nh moaft', 'no23 moaft')
-reslevs <- rep(c(
-  'DIN', 
-  expression(paste(NH [4] ^ '+')),
-  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
-  ), 3)
-
-# convert delta map to ggplot compatible object
-delt_map <- fortify(delt_map)
-
-# base delta map
-alph <- 1
-pbase <- ggplot(delt_map, aes(x = long, y = lat)) + 
-  geom_polygon(aes(group = group, fill = hole), colour = alpha("lightblue", alph)) +
-  theme_bw() + 
-  theme(
-    plot.background = element_rect(fill='transparent', 
-      colour = NA),
-    panel.background = element_rect(fill='transparent', 
-      colour = NA),
-    legend.background = element_rect(fill='transparent', 
-      colour = NA),
-    legend.key = element_rect(fill = 'transparent', 
-      colour = NA),
-    axis.ticks.x = element_line(),
-    axis.ticks.y = element_line(),
-    axis.ticks.length = unit(.1, "cm"), 
-    panel.grid.minor = element_blank(), 
-    axis.title.x = element_blank(), 
-    axis.title.y = element_blank(), 
-    legend.position = 'none', 
-    plot.margin = grid::unit(c(3, 3, 3, 3), 'pt'), 
-    axis.text.x = element_text(size = 8), 
-    axis.text.y = element_text(size = 8), 
-    strip.background=element_rect(fill = 'white', colour = 'white'),
-    panel.border = element_rect(colour = "grey")
-  ) +
-  coord_fixed(ratio = 1, xlim = lims[c(1, 3)], ylim = lims[c(2, 4)]) +
-  scale_fill_manual(values=c(alpha("lightblue", alph), "white"), guide="none")
-
-# bounds on limits
-yrng <- max(abs(range(trnds_seasyr$norm)))
-yrng <- c(-1 * yrng, yrng)
-
-# color ramp, red for pos, green for neg
-colpos <- RColorBrewer::brewer.pal(9, 'Reds')[3:9]
-colneg <- RColorBrewer::brewer.pal(9, 'Greens')[3:9]
-palneg <-  colorRampPalette(colneg)(1000)
-palpos <-   colorRampPalette(colpos)(1000)
-
-# plot(1:2000, col = c(palneg, palpos), pch = 16, cex = 4)
-# points(1000, 1000)
-
-# unnest data frame, assign colors by rank and sign
-toplo <- select(trnds_seasyr, Site_Code, resvar, ann, cat, norm) %>% 
-  rename(perchg = norm) %>% 
-  left_join(., statmeta, by = 'Site_Code') %>% 
-  data.frame %>% 
-  mutate(
-    perchg = pmax(yrng[1], perchg),
-    perchg = pmin(yrng[2], perchg),
-    negs = sign(perchg),  
-    rnks = scales::rescale(abs(perchg), c(1, 1000)), 
-    rnks = round(rnks), 
-    cols = ifelse(negs == 1, palpos[rnks], palneg[rnks]),
-    ind = 1:nrow(.)
-    ) %>%
-  filter(!cat %in% c('1976-1995', '1996-2013')) %>% # remove year categories
-  unite('cattype', cat, ann, sep = '', remove = F) %>%
-  mutate(
-    cattype = factor(cattype),
-    cattype = fct_collapse(cattype, 
-      mobef = paste0(c('Spring', 'Summer', 'Fall', 'Winter'), 'bef'), 
-      moaft = paste0(c('Spring', 'Summer', 'Fall', 'Winter'), 'aft') 
-    )
-  )
-
-# unite response varibles and summary period combos
-unis <- with(toplo, paste(resvar, cattype)) %>% 
-  unique %>% 
-  sort
-
-sites <- unique(toplo$Site_Code)
-
-plo_ls <- vector('list', length = length(unis))
-names(plo_ls) <- unis
-
-for(uni in unis){
-  
-  # get variable, agg period
-  splits <- strsplit(uni, ' ')[[1]]
-  resvart <- splits[1]
-  cattypet <- splits[2]
-  toplo_tmp <- filter(toplo, resvar %in% resvart & cattype %in% cattypet)
-  
-  # create individual bar plots as ggplot list
-  bars <- setNames(lapply(sites, function(i){
-    
-    subplo <- filter(toplo_tmp, Site_Code %in% i)
-    ggplot(subplo, aes(x=cat, y = perchg, fill = factor(cat))) +
-      geom_bar(stat = 'identity', colour = 'black', size = 0.2) + 
-      scale_fill_manual(values = as.character(subplo$cols)) + 
-      theme_tree() + 
-      xlab(NULL) + 
-      ylab(NULL) + 
-      theme_transparent() +
-      theme(plot.margin=unit(c(0,0,0,0),"mm")) + 
-      scale_y_continuous(limits = yrng)
-    
-  }), sites)
-
-  
-  ##
-  # add the barplots to the base map
-  
-  # add site labels if plot is first
-  pall <- pbase
-  set.seed(5)
-  if(which(uni == unis) == 2)
-    pall <- pbase + 
-      geom_label_repel(
-        data = statmeta, 
-        aes(x = Longitude, y = Latitude, label = Site_Code), 
-        label.r = unit(0, "lines"),
-        box.padding = unit(2, "lines"),
-        label.padding = unit(0.15, "lines"), 
-        point.padding = unit(0.1, "lines"),
-        force = 2, size = 2,
-        fill = 'grey95'
-      )
-  
-  # keep bar widths the same for cattypes
-  subwid <- 0.1
-  if(grepl('an$', uni))
-    subwid <- 0.06
-  
-  for(i in 1:length(bars)){
-  
-      nms <- names(bars)[i]
-      dat <- statmeta[statmeta$Site_Code %in% nms,]
-      pall <- subview(pall, bars[[i]], x = dat$Longitude, y = dat$Latitude, subwid, 0.21) # change bar heights here
-
-  }
-  
-  tval <- reslevs[which(uni == reslabs)]
-  pall <- pall + 
-    geom_text(data = data.frame(x = lims[1], y = lims[4], tval = as.character(tval)), 
-      aes(x = x, y = y, label = tval), parse = TRUE, hjust = 0, vjust = 1)
-  plo_ls[[uni]] <- pall
-  
-}
-
-# setup legend
-rngs <- seq(yrng[1], yrng[2], length = length(c(colneg, colpos)))
-leg <- ggplot(data.frame(x = seq_along(rngs), y = seq_along(rngs), z = rngs), aes(x, y, colour = z)) + 
-  geom_point() + 
-  scale_colour_gradientn(colours = c(rev(colneg), colpos)) + 
-  guides(colour = guide_colourbar(title = expression('% chg yr' ^-1), barheight = 0.5, barwidth = 8)) + 
-  theme(legend.position = 'top')
-leg <- g_legend(leg)
-
-grid.arrange(
-  leg,
-  arrangeGrob(
-    arrangeGrob(plo_ls[[2]], plo_ls[[4]], plo_ls[[6]], ncol = 1, top = c('(a) Sp, Su, Fa, Wi (1976-1995)')),
-    arrangeGrob(plo_ls[[1]], plo_ls[[3]], plo_ls[[5]], ncol = 1, top = c('(b) Sp, Su, Fa, Wi (1996-2013)')),
-    ncol = 2
-    ),
-  ncol = 1, 
-  heights = c(0.1, 1)
   )
 
 @
@@ -1275,163 +1068,6 @@ grid.arrange(
 %%%%%%
 % tables
 
-% overall trends, years
-<<trndsann>>=
-data(trnds_seasyr)
-
-# percent changes
-tab <- trnds_nrm %>% 
-  filter(cat %in% c('1976-1995', '1996-2013')) %>% 
-  select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
-  mutate(
-    med = round(med, 1), 
-    perchg = round(perchg, 1),
-    perchg = ifelse(
-      perchg < 0, 
-      paste0('(', perchg, ')' ), 
-      paste0('(\\textit{\\textbf{', perchg, '}})')
-      ), 
-    ztest = p_ast(ztest)
-  ) %>% 
-  unite('perchg', perchg, ztest, sep = '') %>% 
-  mutate(
-    perchg = paste0('\\footnotesize{', perchg, '}')
-  ) %>% 
-  unite('val', med, perchg, sep = ' ') %>% 
-  spread(cat, val) %>% 
-  arrange(resvar, Site_Code) %>% 
-  select(Site_Code, resvar, `1976-1995`, `1996-2013`)
-
-# table stuff
-cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and annual aggregations.  Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends.'
-foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
-vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
-stats <- tab$Site_Code
-
-# table
-latex( 
-  tab[, -c(1, 2)],
-  file = '',
-  rowlabel = 'Analyte/Station',
-  caption = cap.val,
-  caption.loc = 'top',
-  rgroup = vars,
-  n.rgroup = rep(nrow(tab)/3, 3),
-  cgroup = c('Annual'),
-  n.cgroup = c(2),
-  rowname = stats,
-  label = 'tab:trndsann',
-  insert.bottom = foot.val
-  )
-
-@
-
-% overall trends, seasons, first annual periodyears
-<<trndsbef>>=
-data(trnds_seasyr)
-
-# percent changes
-tab <- trnds_nrm %>% 
-  filter(
-    cat %in% c('Spring', 'Summer', 'Fall', 'Winter') &
-    ann %in% 'bef'
-    ) %>% 
-  select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
-  mutate(
-    med = round(med, 1), 
-    perchg = round(perchg, 1),
-    perchg = ifelse(
-      perchg < 0, 
-      paste0('(', perchg, ')' ), 
-      paste0('(\\textit{\\textbf{', perchg, '}})')
-      ), 
-    ztest = p_ast(ztest)
-  ) %>% 
-  unite('perchg', perchg, ztest, sep = '') %>% 
-  mutate(
-    perchg = paste0('\\footnotesize{', perchg, '}')
-  ) %>% 
-  unite('val', med, perchg, sep = ' ') %>% 
-  spread(cat, val) %>% 
-  arrange(resvar, Site_Code)
-
-# table stuff
-cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1976-1995. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
-foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
-vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
-stats <- tab$Site_Code
-
-# table
-latex( 
-  tab[, -c(1, 2)],
-  file = '',
-  rowlabel = 'Analyte/Station',
-  caption = cap.val,
-  caption.loc = 'top',
-  rgroup = vars,
-  n.rgroup = rep(nrow(tab)/3, 3),
-  cgroup = c('Seasonal, 1976-1995'),
-  n.cgroup = c(4),
-  rowname = stats,
-  label = 'tab:trndsbef',
-  insert.bottom = foot.val
-  )
-
-@
-
-% overall trends, seasons, first annual periodyears
-<<trndsaft>>=
-data(trnds_seasyr)
-
-# percent changes
-tab <- trnds_nrm %>% 
-  filter(
-    cat %in% c('Spring', 'Summer', 'Fall', 'Winter') &
-    ann %in% 'aft'
-    ) %>% 
-  select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
-  mutate(
-    med = round(med, 1), 
-    perchg = round(perchg, 1),
-    perchg = ifelse(
-      perchg < 0, 
-      paste0('(', perchg, ')' ), 
-      paste0('(\\textit{\\textbf{', perchg, '}})')
-      ), 
-    ztest = p_ast(ztest)
-  ) %>% 
-  unite('perchg', perchg, ztest, sep = '') %>% 
-  mutate(
-    perchg = paste0('\\footnotesize{', perchg, '}')
-  ) %>% 
-  unite('val', med, perchg, sep = ' ') %>% 
-  spread(cat, val) %>% 
-  arrange(resvar, Site_Code)
-
-# table stuff
-cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1996-2013. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
-foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
-vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
-stats <- tab$Site_Code
-
-# table
-latex( 
-  tab[, -c(1, 2)],
-  file = '',
-  rowlabel = 'Analyte/Station',
-  caption = cap.val,
-  caption.loc = 'top',
-  rgroup = vars,
-  n.rgroup = rep(nrow(tab)/3, 3),
-  cgroup = c('Seasonal, 1996-2013'),
-  n.cgroup = c(4),
-  rowname = stats,
-  label = 'tab:trndsaft',
-  insert.bottom = foot.val
-  )
-
-@
-
 % trends in no23, nh at p8
 <<p8chg>>=
 
@@ -1684,6 +1320,164 @@ p1 <- ggplot(toplo2) +
 
 p1
 @
+
+% overall trends, years
+<<trndsann>>=
+data(trnds_seasyr)
+
+# percent changes
+tab <- trnds_nrm %>% 
+  filter(cat %in% c('1976-1995', '1996-2013')) %>% 
+  select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
+  mutate(
+    med = round(med, 1), 
+    perchg = round(perchg, 1),
+    perchg = ifelse(
+      perchg < 0, 
+      paste0('(', perchg, ')' ), 
+      paste0('(\\textit{\\textbf{', perchg, '}})')
+      ), 
+    ztest = p_ast(ztest)
+  ) %>% 
+  unite('perchg', perchg, ztest, sep = '') %>% 
+  mutate(
+    perchg = paste0('\\footnotesize{', perchg, '}')
+  ) %>% 
+  unite('val', med, perchg, sep = ' ') %>% 
+  spread(cat, val) %>% 
+  arrange(resvar, Site_Code) %>% 
+  select(Site_Code, resvar, `1976-1995`, `1996-2013`)
+
+# table stuff
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and annual aggregations.  Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends.'
+foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
+vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
+stats <- tab$Site_Code
+
+# table
+latex( 
+  tab[, -c(1, 2)],
+  file = '',
+  rowlabel = 'Analyte/Station',
+  caption = cap.val,
+  caption.loc = 'top',
+  rgroup = vars,
+  n.rgroup = rep(nrow(tab)/3, 3),
+  cgroup = c('Annual'),
+  n.cgroup = c(2),
+  rowname = stats,
+  label = 'tab:trndsann',
+  insert.bottom = foot.val
+  )
+
+@
+
+% overall trends, seasons, first annual periodyears
+<<trndsbef>>=
+data(trnds_seasyr)
+
+# percent changes
+tab <- trnds_nrm %>% 
+  filter(
+    cat %in% c('Spring', 'Summer', 'Fall', 'Winter') &
+    ann %in% 'bef'
+    ) %>% 
+  select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
+  mutate(
+    med = round(med, 1), 
+    perchg = round(perchg, 1),
+    perchg = ifelse(
+      perchg < 0, 
+      paste0('(', perchg, ')' ), 
+      paste0('(\\textit{\\textbf{', perchg, '}})')
+      ), 
+    ztest = p_ast(ztest)
+  ) %>% 
+  unite('perchg', perchg, ztest, sep = '') %>% 
+  mutate(
+    perchg = paste0('\\footnotesize{', perchg, '}')
+  ) %>% 
+  unite('val', med, perchg, sep = ' ') %>% 
+  spread(cat, val) %>% 
+  arrange(resvar, Site_Code)
+
+# table stuff
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1976-1995. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
+vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
+stats <- tab$Site_Code
+
+# table
+latex( 
+  tab[, -c(1, 2)],
+  file = '',
+  rowlabel = 'Analyte/Station',
+  caption = cap.val,
+  caption.loc = 'top',
+  rgroup = vars,
+  n.rgroup = rep(nrow(tab)/3, 3),
+  cgroup = c('Seasonal, 1976-1995'),
+  n.cgroup = c(4),
+  rowname = stats,
+  label = 'tab:trndsbef',
+  insert.bottom = foot.val
+  )
+
+@
+
+% overall trends, seasons, first annual periodyears
+<<trndsaft>>=
+data(trnds_seasyr)
+
+# percent changes
+tab <- trnds_nrm %>% 
+  filter(
+    cat %in% c('Spring', 'Summer', 'Fall', 'Winter') &
+    ann %in% 'aft'
+    ) %>% 
+  select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
+  mutate(
+    med = round(med, 1), 
+    perchg = round(perchg, 1),
+    perchg = ifelse(
+      perchg < 0, 
+      paste0('(', perchg, ')' ), 
+      paste0('(\\textit{\\textbf{', perchg, '}})')
+      ), 
+    ztest = p_ast(ztest)
+  ) %>% 
+  unite('perchg', perchg, ztest, sep = '') %>% 
+  mutate(
+    perchg = paste0('\\footnotesize{', perchg, '}')
+  ) %>% 
+  unite('val', med, perchg, sep = ' ') %>% 
+  spread(cat, val) %>% 
+  arrange(resvar, Site_Code)
+
+# table stuff
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1996-2013. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. See \\cref{fig:trndmap} for a summary of spatial trends. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
+foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
+vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
+stats <- tab$Site_Code
+
+# table
+latex( 
+  tab[, -c(1, 2)],
+  file = '',
+  rowlabel = 'Analyte/Station',
+  caption = cap.val,
+  caption.loc = 'top',
+  rgroup = vars,
+  n.rgroup = rep(nrow(tab)/3, 3),
+  cgroup = c('Seasonal, 1996-2013'),
+  n.cgroup = c(4),
+  rowname = stats,
+  label = 'tab:trndsaft',
+  insert.bottom = foot.val
+  )
+
+@
+
 
 \end{suppinfo}
 
