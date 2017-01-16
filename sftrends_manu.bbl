@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{59}
+\begin{mcitethebibliography}{56}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -461,34 +461,6 @@ Millard,~S.~P. \emph{EnvStats: An R Package for Environmental Statistics};
 Cornwell,~J.~C.; Glibert,~P.~M.; Owens,~M.~S. Nutrient fluxes from sediments in
   the {S}an {F}rancisco {B}ay {D}elta. \emph{Estuaries and Coasts}
   \textbf{2014}, \emph{37}, 1120--1133\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Carlton \latin{et~al.}(1990)Carlton, Thompson, Schemel, and
-  Nichols]{Carlton90}
-Carlton,~J.~T.; Thompson,~J.~K.; Schemel,~L.~E.; Nichols,~F.~H. Remarkable
-  invasion of {S}an {F}rancisco {B}ay ({C}alifornia, {USA}) by the {A}sian
-  claim \textit{Potamocorbula amurensis}. {I.} {I}ntroduction and dispersal.
-  \emph{Marine Ecology Progress Series} \textbf{1990}, \emph{66}, 81--94\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Nichols \latin{et~al.}(1990)Nichols, Thompson, and Schemel]{Nichols90}
-Nichols,~F.~H.; Thompson,~J.~K.; Schemel,~L.~E. Remarkable invasion of {S}an
-  {F}rancisco {B}ay ({C}alifornia, {USA}) by the {A}sian claim
-  \textit{Potamocorbula amurensis}. {II.} {D}isplacement of a former community.
-  \emph{Marine Ecology Progress Series} \textbf{1990}, \emph{66}, 95--101\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Werner and Hollibaugh(1993)Werner, and Hollibaugh]{Werner93}
-Werner,~I.; Hollibaugh,~J.~T. \textit{{P}otamocorbula amurensis} - comparison
-  of clearance rates and assimilation efficiencies for phytoplankton and
-  bacterioplankton. \emph{Limnology and Oceanography} \textbf{1993}, \emph{38},
-  949--964\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

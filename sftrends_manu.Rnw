@@ -409,31 +409,22 @@ nh_af <- wrtdstrnd_sk(nhraw_af, mobrks, yrbrks_af, molabs, yrlabs_af) %>%
 
 Effluent concentations measured from 2003 to 2009 from the Stockton \ac{wwtp} showed a gradual shift in ammonium relative to the total (\cref{fig:stock}).  Ammonium and nitrate concentrations were generally balanced prior to 2006, whereas nitrate was a majority of total nitrogen after the upgrade with much smaller percentages from ammonium and nitrite. As expected, flow-normalized nitrogen trends at P8 shifted in response to upstream \ac{wwtp} upgrades (\cref{fig:p8trnds}a), with ammonium showing an increase form 1976 followed by a large reduction in the 2000s.  Interestingly, nitrite/nitrate concentrations also showed a similar but less dramatic decrease despite an increase in the \ac{wwtp} effluent concentrations following the upgrade.  Percent changes from seasonal Kendall tests on flow-normalized results showed that both nitrogen species increased prior to \ac{wwtp} upgrades (\Sexpr{scinot(no_bf[1, 'perchg'], 1, 1)}\% per year for nitrite/nitrate, \Sexpr{scinot(nh_bf[1, 'perchg'], 1, 1)}\% for ammonium), followed by decreases after upgrades (\Sexpr{scinot(no_af[1, 'perchg'], 1, 1)}\% for nitrite/nitrate, \Sexpr{scinot(nh_af[1, 'perchg'], 1, 1)}\% for ammonium, \cref{tab:p8chg}).  Seasonally, increases prior to upgrades were highest in the summer for nitrite/nitrate (\Sexpr{scinot(no_bf[3, 'perchg'], 1, 1)}\%) and in the fall for ammonium (\Sexpr{scinot(nh_bf[4, 'perchg'], 1, 1)}\%). Similarly, seasonal reductions post-upgrade were largest in the summer for nitrite/nitrate (\Sexpr{scinot(no_af[3, 'perchg'], 1, 1)}\%) and largest for ammonium in the winter (\Sexpr{scinot(nh_af[5, 'perchg'], 1, 1)}\%).
 
-Relationships of nitrogen with flow described by \ac{wrtds} showed an inverse flow and concentration dynamic with flushing or dilution at higher flow (\cref{fig:p8trnds}b).  Seasonal variation was more apparent for ammonium, although both typically had the highest concentrations at low flow in the winter (January).  Additionally, strength of the flow/nutrient relationship changed between years. Nitrite/nitrate typically had the strongest relationship with flow later in the time series, whereas ammonium had the strongest relationship with flow in the early 2000s.  Using \ac{wrtds}, an empirical link is created between upstream changes and observed effects downstream that is characterized by differences in analytes between years and season. A general conclusion is that ammonium reductions were concurrent with \ac{wwtp} upgrades, but the reduction was most apparent at low-flow in January.  These dynamics are difficult to characterize from the observed time series, and further, results from \ac{wrtds} can be used to develop additional hypotheses of factors that influence nutrient concentrations at P8.  For example, estimated ammonium concentrations in July were low for all flow levels which suggests either nitrogen inputs were low in the summer,or nitrogen was available and uptake by primary consumers was high. Seasonal patterns in the relationship between flow and nitrite/nitrate were not as dramatic as compared to ammonium, and in particular, low-flow events in July were generally associated with higher concentrations.  This could suggest that ammonium concentrations at P8 are driving phytoplankton production at low flow during warmer months, and not nitrite/nitrate given the observed concentrations in July at low flow. As such, these simple observations from \ac{wrtds} can facilitate further testing of cause and effect mechanisms of nutrient impacts on potentially adverse environmental conditions as they relate to upstream management actions.  
+Relationships of nitrogen with flow described by \ac{wrtds} showed an inverse flow and concentration dynamic with flushing or dilution at higher flow (\cref{fig:p8trnds}b).  Seasonal variation was more apparent for ammonium, although both typically had the highest concentrations at low flow in the winter (January).  Additionally, strength of the flow/nutrient relationship changed between years. Nitrite/nitrate typically had the strongest relationship with flow later in the time series, whereas ammonium had the strongest relationship with flow in the early 2000s.  Using \ac{wrtds}, an empirical link is created between upstream changes and observed effects downstream that is characterized by differences in analytes between years and season. A general conclusion is that ammonium reductions were concurrent with \ac{wwtp} upgrades, but the reduction was most apparent at low-flow in January.  These dynamics are difficult to characterize from the observed time series, and further, results from \ac{wrtds} can be used to develop additional hypotheses of factors that influence nutrient concentrations at P8.  For example, estimated ammonium concentrations in July were low for all flow levels which suggests either nitrogen inputs were low in the summer,or nitrogen was available and uptake by primary consumers was high. Seasonal patterns in the relationship between flow and nitrite/nitrate were not as dramatic as compared to ammonium, and in particular, low-flow events in July were generally associated with higher concentrations.  This could suggest that ammonium concentrations at P8 are driving phytoplankton production at low flow during warmer months, and not nitrite/nitrate given the observed concentrations in July at low flow. As such, these simple observations from \ac{wrtds} can facilitate further testing of cause and effect mechanisms of nutrient impacts on potentially adverse environmental conditions as they relate to nutrient-related source controls upstream.
 
 \subsubsection{Effects of biological invasions}
 
-The \acl{sfe} is considered one of the most invaded ecosystems in the world with an estimated 234 exotic species by the turn of the century, half of which have been reported after 1965 \cite{Cohen98}.  The invasion of benthic grazers as ecosystem engineers is one of the more notable events that has been characterized by dramatic shifts in primary production of the Bay's trophic network \cite{Carlton90,Nichols90,Werner93,Crauder16}.  In particular, invasion of the upper estuary by the Asian clam \textit{Potamocorbula amurensis} in 1986 caused dramatic changes in phytoplankton abundance and species composition with increased grazing.  Reduction in phytoplankton biomass has altered trophic networks in the Bay and is considered a primary mechanism in the decline of the protected delta smelt and other important fisheries \cite{Feyrer03,MacNally10}.  Changes in the physical environment have also occurred with the most notable effect being increased water clarity following a reduction of phytoplankton \cite{MacNally10}. The clams are halophilic such that drought years are generally correlated with an increase in biomass and further upstream invasion of the species \cite{Parchaso02,Cloern12b}.
-
-We hypothesized that \ac{wrtds} models applied to water quality observations in the upper estuary would show \begin{inparaenum}[1\upshape)]
+Invasion of the upper \ac{sfe} estuary by the Asian clam \textit{Potamocorbula amurensis} in 1986 caused dramatic changes in phytoplankton abundance and species composition with increased grazing.  Reduction in phytoplankton biomass has altered trophic networks in the Bay and is considered a primary mechanism in the decline of the protected delta smelt and other important fisheries \cite{Feyrer03,MacNally10}.  Changes in the physical environment have also occurred with the most notable effect being increased water clarity following a reduction of phytoplankton \cite{MacNally10}. The clams are halophilic such that drought years are generally correlated with an increase in biomass and further upstream invasion of the species \cite{Parchaso02,Cloern12b}. We hypothesized that \ac{wrtds} models applied to water quality observations in the upper estuary would show \begin{inparaenum}[1\upshape)]
 \item a decline in annual, flow-normalized chlorophyll concentrations over time coincident with an increase in abundance of invaders, 
 \item changes in ratios of limiting nutrients (nitrogen, SiO$_2$) suggesting different uptake rates by grazers with a shift in community composition, and 
 \item seasonal shifts in limiting nutrients based on changes in community composition and relative abundances with seasonal succession. 
 \end{inparaenum}
 The application of \ac{wrtds} to water quality observations at station D7 in Suisun Bay and comparison with clam abundance and biomass data (see Ref~\citenum{Crauder16}) was expected to reveal the competing effects of inflow on phytoplankton and benthic grazers.
 
-Data from \cite{Crauder16,Jassby08} describes phytoplankton community changes in the upper estuary, including chlorophyll response to flow.  Figure 10 in Ref.~\citenum{Jassby08} showed that chlorophyll generally decreased with flow in 1980 but inreased with flow in 2000.
+Results from \ac{wrtds} demonstrated complex relationships between clam abundance and chlorophyll concentrations, which were mediated by a changes in flow over time (\cref{fig:clmchl}).  Invasion in the 1980s showed a clear displacement of the native \textit{Corbicula fluminea} with establishment of \textit{P. amurensis} (\cref{fig:clmchl}a), where biomass of the latter was negatively associated with flow from the Sacramento river (\Cref{fig:clmchl}b).  The increase in clam abundance was associated with a notable decrease in annually-averaged \ac{chla} from \ac{wrtds} results (\cref{fig:clmchl}c).  A seasonal shift in the flow-normalized results was also observed such that \ac{chla} concentrations were generally highest in July prior to invasion, whereas a spring maximum in April was more common in recent years (\cref{fig:clmchl}d). The relationship of \ac{chla} with clam biomass was significant (\cref{fig:clmchl}e) such that lower \ac{chla} was generally associated with higher biomass.  However, changes in the \ac{chla}/flow relationship over time was dynamic such that increasing flow (decreasing salinity) showed a slight increase in \ac{chla} followed by a decrease early in the time series (\cref{fig:clmchl}f). Later in the time series, overall \ac{chla} was lower but a positive association with flow (negative with salinity) was observed. 
 
-Note the decrease in Potamocorbula abundance in 2011, 2012.  These are wet years where abundance/biomass of the clams is driven down by lower salinity.  Contrased wtih the annual chlorophyll trends in the same years, the predicted values are above the flow-normalized trend suggesting an increase in chlorophyll with higher flow.  The potential mechanism is therefore a decrease in clam abundance with high flow that releases phytoplankon from filtration pressure.  This also explains the positive association of chlorophyll with flow in recent years (bottom right dynaplot). See suggestions in Ref.~\citenum{Alpine92,Parchaso02} regarding flow/grazer relationships in the Bay. 
+A general conclusion is that clam grazing reduced \ac{chla} concentration throughout the period of record, whereas the effect of flow as a top-down or bottom-up control on both was more dynamic.  As an example, the relationship between flow and \ac{chla} earlier in the time period suggested a dilution effect at high flow and a peak of predicted \ac{chla} at moderate flows. In the absence of benthic grazing, this dynamic suggests that \ac{chla} production may be limited at low flow as less nutrients are exported from the Delta, stimulated as flow increases, and reduced at high flow as either nutrients or phytoplankton biomass are moved downstream towards the lower bay. Following clam invasion later in the time series, \ac{chla} concentrations were reduced by grazing but showed a positive and monotonic relationship with increasing flow. Concurrently, the increase in clam abundance shown in \ref{fig:clmchl}a is apparent, although variation between years is also observed.  For example, clam abundance is reduced during high flow years in the late 1990s, 2006, and 2011 (\cref{fig:clmchl}a, flow in \cref{fig:obsdat}). In the same years, \ac{wrtds} predictions for \ac{chla} are higher than the flow-normalized component (\cref{fig:clmchl}c), which suggests a mobilization effect of increased flow on phytoplankton production.  As such, \ac{chla} production in early years is directly related to flow, whereas the relationship with flow in later years is indirect as increased flow reduces clam abundance and releases phytoplankton from benthic grazing pressure. These relationships have been suggested by others\cite{Alpine92,Parchaso02,Jassby08}, although the precise mechanism demonstrated by \ac{wrtds} provides additional to describe forcing factors of water quality in the Delta.
 
-Further, chlorophyll trends early in the time series generally show a decrease with high flow with a distinct maximum at moderate flow.  This may suggest stratification events at moderate flow contributed to phytoplankton blooms early in the time series. Water withdrawals later in the time series could have also altered environmental conditions to reduce the frequency occurrence of stratification events.  Look into this more...
-
-What about biomass/density relationships for Potamocorbula?  Although clam density increases throughout the period,  What about initial decrease in chlorophyll prior to clam invasion?  Is this related to water withdrawals (i.e., decrease in stratification events at moderate flow)?
-
-\cref{fig:clmchl}, \cref{tab:d7chg}
-
-What do nitrogen trends mean?  Have to interpret relative to trends in other variables.  A decrease in nitrogen or constant nitrogen does not mean nitrogen inputs have stayed the same, they might actually be increasing if nitrogen.  A change in chlorophyll relative to change in nitrogen could be informative, and even moreso, a change in silica relative to change in chlorophyll suggests diatom biomass has changed.  However, there are mismatches in these trends that suggest other processes are at play, e.g., residence times and flow inputs, etc.  Trends in Suisun relative to trends in Delta provide an example, e.g., Suisun is decrease in chlorophyll, increase in silica, increase in nitrogen, delta is decrease in silica, increase/decrease in DIN (depending on time period/season), decrease in chlorophyll, what's going on? See Senn slide 14 (from burial?). The WRTDS model lets us at least address trends in the context of season, time, and flow.  This allows for more improved interpretion relative to observing raw data. Also explain more information by looking at ammonium, nitrative/nitrite, relative to DIN. What about other variables (light level as suspended particulate matter, temperature)?
-
+As demonstrated by both case studies and the overall trends across all stations, water quality dynamics in the Delta are complex and driven by multiple factors that change through space and time.  Changes in ambient conditions provide a preliminary but potentially incomplete description of trends depending on the question of interest.  At a minimum, \ac{wrtds} focuses on high-level forcing factors of change by explicitly accounting for annual, seasonal, and flow effects in the description.  We have demonstrated the potential for imprecise or inaccurate conclusions of trend tests that focus solely on observed data and emphasize that flow-normalized trend sprovide a more powerful means of quantifying change.  Combined with supporing data, \ac{wrtds} results can support additional hypotheses that lead to a more comprehensive understanding of ecosystem dynamics. Still, additional sources of variability must be considered as explicit factors that influence observed trends, including the effects of large-scale climatic patterns, more detailed hydrologic descriptions, and additional ecological components that affect trophic interactions.  Statistical interpretations of multiple factors can provide quantitative links of nutrient loads with adverse effects on ecosystem conditions, including the identification of thresholds for the protection and restoration of water quality. 
 
 \section{References} % omit on submit
 \begin{singlespace}
@@ -508,10 +499,9 @@ toplo2 <- filter(flow_dat,
     Date <= as.Date('2013-12-13')
   ) %>% 
   mutate(
-    q = log(q),
     station = factor(station, levels = c('sac', 'sjr'), labels = c('Sac.', 'S. Jo.'))
     )
-ylab <- expression(paste('ln-Flow (', m^3, ' ', s^-1, ')'))
+ylab <- expression(paste('Flow (', m^3, ' ', s^-1, ')'))
 p2 <- ggplot(toplo2, aes(x = Date, y = q)) +
   geom_line(size = 0.25) +
   scale_x_date(expand = c(0, 0)) + 
@@ -890,7 +880,7 @@ grid.arrange(
   )
 @
 
-<<clmchl, fig.height = 9, fig.width = 8, out.width = '0.9\\textwidth', cache = T, fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2013 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means),with biomass linked to salinity (b).  A coincident decrease in \\ac{chla} concentration was also observed by changes in annual (c) and seasonal trends(d).  A significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (e).  Flow relationships with \\ac{chla} concentration have also changed over time (f, observations from June).'>>=
+<<clmchl, fig.height = 9, fig.width = 8, out.width = '0.9\\textwidth', cache = T, fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2013 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means), with biomass linked to salinity (b).  A coincident decrease in \\ac{chla} concentration was also observed by changes in annual (c) and seasonal trends(d).  A significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (e).  Flow relationships with \\ac{chla} concentration have also changed over time (f, observations from June).'>>=
 # clam and model data at D7
 data(clams)
 data(h3dat)
@@ -1151,94 +1141,6 @@ latex(
   n.cgroup = c(2, 2),
   rowname = cats,
   label = 'tab:p8chg',
-  insert.bottom = foot.val
-  )
-
-@
-
-% trends in din, chl, sio2 at d7
-<<d7chg>>=
-
-data(h3dat)
-
-d7dat <- filter(h3dat, Site_Code %in% 'D7')
-
-dinraw <- filter(d7dat, resvar %in% 'din') %>% 
-  .$data %>% 
-  .[[1]]
-chlraw <- filter(d7dat, resvar %in% 'chl') %>% 
-  .$data %>% 
-  .[[1]]
-sioraw <- filter(d7dat, resvar %in% 'sio2') %>% 
-  .$data %>% 
-  .[[1]]
-
-mobrks <- list(c(3, 4, 5), c(6, 7, 8), c(9, 10, 11), c(12, 1, 2))
-yrbrks <- c(1975, 1985, 1994, 2003, 2013)
-molabs <- c('Spring', 'Summer', 'Fall', 'Winter')
-yrlabs <- c('1976-1985', '1986-1994', '1995-2003', '2004-2013')
-
-# summarize din, sio2, chl trends
-din <- wrtdstrnd_sk(dinraw, mobrks, yrbrks, molabs, yrlabs)
-din <- wrtdstrnd_sk(dinraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
-  .[1, ] %>% 
-  rbind(., din) %>% 
-  data.frame(res = 'din', .)
-chl <- wrtdstrnd_sk(chlraw, mobrks, yrbrks, molabs, yrlabs)
-chl <- wrtdstrnd_sk(chlraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
-  .[1, ] %>% 
-  rbind(., chl) %>% 
-  data.frame(res = 'chl', .)
-sio <- wrtdstrnd_sk(sioraw, mobrks, yrbrks, molabs, yrlabs)
-sio <- wrtdstrnd_sk(sioraw, mobrks, yrbrks = c(-Inf, Inf), molabs, yrlabs = c('1976-2013')) %>% 
-  .[1, ] %>% 
-  rbind(., sio) %>% 
-  data.frame(res = 'sio', .)
-
-# combine for trends for table
-totab <- rbind(din, chl, sio) %>% 
-  select(res, cat, med, perchg, ztest) %>% 
-  mutate(
-    med = round(med, 1), 
-    perchg = round(perchg, 1),
-    perchg = ifelse(
-      perchg < 0, 
-      perchg, 
-      paste0('\\textit{\\textbf{', perchg, '}}')
-      ), 
-    ztest = p_ast(ztest)
-  ) %>% 
-  unite('perchg', perchg, ztest, sep = '') %>% 
-  gather('var', 'val', med:perchg) %>% 
-  unite('col', res, var) %>% 
-  spread(col, val) %>% 
-  mutate(cat = factor(cat, levels = c('1976-2013', yrlabs, molabs), labels = c('1976-2013', yrlabs, molabs))) %>% 
-  arrange(cat) %>% 
-  data.frame(sep = c(rep('Annual', 5), rep('Seasonal', 4)), .) %>% 
-  select(sep, cat, din_med, din_perchg, chl_med, chl_perchg, sio_med, sio_perchg)
-
-# final table formatting
-segs <- c('All', 'Annual', 'Seasonal')
-cats <- totab$cat
-totab <- totab[,-c(1:2)]
-vars <- c('DIN', 'Chl-\\textit{a}', 'SiO$_2$')
-names(totab) <- rep(c('Median', '\\% change'), 3)
-
-cap.val<-'Summaries of flow-normalized trends in dissolved inorganic nitrogen (mg L$^{-1}$), chlorophyll ($\\mu$g L$^{-1}$), and silicon dioxide (mg L$^{-1}$) concentrations for different time periods at station D7. Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
-foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
-
-latex( 
-  totab,
-  file = '',
-  rowlabel = 'Period',
-  caption = cap.val,
-  caption.loc = 'top',
-  rgroup = segs,
-  n.rgroup = c(1, rep(4, 2)),
-  cgroup = vars,
-  n.cgroup = c(2, 2, 2),
-  rowname = cats,
-  label = 'tab:d7chg', 
   insert.bottom = foot.val
   )
 
