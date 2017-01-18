@@ -306,7 +306,7 @@ P8dec <- filter(trndsyr,
 
 Application of seasonal Kendall tests to evaluate trends in observed data provided explicit information on the direction, magnitude, and statistical significance of changes between years. Trends estimated from the observed data for 1976-1995 and 1996-2013 varied considerably between sites and analytes (\cref{fig:trndcomp1}). Significant trends were observed from 1976-1995 for \Sexpr{obsdir$din[1, 5]} of ten sites for \ac{din} (\Sexpr{obsdir$din[1, 3]} increasing, \Sexpr{obsdir$din[1, 4]} decreasing), \Sexpr{obsdir$nh[1, 5]} sites for ammonium (\Sexpr{obsdir$nh[1, 3]} increasing, \Sexpr{obsdir$nh[1, 4]} decreasing), and \Sexpr{obsdir$no23[1, 5]} sites for nitrite/nitrate (\Sexpr{obsdir$no23[1, 3]} increasing, \Sexpr{obsdir$no23[1, 4]} decreasing).  More sites had decreasing trends for the observed data from 1996-2013.  \Sexpr{cap(obsdir$din[2, 5])} sites had significant trends for \ac{din} (\Sexpr{obsdir$din[2, 3]} increasing, \Sexpr{obsdir$din[2, 4]} decreasing), \Sexpr{obsdir$nh[2, 5]} sites for ammonium (\Sexpr{obsdir$nh[2, 3]} increasing, \Sexpr{obsdir$nh[2, 4]} decreasing), and \Sexpr{obsdir$no23[2, 5]} sites for nitrite/nitrate (\Sexpr{obsdir$no23[2, 3]} increasing, \Sexpr{obsdir$no23[2, 4]} decreasing). Trends by location (upper Delta, middle, and Suisun stations) were not apparent, suggesting individual sites had trends that differed independent of relative location.  For example, P8 had a relatively large decrease in ammonium (\Sexpr{scinot(P8dec[2, 'perchg'], 1, 1)}\% change per year) for the second annual period compared to all other sites. Trends by season were similar such that increases were generally observed in all seasons from 1976-1995 (\cref{fig:trndcomp2}) and decreases were observed for 1996-2013 (\cref{fig:trndcomp3}).  Trends for the seasonal comparisons were noisier and significant changes were less common compared to the annual comparisons.
 
-Relationships between flow and observed water quality are complex and can change significantly through space and time\cite{Hirsch10,Zhang16}. These principles have been demonstrated for monitoring data in the Delta region\cite{Jassby08,Novick15,Jabusch16}, suggesting that trend analyses using the observed time series are confounded by flow effects.  Change over time in observed data could reflect mobilization or dilution effects of flow on concentration rather than an interpretable system response to changes in nutrient sources.  As a proof of concept, \cref{fig:dinc10} demonstrates use of \ac{wrtds} to isolate a flow-normalized time series from the observed \ac{din} data at C10. Raw data are presented in \cref{fig:dinc10}a and the annual results by water year (October through September) from \ac{wrtds} are shown in \cref{fig:dinc10}b. In addition to removing the seasonal component, \cref{fig:dinc10}b shows the flow-normalized component (solid line) independent of the model predictions.  The difference between predicted and flow-normalized results is shown in \cref{fig:dinc10}c, such that years with predictions greater or less than the flow-normalized values correspond with long-term trends in flow shown in \cref{fig:dinc10}d.  For example, 1984 is a period of high flow and a large, negative difference between prediction and flow-normalized concentration, suggesting a dilution effect of increased flow on nutrients. Further, \cref{fig:dinc10}e shows \ac{wrtds} estimates of seasonal variation in the relationships of \ac{din} with flow throughout the period of record. Increases in flow (y-axis) were associated with an increase in \ac{din} (colors) for flow values within the observed range.  Seasonal patterns also differed througout the time period with a wider range of \ac{din} within a growing season in the early 2000s relative to the 1980s, which is potentially linked to long-term climatic patterns\cite{Cloern07}. 
+Relationships between flow and observed water quality are complex and can change significantly through space and time\cite{Hirsch10,Zhang16}. These principles have been demonstrated for monitoring data in the Delta region\cite{Jassby08,Novick15,Jabusch16}, suggesting that trend analyses using the observed time series are confounded by flow effects. As a proof of concept, \cref{fig:dinc10} demonstrates use of \ac{wrtds} to isolate a flow-normalized time series from the observed \ac{din} data at C10. Raw data are presented in \cref{fig:dinc10}a and the annual results by water year (October through September) from \ac{wrtds} are shown in \cref{fig:dinc10}b. In addition to removing the seasonal component, \cref{fig:dinc10}b shows the flow-normalized component (solid line) independent of the model predictions.  The difference between predicted and flow-normalized results is shown in \cref{fig:dinc10}c, such that years with predictions greater or less than the flow-normalized values correspond with long-term trends in flow shown in \cref{fig:dinc10}d.  For example, 1984 is a period of high flow and a large, negative difference between prediction and flow-normalized concentration, suggesting a dilution effect of increased flow on nutrients. Further, \cref{fig:dinc10}e shows \ac{wrtds} estimates of seasonal variation in the relationships of \ac{din} with flow throughout the period of record. Increases in flow (y-axis) were associated with an increase in \ac{din} (colors) for flow values within the observed range.  Seasonal patterns also differed througout the time period with a wider range of \ac{din} within a growing season in the early 2000s relative to the 1980s, which is potentially linked to long-term climatic patterns\cite{Cloern07}. 
 <<echo = F, cache = F>>=
 data(trnds_seasyr)
 
@@ -413,17 +413,17 @@ Relationships of nitrogen with flow described by \ac{wrtds} showed an inverse fl
 
 \subsubsection{Effects of biological invasions}
 
-Invasion of the upper \ac{sfe} estuary by the Asian clam \textit{Potamocorbula amurensis} in 1986 caused severe changes in phytoplankton abundance and species composition.  Reduction in phytoplankton biomass has altered trophic networks in the Bay and is considered a primary mechanism in the decline of the protected delta smelt (\textit{Hypomesus transpacificus}) and other important fisheries \cite{Feyrer03,MacNally10}.  Changes in the physical environment have also occurred with the most notable invasion effect being increased water clarity following a reduction of phytoplankton by biofiltration \cite{MacNally10}. The clams are halophilic such that drought years are generally correlated with an increase in biomass and further upstream invasion of the species \cite{Parchaso02,Cloern12b}. We hypothesized that \ac{wrtds} models applied to water quality observations in the upper estuary would show \begin{inparaenum}[1\upshape)]
+Invasion of the upper \ac{sfe} by the Asian clam \textit{Potamocorbula amurensis} in 1986 caused severe changes in phytoplankton abundance and species composition.  Reduction in phytoplankton biomass has altered trophic networks in the Bay and is considered a primary mechanism in the decline of the protected delta smelt (\textit{Hypomesus transpacificus}) and other important fisheries \cite{Feyrer03,MacNally10}.  Changes in the physical environment have also occurred with the most notable invasion effect being increased water clarity following a reduction of phytoplankton by biofiltration \cite{MacNally10}. The clams are halophilic such that drought years are generally correlated with an increase in biomass and further upstream invasion of the species \cite{Parchaso02,Cloern12b}. We hypothesized that \ac{wrtds} models applied to water quality observations in the upper estuary would show \begin{inparaenum}[1\upshape)]
 \item a decline in annual, flow-normalized chlorophyll concentrations over time coincident with an increase in abundance of invaders, and
-\item variation in the flow/chlorophyll relationship through indirect or direct controls.
+\item variation in the chlorophyll/clam relationship through indirect or direct controls of flow.
 \end{inparaenum}
 The application of \ac{wrtds} to water quality observations at station D7 in Suisun Bay and comparison with clam abundance and biomass data (see Ref~\citenum{Crauder16}) provides an approach to assess the competing effects of climate variability, hydrology, and ecology on ambient conditions.
 
-Results from \ac{wrtds} demonstrated complex relationships between clam abundance and chlorophyll concentrations, which were further affected by flow changes over time (\cref{fig:clmchl}).  Invasion in the 1980s showed a clear displacement of the native \textit{Corbicula fluminea} with establishment of \textit{P. amurensis} (\cref{fig:clmchl}a), where biomass of the latter was negatively associated with flow from the Sacramento river (\Cref{fig:clmchl}b).  The increase in clam abundance was associated with a notable decrease in annually-averaged \ac{chla} from \ac{wrtds} results (\cref{fig:clmchl}c).  A seasonal shift in the flow-normalized results was also observed such that \ac{chla} concentrations were generally highest in July prior to invasion, whereas a spring maximum in April was more common in recent years (\cref{fig:clmchl}d). The relationship of \ac{chla} with clam biomass was significant (\cref{fig:clmchl}e) such that lower \ac{chla} was generally associated with higher biomass.  However, changes in the \ac{chla}/flow relationship over time was dynamic such that increasing flow (decreasing salinity) showed a slight increase in \ac{chla} followed by a decrease early in the time series (\cref{fig:clmchl}f). Later in the time series, overall \ac{chla} was lower but a positive association with flow (negative with salinity) was observed. 
+Results from \ac{wrtds} demonstrated complex relationships between clam abundance and chlorophyll concentrations, which were further affected by flow changes over time (\cref{fig:clmchl}).  Invasion in the 1980s showed a clear displacement of the native \textit{Corbicula fluminea} with establishment of \textit{P. amurensis} (\cref{fig:clmchl}a), where biomass of the latter was negatively associated with flow from the Sacramento river (\Cref{fig:clmchl}b).  The increase in clam abundance was associated with a notable decrease in annually-averaged \ac{chla} from \ac{wrtds} results (\cref{fig:clmchl}c).  A seasonal shift in the flow-normalized results was also observed such that \ac{chla} concentrations were generally highest in July prior to invasion, whereas a spring maximum in April was more common in recent years (\cref{fig:clmchl}d). The relationship of \ac{chla} with clam biomass was significant (\cref{fig:clmchl}e) with lower \ac{chla} associated with higher biomass.  The \ac{chla}/flow relationship changed over time such that increasing flow (decreasing salinity) showed a slight increase in \ac{chla} followed by a decrease early in the time series (\cref{fig:clmchl}f), whereas overall \ac{chla} was lower but a positive association with flow (negative with salinity) was observed later in the time series. 
 
-A general conclusion is that clam grazing reduced \ac{chla} concentration throughout the period of record, whereas the effect of flow as a top-down or bottom-up control on both was more dynamic.  As an example, the relationship between flow and \ac{chla} earlier in the time period suggested a dilution effect at high flow and a peak of predicted \ac{chla} at moderate flows. In the absence of benthic grazing, this dynamic suggests that \ac{chla} production may be limited at low flow as less nutrients are exported from the Delta, stimulated as flow increases, and reduced at high flow as either nutrients or phytoplankton biomass are moved downstream towards the lower bay. Following clam invasion later in the time series, \ac{chla} concentrations were reduced by grazing but showed a positive and monotonic relationship with increasing flow. Concurrently, the increase in clam abundance shown in \ref{fig:clmchl}a is apparent, although variation between years is also observed.  For example, clam abundance is reduced during high flow years in the late 1990s, 2006, and 2011 (\cref{fig:clmchl}a, flow in \cref{fig:obsdat}). In the same years, \ac{wrtds} predictions for \ac{chla} are higher than the flow-normalized component (\cref{fig:clmchl}c), which suggests a mobilization effect of increased flow on phytoplankton production.  As such, \ac{chla} production in early years is directly related to flow, whereas the relationship with flow in later years is indirect as increased flow reduces clam abundance and releases phytoplankton from benthic grazing pressure. These relationships have been suggested by others\cite{Alpine92,Parchaso02,Jassby08}, although the precise mechanism demonstrated by \ac{wrtds} provides additional to describe forcing factors of water quality in the Delta.
+A general conclusion is that clam grazing reduced \ac{chla} concentration throughout the period of record, whereas the effect of flow as a top-down or bottom-up control on both was more dynamic.  The relationship between flow and \ac{chla} earlier in the time period suggested a dilution effect at high flow and peak \ac{chla} at moderate flows. In the absence of benthic grazing prior to invasion, this dynamic suggests that \ac{chla} production may be limited at low flow as less nutrients are exported from the Delta, stimulated as flow increases, and reduced at high flow as either nutrients or phytoplankton biomass are exported to the larger bay. Following clam invasion later in the time series, \ac{chla} concentrations were reduced by grazing but showed a positive and monotonic relationship with increasing flow. The increase in clam abundance was concurrent with decline in \ac{chla} concentration, although variation in abundance between years was also observed (\ref{fig:clmchl}a).  For example, clam abundance was reduced during high flow years in the late 1990s, 2006, and 2011 (\cref{fig:obsdat}). In the same years, \ac{wrtds} predictions for \ac{chla} were higher than the flow-normalized component (\cref{fig:clmchl}c), which further suggests a link between increased flow and phytoplankton production.  As such, \ac{chla} production in early years is directly related to flow, whereas the relationship with flow in later years is indirect as increased flow reduces clam abundance and releases phytoplankton from benthic grazing pressure. These relationships have been suggested by others\cite{Alpine92,Parchaso02,Jassby08}, although the precise mechanism demonstrated by \ac{wrtds} provides a quantitative description of factors that drive water quality in the Delta.
 
-As demonstrated by both case studies and the overall trends across all stations, water quality dynamics in the Delta are complex and driven by multiple factors that change through space and time.  At a minimum, \ac{wrtds} provides a description of change by focusing on high-level forcing factors that explicitly account for annual, seasonal, and flow effects in the description.  We have demonstrated the potential for imprecise or inaccurate conclusions of trend tests that focus solely on observed data and emphasize that flow-normalized trend sprovide a more powerful means of quantifying change.  Combined with additional data, \ac{wrtds} results can support hypotheses that lead to a more comprehensive understanding of ecosystem dynamics. Still, additional sources of variability must be considered as explicit factors that influence observed trends and exploration of alternative time series analysis methods to address a wider range of questions should be the focus of further analyses.  Additional factors to` consider could include the effects of large-scale climatic patterns, more detailed hydrologic descriptions, and additional ecological components that affect trophic interactions.  Statistical interpretations of multiple factors can provide a basis for quantitative links between nutrient loads and adverse effects on ecosystem conditions, including the identification of thresholds for the protection and restoration of water quality. 
+As demonstrated by both case studies and the overall trends across all stations, water quality dynamics in the Delta are complex and driven by multiple factors that change through space and time.  At a minimum, \ac{wrtds} provides a description of change by focusing on high-level forcing factors that explicitly account for annual, seasonal, and flow effects on trend interpretations.  We have demonstrated the potential for imprecise or inaccurate conclusions of trend tests that focus solely on observed data and emphasize that flow-normalized trends have more power to quantify change.  Combined with additional data, \ac{wrtds} results can support hypotheses that lead to a more comprehensive understanding of ecosystem dynamics. Still, additional sources of variability must be considered as explicit factors that influence observed trends and exploration of alternative time series analysis methods to address a wider range of questions should be the focus of further analyses.  Additional factors to consider include the effects of large-scale climatic patterns, more detailed hydrologic descriptions, and additional ecological components that affect trophic interactions.  Statistical interpretations of multiple factors can provide a basis for quantitative links between nutrient loads and adverse effects on ecosystem conditions, including the identification of thresholds for the protection and restoration of water quality. 
 
 % \section{References} % omit on submit
 \begin{singlespace}
@@ -433,93 +433,9 @@ As demonstrated by both case studies and the overall trends across all stations,
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth,page=1]{figs/delt_map.pdf}
-\caption{The \acl{sfe} Delta and monitoring stations used for analysis. The Delta drains the combined watershed from the Sacramento and San Joaquin rivers (bottom left). All data were obtained from the \acl{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm})\cite{IEP13}.}
+\caption{The \acl{sfe} Delta and monitoring stations used for analysis. The Delta drains the combined watersheds of the Sacramento and San Joaquin rivers (bottom left). All data were obtained from the \acl{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm})\cite{IEP13}.}
 \label{fig:delt_map}   
 \end{figure}
-
-<<obsdat, fig.cap = 'Observed \\ac{din} (NH$_4^{+}$ + NO$_2^{-}$/NO$_3^{2-}$) from ten stations in the upper \\ac{sfe} Delta and flow from the Sacramento and San Joaquin rivers.  Data were collected monthly and evaluated with \\ac{wrtds} models using daily flow estimates from 1976 to 2013. Note different y-axis scales.  See \\cref{fig:delt_map} for station locations.', fig.height = 7.5, fig.width = 6, cache = T, out.width = '0.9\\textwidth'>>=
-data(delt_dat)
-data(flow_dat)
-
-## 
-# obs data
-
-missvals <- c('1996-01-01', '2004-04-01') %>% 
-  as.Date
-missvals <- seq(missvals[1], missvals[2], by = 'month')
-missvals <- data.frame(Site_Code = 'D19', Date = missvals, nh = 0, no23 = 0)
-
-toplo <- delt_dat %>% 
-  select(Site_Code, Date, nh, no23) %>% 
-  rbind(., missvals) %>% 
-  gather('var', 'val', nh:no23) %>% 
-  mutate(Site_Code = factor(Site_Code, 
-    levels = rev(c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'MD10', 'C10', 'C3')))
-    )
-
-mythm <- theme_minimal() +
-  theme(
-    legend.position = 'top', 
-    legend.title = element_blank(),
-    panel.border = element_rect(colour = "black", fill = NA, size = 0.5),
-    axis.ticks.x = element_line(),
-    axis.ticks.y = element_line(),
-    axis.title.x = element_blank(),
-    axis.text.y = element_text(size = 6),
-    axis.ticks.length = unit(.1, "cm"), 
-    panel.grid.major = element_line(size = 0.25),
-    panel.grid.minor = element_blank(),
-    plot.margin = grid::unit(c(3, 6, 3, 6), 'pt')
-  )  
-
-cols <- RColorBrewer::brewer.pal(9, 'Blues')[c(5, 7)] %>% 
-  rev
-ylab <- expression(paste('DIN (mg ', L^-1, ')'))
-
-leglabs <- list(
-  expression(NH [4] ^ '+'),
-  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
-  )
-
-p1 <- ggplot(toplo, aes(x = Date)) +
-  geom_area(aes(y = val, group = var, fill = var), stat = 'identity', position = 'stack', alpha = 0.75) + 
-  scale_x_date(expand = c(0, 0)) + 
-  scale_y_continuous(ylab, expand = c(0, 0)) + 
-  facet_grid(Site_Code~., scales = 'free_y') +
-  scale_fill_manual(values = cols, labels = leglabs) +
-  mythm %+replace% 
-  theme(axis.text.x = element_blank())
-
-## 
-# flo data
-toplo2 <- filter(flow_dat, 
-    !station %in% 'east' &
-    Date >= as.Date('1976-01-13') &
-    Date <= as.Date('2013-12-13')
-  ) %>% 
-  mutate(
-    station = factor(station, levels = c('sac', 'sjr'), labels = c('Sac.', 'S. Jo.'))
-    )
-ylab <- expression(paste('Flow (', m^3, ' ', s^-1, ')'))
-p2 <- ggplot(toplo2, aes(x = Date, y = q)) +
-  geom_line(size = 0.25) +
-  scale_x_date(expand = c(0, 0)) + 
-  scale_y_continuous(ylab) + 
-  facet_grid(station~., scales = 'free_y') + 
-  mythm
-
-# fix widths
-# align widths of plots in first column, first two
-pA <- ggplot_gtable(ggplot_build(p1))
-pB <- ggplot_gtable(ggplot_build(p2))
-
-maxWidth = grid::unit.pmax(pA$widths[2:3], pB$widths[2:3])
-
-pA$widths[2:3] <- maxWidth
-pB$widths[2:3] <- maxWidth
-
-grid.arrange(pA, pB, ncol = 1, heights = c(1, 0.21))
-@
 
 <<trndcomp, echo = F, warning = F, message = F, cache = T, results = 'hide'>>=
 data(trnds_seasyr)
@@ -541,9 +457,12 @@ colhi <- blues[9] #'black'
 
 # combine all
 trnds_seasyr <- rbind(trnds_nrm, trnds_fit, trnds_obs) %>% 
-  select(Site_Code, resvar, cat, ztest, tau, perchg, ann, trndvar) %>% 
+  select(Location, Site_Code, resvar, cat, ztest, tau, perchg, ann, trndvar) %>% 
   filter(!trndvar %in% 'fits') %>% 
   mutate(
+    Location = ifelse(
+      resvar %in% 'din' & Site_Code %in% c('MD10', 'D28', 'D7') & cat %in% c('1976-1995', 'Spring') & trndvar == 'res', 
+      Location , ''),
     Site_Code = factor(Site_Code, levels = c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'MD10', 'P8', 'C10', 'C3')),
     ztest = ifelse(ztest < 0.05, '(p < 0.05)', '(ns)'),
     resvar = factor(resvar, levels = reslabs$shrt, labels = reslabs$expr), 
@@ -585,6 +504,7 @@ p1 <- ggplot(toplo1, aes(x = perchg, y = Site_Code)) +
   scale_shape_manual(values = c(1, 16, 2, 17)) +
   scale_colour_gradient(low = collo, high = colhi, guide = F) + 
   geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
+  geom_text(aes(label = Location, x = -3.5), hjust = 0.2) + 
   scale_y_discrete('Stations')
 
 # seasonal, first years
@@ -599,6 +519,7 @@ p2 <- ggplot(toplo2, aes(x = perchg, y = Site_Code)) +
   scale_shape_manual(values = c(1, 16, 2, 17)) +
   scale_colour_gradient(low = collo, high = colhi, guide = F) + 
   geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
+  geom_text(aes(label = Location, x = -4), hjust = 0.2) + 
   scale_y_discrete('Stations')
 
 # seasonal, first years
@@ -613,6 +534,7 @@ p3 <- ggplot(toplo3, aes(x = perchg, y = Site_Code)) +
   scale_shape_manual(values = c(1, 16, 2, 17)) +
   scale_colour_gradient(low = collo, high = colhi, guide = F) + 
   geom_hline(yintercept = c(3.5, 6.5), colour = 'grey', alpha = 0.6) + 
+  geom_text(aes(label = Location, x = -6), hjust = 0.2) + 
   scale_y_discrete('Stations')
 
 pdf('figs/trndcomp1.pdf', height = 5, width = 9, family = 'serif')
@@ -635,7 +557,7 @@ dev.off()
 \label{fig:trndcomp1}   
 \end{figure}
 
-<<dinc10, fig.height = 9, fig.width = 7, cache = T, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \\ac{wrtds} for the conditional mean response.  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend. Subfigure (e) shows the modelled relationships between \\ac{din}, flow, and time. Flow values in (e) are truncated by 5\\textsuperscript{th} and 95\\textsuperscript{th} percentiles of observed.'>>=
+<<dinc10, fig.height = 9, fig.width = 7, cache = T, out.width = '0.75\\textwidth', fig.cap = 'Time series of \\ac{din} and flow at station C10.  Subfigure (a) shows the observed \\ac{din} time series and subfigure (b) shows the annual (water year starting in October) predictions from \\ac{wrtds} for the conditional mean response.  The points in subfigure (b) are predictions of observed \\ac{din} and the lines are flow-normalized predictions.  Subfigure (c) shows the difference between the model predictions and flow-normalized predictions.  Subfigure (d) shows the flow time series of the San Joaquin River with a locally-estimated (loess) smooth to emphasize the long-term trend. Subfigure (e) shows the modelled relationships between \\ac{din}, flow (5\\textsuperscript{th} and 95\\textsuperscript{th} percentiles), and time.'>>=
 
 # data
 data(h1dat)
@@ -746,7 +668,7 @@ grid.arrange(
 
 @
 
-<<p8trnds, fig.height = 8, fig.width = 9, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen trends at P8 as observed (a, top), predicted and flow-normalized estimates from \\ac{wrtds} (a, bottom), and relationships with flow over time (b).  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Stockton (San Joaquin County) were completed in 2006 (\\cref{fig:stock}), coincident with a dramatic decrease in ammonium at P8.'>>=
+<<p8trnds, fig.height = 8, fig.width = 9, cache = T, out.width = '\\textwidth', fig.cap = 'Nitrogen trends at P8 as (a, top) observed, (a, bottom) predicted and flow-normalized estimates from \\ac{wrtds}, and (b) relationships with flow over time from \\ac{wrtds}.  Nitrite/nitrate trends are on the left and ammonium trends are on the right.  Wastewater treatment plant upgrades at the City of Stockton (San Joaquin County) were completed in 2006 (\\cref{fig:stock}).'>>=
 data(h2dat)
 
 nomod <-  filter(h2dat, resvar == 'no23') %>% 
@@ -879,7 +801,7 @@ grid.arrange(
   )
 @
 
-<<clmchl, fig.height = 9, fig.width = 8, out.width = '0.9\\textwidth', cache = T, fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2013 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means), with biomass linked to salinity (b).  A coincident decrease in \\ac{chla} concentration was also observed by changes in annual (c) and seasonal trends(d).  A significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (e).  Flow relationships with \\ac{chla} concentration have also changed over time (f, observations from June).'>>=
+<<clmchl, fig.height = 9, fig.width = 8, out.width = '0.9\\textwidth', cache = T, fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2013 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means), with biomass linked to salinity (b).  A decrease in \\ac{chla} concentration was also observed by changes in annual (c) and seasonal trends(d) based on \\ac{wrtds} results.  A significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (e).  Flow relationships with \\ac{chla} concentration shown by \\ac{wrtds} have also changed over time (f, observations from June).'>>=
 # clam and model data at D7
 data(clams)
 data(h3dat)
@@ -1150,6 +1072,90 @@ latex(
 % supplementary material
 \begin{suppinfo}
 \beginsupplement
+
+<<obsdat, fig.cap = 'Observed \\ac{din} (NH$_4^{+}$ + NO$_2^{-}$/NO$_3^{2-}$) from ten stations in the upper \\ac{sfe} Delta and flow from the Sacramento and San Joaquin rivers.  Data were collected monthly and evaluated with \\ac{wrtds} models using daily flow estimates from 1976 to 2013. Note different y-axis scales.  See \\cref{fig:delt_map} for station locations.', fig.height = 7.5, fig.width = 6, cache = T, out.width = '0.9\\textwidth'>>=
+data(delt_dat)
+data(flow_dat)
+
+## 
+# obs data
+
+missvals <- c('1996-01-01', '2004-04-01') %>% 
+  as.Date
+missvals <- seq(missvals[1], missvals[2], by = 'month')
+missvals <- data.frame(Site_Code = 'D19', Date = missvals, nh = 0, no23 = 0)
+
+toplo <- delt_dat %>% 
+  select(Site_Code, Date, nh, no23) %>% 
+  rbind(., missvals) %>% 
+  gather('var', 'val', nh:no23) %>% 
+  mutate(Site_Code = factor(Site_Code, 
+    levels = rev(c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'MD10', 'C10', 'C3')))
+    )
+
+mythm <- theme_minimal() +
+  theme(
+    legend.position = 'top', 
+    legend.title = element_blank(),
+    panel.border = element_rect(colour = "black", fill = NA, size = 0.5),
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.title.x = element_blank(),
+    axis.text.y = element_text(size = 6),
+    axis.ticks.length = unit(.1, "cm"), 
+    panel.grid.major = element_line(size = 0.25),
+    panel.grid.minor = element_blank(),
+    plot.margin = grid::unit(c(3, 6, 3, 6), 'pt')
+  )  
+
+cols <- RColorBrewer::brewer.pal(9, 'Blues')[c(5, 7)] %>% 
+  rev
+ylab <- expression(paste('DIN (mg ', L^-1, ')'))
+
+leglabs <- list(
+  expression(NH [4] ^ '+'),
+  expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-'))
+  )
+
+p1 <- ggplot(toplo, aes(x = Date)) +
+  geom_area(aes(y = val, group = var, fill = var), stat = 'identity', position = 'stack', alpha = 0.75) + 
+  scale_x_date(expand = c(0, 0)) + 
+  scale_y_continuous(ylab, expand = c(0, 0)) + 
+  facet_grid(Site_Code~., scales = 'free_y') +
+  scale_fill_manual(values = cols, labels = leglabs) +
+  mythm %+replace% 
+  theme(axis.text.x = element_blank())
+
+## 
+# flo data
+toplo2 <- filter(flow_dat, 
+    !station %in% 'east' &
+    Date >= as.Date('1976-01-13') &
+    Date <= as.Date('2013-12-13')
+  ) %>% 
+  mutate(
+    station = factor(station, levels = c('sac', 'sjr'), labels = c('Sac.', 'S. Jo.'))
+    )
+ylab <- expression(paste('Flow (', m^3, ' ', s^-1, ')'))
+p2 <- ggplot(toplo2, aes(x = Date, y = q)) +
+  geom_line(size = 0.25) +
+  scale_x_date(expand = c(0, 0)) + 
+  scale_y_continuous(ylab) + 
+  facet_grid(station~., scales = 'free_y') + 
+  mythm
+
+# fix widths
+# align widths of plots in first column, first two
+pA <- ggplot_gtable(ggplot_build(p1))
+pB <- ggplot_gtable(ggplot_build(p2))
+
+maxWidth = grid::unit.pmax(pA$widths[2:3], pB$widths[2:3])
+
+pA$widths[2:3] <- maxWidth
+pB$widths[2:3] <- maxWidth
+
+grid.arrange(pA, pB, ncol = 1, heights = c(1, 0.21))
+@
 
 \begin{figure}
 \centering
