@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{56}
+\begin{mcitethebibliography}{57}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -174,6 +174,17 @@ Medalie,~L.; Hirsch,~R.~M.; Archfield,~S.~A. Use of flow-normalization to
 Hirsch,~R.~M.; {De Cicco},~L. \emph{User guide to {E}xploration and {G}raphics
   for {R}iv{E}r {T}rends ({EGRET}) and data{R}etrieval: {R} packages for
   hydrologic data}; 2014; p~94, \url{http://pubs.usgs.gov/tm/04/a10/}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Pellerin \latin{et~al.}(2014)Pellerin, Bergamaschi, Gilliom, Crawford,
+  Saraceno, Frederick, Downing, and Murphy]{Pellerin14}
+Pellerin,~B.~A.; Bergamaschi,~B.~A.; Gilliom,~R.~J.; Crawford,~C.~G.;
+  Saraceno,~J.~F.; Frederick,~C.~P.; Downing,~B.~D.; Murphy,~J.~C.
+  {M}ississippi {R}iver nitrate loads from high frequency sensor measurements
+  and regression-based load estimation. \emph{Environmental Science and
+  Technology} \textbf{2014}, \emph{48}, 12612--12619\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
