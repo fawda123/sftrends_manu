@@ -275,7 +275,7 @@ obsmo <- select(mods, Site_Code, resvar, data) %>%
 
 @
 
-The observed time series for the ten Delta stations had substantial variation in scale among the nitrogen analytes and differences in apparent seasonal trends (\cref{fig:obsdat}).  In general, long-term (inter-annual) trends were not easily observed from the raw data. \ac{din} for most stations was dominated by nitrite/nitrate, whereas ammonium was a smaller percentage of the total.  However, C3 had a majority of \ac{din} composed of ammonium and other stations (e.g., P8, D26) had higher concentrations of ammonium during winter months when phytoplankton assimilation is lower\cite{Novick15}.  By location, observed concentrations of \ac{din} for the entire time series were higher on average for the upper Delta stations (C3, C10, MD10, P8; maximum likelihood estimation of mean $\pm$ standard error: \Sexpr{scinot(obslo$Delta['mean'])}$\pm$\Sexpr{scinot(obslo$Delta['se'])} \mgl) and similar for the interior (D19, D26, D28, \Sexpr{scinot(obslo$Middle['mean'])}$\pm$\Sexpr{scinot(obslo$Middle['se'], 3)}) and Suisun Bay stations (D4, D6, D7, \Sexpr{scinot(obslo$Suisun['mean'])}$\pm$\Sexpr{scinot(obslo$Suisun['se'], 3)}).  Average concentrations were highest at \Sexpr{obssi$din[1, 'Site_Code']} (\Sexpr{scinot(obssi$din[1, 'mean'])}$\pm$\Sexpr{scinot(obssi$din[1, 'se'])} \mgl) and lowest at \Sexpr{obssi$din[2, 'Site_Code']} (\Sexpr{scinot(obssi$din[2, 'mean'])}$\pm$\Sexpr{scinot(obssi$din[2, 'se'], 3)}) for \ac{din}, highest at \Sexpr{obssi$nh[1, 'Site_Code']} (\Sexpr{scinot(obssi$nh[1, 'mean'])}$\pm$\Sexpr{scinot(obssi$nh[1, 'se'])}) and lowest at \Sexpr{obssi$nh[2, 'Site_Code']} (\Sexpr{scinot(obssi$nh[2, 'mean'])}$\pm$\Sexpr{scinot(obssi$nh[2, 'se'], 3, 3)}) for ammonium, and highest at \Sexpr{obssi$no23[1, 'Site_Code']} (\Sexpr{scinot(obssi$no23[1, 'mean'])}$\pm$\Sexpr{scinot(obssi$no23[1, 'se'])}) and lowest at \Sexpr{obssi$no23[2, 'Site_Code']} (\Sexpr{scinot(obssi$no23[2, 'mean'])}$\pm$\Sexpr{scinot(obssi$no23[2, 'se'], 3, 3)}) for nitrite/nitrate. Mean observed concentrations were also higher later in the time series for all analytes.  For example, average \ac{din} across all stations was \Sexpr{scinot(obsyr$din[1, 'mean'])}$\pm$\Sexpr{scinot(obsyr$din[1, 'se'])} \mgl for \Sexpr{obsyr$din[1, 'yr']}, compared to \Sexpr{scinot(obsyr$din[2, 'mean'])}$\pm$\Sexpr{scinot(obsyr$din[2, 'se'])} for \Sexpr{obsyr$din[2, 'yr']}. Seasonal changes across all years showed that nitrogen concentrations were generally lower in the summer and higher in the winter, although observed patterns were inconsistent between sites.  For example, site MD10 had distinct seasonal spikes for elevated \ac{din} in the winter, whereas other stations had less prominent seasonal maxima (e.g., C3, D7, \cref{fig:obsdat}).  
+The observed time series for the ten Delta stations had substantial variation in scale among the nitrogen analytes and differences in apparent seasonal trends (\cref{fig:obsdat}).  In general, long-term (inter-annual) trends were not easily observed from the raw data. \ac{din} for most stations was dominated by nitrite/nitrate, whereas ammonium was a smaller percentage of the total.  However, C3 had a majority of \ac{din} composed of ammonium and other stations (e.g., P8, D26) had higher concentrations of ammonium during winter months when phytoplankton assimilation is lower\cite{Novick15}.  By location, observed concentrations of \ac{din} for the entire time series were higher on average for the peripheral stations (C3, C10, MD10, P8; maximum likelihood estimation of mean $\pm$ standard error: \Sexpr{scinot(obslo$Delta['mean'])}$\pm$\Sexpr{scinot(obslo$Delta['se'])} \mgl) and similar for the interior (D19, D26, D28, \Sexpr{scinot(obslo$Middle['mean'])}$\pm$\Sexpr{scinot(obslo$Middle['se'], 3)}) and Suisun Bay stations (D4, D6, D7, \Sexpr{scinot(obslo$Suisun['mean'])}$\pm$\Sexpr{scinot(obslo$Suisun['se'], 3)}).  Average concentrations were highest at \Sexpr{obssi$din[1, 'Site_Code']} (\Sexpr{scinot(obssi$din[1, 'mean'])}$\pm$\Sexpr{scinot(obssi$din[1, 'se'])} \mgl) and lowest at \Sexpr{obssi$din[2, 'Site_Code']} (\Sexpr{scinot(obssi$din[2, 'mean'])}$\pm$\Sexpr{scinot(obssi$din[2, 'se'], 3)}) for \ac{din}, highest at \Sexpr{obssi$nh[1, 'Site_Code']} (\Sexpr{scinot(obssi$nh[1, 'mean'])}$\pm$\Sexpr{scinot(obssi$nh[1, 'se'])}) and lowest at \Sexpr{obssi$nh[2, 'Site_Code']} (\Sexpr{scinot(obssi$nh[2, 'mean'])}$\pm$\Sexpr{scinot(obssi$nh[2, 'se'], 3, 3)}) for ammonium, and highest at \Sexpr{obssi$no23[1, 'Site_Code']} (\Sexpr{scinot(obssi$no23[1, 'mean'])}$\pm$\Sexpr{scinot(obssi$no23[1, 'se'])}) and lowest at \Sexpr{obssi$no23[2, 'Site_Code']} (\Sexpr{scinot(obssi$no23[2, 'mean'])}$\pm$\Sexpr{scinot(obssi$no23[2, 'se'], 3, 3)}) for nitrite/nitrate. Mean observed concentrations were also higher later in the time series for all analytes.  For example, average \ac{din} across all stations was \Sexpr{scinot(obsyr$din[1, 'mean'])}$\pm$\Sexpr{scinot(obsyr$din[1, 'se'])} \mgl for \Sexpr{obsyr$din[1, 'yr']}, compared to \Sexpr{scinot(obsyr$din[2, 'mean'])}$\pm$\Sexpr{scinot(obsyr$din[2, 'se'])} for \Sexpr{obsyr$din[2, 'yr']}. Seasonal changes across all years showed that nitrogen concentrations were generally lower in the summer and higher in the winter, although observed patterns were inconsistent between sites.  For example, site MD10 had distinct seasonal spikes for elevated \ac{din} in the winter, whereas other stations had less prominent seasonal maxima (e.g., C3, D7, \cref{fig:obsdat}).  
 
 \subsection{Trends}
 
@@ -422,9 +422,9 @@ Invasion of the upper \ac{sfe} by the Asian clam \textit{Potamocorbula amurensis
 \end{inparaenum}
 The application of \ac{wrtds} to water quality observations at station D7 in Suisun Bay and comparison with clam abundance and biomass data (see Ref~\citenum{Crauder16}) provides an approach to assess the competing effects of climate variability, hydrology, and ecology on ambient conditions.
 
-Results from \ac{wrtds} demonstrated complex relationships between clam abundance and chlorophyll concentrations, which were further affected by flow changes over time (\cref{fig:clmchl}).  Invasion in the 1980s showed a clear displacement of the native \textit{Corbicula fluminea} with establishment of \textit{P. amurensis} (\cref{fig:clmchl}a), where biomass of the latter was negatively associated with flow from the Sacramento river (\Cref{fig:clmchl}b).  The increase in clam abundance was associated with a notable decrease in annually-averaged \ac{chla} from \ac{wrtds} results (\cref{fig:clmchl}c).  A seasonal shift in the flow-normalized results was also observed such that \ac{chla} concentrations were generally highest in July prior to invasion, whereas a spring maximum in April was more common in recent years (\cref{fig:clmchl}d). The relationship of \ac{chla} with clam biomass was significant (\cref{fig:clmchl}e) with lower \ac{chla} associated with higher biomass, confirming results from earlier studies.\cite{Alpine92,Thompson08}  The \ac{chla}/flow relationship changed over time such that increasing flow (decreasing salinity) showed a slight increase in \ac{chla} followed by a decrease early in the time series (\cref{fig:clmchl}f), whereas overall \ac{chla} was lower but a positive association with flow (negative with salinity) was observed later in the time series. 
+Results from \ac{wrtds} demonstrated complex relationships between clam abundance and chlorophyll concentrations, which were further affected by flow changes over time (\cref{fig:clmchl}).  Invasion in the 1980s showed a clear displacement of the native \textit{Corbicula fluminea} with establishment of \textit{P. amurensis} (\cref{fig:clmchl}a), where biomass of the latter was negatively associated with flow from the Sacramento river (\Cref{fig:clmchl}b).  The increase in clam abundance was associated with a notable decrease in annually-averaged \ac{chla} from \ac{wrtds} results (\cref{fig:clmchl}c).  A seasonal shift in the flow-normalized results was also observed such that \ac{chla} concentrations were generally highest in July/August prior to invasion, whereas a spring maximum in April was more common in recent years (\cref{fig:clmchl}d).  An increase in annually-averaged silicon dioxide (\cref{fig:clmchl}e) was coincident with the \ac{chla} decrease, with the largest increases occuring in August (\cref{fig:clmchl}f).  These relationships suggest that diatoms were the dominant genera early in the time series, particularly in late summer (also shown in \cref{fig:clmchl}d), whereas the spring peak observed in later years represents a shift to an earlier seasonal maxima.  This supports past research that showed a decrease in silica uptake by diatoms following invasion.\cite{Cloern96,Kimmerer05} The relationship of \ac{chla} with clam biomass was significant (\cref{fig:clmchl}g) with lower \ac{chla} associated with higher biomass, confirming results from earlier studies.\cite{Alpine92,Thompson08}  
 
-A general conclusion is that clam grazing reduced \ac{chla} concentration throughout the period of record, whereas the effect of flow as a top-down or bottom-up control on both was more dynamic.  The relationship between flow and \ac{chla} earlier in the time period suggested a dilution effect at high flow and peak \ac{chla} at moderate flows. In the absence of benthic grazing prior to invasion, this dynamic suggests that \ac{chla} production may be limited at low flow as less nutrients are exported from the Delta, stimulated as flow increases, and reduced at high flow as either nutrients or phytoplankton biomass are exported to the larger bay. Following clam invasion later in the time series, \ac{chla} concentrations were reduced by grazing but showed a positive and monotonic relationship with increasing flow. The increase in clam abundance was concurrent with decline in \ac{chla} concentration, although variation in abundance between years was also observed.  For example, clam abundance was reduced during high flow years in the late 1990s, 2006, and 2011 (\ref{fig:clmchl}a). In the same years, \ac{wrtds} predictions for \ac{chla} were higher than the flow-normalized component (\cref{fig:clmchl}c), which further suggests a link between increased flow and phytoplankton production.  As such, \ac{chla} production in early years is directly related to flow, whereas the relationship with flow in later years is indirect as increased flow reduces clam abundance and releases phytoplankton from benthic grazing pressure. These relationships have been suggested by others\cite{Alpine92,Parchaso02,Jassby08}, although the precise mechanism demonstrated by \ac{wrtds} provides a quantitative description of factors that drive water quality in the Delta.
+The effect of flow as a top-down or bottom-up control changed throughout the time series.  The \ac{chla}/flow relationship showed that increasing flow (decreasing salinity) was associated with a slight increase in \ac{chla} followed by a decrease early in the time series (\cref{fig:clmchl}h), whereas overall \ac{chla} was lower but a positive association with flow (negative with salinity) was observed later in the time series. In the absence of benthic grazing prior to invasion, this dynamic suggests that \ac{chla} production may be limited at low flow as less nutrients are exported from the Delta, stimulated as flow increases, and reduced at high flow as either nutrients or phytoplankton biomass are exported to the larger bay. Following clam invasion later in the time series, \ac{chla} concentrations were reduced by grazing but showed a positive and monotonic relationship with increasing flow. The increase in clam abundance was concurrent with decline in \ac{chla} concentration, although variation in abundance between years was also observed.  For example, clam abundance was reduced during high flow years in the late 1990s, 2006, and 2011 (\ref{fig:clmchl}a). In the same years, \ac{wrtds} predictions for \ac{chla} were higher than the flow-normalized component (\cref{fig:clmchl}c), which further suggests a link between increased flow and phytoplankton production.  As such, \ac{chla} production in early years is directly related to flow, whereas the relationship with flow in later years is indirect as increased flow reduces clam abundance and releases phytoplankton from benthic grazing pressure. These relationships have been suggested by others\cite{Alpine92,Parchaso02,Jassby08}, although the precise mechanism demonstrated by \ac{wrtds} provides a quantitative description of factors that drive water quality in the Delta.
 
 As demonstrated by both case studies and the overall trends across all stations, water quality dynamics in the Delta are complex and driven by multiple factors that change through space and time.  At a minimum, \ac{wrtds} provides a description of change by focusing on high-level forcing factors that explicitly account for annual, seasonal, and flow effects on trend interpretations.  We have demonstrated the potential for imprecise or inaccurate conclusions of trend tests that focus solely on observed data and emphasize that flow-normalized trends have more power to quantify change.  Combined with additional data, \ac{wrtds} results can support hypotheses that lead to a more comprehensive understanding of ecosystem dynamics. Additional factors to consider include the effects of large-scale climatic patterns, more detailed hydrologic descriptions, and additional ecological components that affect trophic interactions.  For example, a more rigorous matching of flow time series with water quality observations at each station that considers varying source contributions over time could provide a more robust description of flow-normalized results.  Alternative methods for time series analysis could also be used to address a wider range of questions, particularly those with more generic structural forms that can explicitly include additional variables (e.g., generalized additive models).\cite{Beck17}  Overall, statistical interpretations of multiple factors can provide a basis for quantitative links between nutrient loads and adverse effects on ecosystem conditions, including the identification of thresholds for the protection and restoration of water quality. 
 
@@ -781,12 +781,15 @@ grid.arrange(
   )
 @
 
-<<clmchl, fig.height = 9, fig.width = 8, out.width = '0.9\\textwidth', cache = T, fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2013 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means), with biomass linked to salinity (b).  A decrease in \\ac{chla} concentration was also observed by changes in annual (c) and seasonal trends(d) based on \\ac{wrtds} results.  A significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (e).  Flow relationships with \\ac{chla} concentration shown by \\ac{wrtds} have also changed over time (f, observations from June).'>>=
+<<clmchl, fig.height = 9.3, fig.width = 8, out.width = '0.9\\textwidth', cache = T, fig.cap = 'Trends in clam abundance and \\ac{chla} concentration from 1976 to 2013 at station D7 in Suisun Bay.  Invasion by \\textit{Potamocorbula amurensis} clams in the late 1980s and displacement of \\textit{Corbicula fluminea} was shown by changes in clam density (a, annual means), with biomass linked to salinity (b).  A decrease in \\ac{chla} concentration was also observed by changes in annual (c) and seasonal trends (d) based on \\ac{wrtds} results.  Reductions in \\ac{chla} concentration were coincident with an increase in SiO$_2$ concentration (e), with the greatest increase in August (f). A significant ($p < 0.001$) relationship between clam biomass and \\ac{chla} concentration is shown in subfigure (g).  Flow relationships with \\ac{chla} concentration shown by \\ac{wrtds} have also changed over time (h, observations from June).'>>=
+
 # clam and model data at D7
 data(clams)
 data(h3dat)
 data(flow_dat)
+
 chld7 <- filter(h3dat, Site_Code %in% 'D7' & resvar %in% 'chl')$mod[[1]]
+sio2d7 <- filter(h3dat, Site_Code %in% 'D7' & resvar %in% 'sio2')$mod[[1]]
 
 clmdat <- group_by(clams, yr, species) %>% 
   dplyr::summarize(
@@ -856,7 +859,7 @@ xvals <- range(clmflo$q, na.rm = TRUE)
 xvals <- seq(xvals[1], xvals[2], length = 100)
 yvals <- (exp(mod[1] + mod[2] * log(1 + xvals))) - 1
 
-ylab <- expression(paste(italic(Potamocorbula), " biomass (g ", m^-2, ")"))
+ylab <- expression(paste(italic(Potamocorbula), " (g ", m^-2, ")"))
 xlab <- expression(paste("Sacramento daily flow (", m^3, ' ', s^-1, ")"))
 
 # scatter plot of concentration x biomass with model 
@@ -869,7 +872,7 @@ p2 <- ggplot(clmflo, aes(x = q, y = biomass)) +
   scale_y_continuous(ylab, limits = c(0,15)) +
   labs(title = '(b)')
 
-# prdnrmplot
+# prdnrmplot, chl
 ylab <- expression(paste("ln-chlorophyll (", italic(mu), "g ", L^-1, ")"))
 
 p3 <- prdnrmplot(chld7, predicted = F, col_vec = cols, min_mo = 10) + 
@@ -896,6 +899,37 @@ p4 <- seasyrplot(chld7, predicted = F, col_vec = cols, min_mo = 10) +
   guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10)) +
   scale_y_continuous(ylab) + 
   labs(title = '(d)')
+
+##
+# sio2 plots
+
+# prdnrmplot, sio2
+# ylab <- expression(paste("ln-chlorophyll (", italic(mu), "g ", L^-1, ")"))
+
+p5 <- prdnrmplot(sio2d7, predicted = F, col_vec = cols, min_mo = 10) + 
+  mythm + 
+  scale_x_date('Year') +
+  # scale_y_continuous(ylab) +
+  labs(title = '(e)')
+
+# seasyr plot, sio2
+p6 <- seasyrplot(sio2d7, predicted = F, col_vec = cols, min_mo = 10) + 
+  theme(
+    axis.line.x = element_line(), 
+    axis.line.y = element_line(), 
+    axis.ticks.x = element_line(),
+    axis.ticks.y = element_line(),
+    axis.ticks.length = unit(.1, "cm"), 
+    legend.title = element_blank(), 
+    panel.border = element_blank(), 
+    axis.title.x = element_text(),
+    plot.title = element_text(hjust = thjust, vjust = tvjust),
+    plot.margin = pmar
+    ) + 
+  scale_x_date('Day of year', date_labels = "%m/%d") +
+  guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10)) +
+  # scale_y_continuous(ylab) + 
+  labs(title = '(f)')
 
 ##
 # chlorophyll by month
@@ -933,18 +967,18 @@ yvals <- (exp(mod[1] + mod[2] * log(1 + xvals))) - 1
 xlab <- expression(paste(italic(Potamocorbula), " biomass (g ", m^-2, ")"))
 
 # scatter plot of concentration x biomass with model 
-p5 <- ggplot(toplo, aes(x = biomass, y = bt_norm)) + 
+p7 <- ggplot(toplo, aes(x = biomass, y = bt_norm)) + 
   geom_point(size = 3, alpha = 0.8, colour = 'darkgrey') + 
   geom_line(data = data.frame(x = xvals, y = yvals), aes(x, y, colour = 'black'), lwd = 1) +
   mythm + 
   scale_colour_manual(label = 'log(1 + chl) = 1.35 - 0.1log(1 + biomass)', values = 'black') +
   scale_x_continuous(xlab) + 
   scale_y_continuous(ylab, limits = c(0.8, 4)) +
-  labs(title = '(e)')
+  labs(title = '(g)')
 
 ##
 # dynaplot for chl, june
-p6 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F, size = 0.5) +
+p8 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F, size = 0.5) +
   mythm %+replace%
   theme(
     strip.background = element_blank(),
@@ -953,7 +987,7 @@ p6 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F, size = 0.5) +
   scale_x_continuous('Salinity (psu)') + 
   scale_y_continuous(ylab, limits = c(0.4, 3.3)) +
   guides(colour = guide_colourbar(barheight = 0.5, barwidth = 10)) + 
-  labs(title = '(f)')
+  labs(title = '(h)')
 
 ##
 # dimension formatting
@@ -962,28 +996,32 @@ p6 <- dynaplot(chld7, mo = 6, col_vec = cols, floscl = F, size = 0.5) +
 pA <- ggplot_gtable(ggplot_build(p1))
 pB <- ggplot_gtable(ggplot_build(p3))
 pC <- ggplot_gtable(ggplot_build(p5))
-maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3], pC$widths[c(2:3)])
+pD <- ggplot_gtable(ggplot_build(p7))
+maxWidth = unit.pmax(pA$widths[2:3], pB$widths[2:3], pC$widths[c(2:3)], pD$widths[c(2:3)])
 
 # Set the widths
 pA$widths[2:3] <- maxWidth
 pB$widths[2:3] <- maxWidth
 pC$widths[2:3] <- maxWidth
+pD$widths[2:3] <- maxWidth
 
 # align widths of plots in second column
-pD <- ggplot_gtable(ggplot_build(p2))
-pE <- ggplot_gtable(ggplot_build(p4))
-pF <- ggplot_gtable(ggplot_build(p6))
-maxWidth = unit.pmax(pD$widths[2:3], pE$widths[2:3], pF$widths[2:3])
+pE <- ggplot_gtable(ggplot_build(p2))
+pF <- ggplot_gtable(ggplot_build(p4))
+pG <- ggplot_gtable(ggplot_build(p6))
+pH <- ggplot_gtable(ggplot_build(p8))
+maxWidth = unit.pmax(pE$widths[2:3], pF$widths[2:3], pG$widths[2:3], pH$widths[2:3])
 
 # Set the widths
-pD$widths[2:3] <- maxWidth
 pE$widths[2:3] <- maxWidth
 pF$widths[2:3] <- maxWidth
+pG$widths[2:3] <- maxWidth
+pH$widths[2:3] <- maxWidth
 
 # combine all
 grid.arrange(
-  arrangeGrob(pA, pB, pC, ncol = 1, heights = c(1, 1, 1)), 
-  arrangeGrob(pD, pE, pF, ncol = 1, heights = c(1, 1, 1)), 
+  arrangeGrob(pA, pB, pC, pD, ncol = 1, heights = c(1, 1, 1, 1)), 
+  arrangeGrob(pE, pF, pG, pH, ncol = 1, heights = c(1, 1, 1, 1)), 
   ncol = 2, widths = c(1, 1)
   )
 @

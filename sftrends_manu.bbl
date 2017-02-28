@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{56}
+\begin{mcitethebibliography}{57}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -494,6 +494,14 @@ Parchaso,~F.; Thompson,~J.~K. Influence of hydrologic processes on reproduction
   of the introduced bivalve \textit{{P}otamocorbula amurensis} in northern
   {S}an {F}rancisco {B}ay, {C}alifornia. \emph{Pacific Science} \textbf{2002},
   \emph{56}, 329--345\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Kimmerer(2005)]{Kimmerer05}
+Kimmerer,~W. Long-term changes in apparent uptake of silica in the {S}an
+  {F}rancisco {E}stuary. \emph{Limnology and Oceanography} \textbf{2005},
+  \emph{50}, 793--798\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
