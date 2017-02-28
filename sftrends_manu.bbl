@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{57}
+\begin{mcitethebibliography}{56}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -206,13 +206,14 @@ Beck,~M.~W.; {Hagy III},~J.~D. Adaptation of a weighted regression approach to
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Beck and Murphy(In press)Beck, and Murphy]{BeckIP}
+\bibitem[Beck and Murphy(2017)Beck, and Murphy]{Beck17}
 Beck,~M.~W.; Murphy,~R.~R. Numerical and qualitative contrasts of two
   statistical models for water quality change in tidal waters. \emph{Journal of
-  the American Water Resources Association} \textbf{In press}, \relax
-\mciteBstWouldAddEndPunctfalse
+  the American Water Resources Association} \textbf{2017}, \emph{53},
+  197--219\relax
+\mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Beck \latin{et~al.}(2015)Beck, {Hagy III}, and Murrell]{Beck15b}
 Beck,~M.~W.; {Hagy III},~J.~D.; Murrell,~M.~C. Improving estimates of ecosystem
@@ -282,26 +283,6 @@ Novick,~E.; Holleman,~R.; Jabusch,~T.; Sun,~J.; Trowbridge,~P.; Senn,~D.;
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Cloern \latin{et~al.}(2007)Cloern, Jassby, Thompson, and
-  Hieb]{Cloern07}
-Cloern,~J.~E.; Jassby,~A.~D.; Thompson,~J.~K.; Hieb,~K.~A. A cold phase of the
-  {E}ast {P}acific triggers new phytoplankton blooms in {S}an {F}rancisco
-  {B}ay. \emph{Proceedings of the National Academy of Sciences of the United
-  States of America} \textbf{2007}, \emph{104}, 18561--18565\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Kemp \latin{et~al.}(2005)Kemp, Boynton, Adolf, Boesch, Boicourt,
-  Brush, Cornwell, Fisher, Glibert, Hagy, Harding, Houde, Kimmel, Miller,
-  Newell, Roman, Smith, and Stevenson]{Kemp05}
-Kemp,~W.~M. \latin{et~al.}  Eutrophication of {C}hesapeake {B}ay: historical
-  trends and ecological interactions. \emph{Marine Ecology Progress Series}
-  \textbf{2005}, \emph{303}, 1--29\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Kimmerer \latin{et~al.}(2012)Kimmerer, Parker, Lidstrom, and
   Carpenter]{Kimmerer12}
 Kimmerer,~W.~J.; Parker,~A.~E.; Lidstrom,~U.~E.; Carpenter,~E.~J. Short-term
@@ -327,6 +308,16 @@ Crauder,~J.~S.; Thompson,~J.~K.; Parchaso,~F.; Anduaga,~R.~I.; Pearson,~S.~A.;
   Gehrts,~K.; Fuller,~H.; Wells,~E. \emph{Bivalve effects on the food web
   supporting delta smelt - A long-term study of bivalve recruitment, biomass,
   and grazing rate patterns with varying freshwater outflow}; 2016\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Cloern \latin{et~al.}(2007)Cloern, Jassby, Thompson, and
+  Hieb]{Cloern07}
+Cloern,~J.~E.; Jassby,~A.~D.; Thompson,~J.~K.; Hieb,~K.~A. A cold phase of the
+  {E}ast {P}acific triggers new phytoplankton blooms in {S}an {F}rancisco
+  {B}ay. \emph{Proceedings of the National Academy of Sciences of the United
+  States of America} \textbf{2007}, \emph{104}, 18561--18565\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
