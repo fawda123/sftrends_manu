@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  28 FEB 2017 16:32
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  1 MAR 2017 08:43
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -389,12 +389,7 @@ Package: paralist 2013/06/09 v2.4 Extended list environments
 \plparsep=\skip58
 \pl@lab=\toks28
 )
-(C:\Users\mbeck\AppData\Roaming\MiKTeX\2.9\tex\latex\showlabels\showlabels.sty
-Package: showlabels 2013/12/06 v1.6.6
-
-Package: `showlabels' v1.6.6 <2013/12/06>
-\SL@labelposition=\count127
-) (C:\Users\mbeck\AppData\Roaming\MiKTeX\2.9\tex\latex\upquote\upquote.sty
+(C:\Users\mbeck\AppData\Roaming\MiKTeX\2.9\tex\latex\upquote\upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 
@@ -549,16 +544,16 @@ Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 (C:\Users\mbeck\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count128
+\scratchcounter=\count127
 \scratchdimen=\dimen135
 \scratchbox=\box29
-\nofMPsegments=\count129
-\nofMParguments=\count130
+\nofMPsegments=\count128
+\nofMParguments=\count129
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count131
+\MPscratchCnt=\count130
 \MPscratchDim=\dimen136
-\MPnumerator=\count132
-\makeMPintoPDFobject=\count133
+\MPnumerator=\count131
+\makeMPintoPDFobject=\count132
 \everyMPtoPDFconversion=\toks30
 )
 \AtBeginShipoutBox=\box30
@@ -569,7 +564,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count134
+\c@section@level=\count133
 )
 LaTeX Info: Redefining \ref on input line 119.
 LaTeX Info: Redefining \pageref on input line 119.
@@ -598,12 +593,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 120.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 120.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 123.
-
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
-File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
 Package acronym Info: Label `acro:wrtds' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 123.
@@ -625,20 +614,17 @@ Package acronym Info: Label `acro:wwtp' newly defined as it shall be overridden
 
 although it is yet undefined on input line 147.
  [5]
-Package acronym Info: Label `acro:SFE' newly defined as it shall be overridden
-although it is yet undefined on input line 156.
-
-
-Package acronym Warning: Acronym `SFE' is not defined on input line 156.
-
-
-Package acronym Warning: Acronym `SFE' is not defined on input line 156.
-
 Package acronym Info: Label `acro:iep' newly defined as it shall be overridden
 although it is yet undefined on input line 156.
 Package acronym Info: Label `acro:emp' newly defined as it shall be overridden
 although it is yet undefined on input line 156.
-[6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 156.
+
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+) [6] [7] [8] [9]
+[10] [11] [12] [13] [14] [15] [16] [17]
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.bbl [18] [19] [20] [21])
 
 pdfTeX warning: pdflatex.exe (file M:/docs/manuscripts/sftrends_manu/figs/delt_
@@ -727,7 +713,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 511.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 511.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 511.
 Package rerunfilecheck Info: File `sftrends_manu.out' has not changed.
-(rerunfilecheck)             Checksum: 61047CA77D975DC3AF854446EF744A33;858.
+(rerunfilecheck)             Checksum: C4237FB0711CED04D5C5E540CBC07BAF;858.
 
 
 LaTeX Warning: There were multiply-defined labels.
@@ -735,44 +721,43 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 511.
  ) 
 Here is how much of TeX's memory you used:
- 11795 strings out of 493921
- 189000 string characters out of 3147282
- 311733 words of memory out of 3000000
- 14788 multiletter control sequences out of 15000+200000
- 25458 words of font info for 53 fonts, out of 3000000 for 9000
+ 11724 strings out of 493921
+ 187897 string characters out of 3147282
+ 310713 words of memory out of 3000000
+ 14723 multiletter control sequences out of 15000+200000
+ 25144 words of font info for 52 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  60i,10n,94p,2121b,779s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\
 ecbi1000.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\
 ec\dpi600\ecbi1200.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour
-\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts
-\pk\ljfour\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\mbeck\AppData\Local\MiKTeX
+\jknappen\ec\dpi600\ecbx1200.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts
+\pk\ljfour\jknappen\ec\dpi600\ectt1200.pk> <C:\Users\mbeck\AppData\Local\MiKTeX
 \2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1440.pk> <C:\Users\mbeck\AppData\Lo
 cal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm0800.pk> <C:\Users\mbeck\
 AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecbx1728.pk> <C:\Us
 ers\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.
 pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
-\ectt1095.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
-\ec\dpi600\ecrm1095.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
-r\jknappen\ec\dpi600\ecss0600.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\font
-s\pk\ljfour\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\mbeck\AppData\Local\MiKTe
-X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\mbeck\AppData\L
-ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1200.pk> <C:\Users\mbeck
-\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\U
-sers\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1000
+\ecrm1095.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen
+\ec\dpi600\ecss0600.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfou
+r\jknappen\ec\dpi600\ecbx1095.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\font
+s\pk\ljfour\jknappen\ec\dpi600\ecrm1200.pk> <C:\Users\mbeck\AppData\Local\MiKTe
+X\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1200.pk> <C:\Users\mbeck\AppData\L
+ocal\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecti1200.pk> <C:\Users\mbeck
+\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1000.pk> <C:\U
+sers\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecss1440
 .pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi60
-0\ecss1440.pk> <C:\Users\mbeck\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappe
-n\ec\dpi600\ecsx2074.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
-i12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy8.pfb>
-Output written on sftrends_manu.pdf (35 pages, 1981698 bytes).
+0\ecsx2074.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
+:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program
+ Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmsy8.pfb>
+Output written on sftrends_manu.pdf (35 pages, 1970385 bytes).
 PDF statistics:
- 1214 PDF objects out of 1440 (max. 8388607)
- 135 named destinations out of 1000 (max. 500000)
+ 1179 PDF objects out of 1200 (max. 8388607)
+ 134 named destinations out of 1000 (max. 500000)
  145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
