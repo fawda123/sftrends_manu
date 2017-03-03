@@ -224,22 +224,6 @@ Beck,~M.~W.; {Hagy III},~J.~D.; Murrell,~M.~C. Improving estimates of ecosystem
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Cloern(2015)]{Cloern15}
-Cloern,~J.~E. In \emph{{Ecosystems of California: A Source Book}}; Mooney,~H.,
-  Zavaleta,~E., Eds.; University of California Press: California, 2015; pp
-  359--387\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Cloern and Jassby(2012)Cloern, and Jassby]{Cloern12b}
-Cloern,~J.~E.; Jassby,~A.~D. Drivers of change in estuarine-coastal ecosystems:
-  Discoveries from four decades of study in {S}an {F}rancisco {B}ay.
-  \emph{Reviews of Geophysics} \textbf{2012}, \emph{50}, 1--33\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Jassby and Cloern(2000)Jassby, and Cloern]{Jassby00}
 Jassby,~A.~D.; Cloern,~J.~E. Organic matter sources and rehabilitations of the
   {S}acramento-{S}an {J}oaquin {D}elta ({C}alifornia, {USA}. \textbf{2000},
@@ -264,6 +248,14 @@ Jassby,~A.~D. Phytoplankton in the {U}pper {S}an {F}rancisco {E}stuary: Recent
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
+\bibitem[Cloern and Jassby(2012)Cloern, and Jassby]{Cloern12b}
+Cloern,~J.~E.; Jassby,~A.~D. Drivers of change in estuarine-coastal ecosystems:
+  Discoveries from four decades of study in {S}an {F}rancisco {B}ay.
+  \emph{Reviews of Geophysics} \textbf{2012}, \emph{50}, 1--33\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
 \bibitem[Jabusch \latin{et~al.}(2016)Jabusch, Bresnahan, Trowbridge, Novick,
   Wong, Salomon, and Senn]{Jabusch16}
 Jabusch,~T.; Bresnahan,~P.; Trowbridge,~P.; Novick,~E.; Wong,~A.; Salomon,~M.;
@@ -279,6 +271,14 @@ Novick,~E.; Holleman,~R.; Jabusch,~T.; Sun,~J.; Trowbridge,~P.; Senn,~D.;
   Guerin,~M.; Kendall,~C.; Young,~M.; Peek,~S. \emph{Characterizing and
   quantifying nutrient sources, sinks and transformations in the {D}elta:
   synthesis, modeling, and recommendations for monitoring}; 2015\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Cloern(2015)]{Cloern15}
+Cloern,~J.~E. In \emph{{Ecosystems of California: A Source Book}}; Mooney,~H.,
+  Zavaleta,~E., Eds.; University of California Press: California, 2015; pp
+  359--387\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
