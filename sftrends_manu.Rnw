@@ -92,8 +92,8 @@ vers <- paste0('Version: ', date, ', ', commit)
 \email{beck.marcus@epa.gov}
 \phone{+1 (850)9342480}
 \fax{+1 (850)9342401}
-\author{David Senn}
-\author{Thomas Jabusch}
+\author{David B. Senn}
+\author{Thomas W. Jabusch}
 \author{Phil Trowbridge}
 \affiliation{San Francisco Estuary Institute, Richmond, CA}
 
