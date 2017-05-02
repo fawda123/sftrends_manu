@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  2 MAY 2017 08:36
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2013.8.29)  2 MAY 2017 09:56
 entering extended mode
 **sftrends_manu.tex
 (M:\docs\manuscripts\sftrends_manu\sftrends_manu.tex
@@ -733,7 +733,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 515.
 Here is how much of TeX's memory you used:
  11723 strings out of 493921
  187873 string characters out of 3147282
- 310724 words of memory out of 3000000
+ 310723 words of memory out of 3000000
  14722 multiletter control sequences out of 15000+200000
  25920 words of font info for 53 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
@@ -766,9 +766,9 @@ m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmsy8.pfb>
-Output written on sftrends_manu.pdf (35 pages, 2503913 bytes).
+Output written on sftrends_manu.pdf (35 pages, 2503497 bytes).
 PDF statistics:
- 1185 PDF objects out of 1200 (max. 8388607)
+ 1184 PDF objects out of 1200 (max. 8388607)
  133 named destinations out of 1000 (max. 500000)
  145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

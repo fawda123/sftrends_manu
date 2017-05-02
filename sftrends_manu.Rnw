@@ -92,9 +92,9 @@ vers <- paste0('Version: ', date, ', ', commit)
 \email{beck.marcus@epa.gov}
 \phone{+1 (850)9342480}
 \fax{+1 (850)9342401}
-\author{David B. Senn}
 \author{Thomas W. Jabusch}
 \author{Philip R. Trowbridge}
+\author{David B. Senn}
 \affiliation{San Francisco Estuary Institute, Richmond, CA}
 
 \title[Water quality change in the upper SFE]{Four decades of water quality change in the upper San Francisco Estuary\footnote{\Sexpr{vers}\newline The views expressed in this paper are those of the authors and do not necessarily reflect the views or policies of the U.S. Environmental Protection Agency.}}
