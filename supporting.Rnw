@@ -68,7 +68,7 @@ library(forcats)
 \begin{document}
 
 % supplementary material
-\section*{Supplementary Information}
+\section*{Supporting Information}
 
 \noindent{\bf Four decades of water quality change in the upper San Francisco Estuary}
 \vspace{0.1in}
@@ -78,7 +78,7 @@ library(forcats)
 
 \beginsupplement
 
-\noindent The following files are available free of charge: \cref{fig:trndcomp2,fig:trndcomp3,fig:stock}, \cref{tab:trndsann,tab:trndsbef,tab:trndsaft}
+\noindent The following files are available free of charge: \cref{fig:trndcomp2,fig:trndcomp3,fig:stock}, \cref{tab:trndsann,tab:trndsbef,tab:trndsaft} (7 pages)
 
 \begin{figure}
 \centering
@@ -177,8 +177,8 @@ tab <- trnds_nrm %>%
   select(Site_Code, resvar, `1976-1995`, `1996-2013`)
 
 # table stuff
-cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and annual aggregations.  Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period.'
-foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and annual aggregations'
+foot.val<-'\\footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. *$p<0.05$; **$p<0.005$'
 vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 stats <- tab$Site_Code
 
@@ -230,8 +230,8 @@ tab <- trnds_nrm %>%
   arrange(resvar, Site_Code)
 
 # table stuff
-cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1976-1995. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
-foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1976-1995'
+foot.val<-'\\footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$; **$p<0.005$'
 vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 stats <- tab$Site_Code
 
@@ -283,8 +283,8 @@ tab <- trnds_nrm %>%
   arrange(resvar, Site_Code)
 
 # table stuff
-cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1996-2013. Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF.'
-foot.val<-'\\footnotesize *$p<0.05$; **$p<0.005$'
+cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1996-2013'
+foot.val<-'\\footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$; **$p<0.005$'
 vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 stats <- tab$Site_Code
 

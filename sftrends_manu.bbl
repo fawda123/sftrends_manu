@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{56}
+\begin{mcitethebibliography}{51}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -37,41 +37,6 @@ O`Neill,~R.~V.; Johnson,~A.~R.; King,~A.~W. A hierarchical framework for the
 \bibitem[Levin(1992)]{Levin92}
 Levin,~S.~A. The problem of pattern and scale in ecology. \emph{Ecology}
   \textbf{1992}, \emph{73}, 1943--1967\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Bhangu and Whitfield(1997)Bhangu, and Whitfield]{Bhangu97}
-Bhangu,~I.; Whitfield,~P.~H. Seasonal and long-term variations in water quality
-  of the {S}keena {R}iver at {U}sk, {B}ritish {C}olumbia. \emph{Water Research}
-  \textbf{1997}, \emph{31}, 2187--2194\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Champely and Doledec(1997)Champely, and Doledec]{Champely97}
-Champely,~S.; Doledec,~S. How to separate long-term trends from periodic
-  variation in water quality monitoring. \emph{Water Research} \textbf{1997},
-  \emph{31}, 2849--2857\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Chang(2008)]{Chang08}
-Chang,~H. Spatial analysis of water quality trends in the {H}an {R}iver basin,
-  {S}outh {K}orea. \emph{Water Research} \textbf{2008}, \emph{42},
-  3285--3304\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Halliday \latin{et~al.}(2012)Halliday, Wade, Skeffington, Neal,
-  Reynolds, Rowland, Neal, and Norris]{Halliday12}
-Halliday,~S.~J.; Wade,~A.~J.; Skeffington,~R.~A.; Neal,~C.; Reynolds,~B.;
-  Rowland,~P.; Neal,~M.; Norris,~D. An analysis of long-term trends,
-  seasonality and short-term dynamics in water quality data from {P}lynlimon,
-  {W}ales. \emph{Science of the Total Environment} \textbf{2012}, \emph{434},
-  186--200\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -139,6 +104,17 @@ Esterby,~S.~R. Review of methods for the detection and estimation of trends
 Bowes,~M.~J.; Smith,~J.~T.; Neal,~C. The value of high resolution nutrient
   monitoring: a case study of the {R}iver {F}rome, {D}orset, {UK}.
   \emph{Journal of Hydrology} \textbf{2009}, \emph{378}, 82--96\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Halliday \latin{et~al.}(2012)Halliday, Wade, Skeffington, Neal,
+  Reynolds, Rowland, Neal, and Norris]{Halliday12}
+Halliday,~S.~J.; Wade,~A.~J.; Skeffington,~R.~A.; Neal,~C.; Reynolds,~B.;
+  Rowland,~P.; Neal,~M.; Norris,~D. An analysis of long-term trends,
+  seasonality and short-term dynamics in water quality data from {P}lynlimon,
+  {W}ales. \emph{Science of the Total Environment} \textbf{2012}, \emph{434},
+  186--200\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -226,11 +202,12 @@ Beck,~M.~W.; {Hagy III},~J.~D.; Murrell,~M.~C. Improving estimates of ecosystem
 \EndOfBibitem
 \bibitem[Jassby and Cloern(2000)Jassby, and Cloern]{Jassby00}
 Jassby,~A.~D.; Cloern,~J.~E. Organic matter sources and rehabilitations of the
-  {S}acramento-{S}an {J}oaquin {D}elta ({C}alifornia, {USA}. \textbf{2000},
-  \relax
-\mciteBstWouldAddEndPunctfalse
+  {S}acramento-{S}an {J}oaquin {D}elta ({C}alifornia, {USA}). \emph{Aquatic
+  Conservation: Marine and Freshwater Ecosystems} \textbf{2000}, \emph{10},
+  323--352\relax
+\mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
 \bibitem[Jassby \latin{et~al.}(2002)Jassby, Cloern, and Cole]{Jassby02}
 Jassby,~A.~D.; Cloern,~J.~E.; Cole,~B.~E. Annual primary production: Patterns
@@ -312,32 +289,22 @@ Crauder,~J.~S.; Thompson,~J.~K.; Parchaso,~F.; Anduaga,~R.~I.; Pearson,~S.~A.;
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
 \EndOfBibitem
-\bibitem[Cloern \latin{et~al.}(2007)Cloern, Jassby, Thompson, and
-  Hieb]{Cloern07}
-Cloern,~J.~E.; Jassby,~A.~D.; Thompson,~J.~K.; Hieb,~K.~A. A cold phase of the
-  {E}ast {P}acific triggers new phytoplankton blooms in {S}an {F}rancisco
-  {B}ay. \emph{Proceedings of the National Academy of Sciences of the United
-  States of America} \textbf{2007}, \emph{104}, 18561--18565\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Sutula \latin{et~al.}(in review)Sutula, Kudela, III, Jr., Senn,
-  Cloern, Bricker, Berg, and Beck]{SutulaIR}
-Sutula,~M.; Kudela,~R.; III,~J. D.~H.; Jr.,~L. W.~H.; Senn,~D.; Cloern,~J.~E.;
-  Bricker,~S.; Berg,~G.~M.; Beck,~M.~W. Novel analyses of long-term data
-  provide a scientific basis for chlorophyll-a thresholds in {S}an {F}rancisco
-  {B}ay. \emph{Estuarine, Coastal and Shelf Science} \textbf{in review}, \relax
-\mciteBstWouldAddEndPunctfalse
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
 \bibitem[Lehman \latin{et~al.}(2005)Lehman, Boyer, Hall, Waller, and
   Gehrts]{Lehman05}
 Lehman,~P.~W.; Boyer,~G.; Hall,~C.; Waller,~S.; Gehrts,~K. Distribution and
   toxicity of a new colonial \textit{{M}icrocystis aeruginosa} bloom in the
   {S}an {F}rancisco {B}ay {E}stuary, {C}alifornia. \emph{Hydrobiologia}
   \textbf{2005}, \emph{541}, 87--99\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[Cloern \latin{et~al.}(2007)Cloern, Jassby, Thompson, and
+  Hieb]{Cloern07}
+Cloern,~J.~E.; Jassby,~A.~D.; Thompson,~J.~K.; Hieb,~K.~A. A cold phase of the
+  {E}ast {P}acific triggers new phytoplankton blooms in {S}an {F}rancisco
+  {B}ay. \emph{Proceedings of the National Academy of Sciences of the United
+  States of America} \textbf{2007}, \emph{104}, 18561--18565\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
@@ -410,14 +377,6 @@ IEP, {IEP Bay-Delta Monitoring and Analysis Section, Discrete Water Quality
 IEP, {Dayflow: An estimate of daily average Delta outflow. Interagency
   Ecological Program for the San Francisco Estuary}. 2016;
   \url{http://www.water.ca.gov/dayflow/}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Moyer \latin{et~al.}(2012)Moyer, Hirsch, and Hyer]{Moyer12}
-Moyer,~D.~L.; Hirsch,~R.~M.; Hyer,~K.~E. \emph{Comparison of two
-  regression-based approaches for determining nutrient and sediment fluxes and
-  trends in the {C}hesapeake {B}ay Watershed}; 2012; p 118\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
