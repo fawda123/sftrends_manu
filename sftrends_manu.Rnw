@@ -79,6 +79,8 @@ library(forcats)
 
 \begin{abstract}
 \noindent Recent methods for trend analysis have been developed that leverage the descriptive potential of multi-decadal monitoring data.  We apply an estuarine adaptation of the \ac{wrtds} model to describe water quality trends over four decades in the Delta region of the \ac{sfe}. Results from multiple stations in the Delta provided novel descriptions of historical trends and relationships between key species of dissolved inorganic nitrogen (ammonium, nitrate/nitrite, total).  Trend analysis with \ac{wrtds} flow-normalized data demonstrated the potential to misinterpret changes using observed data that include flow effects, such that several trends with flow-normalized data had changes in magnitude and even reversal of trends relative to the observed.  We further demonstrate use of \ac{wrtds} to provide insight into mechanisms of change with two case studies that 1) evaluate downstream changes in nitrogen following upgrades at a wastewater treatment plant, and 2) interactions between biological invaders, chlorophyll, and flow in Suisun Bay.  Overall, this analysis provides an ecological and management-based understanding of historical trends in the Delta as a means to interpret potential impacts of recent changes and expected trends.
+
+\centerline{\includegraphics[width=0.9\textwidth]{figs/tocabs.pdf}}
 \end{abstract}
 \acresetall
 
