@@ -8,7 +8,7 @@
 \providecommand*\mcitethebibliography{\thebibliography}
 \csname @ifundefined\endcsname{endmcitethebibliography}
   {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{54}
+\begin{mcitethebibliography}{55}
 \providecommand*\natexlab[1]{#1}
 \providecommand*\mciteSetBstSublistMode[1]{}
 \providecommand*\mciteSetBstMaxWidthForm[2]{}
@@ -393,6 +393,14 @@ Tobin,~J. Estimation of relationships for limited dependent variables.
 Beck,~M.~W. {WRTDStidal: Weighted Regression for Water Quality Evaluation in
   Tidal Waters}. 2016; R package version 1.0.2.
   \url{http://CRAN.R-project.org/package=WRTDStidal}\relax
+\mciteBstWouldAddEndPuncttrue
+\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
+{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
+\EndOfBibitem
+\bibitem[{RDCT (R Development Core Team)}(2017)]{RDCT17}
+{RDCT (R Development Core Team)}, {R: A language and environment for
+  statistical computing, v3.3.2. R Foundation for Statistical Computing,
+  Vienna, Austria}. 2017; \url{http://www.R-project.org}\relax
 \mciteBstWouldAddEndPuncttrue
 \mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
 {\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax

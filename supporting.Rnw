@@ -73,7 +73,7 @@ library(forcats)
 \noindent{\bf Four decades of water quality change in the upper San Francisco Estuary}
 \vspace{0.1in}
 
-\noindent Marcus W. Beck (beck.marcus@epa.gov), Thomas W. Jabusch,Philip R. Trowbridge, David B. Senn
+\noindent Marcus W. Beck (beck.marcus@epa.gov), Thomas W. Jabusch, Philip R. Trowbridge, David B. Senn
 \vspace{0.1in}
 
 \beginsupplement
