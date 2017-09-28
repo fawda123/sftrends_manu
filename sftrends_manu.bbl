@@ -1,504 +1,336 @@
-\providecommand{\latin}[1]{#1}
-\makeatletter
-\providecommand{\doi}
-  {\begingroup\let\do\@makeother\dospecials
-  \catcode`\{=1 \catcode`\}=2\doi@aux}
-\providecommand{\doi@aux}[1]{\endgroup\texttt{#1}}
-\makeatother
-\providecommand*\mcitethebibliography{\thebibliography}
-\csname @ifundefined\endcsname{endmcitethebibliography}
-  {\let\endmcitethebibliography\endthebibliography}{}
-\begin{mcitethebibliography}{55}
-\providecommand*\natexlab[1]{#1}
-\providecommand*\mciteSetBstSublistMode[1]{}
-\providecommand*\mciteSetBstMaxWidthForm[2]{}
-\providecommand*\mciteBstWouldAddEndPuncttrue
-  {\def\EndOfBibitem{\unskip.}}
-\providecommand*\mciteBstWouldAddEndPunctfalse
-  {\let\EndOfBibitem\relax}
-\providecommand*\mciteSetBstMidEndSepPunct[3]{}
-\providecommand*\mciteSetBstSublistLabelBeginEnd[3]{}
-\providecommand*\EndOfBibitem{}
-\mciteSetBstSublistMode{f}
-\mciteSetBstMaxWidthForm{subitem}{(\alph{mcitesubitemcount})}
-\mciteSetBstSublistLabelBeginEnd
-  {\mcitemaxwidthsubitemform\space}
-  {\relax}
-  {\relax}
+ \newcommand{\noop}[1]{}
+\begin{thebibliography}{}
 
-\bibitem[O`Neill \latin{et~al.}(1989)O`Neill, Johnson, and King]{Oneill89}
-O`Neill,~R.~V.; Johnson,~A.~R.; King,~A.~W. A hierarchical framework for the
-  analysis of scale. \emph{Landsc. Ecol.} \textbf{1989}, \emph{3},
-  193--205\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Levin(1992)]{Levin92}
-Levin,~S.~A. The problem of pattern and scale in ecology. \emph{Ecol.}
-  \textbf{1992}, \emph{73}, 1943--1967\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Cloern(1996)]{Cloern96}
-Cloern,~J.~E. Phytoplankton bloom dynamics in coastal ecosystems: {A} review
-  with some general lessons from sustained investigation of {S}an {F}rancisco
-  {B}ay, {C}alifornia. \emph{Rev. Geophys.} \textbf{1996}, \emph{34},
-  127--168\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Cloern and Jassby(2010)Cloern, and Jassby]{Cloern10}
-Cloern,~J.~E.; Jassby,~A.~D. Patterns and scales of phytoplankton variability
-  in estuarine-coastal ecosystems. \emph{Estuaries Coasts} \textbf{2010},
-  \emph{33}, 230--241\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Sakamoto and Tanaka(1989)Sakamoto, and Tanaka]{Sakamoto89}
-Sakamoto,~M.; Tanaka,~T. Phosphorus dynamics associated with phytoplankton
-  blooms in eutrophic {M}ikawa {B}ay, {J}apan. \emph{Mar. Biology}
-  \textbf{1989}, \emph{101}, 265--271\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Schultz and Urban(2008)Schultz, and Urban]{Schultz08}
-Schultz,~P.; Urban,~N.~R. Effects of bacterial dynamics on organic matter
-  decomposition and nutrient release from sediments: A modeling study.
-  \emph{Ecol. Model.} \textbf{2008}, \emph{210}, 1--14\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Harding \latin{et~al.}(2016)Harding, Gallegos, Perry, Miller, Adolf,
-  Mallonee, and Paerl]{Harding16}
-Harding,~L.~W.; Gallegos,~C.~L.; Perry,~E.~S.; Miller,~W.~D.; Adolf,~J.~E.;
-  Mallonee,~M.~E.; Paerl,~H.~W. Long-term trends of nutrients and phytoplankton
-  in {C}hesapeake {B}ay. \emph{Estuaries Coasts} \textbf{2016}, \emph{39},
-  664--681\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Hirsch \latin{et~al.}(1991)Hirsch, Alexander, and Smith]{Hirsch91}
-Hirsch,~R.~M.; Alexander,~R.~B.; Smith,~R.~A. Selection of methods for the
-  detection and estimation of trends in water quality. \emph{Water Resour.
-  Res.} \textbf{1991}, \emph{27}, 803--813\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Esterby(1996)]{Esterby96}
-Esterby,~S.~R. Review of methods for the detection and estimation of trends
-  with emphasis on water quality applications. \emph{Hydrol. Process.}
-  \textbf{1996}, \emph{10}, 127--149\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Bowes \latin{et~al.}(2009)Bowes, Smith, and Neal]{Bowes09}
-Bowes,~M.~J.; Smith,~J.~T.; Neal,~C. The value of high resolution nutrient
-  monitoring: a case study of the {R}iver {F}rome, {D}orset, {UK}. \emph{J.
-  Hydrol.} \textbf{2009}, \emph{378}, 82--96\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Halliday \latin{et~al.}(2012)Halliday, Wade, Skeffington, Neal,
-  Reynolds, Rowland, Neal, and Norris]{Halliday12}
-Halliday,~S.~J.; Wade,~A.~J.; Skeffington,~R.~A.; Neal,~C.; Reynolds,~B.;
-  Rowland,~P.; Neal,~M.; Norris,~D. An analysis of long-term trends,
-  seasonality and short-term dynamics in water quality data from {P}lynlimon,
-  {W}ales. \emph{Sci. Total. Environ.} \textbf{2012}, \emph{434},
-  186--200\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Hirsch \latin{et~al.}(2010)Hirsch, Moyer, and Archfield]{Hirsch10}
-Hirsch,~R.~M.; Moyer,~D.~L.; Archfield,~S.~A. Weighted regressions on time,
-  discharge, and season ({WRTDS}), with an application to {C}hesapeake {B}ay
-  river inputs. \emph{J. Am. Water Resour. Assoc.} \textbf{2010}, \emph{46},
-  857--880\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Sprague \latin{et~al.}(2011)Sprague, Hirsch, and Aulenbach]{Sprague11}
-Sprague,~L.~A.; Hirsch,~R.~M.; Aulenbach,~B.~T. Nitrate in the {M}ississippi
-  {R}iver and its tributaries, 1980 to 2008: Are we making progress?
-  \emph{Environ. Sci. Technol.} \textbf{2011}, \emph{45}, 7209--7216\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Medalie \latin{et~al.}(2012)Medalie, Hirsch, and Archfield]{Medalie12}
-Medalie,~L.; Hirsch,~R.~M.; Archfield,~S.~A. Use of flow-normalization to
-  evaluate nutrient concentration and flux changes in {L}ake {C}hamplain
-  tributaries, 1990-2009. \emph{J. Gt. Lakes Res.} \textbf{2012}, \emph{38},
-  58--67\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Hirsch and {De Cicco}(2014)Hirsch, and {De Cicco}]{Hirsch14}
-Hirsch,~R.~M.; {De Cicco},~L. User guide to {E}xploration and {G}raphics for
-  {R}iv{E}r {T}rends ({EGRET}) and data{R}etrieval: {R} packages for hydrologic
-  data. 2014; Techniques and Methods book 4, ch. A10, US Geological Survey,
-  Reston, Virginia. \url{http://pubs.usgs.gov/tm/04/a10/}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Pellerin \latin{et~al.}(2014)Pellerin, Bergamaschi, Gilliom, Crawford,
-  Saraceno, Frederick, Downing, and Murphy]{Pellerin14}
-Pellerin,~B.~A.; Bergamaschi,~B.~A.; Gilliom,~R.~J.; Crawford,~C.~G.;
-  Saraceno,~J.~F.; Frederick,~C.~P.; Downing,~B.~D.; Murphy,~J.~C.
-  {M}ississippi {R}iver nitrate loads from high frequency sensor measurements
-  and regression-based load estimation. \emph{Environ. Sci. Technol.}
-  \textbf{2014}, \emph{48}, 12612--12619\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Zhang \latin{et~al.}(2016)Zhang, Harman, and Ball]{Zhang16}
-Zhang,~Q.; Harman,~C.~J.; Ball,~W.~P. An improved method for interpretation of
-  riverine concentration-discharge relationships indicates long-term shifts in
-  reservoir sediment trapping. \emph{Geophys. Res. Lett.} \textbf{2016},
-  \emph{43}, 215--224\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Beck and {Hagy III}(2015)Beck, and {Hagy III}]{Beck15}
-Beck,~M.~W.; {Hagy III},~J.~D. Adaptation of a weighted regression approach to
-  evaluate water quality trends in an estuary. \emph{Environ. Model. Assess.}
-  \textbf{2015}, \emph{20}, 637--655\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Beck and Murphy(2017)Beck, and Murphy]{Beck17}
-Beck,~M.~W.; Murphy,~R.~R. Numerical and qualitative contrasts of two
-  statistical models for water quality change in tidal waters. \emph{J. Am.
-  Water Resour. Assoc.} \textbf{2017}, \emph{53}, 197--219\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Beck \latin{et~al.}(2015)Beck, {Hagy III}, and Murrell]{Beck15b}
-Beck,~M.~W.; {Hagy III},~J.~D.; Murrell,~M.~C. Improving estimates of ecosystem
-  metabolism by reducing effects of tidal advection on dissolved oxygen time
-  series. \emph{Limnol. Oceanogr. Methods} \textbf{2015}, \emph{13},
-  731--745\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Jassby and Cloern(2000)Jassby, and Cloern]{Jassby00}
-Jassby,~A.~D.; Cloern,~J.~E. Organic matter sources and rehabilitations of the
-  {S}acramento-{S}an {J}oaquin {D}elta ({C}alifornia, {USA}). \emph{Aquat.
-  Conserv. Mar. Freshw. Ecosyst.} \textbf{2000}, \emph{10}, 323--352\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Jassby \latin{et~al.}(2002)Jassby, Cloern, and Cole]{Jassby02}
-Jassby,~A.~D.; Cloern,~J.~E.; Cole,~B.~E. Annual primary production: Patterns
-  and mechanisms of change in a nutrient-rich tidal ecosystem. \emph{Limnol.
-  Oceanogr.} \textbf{2002}, \emph{47}, 698--712\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Jassby(2008)]{Jassby08}
-Jassby,~A.~D. Phytoplankton in the {U}pper {S}an {F}rancisco {E}stuary: Recent
-  biomass trends, their causes, and their trophic significance. \emph{San Fr.
-  Estuary Watershed Sci.} \textbf{2008}, \emph{6}, 1--24\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Cloern and Jassby(2012)Cloern, and Jassby]{Cloern12b}
-Cloern,~J.~E.; Jassby,~A.~D. Drivers of change in estuarine-coastal ecosystems:
-  Discoveries from four decades of study in {S}an {F}rancisco {B}ay. \emph{Rev.
-  Geophys.} \textbf{2012}, \emph{50}, 1--33\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Jabusch \latin{et~al.}(2016)Jabusch, Bresnahan, Trowbridge, Novick,
-  Wong, Salomon, and Senn]{Jabusch16}
-Jabusch,~T.; Bresnahan,~P.; Trowbridge,~P.; Novick,~E.; Wong,~A.; Salomon,~M.;
-  Senn,~D. Summary and evaluation of Delta subregions for nutrient monitoring
-  and assessment. 2016; San Francisco Estuary Institute, Richmond, CA.
-  \url{http://sfbaynutrients.sfei.org/books/dsp-nutrient-monitoring-and-assessment}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Novick \latin{et~al.}(2015)Novick, Holleman, Jabusch, Sun, Trowbridge,
-  Senn, Guerin, Kendall, Young, and Peek]{Novick15}
-Novick,~E.; Holleman,~R.; Jabusch,~T.; Sun,~J.; Trowbridge,~P.; Senn,~D.;
-  Guerin,~M.; Kendall,~C.; Young,~M.; Peek,~S. Characterizing and quantifying
-  nutrient sources, sinks and transformations in the {D}elta: synthesis,
-  modeling, and recommendations for monitoring. 2015; Contribution Number 785,
-  San Francisco Estuary Institute, Richmond, CA\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Cloern(2015)]{Cloern15}
-Cloern,~J.~E. In \emph{{Ecosystems of California: A Source Book}}; Mooney,~H.,
-  Zavaleta,~E., Eds.; University of California Press: California, 2015; pp
-  359--387\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Kimmerer \latin{et~al.}(2012)Kimmerer, Parker, Lidstrom, and
-  Carpenter]{Kimmerer12}
-Kimmerer,~W.~J.; Parker,~A.~E.; Lidstrom,~U.~E.; Carpenter,~E.~J. Short-term
-  and interannual variability in primary production in the low-salinity zone of
-  the {S}an {F}rancisco {E}stuary. \emph{Estuaries Coasts} \textbf{2012},
-  \emph{35}, 913--929\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Thompson \latin{et~al.}(2008)Thompson, Koseff, Monismith, and
-  Lucas]{Thompson08}
-Thompson,~J.~K.; Koseff,~J.~R.; Monismith,~S.~G.; Lucas,~L.~V. Shallow water
-  processes govern system-wide phytoplankton bloom dynamics: A field study.
-  \emph{J. Mar. Syst.} \textbf{2008}, \emph{74}, 153--166\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Crauder \latin{et~al.}(2016)Crauder, Thompson, Parchaso, Anduaga,
-  Pearson, Gehrts, Fuller, and Wells]{Crauder16}
-Crauder,~J.~S.; Thompson,~J.~K.; Parchaso,~F.; Anduaga,~R.~I.; Pearson,~S.~A.;
-  Gehrts,~K.; Fuller,~H.; Wells,~E. Bivalve effects on the food web supporting
-  delta smelt - A long-term study of bivalve recruitment, biomass, and grazing
-  rate patterns with varying freshwater outflow. 2016; Open-File Report
-  2016-1005, US Geological Survey, Reston, Virginia\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Lehman \latin{et~al.}(2005)Lehman, Boyer, Hall, Waller, and
-  Gehrts]{Lehman05}
-Lehman,~P.~W.; Boyer,~G.; Hall,~C.; Waller,~S.; Gehrts,~K. Distribution and
-  toxicity of a new colonial \textit{{M}icrocystis aeruginosa} bloom in the
-  {S}an {F}rancisco {B}ay {E}stuary, {C}alifornia. \emph{Hydrobiol.}
-  \textbf{2005}, \emph{541}, 87--99\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Cloern \latin{et~al.}(2007)Cloern, Jassby, Thompson, and
-  Hieb]{Cloern07}
-Cloern,~J.~E.; Jassby,~A.~D.; Thompson,~J.~K.; Hieb,~K.~A. A cold phase of the
-  {E}ast {P}acific triggers new phytoplankton blooms in {S}an {F}rancisco
-  {B}ay. \emph{Proc. Natl. Acad. Sci. United States Am.} \textbf{2007},
-  \emph{104}, 18561--18565\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Lehman \latin{et~al.}(2010)Lehman, Teh, Boyer, Nobriga, Bass, and
-  Hogle]{Lehman10}
-Lehman,~P.~W.; Teh,~S.~J.; Boyer,~G.~L.; Nobriga,~M.~L.; Bass,~E.; Hogle,~C.
-  Initial impacts of \textit{{M}icrocystis aeruginosa} blooms on the aquatic
-  food web in the {S}an {F}rancisco {E}stuary. \emph{Hydrobiol.} \textbf{2010},
-  \emph{637}, 229--248\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Cohen and Carlton(1998)Cohen, and Carlton]{Cohen98}
-Cohen,~A.~N.; Carlton,~J.~T. Accelerating invasion rate in a highly invaded
-  estuary. \emph{Sci.} \textbf{1998}, \emph{279}, 555--558\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Enright and Culberson(2009)Enright, and Culberson]{Enright09}
-Enright,~C.; Culberson,~S.~D. Salinity trends, variability, and control in the
-  northern reach of the {S}an {F}rancisco {E}stuary. \emph{San Fr. Estuary
-  Watershed Sci.} \textbf{2009}, \emph{7}, 1--28\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Dugdale \latin{et~al.}(2007)Dugdale, Wilkerson, Hogue, and
-  Marchi]{Dugdale07}
-Dugdale,~R.~C.; Wilkerson,~F.~P.; Hogue,~V.~E.; Marchi,~A. The role of ammonium
-  and nitrate in spring bloom development in {S}an {F}rancisco {B}ay.
-  \emph{Estuar. Coast. Shelf Sci.} \textbf{2007}, \emph{73}, 17--29\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Parker \latin{et~al.}(2012)Parker, Hogue, Wilkerson, and
-  Dugdale]{Parker12}
-Parker,~A.~E.; Hogue,~V.~E.; Wilkerson,~F.~P.; Dugdale,~R.~C. The effect of
-  inorganic nitrogen speciation on primary production in the {S}an {F}rancisco
-  {E}stuary. \emph{Estuar. Coast. Shelf Sci.} \textbf{2012}, \emph{104},
-  91--101\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Glibert \latin{et~al.}(2014)Glibert, Dugdale, Wilkerson, Parker,
-  Alexander, Antell, Blaser, Johnson, Lee, Lee, Murasko, and Strong]{Glibert14}
-Glibert,~P.~M.; Dugdale,~R.~C.; Wilkerson,~F.; Parker,~A.~E.; Alexander,~J.;
-  Antell,~E.; Blaser,~S.; Johnson,~A.; Lee,~J.; Lee,~T.; Murasko,~S.;
-  Strong,~S. Major - but rare - spring blooms in San Francisco Bay Delta,
-  California, a result of long-term drought, increased residence time, and
-  altered nutrient loads and forms. \emph{J. Fo Exp. Mar. Biology Ecol.}
-  \textbf{2014}, \emph{460}, 8--18\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[IEP(2013)]{IEP13}
-IEP, {Interagency Ecological Program, Bay-Delta Monitoring and Analysis
-  Section, Discrete Water Quality Metadata}. 2013;
-  \url{http://water.ca.gov/bdma/meta/discrete.cfm}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[IEP(2016)]{IEP16}
-IEP, {Dayflow: An estimate of daily average Delta outflow. Interagency
-  Ecological Program for the San Francisco Estuary}. 2016;
-  \url{http://www.water.ca.gov/dayflow/}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Tobin(1958)]{Tobin58}
-Tobin,~J. Estimation of relationships for limited dependent variables.
-  \emph{Économ.} \textbf{1958}, \emph{26}, 24--36\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Beck(2016)]{Beck16b}
-Beck,~M.~W. {WRTDStidal: Weighted Regression for Water Quality Evaluation in
-  Tidal Waters}. 2016; R package version 1.0.2.
-  \url{http://CRAN.R-project.org/package=WRTDStidal}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[{RDCT (R Development Core Team)}(2017)]{RDCT17}
-{RDCT (R Development Core Team)}, {R: A language and environment for
-  statistical computing, v3.3.2. R Foundation for Statistical Computing,
-  Vienna, Austria}. 2017; \url{http://www.R-project.org}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Hirsch \latin{et~al.}(1982)Hirsch, Slack, and Smith]{Hirsch82}
-Hirsch,~R.~M.; Slack,~J.~R.; Smith,~R.~A. Techniques of trend analysis for
-  monthly water quality data. \emph{Water Resour. Res.} \textbf{1982},
-  \emph{18}, 107--121\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Millard(2013)]{Millard13}
-Millard,~S.~P. \emph{EnvStats: An R Package for Environmental Statistics};
-  Springer: New York, 2013\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Cornwell \latin{et~al.}(2014)Cornwell, Glibert, and Owens]{Cornwell14}
-Cornwell,~J.~C.; Glibert,~P.~M.; Owens,~M.~S. Nutrient fluxes from sediments in
-  the {S}an {F}rancisco {B}ay {D}elta. \emph{Estuaries Coasts} \textbf{2014},
-  \emph{37}, 1120--1133\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Feyrer \latin{et~al.}(2003)Feyrer, Herbold, Matern, and
-  Moyle]{Feyrer03}
-Feyrer,~F.; Herbold,~B.; Matern,~S.~A.; Moyle,~P.~B. Dietary shifts in a
-  stressed fish assemblage: Consequences of a bivalve invasion in the {S}an
-  {F}rancisco {E}stuary. \emph{Environ. Biology Fishes} \textbf{2003},
-  \emph{67}, 277--288\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[{Mac Nally} \latin{et~al.}(2010){Mac Nally}, Thompson, Kimmerer,
-  Feyrer, Newman, Sih, Bennett, Brown, Fleishman, Culberson, and
-  Castillo]{MacNally10}
-{Mac Nally},~R.; Thompson,~J.~R.; Kimmerer,~W.~J.; Feyrer,~F.; Newman,~K.~B.;
-  Sih,~A.; Bennett,~W.~A.; Brown,~L.; Fleishman,~E.; Culberson,~S.~D.;
-  Castillo,~G. Analysis of pelagic species decline in the upper {S}an
-  {F}rancisco {E}stuary using multivariate autoregressive modeling ({MAR}).
-  \emph{Ecol. Appl.} \textbf{2010}, \emph{20}, 1417--1430\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Schoellhamer(2011)]{Schoellhamer11}
-Schoellhamer,~D.~H. Sudden clearing of estuarine waters upon crossing the
-  threshold from transport to supply regulation of sediment transport as an
-  erodible sediment pool is depleted: San Francisco Bay, 1999. \emph{Estuaries
-  Coasts} \textbf{2011}, \emph{34}, 885--899\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Parchaso and Thompson(2002)Parchaso, and Thompson]{Parchaso02}
-Parchaso,~F.; Thompson,~J.~K. Influence of hydrologic processes on reproduction
-  of the introduced bivalve \textit{{P}otamocorbula amurensis} in northern
-  {S}an {F}rancisco {B}ay, {C}alifornia. \emph{Pac. Sci.} \textbf{2002},
-  \emph{56}, 329--345\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Kimmerer and Thompson(2014)Kimmerer, and Thompson]{Kimmerer14}
-Kimmerer,~W.~J.; Thompson,~J.~K. Phytoplankton growth balanced by clam and
-  zooplankton grazing and net transport into the low-salinity zone of the {S}an
-  {F}rancisco {E}stuary. \emph{Estuaries Coasts} \textbf{2014}, \emph{37},
-  1202--1218\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Kimmerer(2005)]{Kimmerer05}
-Kimmerer,~W. Long-term changes in apparent uptake of silica in the {S}an
-  {F}rancisco {E}stuary. \emph{Limnol. Oceanogr.} \textbf{2005}, \emph{50},
-  793--798\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Alpine and Cloern(1992)Alpine, and Cloern]{Alpine92}
-Alpine,~A.~E.; Cloern,~J.~E. Trophic interactions and direct physical effects
-  control phytoplankton biomass and production in an estuary. \emph{Limnol.
-  Oceanogr.} \textbf{1992}, \emph{37}, 946--955\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\bibitem[Novick and Senn(2014)Novick, and Senn]{Novick14}
-Novick,~E.; Senn,~D. External nutrient loads to {S}an {F}rancisco {B}ay. 2014;
-  Contribution Number 704, San Francisco Estuary Institute, Richmond, CA.
-  \url{http://www.sfei.org/sites/default/files/biblio_files/NutrientLoadsFINAL_FINAL_Jan232014_0.pdf}\relax
-\mciteBstWouldAddEndPuncttrue
-\mciteSetBstMidEndSepPunct{\mcitedefaultmidpunct}
-{\mcitedefaultendpunct}{\mcitedefaultseppunct}\relax
-\EndOfBibitem
-\end{mcitethebibliography}
+\bibitem[Alpine and Cloern, 1992]{Alpine92}
+Alpine AE, Cloern JE. 1992.
+\newblock Trophic interactions and direct physical effects control
+  phytoplankton biomass and production in an estuary.
+\newblock Limnology and Oceanography, 37(5):946--955.
+
+\bibitem[Beck and {Hagy III}, 2015]{Beck15}
+Beck MW, {Hagy III} JD. 2015.
+\newblock Adaptation of a weighted regression approach to evaluate water
+  quality trends in an estuary.
+\newblock Environmental Modelling and Assessment, 20(6):637--655.
+
+\bibitem[Beck et~al., 2015]{Beck15b}
+Beck MW, {Hagy III} JD, Murrell MC. 2015.
+\newblock Improving estimates of ecosystem metabolism by reducing effects of
+  tidal advection on dissolved oxygen time series.
+\newblock Limnology and Oceanography: Methods, 13(12):731--745.
+
+\bibitem[Beck and Murphy, 2017]{Beck17}
+Beck MW, Murphy RR. 2017.
+\newblock Numerical and qualitative contrasts of two statistical models for
+  water quality change in tidal waters.
+\newblock Journal of the American Water Resources Association, 53(1):197--219.
+
+\bibitem[Bowes et~al., 2009]{Bowes09}
+Bowes MJ, Smith JT, Neal C. 2009.
+\newblock The value of high resolution nutrient monitoring: a case study of the
+  {R}iver {F}rome, {D}orset, {UK}.
+\newblock Journal of Hydrology, 378:82--96.
+
+\bibitem[Cloern, 1996]{Cloern96}
+Cloern JE. 1996.
+\newblock Phytoplankton bloom dynamics in coastal ecosystems: {A} review with
+  some general lessons from sustained investigation of {S}an {F}rancisco {B}ay,
+  {C}alifornia.
+\newblock Review of Geophysics, 34(2):127--168.
+
+\bibitem[Cloern, 2015]{Cloern15}
+Cloern JE. 2015.
+\newblock Life on the edge: {C}alifornia's estuaries.
+\newblock In: Mooney H, Zavaleta E, editors, {Ecosystems of California: A
+  Source Book}, pages 359--387. University of California Press, California.
+
+\bibitem[Cloern and Jassby, 2010]{Cloern10}
+Cloern JE, Jassby AD. 2010.
+\newblock Patterns and scales of phytoplankton variability in estuarine-coastal
+  ecosystems.
+\newblock Estuaries and Coasts, 33(2):230--241.
+
+\bibitem[Cloern and Jassby, 2012]{Cloern12b}
+Cloern JE, Jassby AD. 2012.
+\newblock Drivers of change in estuarine-coastal ecosystems: Discoveries from
+  four decades of study in {S}an {F}rancisco {B}ay.
+\newblock Reviews of Geophysics, 50(4):1--33.
+
+\bibitem[Cloern et~al., 2007]{Cloern07}
+Cloern JE, Jassby AD, Thompson JK, Hieb KA. 2007.
+\newblock A cold phase of the {E}ast {P}acific triggers new phytoplankton
+  blooms in {S}an {F}rancisco {B}ay.
+\newblock Proceedings of the National Academy of Sciences of the United States
+  of America, 104(47):18561--18565.
+
+\bibitem[Cohen and Carlton, 1998]{Cohen98}
+Cohen AN, Carlton JT. 1998.
+\newblock Accelerating invasion rate in a highly invaded estuary.
+\newblock Science, 279(5350):555--558.
+
+\bibitem[Cornwell et~al., 2014]{Cornwell14}
+Cornwell JC, Glibert PM, Owens MS. 2014.
+\newblock Nutrient fluxes from sediments in the {S}an {F}rancisco {B}ay
+  {D}elta.
+\newblock Estuaries and Coasts, 37(5):1120--1133.
+
+\bibitem[Crauder et~al., 2016]{Crauder16}
+Crauder JS, Thompson JK, Parchaso F, Anduaga RI, Pearson SA, Gehrts K, Fuller
+  H, Wells E. 2016.
+\newblock Bivalve effects on the food web supporting delta smelt - a long-term
+  study of bivalve recruitment, biomass, and grazing rate patterns with varying
+  freshwater outflow.
+\newblock Technical Report Open-File Report 2016-1005, US Geological Survey,
+  Reston, Virginia.
+
+\bibitem[Dugdale et~al., 2007]{Dugdale07}
+Dugdale RC, Wilkerson FP, Hogue VE, Marchi A. 2007.
+\newblock The role of ammonium and nitrate in spring bloom development in {S}an
+  {F}rancisco {B}ay.
+\newblock Estuarine, Coastal, and Shelf Science, 73:17--29.
+
+\bibitem[Enright and Culberson, 2009]{Enright09}
+Enright C, Culberson SD. 2009.
+\newblock Salinity trends, variability, and control in the northern reach of
+  the {S}an {F}rancisco {E}stuary.
+\newblock San Francisco Estuary \& Watershed Science, 7(2):1--28.
+
+\bibitem[Esterby, 1996]{Esterby96}
+Esterby SR. 1996.
+\newblock Review of methods for the detection and estimation of trends with
+  emphasis on water quality applications.
+\newblock Hydrological Processes, 10(2):127--149.
+
+\bibitem[Feyrer et~al., 2003]{Feyrer03}
+Feyrer F, Herbold B, Matern SA, Moyle PB. 2003.
+\newblock Dietary shifts in a stressed fish assemblage: Consequences of a
+  bivalve invasion in the {S}an {F}rancisco {E}stuary.
+\newblock Environmental Biology of Fishes, 67(3):277--288.
+
+\bibitem[Glibert et~al., 2014]{Glibert14}
+Glibert PM, Dugdale RC, Wilkerson F, Parker AE, Alexander J, Antell E, Blaser
+  S, Johnson A, Lee J, Lee T, Murasko S, Strong S. 2014.
+\newblock Major - but rare - spring blooms in san francisco bay delta,
+  california, a result of long-term drought, increased residence time, and
+  altered nutrient loads and forms.
+\newblock Journal fo Experimental Marine Biology and Ecology, 460:8--18.
+
+\bibitem[Halliday et~al., 2012]{Halliday12}
+Halliday SJ, Wade AJ, Skeffington RA, Neal C, Reynolds B, Rowland P, Neal M,
+  Norris D. 2012.
+\newblock An analysis of long-term trends, seasonality and short-term dynamics
+  in water quality data from {P}lynlimon, {W}ales.
+\newblock Science of the Total Environment, 434:186--200.
+
+\bibitem[Harding et~al., 2016]{Harding16}
+Harding LW, Gallegos CL, Perry ES, Miller WD, Adolf JE, Mallonee ME, Paerl HW.
+  2016.
+\newblock Long-term trends of nutrients and phytoplankton in {C}hesapeake
+  {B}ay.
+\newblock Estuaries and Coasts, 39:664--681.
+
+\bibitem[Hirsch et~al., 1991]{Hirsch91}
+Hirsch RM, Alexander RB, Smith RA. 1991.
+\newblock Selection of methods for the detection and estimation of trends in
+  water quality.
+\newblock Water Resources Research, 27:803--813.
+
+\bibitem[Hirsch and {De Cicco}, 2014]{Hirsch14}
+Hirsch RM, {De Cicco} L. 2014.
+\newblock User guide to {E}xploration and {G}raphics for {R}iv{E}r {T}rends
+  ({EGRET}) and data{R}etrieval: {R} packages for hydrologic data.
+\newblock Technical Report Techniques and Methods book 4, ch. A10, US
+  Geological Survey, Reston, Virginia.
+\newblock \url{http://pubs.usgs.gov/tm/04/a10/}.
+
+\bibitem[Hirsch et~al., 2010]{Hirsch10}
+Hirsch RM, Moyer DL, Archfield SA. 2010.
+\newblock Weighted regressions on time, discharge, and season ({WRTDS}), with
+  an application to {C}hesapeake {B}ay river inputs.
+\newblock Journal of the American Water Resources Association, 46(5):857--880.
+
+\bibitem[Hirsch et~al., 1982]{Hirsch82}
+Hirsch RM, Slack JR, Smith RA. 1982.
+\newblock Techniques of trend analysis for monthly water quality data.
+\newblock Water Resources Research, 18:107--121.
+
+\bibitem[IEP, 2013]{IEP13}
+IEP. 2013.
+\newblock {IEP Bay-Delta Monitoring and Analysis Section, Discrete Water
+  Quality Metadata}.
+\newblock \url{http://water.ca.gov/bdma/meta/discrete.cfm}.
+
+\bibitem[IEP, 2016]{IEP16}
+IEP. 2016.
+\newblock {Dayflow: An estimate of daily average Delta outflow. Interagency
+  Ecological Program for the San Francisco Estuary}.
+\newblock \url{http://www.water.ca.gov/dayflow/}.
+
+\bibitem[Jabusch et~al., 2016]{Jabusch16}
+Jabusch T, Bresnahan P, Trowbridge P, Novick E, Wong A, Salomon M, Senn D.
+  2016.
+\newblock Summary and evaluation of delta subregions for nutrient monitoring
+  and assessment.
+\newblock Technical report, San Francisco Estuary Institute, Richmond, CA.
+
+\bibitem[Jassby, 2008]{Jassby08}
+Jassby AD. 2008.
+\newblock Phytoplankton in the {U}pper {S}an {F}rancisco {E}stuary: Recent
+  biomass trends, their causes, and their trophic significance.
+\newblock San Francisco Estuary and Watershed Science, 6(1):1--24.
+
+\bibitem[Jassby and Cloern, 2000]{Jassby00}
+Jassby AD, Cloern JE. 2000.
+\newblock Organic matter sources and rehabilitations of the {S}acramento-{S}an
+  {J}oaquin {D}elta ({C}alifornia, {USA}).
+\newblock Aquatic Conservation: Marine and Freshwater Ecosystems, 10:323--352.
+
+\bibitem[Jassby et~al., 2002]{Jassby02}
+Jassby AD, Cloern JE, Cole BE. 2002.
+\newblock Annual primary production: Patterns and mechanisms of change in a
+  nutrient-rich tidal ecosystem.
+\newblock Limnology and Oceanography, 47(3):698--712.
+
+\bibitem[Kimmerer, 2005]{Kimmerer05}
+Kimmerer W. 2005.
+\newblock Long-term changes in apparent uptake of silica in the {S}an
+  {F}rancisco {E}stuary.
+\newblock Limnology and Oceanography, 50(3):793--798.
+
+\bibitem[Kimmerer et~al., 2012]{Kimmerer12}
+Kimmerer WJ, Parker AE, Lidstrom UE, Carpenter EJ. 2012.
+\newblock Short-term and interannual variability in primary production in the
+  low-salinity zone of the {S}an {F}rancisco {E}stuary.
+\newblock Estuaries and Coasts, 35:913--929.
+
+\bibitem[Kimmerer and Thompson, 2014]{Kimmerer14}
+Kimmerer WJ, Thompson JK. 2014.
+\newblock Phytoplankton growth balanced by clam and zooplankton grazing and net
+  transport into the low-salinity zone of the {S}an {F}rancisco {E}stuary.
+\newblock Estuaries and Coasts, 37:1202--1218.
+
+\bibitem[Lehman et~al., 2005]{Lehman05}
+Lehman PW, Boyer G, Hall C, Waller S, Gehrts K. 2005.
+\newblock Distribution and toxicity of a new colonial \textit{{M}icrocystis
+  aeruginosa} bloom in the {S}an {F}rancisco {B}ay {E}stuary, {C}alifornia.
+\newblock Hydrobiologia, 541:87--99.
+
+\bibitem[Lehman et~al., 2010]{Lehman10}
+Lehman PW, Teh SJ, Boyer GL, Nobriga ML, Bass E, Hogle C. 2010.
+\newblock Initial impacts of \textit{{M}icrocystis aeruginosa} blooms on the
+  aquatic food web in the {S}an {F}rancisco {E}stuary.
+\newblock Hydrobiologia, 637(1):229--248.
+
+\bibitem[Levin, 1992]{Levin92}
+Levin SA. 1992.
+\newblock The problem of pattern and scale in ecology.
+\newblock Ecology, 73(6):1943--1967.
+
+\bibitem[{Mac Nally} et~al., 2010]{MacNally10}
+{Mac Nally} R, Thompson JR, Kimmerer WJ, Feyrer F, Newman KB, Sih A, Bennett
+  WA, Brown L, Fleishman E, Culberson SD, Castillo G. 2010.
+\newblock Analysis of pelagic species decline in the upper {S}an {F}rancisco
+  {E}stuary using multivariate autoregressive modeling ({MAR}).
+\newblock Ecological Applications, 20(5):1417--1430.
+
+\bibitem[Medalie et~al., 2012]{Medalie12}
+Medalie L, Hirsch RM, Archfield SA. 2012.
+\newblock Use of flow-normalization to evaluate nutrient concentration and flux
+  changes in {L}ake {C}hamplain tributaries, 1990-2009.
+\newblock Journal of Great Lakes Research, 38(SI):58--67.
+
+\bibitem[Millard, 2013]{Millard13}
+Millard SP. 2013.
+\newblock EnvStats: An R Package for Environmental Statistics.
+\newblock Springer, New York.
+
+\bibitem[Novick et~al., 2015]{Novick15}
+Novick E, Holleman R, Jabusch T, Sun J, Trowbridge P, Senn D, Guerin M, Kendall
+  C, Young M, Peek S. 2015.
+\newblock Characterizing and quantifying nutrient sources, sinks and
+  transformations in the {D}elta: synthesis, modeling, and recommendations for
+  monitoring.
+\newblock Technical Report Contribution Number 785, San Francisco Estuary
+  Institute, Richmond, CA.
+
+\bibitem[Novick and Senn, 2014]{Novick14}
+Novick E, Senn D. 2014.
+\newblock External nutrient loads to {S}an {F}rancisco {B}ay.
+\newblock Technical Report Contribution Number 704, San Francisco Estuary
+  Institute, Richmond, CA.
+
+\bibitem[O`Neill et~al., 1989]{Oneill89}
+O`Neill RV, Johnson AR, King AW. 1989.
+\newblock A hierarchical framework for the analysis of scale.
+\newblock Landscape Ecology, 3(3-4):193--205.
+
+\bibitem[Parchaso and Thompson, 2002]{Parchaso02}
+Parchaso F, Thompson JK. 2002.
+\newblock Influence of hydrologic processes on reproduction of the introduced
+  bivalve \textit{{P}otamocorbula amurensis} in northern {S}an {F}rancisco
+  {B}ay, {C}alifornia.
+\newblock Pacific Science, 56(3):329--345.
+
+\bibitem[Parker et~al., 2012]{Parker12}
+Parker AE, Hogue VE, Wilkerson FP, Dugdale RC. 2012.
+\newblock The effect of inorganic nitrogen speciation on primary production in
+  the {S}an {F}rancisco {E}stuary.
+\newblock Estuarine, Coastal, and Shelf Science, 104:91--101.
+
+\bibitem[Pellerin et~al., 2014]{Pellerin14}
+Pellerin BA, Bergamaschi BA, Gilliom RJ, Crawford CG, Saraceno JF, Frederick
+  CP, Downing BD, Murphy JC. 2014.
+\newblock {M}ississippi {R}iver nitrate loads from high frequency sensor
+  measurements and regression-based load estimation.
+\newblock Environmental Science and Technology, 48:12612--12619.
+
+\bibitem[{RDCT (R Development Core Team)}, 2017]{RDCT17}
+{RDCT (R Development Core Team)}. 2017.
+\newblock {R: A language and environment for statistical computing, v3.3.2. R
+  Foundation for Statistical Computing, Vienna, Austria}.
+\newblock \url{http://www.R-project.org}.
+
+\bibitem[Sakamoto and Tanaka, 1989]{Sakamoto89}
+Sakamoto M, Tanaka T. 1989.
+\newblock Phosphorus dynamics associated with phytoplankton blooms in eutrophic
+  {M}ikawa {B}ay, {J}apan.
+\newblock Marine Biology, 101(2):265--271.
+
+\bibitem[Schoellhamer, 2011]{Schoellhamer11}
+Schoellhamer DH. 2011.
+\newblock Sudden clearing of estuarine waters upon crossing the threshold from
+  transport to supply regulation of sediment transport as an erodible sediment
+  pool is depleted: San francisco bay, 1999.
+\newblock Estuaries and Coasts, 34:885--899.
+
+\bibitem[Schultz and Urban, 2008]{Schultz08}
+Schultz P, Urban NR. 2008.
+\newblock Effects of bacterial dynamics on organic matter decomposition and
+  nutrient release from sediments: A modeling study.
+\newblock Ecological Modelling, 210(1-2):1--14.
+
+\bibitem[Sprague et~al., 2011]{Sprague11}
+Sprague LA, Hirsch RM, Aulenbach BT. 2011.
+\newblock Nitrate in the {M}ississippi {R}iver and its tributaries, 1980 to
+  2008: Are we making progress?
+\newblock Environmental Science and Technology, 45(17):7209--7216.
+
+\bibitem[Thompson et~al., 2008]{Thompson08}
+Thompson JK, Koseff JR, Monismith SG, Lucas LV. 2008.
+\newblock Shallow water processes govern system-wide phytoplankton bloom
+  dynamics: A field study.
+\newblock Journal of Marine Systems, 74(1-2):153--166.
+
+\bibitem[Tobin, 1958]{Tobin58}
+Tobin J. 1958.
+\newblock Estimation of relationships for limited dependent variables.
+\newblock Econometrica, 26(1):24--36.
+
+\bibitem[Zhang et~al., 2016]{Zhang16}
+Zhang Q, Harman CJ, Ball WP. 2016.
+\newblock An improved method for interpretation of riverine
+  concentration-discharge relationships indicates long-term shifts in reservoir
+  sediment trapping.
+\newblock Geophysical Research Letters, 43(10):215--224.
+
+\end{thebibliography}
