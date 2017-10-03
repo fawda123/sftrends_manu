@@ -1,6 +1,12 @@
  \newcommand{\noop}[1]{}
 \begin{thebibliography}{}
 
+\bibitem[Alpine and Cloern, 1988]{Alpine88}
+Alpine AE, Cloern JE. 1988.
+\newblock Phytoplankton growth rates in a light-limited environment, {S}an
+  {F}rancisco {B}ay.
+\newblock Marine Ecology Progress Series, 44(2):167--173.
+
 \bibitem[Alpine and Cloern, 1992]{Alpine92}
 Alpine AE, Cloern JE. 1992.
 \newblock Trophic interactions and direct physical effects control
@@ -63,6 +69,12 @@ Cohen AN, Carlton JT. 1998.
 \newblock Accelerating invasion rate in a highly invaded estuary.
 \newblock Science, 279(5350):555--558.
 
+\bibitem[Cole and Cloern, 1984]{Cole84}
+Cole BE, Cloern JE. 1984.
+\newblock Significance of biomass and light availability to phytoplankton
+  productivity in {S}an {F}rancisco {B}ay.
+\newblock Marine Ecology Progress Series, 17(1):15--24.
+
 \bibitem[Cornwell et~al., 2014]{Cornwell14}
 Cornwell JC, Glibert PM, Owens MS. 2014.
 \newblock Nutrient fluxes from sediments in the {S}an {F}rancisco {B}ay
@@ -77,12 +89,6 @@ Crauder JS, Thompson JK, Parchaso F, Anduaga RI, Pearson SA, Gehrts K, Fuller
   freshwater outflow.
 \newblock Technical Report Open-File Report 2016-1005, US Geological Survey,
   Reston, Virginia.
-
-\bibitem[Dugdale et~al., 2007]{Dugdale07}
-Dugdale RC, Wilkerson FP, Hogue VE, Marchi A. 2007.
-\newblock The role of ammonium and nitrate in spring bloom development in {S}an
-  {F}rancisco {B}ay.
-\newblock Estuarine, Coastal, and Shelf Science, 73:17--29.
 
 \bibitem[Enright and Culberson, 2009]{Enright09}
 Enright C, Culberson SD. 2009.
@@ -145,8 +151,13 @@ IEP. 2016.
 \bibitem[Jabusch et~al., 2016]{Jabusch16}
 Jabusch T, Bresnahan P, Trowbridge P, Novick E, Wong A, Salomon M, Senn D.
   2016.
-\newblock Summary and evaluation of delta subregions for nutrient monitoring
+\newblock Summary and evaluation of {D}elta subregions for nutrient monitoring
   and assessment.
+\newblock Technical report, San Francisco Estuary Institute, Richmond, CA.
+
+\bibitem[Jabusch and Gilbreath, 2009]{Jabusch09}
+Jabusch T, Gilbreath AN. 2009.
+\newblock Summary of current water quality monitoring programs in the {D}elta.
 \newblock Technical report, San Francisco Estuary Institute, Richmond, CA.
 
 \bibitem[Jassby, 2008]{Jassby08}
@@ -226,6 +237,13 @@ Millard SP. 2013.
 \newblock EnvStats: An R Package for Environmental Statistics.
 \newblock Springer, New York.
 
+\bibitem[Nichols, 1985]{Nichols85}
+Nichols FH. 1985.
+\newblock Increased benthic grazing: An alternative explanation for low
+  phytoplankton biomass in northern {S}an {F}rancisco {B}ay during the
+  1976-1977 drought.
+\newblock Estuarine, Coastal and Shelf Science, 21(3):379--388.
+
 \bibitem[Novick et~al., 2015]{Novick15}
 Novick E, Holleman R, Jabusch T, Sun J, Trowbridge P, Senn D, Guerin M, Kendall
   C, Young M, Peek S. 2015.
@@ -252,12 +270,6 @@ Parchaso F, Thompson JK. 2002.
   bivalve \textit{{P}otamocorbula amurensis} in northern {S}an {F}rancisco
   {B}ay, {C}alifornia.
 \newblock Pacific Science, 56(3):329--345.
-
-\bibitem[Parker et~al., 2012]{Parker12}
-Parker AE, Hogue VE, Wilkerson FP, Dugdale RC. 2012.
-\newblock The effect of inorganic nitrogen speciation on primary production in
-  the {S}an {F}rancisco {E}stuary.
-\newblock Estuarine, Coastal, and Shelf Science, 104:91--101.
 
 \bibitem[Pellerin et~al., 2014]{Pellerin14}
 Pellerin BA, Bergamaschi BA, Gilliom RJ, Crawford CG, Saraceno JF, Frederick
