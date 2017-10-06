@@ -13,6 +13,12 @@ Alpine AE, Cloern JE. 1992.
   phytoplankton biomass and production in an estuary.
 \newblock Limnology and Oceanography, 37(5):946--955.
 
+\bibitem[Beck, 2017]{Beck17b}
+Beck MW. 2017.
+\newblock {WRTDStidal: Weighted Regression for Water Quality Evaluation in
+  Tidal Waters}.
+\newblock R package version 1.1.0.
+
 \bibitem[Beck and {Hagy III}, 2015]{Beck15}
 Beck MW, {Hagy III} JD. 2015.
 \newblock Adaptation of a weighted regression approach to evaluate water
@@ -64,6 +70,12 @@ Cloern JE, Jassby AD, Thompson JK, Hieb KA. 2007.
 \newblock Proceedings of the National Academy of Sciences of the United States
   of America, 104(47):18561--18565.
 
+\bibitem[Cloern et~al., 2005]{Cloern05}
+Cloern JE, Schraga TS, Lopez CB, Knowles N, Labiosa RG, Dugdale R. 2005.
+\newblock Climate anomalies generate an exceptional dinoflagellate bloom in
+  {S}an {F}rancisco {B}ay.
+\newblock Geophysical Research Letters, 32(14):L14608.
+
 \bibitem[Cohen and Carlton, 1998]{Cohen98}
 Cohen AN, Carlton JT. 1998.
 \newblock Accelerating invasion rate in a highly invaded estuary.
@@ -89,6 +101,17 @@ Crauder JS, Thompson JK, Parchaso F, Anduaga RI, Pearson SA, Gehrts K, Fuller
   freshwater outflow.
 \newblock Technical Report Open-File Report 2016-1005, US Geological Survey,
   Reston, Virginia.
+
+\bibitem[Dortch, 1990]{Dortch90}
+Dortch W. 1990.
+\newblock The interaction between ammonium and nitrate uptake in phytoplankton.
+\newblock Marine Ecology Progress Series, 61(1/2):183--201.
+
+\bibitem[Dugdale et~al., 2007]{Dugdale07}
+Dugdale RC, Wilkerson FP, Hogue VE, Marchi A. 2007.
+\newblock The role of ammonium and nitrate in spring bloom development in {S}an
+  {F}rancisco {B}ay.
+\newblock Estuarine, Coastal, and Shelf Science, 73:17--29.
 
 \bibitem[Enright and Culberson, 2009]{Enright09}
 Enright C, Culberson SD. 2009.
@@ -302,6 +325,14 @@ Schultz P, Urban NR. 2008.
 \newblock Effects of bacterial dynamics on organic matter decomposition and
   nutrient release from sediments: A modeling study.
 \newblock Ecological Modelling, 210(1-2):1--14.
+
+\bibitem[Shellenbarger et~al., 2008]{Shellenbarger08}
+Shellenbarger GG, Schoellhamer DH, Morgan TL, Takekawa JY, Athearn ND,
+  Henderson KD. 2008.
+\newblock Dissolved oxygen in {G}uadalupe {S}lough and {P}ond {A3W}, {S}outh
+  {S}an {F}rancisco {B}ay, {C}alifornia, {A}ugust and {S}eptember 2007.
+\newblock Technical Report Open-File Report 2008-1097, US Geological Survey,
+  Reston, Virginia.
 
 \bibitem[Sprague et~al., 2011]{Sprague11}
 Sprague LA, Hirsch RM, Aulenbach BT. 2011.
