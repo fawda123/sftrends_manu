@@ -66,6 +66,7 @@ options(replace.assign = TRUE, width = 90, digits = 1)
 
 source('R/funcs.r')
 library(WRTDStidal)
+library(RColorBrewer)
 library(tidyverse)
 library(gridExtra)
 library(grid)
@@ -571,9 +572,16 @@ source('R/funcs.R')
 
 data(mods)
 
+cols <- brewer.pal(10, 'Set1') %>% 
+  colorRampPalette(.)
+
 toplo <- mods %>% 
   mutate(
-    anns = map(data, annual_agg)
+    anns = map(data, annual_agg), 
+    Location = factor(Location, 
+                      levels = c('Delta', 'Middle', 'Suisun'), 
+                      labels = c('Peripheral', 'Interior', 'Suisun')
+                      )
   ) %>% 
   select(-data, -flovar) %>% 
   unnest %>% 
@@ -593,20 +601,56 @@ toplo <- mods %>%
           axis.title.y = element_blank(), 
           panel.border = element_rect(colour = 'black', fill = NA, size = 0.5), 
           strip.text.x = element_text(size = 10)
-          )
+          ) + 
+        scale_colour_manual(values = cols(10))
       
       return(p)
       
     })
   )
 
-pleg <- ggplot(toplo$data[[1]], aes(x = date, y = bt_fits, group = Site_Code, colour = Site_Code)) +
-  geom_point(alpha = 0.7) + 
-  geom_line(aes(y = bt_norm)) +
+stat_meta <- delt_dat %>% 
+  dplyr::select(Site_Code, Location) %>% 
+  unique %>% 
+  mutate(
+    Location = factor(Location, 
+           levels = c('Delta', 'Middle', 'Suisun'), 
+           labels = c('Peripheral', 'Interior', 'Suisun')
+    ),
+    colv = cols(10), 
+    pts = c(1:10)
+  )
+peri <- stat_meta %>% 
+  filter(Location == 'Peripheral')
+inte <- stat_meta %>% 
+  filter(Location == 'Interior') 
+suis <- stat_meta %>% 
+  filter(Location == 'Suisun')
+
+perileg <- ggplot(peri, aes(x = pts, y = pts, colour = Site_Code)) +
+  geom_point() +
+  geom_line() +
   theme_minimal() + 
-  guides(colour = guide_legend(ncol = 2))
-pleg <- g_legend(pleg)  
-  
+  scale_colour_manual(values = peri$colv, name = 'Peripheral') +
+  theme(legend.position = 'top')
+perileg <- g_legend(perileg)
+
+inteleg <- ggplot(inte, aes(x = pts, y = pts, colour = Site_Code)) +
+  geom_point() +
+  geom_line() +
+  theme_minimal() + 
+  scale_colour_manual(values = inte$colv, name = 'Interior') +
+  theme(legend.position = 'top')
+inteleg <- g_legend(inteleg)
+
+suisleg <- ggplot(suis, aes(x = pts, y = pts, colour = Site_Code)) +
+  geom_point() +
+  geom_line() +
+  theme_minimal() + 
+  scale_colour_manual(values = suis$colv, name = 'Suisun') +
+  theme(legend.position = 'top')
+suisleg <- g_legend(suisleg)
+
 ylab1 <- expression(paste(NH [4] ^ '+', ' (mg ', L^-1, ')'))
 ylab2 <- expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-', ' (mg ', L^-1, ')'))
 ylab3 <- expression(paste('DIN (mg ', L^-1, ')'))
@@ -628,10 +672,11 @@ grid.arrange(
   ), 
   arrangeGrob(
     arrangeGrob(pB, left = textGrob(ylab2, rot = 90)), 
-    pleg, ncol = 1
+    arrangeGrob(perileg, inteleg, suisleg, ncol = 1)
   ), 
   ncol = 2
   )
+   
    
 @
 
