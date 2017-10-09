@@ -565,15 +565,28 @@ pB$widths[2:3] <- maxWidth
 grid.arrange(pA, pB, ncol = 1, heights = c(1, 0.21))
 @
 
-<<prddat, fig.cap = 'Model predictions.', fig.height = 8, fig.width = 8>>=
-library(tidyverse)
-library(grid)
-source('R/funcs.R')
-
+<<prddat, fig.cap = 'Model predictions for ten stations grouped by nitrogen analyte and geographic location in the Delta region (locations in \\cref{fig:delt_map}).  Results are annually-averaged for each water year from October to September.  Points are model predictions and lines are flow-normalized predictions.', fig.height = 8, fig.width = 8>>=
 data(mods)
+data(delt_dat)
 
-cols <- brewer.pal(10, 'Set1') %>% 
+cols <-  brewer.pal(9, 'Blues')[c(4:9)] %>% 
   colorRampPalette(.)
+
+stat_meta <- delt_dat %>% 
+  dplyr::select(Site_Code, Location) %>% 
+  unique %>% 
+  mutate(
+    Location = factor(Location, 
+           levels = c('Delta', 'Middle', 'Suisun'), 
+           labels = c('Peripheral', 'Interior', 'Suisun')
+    )
+  ) %>% 
+  arrange(Location, Site_Code) %>% 
+  mutate(
+    colv = c(cols(4), cols(3), cols(3)), 
+    pts = c(1:10), 
+    shps = c(c(16, 17, 18, 15), c(16:18), c(16:18))
+  )
 
 toplo <- mods %>% 
   mutate(
@@ -583,6 +596,7 @@ toplo <- mods %>%
                       labels = c('Peripheral', 'Interior', 'Suisun')
                       )
   ) %>% 
+  left_join(stat_meta, by = c('Site_Code', 'Location')) %>% 
   select(-data, -flovar) %>% 
   unnest %>% 
   group_by(resvar) %>% 
@@ -590,9 +604,9 @@ toplo <- mods %>%
   mutate(
     plts = map(data, function(x){
       
-      p <- ggplot(x, aes(x = date, y = bt_fits, group = Site_Code, colour = Site_Code)) +
-        geom_point(alpha = 0.7) + 
-        geom_line(aes(y = bt_norm)) +
+      p <- ggplot(x, aes(x = date, y = bt_fits, group = Site_Code)) +
+        geom_point(alpha = 0.9, col = x$colv, pch = x$shps) + 
+        geom_line(aes(y = bt_norm), col = x$colv) +
         facet_wrap(~ Location, ncol = 1, scales = 'free_y') + 
         theme_minimal() + 
         theme(
@@ -601,25 +615,13 @@ toplo <- mods %>%
           axis.title.y = element_blank(), 
           panel.border = element_rect(colour = 'black', fill = NA, size = 0.5), 
           strip.text.x = element_text(size = 10)
-          ) + 
-        scale_colour_manual(values = cols(10))
+          ) 
       
       return(p)
       
     })
   )
 
-stat_meta <- delt_dat %>% 
-  dplyr::select(Site_Code, Location) %>% 
-  unique %>% 
-  mutate(
-    Location = factor(Location, 
-           levels = c('Delta', 'Middle', 'Suisun'), 
-           labels = c('Peripheral', 'Interior', 'Suisun')
-    ),
-    colv = cols(10), 
-    pts = c(1:10)
-  )
 peri <- stat_meta %>% 
   filter(Location == 'Peripheral')
 inte <- stat_meta %>% 
@@ -627,27 +629,30 @@ inte <- stat_meta %>%
 suis <- stat_meta %>% 
   filter(Location == 'Suisun')
 
-perileg <- ggplot(peri, aes(x = pts, y = pts, colour = Site_Code)) +
+perileg <- ggplot(peri, aes(x = pts, y = pts, colour = Site_Code, shape = Site_Code)) +
   geom_point() +
   geom_line() +
   theme_minimal() + 
   scale_colour_manual(values = peri$colv, name = 'Peripheral') +
+  scale_shape_manual(values = peri$shps, name = 'Peripheral') +
   theme(legend.position = 'top')
 perileg <- g_legend(perileg)
 
-inteleg <- ggplot(inte, aes(x = pts, y = pts, colour = Site_Code)) +
+inteleg <- ggplot(inte, aes(x = pts, y = pts, colour = Site_Code, shape = Site_Code)) +
   geom_point() +
   geom_line() +
   theme_minimal() + 
   scale_colour_manual(values = inte$colv, name = 'Interior') +
+  scale_shape_manual(values = inte$shps, name = 'Interior') +
   theme(legend.position = 'top')
 inteleg <- g_legend(inteleg)
 
-suisleg <- ggplot(suis, aes(x = pts, y = pts, colour = Site_Code)) +
+suisleg <- ggplot(suis, aes(x = pts, y = pts, colour = Site_Code, shape = Site_Code)) +
   geom_point() +
   geom_line() +
   theme_minimal() + 
   scale_colour_manual(values = suis$colv, name = 'Suisun') +
+  scale_shape_manual(values = suis$shps, name = 'Suisun') +
   theme(legend.position = 'top')
 suisleg <- g_legend(suisleg)
 
@@ -655,7 +660,6 @@ ylab1 <- expression(paste(NH [4] ^ '+', ' (mg ', L^-1, ')'))
 ylab2 <- expression(paste(NO [2] ^ '-', ' / ', NO [3] ^ '2-', ' (mg ', L^-1, ')'))
 ylab3 <- expression(paste('DIN (mg ', L^-1, ')'))
 
-# (2, 3), (3, 3)
 pA <- ggplot_gtable(ggplot_build(toplo$plts[[1]]))
 pB<- ggplot_gtable(ggplot_build(toplo$plts[[2]]))
 pC <- ggplot_gtable(ggplot_build(toplo$plts[[3]]))
@@ -672,14 +676,12 @@ grid.arrange(
   ), 
   arrangeGrob(
     arrangeGrob(pB, left = textGrob(ylab2, rot = 90)), 
-    arrangeGrob(perileg, inteleg, suisleg, ncol = 1)
+    arrangeGrob(perileg, inteleg, suisleg, ncol = 1, top = textGrob('\nStations'))
   ), 
   ncol = 2
   )
    
-   
 @
-
 
 <<trndcomp, echo = F, warning = F, message = F, cache = T, results = 'hide'>>=
 data(trnds_seasyr)
@@ -1253,7 +1255,7 @@ pD$widths[2:3] <- maxWidth
 pG$widths[2:3] <- maxWidth
 
 # (2, 3), (3, 3)
-pE <- ggplot_gtable <- (ggplot_build(p5))
+pE <- ggplot_gtable(ggplot_build(p5))
 pH   <- ggplot_gtable(ggplot_build(p8))
 maxWidth = unit.pmax(pE$widths[2:3], pH$widths[c(2:3)])
 pE$widths[2:3] <- maxWidth
