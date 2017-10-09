@@ -1311,7 +1311,7 @@ tab <- trnds_nrm %>%
     perchg = ifelse(
       perchg < 0, 
       paste0('(', perchg, ')' ), 
-      paste0('(\\textit{\\textbf{', perchg, '}})')
+      paste0('(\\textbf{', perchg, '})')
       ), 
     ztest = p_ast(ztest)
   ) %>% 
@@ -1326,7 +1326,7 @@ tab <- trnds_nrm %>%
 
 # table stuff
 cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and annual aggregations'
-foot.val<-'\\footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. *$p<0.05$; **$p<0.005$'
+foot.val<-'\\footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. *$p<0.05$'
 vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 stats <- tab$Site_Code
 
@@ -1365,7 +1365,7 @@ tab <- trnds_nrm %>%
     perchg = ifelse(
       perchg < 0, 
       paste0('(', perchg, ')' ), 
-      paste0('(\\textit{\\textbf{', perchg, '}})')
+      paste0('(\\textbf{', perchg, '})')
       ), 
     ztest = p_ast(ztest)
   ) %>% 
@@ -1379,7 +1379,7 @@ tab <- trnds_nrm %>%
 
 # table stuff
 cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1976-1995'
-foot.val<-'\\footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$; **$p<0.005$'
+foot.val<-'\\footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$'
 vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 stats <- tab$Site_Code
 
@@ -1418,7 +1418,7 @@ tab <- trnds_nrm %>%
     perchg = ifelse(
       perchg < 0, 
       paste0('(', perchg, ')' ), 
-      paste0('(\\textit{\\textbf{', perchg, '}})')
+      paste0('(\\textbf{', perchg, '})')
       ), 
     ztest = p_ast(ztest)
   ) %>% 
@@ -1432,7 +1432,7 @@ tab <- trnds_nrm %>%
 
 # table stuff
 cap.val <- 'Summaries of flow-normalized trends in nitrogen analytes for all stations and seasonal aggregations from 1996-2013'
-foot.val<-'\\footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold-italic). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$; **$p<0.005$'
+foot.val<-'\\footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$'
 vars <- c('DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 stats <- tab$Site_Code
 
@@ -1467,7 +1467,7 @@ totab <- rbind(no_bf, no_af, nh_bf, nh_af) %>%
     perchg = ifelse(
       perchg < 0, 
       perchg, 
-      paste0('\\textit{\\textbf{', perchg, '}}')
+      paste0('\\textbf{', perchg, '}')
       ), 
     ztest = p_ast(ztest)
   ) %>% 
@@ -1490,7 +1490,7 @@ vars <- c('NO$_{2}^{-}$/NO$_{3}^{2-}$', 'NH$_{4}^{+}$')
 names(totab) <- rep(c('Median', '\\% change'), 2)
 
 cap.val<-'Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \\ac{wwtp} upgrades upstream of station P8'
-foot.val<-'\\footnotesize Upgrades were completed in 2006 at the City of Stockton \\ac{wwtp} (San Joaquin County, \\cref{fig:stock}). Summaries are  medians and percent change per year in parentheses (increasing in bold-italic).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$; **$p<0.005$'
+foot.val<-'\\footnotesize Upgrades were completed in 2006 at the City of Stockton \\ac{wwtp} (San Joaquin County, \\cref{fig:stock}). Summaries are  medians and percent change per year in parentheses (increasing in bold).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$'
 
 latex( 
   totab,
