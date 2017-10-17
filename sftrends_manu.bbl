@@ -57,6 +57,12 @@ Cloern JE. 2015.
 \newblock In: Mooney H, Zavaleta E, editors, {Ecosystems of California: A
   Source Book}, pages 359--387. University of California Press, California.
 
+\bibitem[Cloern et~al., 1983]{Cloern83}
+Cloern JE, Alpine AE, Cole BE, Wong RLJ, Arthur JF, Ball MD. 1983.
+\newblock River discharge controls phytoplankton dynamics in the northern {S}an
+  {F}rancisco {B}ay estuary.
+\newblock Estuarine, Coastal and Shelf Science, 16(4):415--426.
+
 \bibitem[Cloern and Jassby, 2010]{Cloern10}
 Cloern JE, Jassby AD. 2010.
 \newblock Patterns and scales of phytoplankton variability in estuarine-coastal
@@ -225,6 +231,13 @@ Kimmerer WJ, Thompson JK. 2014.
   transport into the low-salinity zone of the {S}an {F}rancisco {E}stuary.
 \newblock Estuaries and Coasts, 37:1202--1218.
 
+\bibitem[Lehman, 1992]{Lehman92}
+Lehman PW. 1992.
+\newblock Environmental factors associated with long-term changes in
+  chlorophyll concentration in the {S}acramento-{S}an {J}oaquin {D}elta and
+  {S}uisun {B}ay, {C}alifornia.
+\newblock Estuaries, 15(3):335--348.
+
 \bibitem[Lehman, 2000]{Lehman00}
 Lehman PW. 2000.
 \newblock The influence of climate on phytoplankton community biomass in {S}an
@@ -359,10 +372,22 @@ Thompson JK, Koseff JR, Monismith SG, Lucas LV. 2008.
   dynamics: A field study.
 \newblock Journal of Marine Systems, 74(1-2):153--166.
 
+\bibitem[Thompson et~al., 2011]{Thompson11}
+Thompson SE, Basu NB, Jr. JL, Aubeneau A, Rao PSC. 2011.
+\newblock Relative dominance of hydrologic versus biogeochemical factors on
+  solute export across impact gradients.
+\newblock Water Resources Research, 47(10):W00J05.
+
 \bibitem[Tobin, 1958]{Tobin58}
 Tobin J. 1958.
 \newblock Estimation of relationships for limited dependent variables.
 \newblock Econometrica, 26(1):24--36.
+
+\bibitem[Wan et~al., 2017]{Wan17}
+Wan Y, Wan L, Li Y, Doering P. 2017.
+\newblock Decadal and seasonal trends of nutrient concentration and export from
+  highly managed coastal catchments.
+\newblock Water Research, 115:180--194.
 
 \bibitem[Wright and Schoellhamer, 2004]{Wright04}
 Wright SA, Schoellhamer DH. 2004.
