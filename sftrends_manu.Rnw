@@ -169,7 +169,7 @@ cvals <- arrange(cvals_all, -cper) %>%
   filter(cper > 3)
 @
 
-Nutrient time series of monthly observations from 1976 to 2013 were obtained for ten active sampling stations in the Delta (\cref{fig:delt_map}, \url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}, \cite{IEP13}).  Stations were grouped by location in the study area for comparison: peripheral Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; interior Delta stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations cover all of the major inflows and outflows to the Delta and were selected for analysis based on the continuity of the period of observation \citep{Jabusch09}. Although many other stations are available for the region, the stations were chosen because they are actively maintained by the regional monitoring program and they capture dominant seasonal and annual modes of nitrogen variability characteristic of the region \citep{Jabusch16}. Time series were complete for all stations except for an approximate ten year gap from 1996-2004 for D19.  Data were minimally processed, with the exception of averaging replicates that occurred on the same day.  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two). Less than 3\% of all observations were left-censored, although variation was observed between analytes and location.  The ammonium time series had the most censored observations at sites \Sexpr{cvals$Site_Code[1]} (\Sexpr{cvals$cper[1]}\% of all observations), \Sexpr{cvals$Site_Code[2]} (\Sexpr{cvals$cper[2]}\%), \Sexpr{cvals$Site_Code[3]} (\Sexpr{cvals$cper[3]}\%), \Sexpr{cvals$Site_Code[4]} (\Sexpr{cvals$cper[4]}\%), and \Sexpr{cvals$Site_Code[5]} (\Sexpr{cvals$cper[5]}\%).
+Nutrient time series of monthly observations from 1976 to 2013 were obtained for ten active sampling stations in the Delta \citep[\cref{fig:delt_map,tab:stdescrp},][]{IEP13}.  Stations were grouped by location in the study area for comparison: peripheral Delta stations C3 (Sacramento inflow), C10 (San Joaquin inflow), MD10, P8; interior Delta stations D19, D26, D28; and Suisun stations D4, D6, and D7.  These stations cover all of the major inflows and outflows to the Delta and were selected for analysis based on the continuity of the period of observation \citep{Jabusch09}. Although many other stations are available for the region, the stations were chosen because they are actively maintained by the regional monitoring program and they capture dominant seasonal and annual modes of nitrogen variability characteristic of the region \citep{Jabusch16}. Time series were complete for all stations except for an approximate ten year gap from 1996-2004 for D19.  Data were minimally processed, with the exception of averaging replicates that occurred on the same day.  The three nitrogen analytes that were evaluated were ammonium, nitrite/nitrate, and \ac{din} (as the sum of the former two). Less than 3\% of all observations were left-censored, although variation was observed between analytes and location.  The ammonium time series had the most censored observations at sites \Sexpr{cvals$Site_Code[1]} (\Sexpr{cvals$cper[1]}\% of all observations), \Sexpr{cvals$Site_Code[2]} (\Sexpr{cvals$cper[2]}\%), \Sexpr{cvals$Site_Code[3]} (\Sexpr{cvals$cper[3]}\%), \Sexpr{cvals$Site_Code[4]} (\Sexpr{cvals$cper[4]}\%), and \Sexpr{cvals$Site_Code[5]} (\Sexpr{cvals$cper[5]}\%).
 
 Daily flow estimates for the Delta region were obtained from the Dayflow software program \citep{IEP16}. The \ac{wrtds} models described below require a matched flow record with the appropriate station to evaluate nutrient trends. Given the complexity of inflows and connectivity of the system, only the inflow estimates from the Sacramento and San Joaquin rivers were used as measures of freshwater influence at each station.  Initial analyses indicated that model fit was not significantly improved with flow estimates from locations closer to each station, nor was model fit improved using lagged times series.  As such, the Sacramento daily flow time series was used to account for flow effects at C3, D19, D26, D28, and MD10, and the San Joaquin time series was used for C10 and P8 based on station proximity to each inflow. Daily flow estimates were matched with the corresponding sample dates for the nutrient data. Salinity observations at D4, D6, and D7 in Suisun Bay were used as more appropriate measures of freshwater variation, given the stronger tidal influence at these stations.  Salinity has been used as a tracer of freshwater influence for the application of \ac{wrtds} models in tidal waters \citep{Beck15}.  Salinity was not used as a covariate at the interior and peripheral stations becuase initial analyses showed improved performance using flow estimates from the Sacramento and San Joaquin rivers. 
 
@@ -496,7 +496,7 @@ We thank the staff of the San Francisco Estuary Institute and the Delta Regional
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth,page=1]{figs/delt_map.pdf}
-\caption{The \acl{sfe} and Delta region with monitoring stations used for analysis. The Delta drains the combined watersheds of the Sacramento and San Joaquin rivers (inset). All data were obtained from the \acl{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}, \cite{IEP13}).}
+\caption{The \acl{sfe} and Delta region with monitoring stations used for analysis. The Delta drains the combined watersheds of the Sacramento and San Joaquin rivers (inset). All data were obtained from the \acl{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}, \cite{IEP13}). See \cref{tab:stdescrp} for station descriptions.}
 \label{fig:delt_map}   
 \end{figure}
 
@@ -829,14 +829,14 @@ dev.off()
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/trndcomp2.pdf}
-\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See Figure 3 for annual comparisons.}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
 \label{fig:trndcomp2}   
 \end{figure}
 
 \begin{figure}
 \centering
 \includegraphics[width=1\textwidth,page=1]{figs/trndcomp3.pdf}
-\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See Figure 3 for annual comparisons.}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
 \label{fig:trndcomp3}   
 \end{figure}
 
@@ -1313,6 +1313,60 @@ grid.arrange(
 \clearpage
 %%%%%%
 % tables
+
+% site descrip
+<<stdescrp>>=
+data(delt_dat)
+
+locs <- delt_dat %>% 
+  select(Location, Site_Code, Latitude, Longitude, nh, no23, din) %>% 
+  gather('var', 'val', nh:din) %>% 
+  group_by(Location, Site_Code, Latitude, Longitude, var) %>% 
+  summarise(
+    len = length(na.omit(val)),
+    val = mean(val, na.rm = TRUE), 
+    val = round(val, 2)
+  ) %>% 
+  ungroup %>% 
+  gather('sum', 'val', val:len) %>% 
+  unite('varsum', var, sum) %>% 
+  spread(varsum, val) %>% 
+  mutate(
+    Location = factor(Location, 
+                      levels = c('Delta', 'Middle', 'Suisun'), 
+                      labels = c('Peripheral', 'Interior', 'Suisun')
+                      ), 
+    Site_Code = factor(Site_Code, 
+                       levels = rev(c('D7', 'D6', 'D4', 'D28', 'D26', 'D19', 'P8', 'MD10', 'C10', 'C3'))
+                       ), 
+    Latitude = round(Latitude, 2),
+    Longitude = round(Longitude, 2)
+  ) %>% 
+  arrange(Location, Site_Code)
+ 
+# table stuff
+cap.val <- 'Monitoring stations in the upper San Francico Estuary used to evaluate nitrogen trends. Records from 1976 to 2013 were evaluated using the total observations ($n$) at each station. Average units of nitrogen are reported in mg L$^{-1}$.'
+cgrps <- c('', '', 'DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
+rgrps <- locs$Location %>% unique
+stats <- locs$Site_Code
+totab <- locs[, -c(1, 2)]
+names(totab) <- c('Lat', 'Lon', '$n$', 'Ave.', '$n$', 'Ave.','$n$', 'Ave.')
+
+# table
+latex(
+  totab,
+  file = '',
+  rowlabel = 'Station',
+  caption = cap.val,
+  caption.loc = 'top',
+  rgroup = rgrps,
+  n.rgroup = c(4, 3, 3),
+  cgroup = cgrps,
+  n.cgroup = c(1, 1, 2, 2, 2),
+  rowname = stats,
+  label = 'tab:stdescrp'
+  ) 
+@
 
 % overall trends, years
 <<trndsann>>=
