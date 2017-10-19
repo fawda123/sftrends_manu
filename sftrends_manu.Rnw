@@ -1324,7 +1324,7 @@ locs <- delt_dat %>%
   group_by(Location, Site_Code, Latitude, Longitude, var) %>% 
   summarise(
     len = length(na.omit(val)),
-    val = mean(val, na.rm = TRUE), 
+    val = median(val, na.rm = TRUE), 
     val = round(val, 2)
   ) %>% 
   ungroup %>% 
@@ -1345,12 +1345,12 @@ locs <- delt_dat %>%
   arrange(Location, Site_Code)
  
 # table stuff
-cap.val <- 'Monitoring stations in the upper San Francico Estuary used to evaluate nitrogen trends. Records from 1976 to 2013 were evaluated using the total observations ($n$) at each station. Average units of nitrogen are reported in mg L$^{-1}$.'
+cap.val <- 'Monitoring stations in the upper San Francico Estuary used to evaluate nitrogen trends. Records from 1976 to 2013 were evaluated using the total observations ($n$) at each station. Median values are reported in mg L$^{-1}$.'
 cgrps <- c('', '', 'DIN', 'NH$_{4}^{+}$', 'NO$_{2}^{-}$/NO$_{3}^{2-}$')
 rgrps <- locs$Location %>% unique
 stats <- locs$Site_Code
 totab <- locs[, -c(1, 2)]
-names(totab) <- c('Lat', 'Lon', '$n$', 'Ave.', '$n$', 'Ave.','$n$', 'Ave.')
+names(totab) <- c('Lat', 'Lon', rep(c('$n$', 'Med.'), 3))
 
 # table
 latex(
