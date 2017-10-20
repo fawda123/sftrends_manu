@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.18)  20 OCT 2017 11:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.18)  20 OCT 2017 11:23
 entering extended mode
 **./sftrends_manu.tex
 (sftrends_manu.tex
@@ -790,17 +790,15 @@ Package pdftex.def Info: figs/clmchl-1.pdf used on input line 370.
 [36 <./figs/clmchl-1.pdf>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 426.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 462.
  [37] [38] [39]
-<figs/trndcomp2.pdf, id=781, page=1, 650.43pt x 578.16pt>
+<figs/trndcomp2.pdf, id=778, page=1, 650.43pt x 578.16pt>
 File: figs/trndcomp2.pdf Graphic file (type pdf)
 
 <use figs/trndcomp2.pdf, page 1>
 Package pdftex.def Info: figs/trndcomp2.pdf, page1 used on input line 502.
 (pdftex.def)             Requested size: 469.75502pt x 417.57172pt.
 
-<figs/trndcomp3.pdf, id=784, page=1, 650.43pt x 578.16pt>
+<figs/trndcomp3.pdf, id=781, page=1, 650.43pt x 578.16pt>
 File: figs/trndcomp3.pdf Graphic file (type pdf)
 
 <use figs/trndcomp3.pdf, page 1>
@@ -834,30 +832,26 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 618.
  ) 
 Here is how much of TeX's memory you used:
- 12279 strings out of 493323
- 194788 string characters out of 3139036
- 326843 words of memory out of 3000000
- 15448 multiletter control sequences out of 15000+200000
- 35306 words of font info for 77 fonts, out of 3000000 for 9000
+ 12272 strings out of 493323
+ 194715 string characters out of 3139036
+ 327843 words of memory out of 3000000
+ 15444 multiletter control sequences out of 15000+200000
+ 34390 words of font info for 74 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,10n,50p,1939b,633s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9
-/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program 
-Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
-/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sftrends_manu.pdf (43 pages, 2645178 bytes).
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fo
+nts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
+mes/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sftrends_manu.pdf (43 pages, 2613679 bytes).
 PDF statistics:
- 910 PDF objects out of 1000 (max. 8388607)
+ 895 PDF objects out of 1000 (max. 8388607)
  156 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
