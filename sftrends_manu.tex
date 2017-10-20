@@ -107,6 +107,14 @@
 \newcommand{\mgl}{mg L$^{-1}$}
 \newcommand{\mugl}{$\mu$g L$^{-1}$}
 
+%for supplemental figures/tables
+\newcommand{\beginsupplement}{%
+        \setcounter{table}{0}
+        \renewcommand{\thetable}{S\arabic{table}}%
+        \setcounter{figure}{0}
+        \renewcommand{\thefigure}{S\arabic{figure}}%
+     }
+
 %knitr options
 
 
@@ -138,7 +146,7 @@
   \\\\{\textit {\normalsize $^2$San Francisco Estuary Institute}}
 	\\{\textit {\normalsize 4911 Central Ave, Richmond, CA 94804}}
   \vspace{1in}
-  \\ Version Date:   Thu Oct 19 15:58:58 2017 -0700
+  \\ Version Date:   Fri Oct 20 10:57:35 2017 -0700
 	}
 \date{}
 \maketitle
@@ -275,7 +283,7 @@ Long-term trends in nutrient and phytoplankton concentations in Suisun Bay have 
 
 Seasonal timings of water quality improvements and the link to flow changes are difficult to characterize from the observed time series. \ac{wrtds} models were used to characterize these changes at P8 and to develop additional hypotheses of factors that influence nutrient concentrations. A general conclusion is that ammonium reductions were concurrent with \ac{wwtp} upgrades, but the reduction was most apparent at low-flow in January. Estimated ammonium concentrations in July were low for all flow levels, which suggests either nitrogen inputs were low in the summer or nitrogen was available but uptake by primary consumers and bacterial processing were high. Seasonal patterns in the relationship between flow and nitrite/nitrate were not as dramatic as compared to ammonium, and in particular, low-flow events in July were associated with higher concentrations.  This could suggest that ammonium concentrations at P8 are driving phytoplankton production at low flow during warmer months, and not nitrite/nitrate given the higher estimated concentrations in July at low flow. As such, these simple observations provide quantitative support of cause and effect mechanisms of nutrient impacts on potentially adverse environmental conditions as they relate to nutrient-related source controls upstream.  Additional research could investigate these hypotheses to better describe mechanisms of change as a basis for more informed management.
 
-The results for Suisun Bay provide additional descriptions of change in production as it relates to flow, grazing, and nitrogen ratios.  In general, clam biomass was associated with a decrease in \ac{chl} concentration, as shown by others \citep{Alpin92,Thompson08}. Our results also suggested that diatoms were the dominant genera early in the time series, particularly in late summer, whereas the spring peak observed in later years represents a shift to an earlier seasonal maxima.  This supports past research that showed a decrease in silica uptake by diatoms following invasion \citep{Cloern96,Kimmerer05}.  Anontrivial portion of the \ac{din} increase could be related to the decrease in a major `sink', i.e., decreased \ac{din} uptake by phytoplankton due to top down grazing pressure from \textit{P. amurensis}.  Flow effects on phytoplankton production have also changed over time. In the absence of benthic grazing prior to invasion, \ac{chla} production was limited at low flow as less nutrients were exported from the Delta, stimulated as flow increases, and reduced at high flow as either nutrients or phytoplankton biomass are exported to the estuary (\cref{fig:clmchl}j). Recent years have shown a decrease in overall chlorophyll, with particularly low concentrations at low flow (high salinity).  As such, \ac{chla} production in early years is directly related to flow, whereas the relationship with flow in later years is indirect as increased flow reduces clam abundance and releases phytoplankton from benthic grazing pressure. These relationships have been suggested by others \citep{Cloern83,Alpine92,Parchaso02,Jassby08}, although the precise mechanism demonstrated by \ac{wrtds} provides a quantitative description of factors that drive water quality in the Delta.
+The results for Suisun Bay provide additional descriptions of change in production as it relates to flow, grazing, and nitrogen ratios.  In general, clam biomass was associated with a decrease in \ac{chla} concentration, as shown by others \citep{Alpine92,Thompson08}. Our results also suggested that diatoms were the dominant genera early in the time series, particularly in late summer, whereas the spring peak observed in later years represents a shift to an earlier seasonal maxima.  This supports past research that showed a decrease in silica uptake by diatoms following invasion \citep{Cloern96,Kimmerer05}.  Anontrivial portion of the \ac{din} increase could be related to the decrease in a major `sink', i.e., decreased \ac{din} uptake by phytoplankton due to top down grazing pressure from \textit{P. amurensis}.  Flow effects on phytoplankton production have also changed over time. In the absence of benthic grazing prior to invasion, \ac{chla} production was limited at low flow as less nutrients were exported from the Delta, stimulated as flow increases, and reduced at high flow as either nutrients or phytoplankton biomass are exported to the estuary (\cref{fig:clmchl}j). Recent years have shown a decrease in overall chlorophyll, with particularly low concentrations at low flow (high salinity).  As such, \ac{chla} production in early years is directly related to flow, whereas the relationship with flow in later years is indirect as increased flow reduces clam abundance and releases phytoplankton from benthic grazing pressure. These relationships have been suggested by others \citep{Cloern83,Alpine92,Parchaso02,Jassby08}, although the precise mechanism demonstrated by \ac{wrtds} provides a quantitative description of factors that drive water quality in the Delta.
  
 \subsection{Conclusions}
 
@@ -333,20 +341,6 @@ We thank the staff of the San Francisco Estuary Institute and the Delta Regional
 \includegraphics[width=1\textwidth,page=1]{figs/trndcomp1.pdf}
 \caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different annual groupings. See \cref{fig:trndcomp2,fig:trndcomp3} for seasonal groupings.}
 \label{fig:trndcomp1}   
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,page=1]{figs/trndcomp2.pdf}
-\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
-\label{fig:trndcomp2}   
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=1\textwidth,page=1]{figs/trndcomp3.pdf}
-\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
-\label{fig:trndcomp3}   
 \end{figure}
 
 \begin{figure}[!ht]
@@ -468,6 +462,57 @@ We thank the staff of the San Francisco Estuary Institute and the Delta Regional
 \footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. *$p<0.05$\end{table}
 
 
+% trends in no23, nh at p8
+%latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(2, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2), rowname = cats,     label = "tab:p8chg", insert.bottom = foot.val)%
+\begin{table}[!tbp]
+\caption{Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \ac{wwtp} upgrades upstream of station P8\label{tab:p8chg}} 
+\begin{center}
+\begin{tabular}{lllcll}
+\hline\hline
+\multicolumn{1}{l}{\bfseries Period}&\multicolumn{2}{c}{\bfseries NO$_{2}^{-}$/NO$_{3}^{2-}$}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries NH$_{4}^{+}$}\tabularnewline
+\cline{2-3} \cline{5-6}
+\multicolumn{1}{l}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}\tabularnewline
+\hline
+{\bfseries Annual}&&&&&\tabularnewline
+~~1976-2006&1.3&\textbf{2}*&&0.2&\textbf{2.8}*\tabularnewline
+~~2007-2013&1.4&-1.9*&&0.1&-16.6*\tabularnewline
+\hline
+{\bfseries Seasonal, pre}&&&&&\tabularnewline
+~~Spring&1.2&\textbf{1.6}*&&0.2&\textbf{1.4}*\tabularnewline
+~~Summer&1&\textbf{2.4}*&&0.1&\textbf{3.3}*\tabularnewline
+~~Fall&1.3&\textbf{2.2}*&&0.2&\textbf{4.9}*\tabularnewline
+~~Winter&1.5&\textbf{2.1}*&&0.7&\textbf{4.8}*\tabularnewline
+\hline
+{\bfseries Seasonal, post}&&&&&\tabularnewline
+~~Spring&1.3&-1.6*&&0.1&-16.2*\tabularnewline
+~~Summer&0.9&-4.3*&&0.1&-15.7*\tabularnewline
+~~Fall&1.5&-1.7*&&0.1&-19.3*\tabularnewline
+~~Winter&2.2&-0.8*&&0.2&-26.7*\tabularnewline
+\hline
+\end{tabular}\end{center}
+\footnotesize Upgrades were completed in 2006 at the City of Stockton \ac{wwtp} (San Joaquin County, \cref{fig:stock}). Summaries are  medians and percent change per year in parentheses (increasing in bold).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$\end{table}
+
+
+\clearpage
+
+\beginsupplement
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,page=1]{figs/trndcomp2.pdf}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1976-1995. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\label{fig:trndcomp2}   
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=1\textwidth,page=1]{figs/trndcomp3.pdf}
+\caption{Results from seasonal Kendall tests on observed data (triangles) and flow-normalized predictions (circles) from \ac{wrtds} for nitrogen analytes. Results are shown as the percent change per year as the estimated Theil-Sen slope divided by the median for a given aggregation period (significance evaluated at $\alpha = 0.05$, based on $\tau$). Trends are shown separately for different seasonal groupings from 1996-2013. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. See \cref{fig:trndcomp1} for annual comparisons.}
+\label{fig:trndcomp3}   
+\end{figure}
+
+\clearpage
+
 % overall trends, seasons, first annual periodyears
 %latex.default(tab[, -c(1, 2)], file = "", rowlabel = "Analyte/Station",     caption = cap.val, caption.loc = "top", rgroup = vars, n.rgroup = rep(nrow(tab)/3,         3), cgroup = c("Seasonal, 1976-1995"), n.cgroup = c(4),     rowname = stats, label = "tab:trndsbef", insert.bottom = foot.val)%
 \begin{table}[!tbp]
@@ -569,38 +614,5 @@ We thank the staff of the San Francisco Estuary Institute and the Delta Regional
 \end{tabular}\end{center}
 \footnotesize Summaries are  medians (mg L$^{-1}$) and percent change per year in parentheses (increasing in bold). Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$\end{table}
 
-
-% trends in no23, nh at p8
-%latex.default(totab, file = "", rowlabel = "Period", caption = cap.val,     caption.loc = "top", rgroup = segs, n.rgroup = c(2, rep(4,         2)), cgroup = vars, n.cgroup = c(2, 2), rowname = cats,     label = "tab:p8chg", insert.bottom = foot.val)%
-\begin{table}[!tbp]
-\caption{Summaries of flow-normalized trends in nitrite/nitrate and ammonium (mg L$^{-1}$) concentrations before and after \ac{wwtp} upgrades upstream of station P8\label{tab:p8chg}} 
-\begin{center}
-\begin{tabular}{lllcll}
-\hline\hline
-\multicolumn{1}{l}{\bfseries Period}&\multicolumn{2}{c}{\bfseries NO$_{2}^{-}$/NO$_{3}^{2-}$}&\multicolumn{1}{c}{\bfseries }&\multicolumn{2}{c}{\bfseries NH$_{4}^{+}$}\tabularnewline
-\cline{2-3} \cline{5-6}
-\multicolumn{1}{l}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}&\multicolumn{1}{c}{}&\multicolumn{1}{c}{Median}&\multicolumn{1}{c}{\% change}\tabularnewline
-\hline
-{\bfseries Annual}&&&&&\tabularnewline
-~~1976-2006&1.3&\textbf{2}*&&0.2&\textbf{2.8}*\tabularnewline
-~~2007-2013&1.4&-1.9*&&0.1&-16.6*\tabularnewline
-\hline
-{\bfseries Seasonal, pre}&&&&&\tabularnewline
-~~Spring&1.2&\textbf{1.6}*&&0.2&\textbf{1.4}*\tabularnewline
-~~Summer&1&\textbf{2.4}*&&0.1&\textbf{3.3}*\tabularnewline
-~~Fall&1.3&\textbf{2.2}*&&0.2&\textbf{4.9}*\tabularnewline
-~~Winter&1.5&\textbf{2.1}*&&0.7&\textbf{4.8}*\tabularnewline
-\hline
-{\bfseries Seasonal, post}&&&&&\tabularnewline
-~~Spring&1.3&-1.6*&&0.1&-16.2*\tabularnewline
-~~Summer&0.9&-4.3*&&0.1&-15.7*\tabularnewline
-~~Fall&1.5&-1.7*&&0.1&-19.3*\tabularnewline
-~~Winter&2.2&-0.8*&&0.2&-26.7*\tabularnewline
-\hline
-\end{tabular}\end{center}
-\footnotesize Upgrades were completed in 2006 at the City of Stockton \ac{wwtp} (San Joaquin County, \cref{fig:stock}). Summaries are  medians and percent change per year in parentheses (increasing in bold).  Changes and significance estimates are based on seasonal Kendall tests of flow-normalized results within each time period. Increasing values are in bold-italics. Months for each season are Spring: MAM, Summer: JJA, Fall: SON, Winter: DJF. *$p<0.05$\end{table}
-
-
-\clearpage
 
 \end{document}
