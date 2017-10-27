@@ -25,12 +25,6 @@ Beck MW, {Hagy III} JD. 2015.
   quality trends in an estuary.
 \newblock Environmental Modelling and Assessment, 20(6):637--655.
 
-\bibitem[Beck et~al., 2015]{Beck15b}
-Beck MW, {Hagy III} JD, Murrell MC. 2015.
-\newblock Improving estimates of ecosystem metabolism by reducing effects of
-  tidal advection on dissolved oxygen time series.
-\newblock Limnology and Oceanography: Methods, 13(12):731--745.
-
 \bibitem[Beck and Murphy, 2017]{Beck17}
 Beck MW, Murphy RR. 2017.
 \newblock Numerical and qualitative contrasts of two statistical models for
@@ -93,11 +87,6 @@ Cloern JE, Schraga TS, Lopez CB, Knowles N, Labiosa RG, Dugdale R. 2005.
   {S}an {F}rancisco {B}ay.
 \newblock Geophysical Research Letters, 32(14):L14608.
 
-\bibitem[Cohen and Carlton, 1998]{Cohen98}
-Cohen AN, Carlton JT. 1998.
-\newblock Accelerating invasion rate in a highly invaded estuary.
-\newblock Science, 279(5350):555--558.
-
 \bibitem[Cole and Cloern, 1984]{Cole84}
 Cole BE, Cloern JE. 1984.
 \newblock Significance of biomass and light availability to phytoplankton
@@ -110,15 +99,6 @@ Cornwell JC, Glibert PM, Owens MS. 2014.
   {D}elta.
 \newblock Estuaries and Coasts, 37(5):1120--1133.
 
-\bibitem[Crauder et~al., 2016]{Crauder16}
-Crauder JS, Thompson JK, Parchaso F, Anduaga RI, Pearson SA, Gehrts K, Fuller
-  H, Wells E. 2016.
-\newblock Bivalve effects on the food web supporting delta smelt - a long-term
-  study of bivalve recruitment, biomass, and grazing rate patterns with varying
-  freshwater outflow.
-\newblock Technical Report Open-File Report 2016-1005, US Geological Survey,
-  Reston, Virginia.
-
 \bibitem[Dortch, 1990]{Dortch90}
 Dortch W. 1990.
 \newblock The interaction between ammonium and nitrate uptake in phytoplankton.
@@ -130,17 +110,18 @@ Dugdale RC, Wilkerson FP, Hogue VE, Marchi A. 2007.
   {F}rancisco {B}ay.
 \newblock Estuarine, Coastal, and Shelf Science, 73:17--29.
 
-\bibitem[Enright and Culberson, 2009]{Enright09}
-Enright C, Culberson SD. 2009.
-\newblock Salinity trends, variability, and control in the northern reach of
-  the {S}an {F}rancisco {E}stuary.
-\newblock San Francisco Estuary and Watershed Science, 7(2):1--28.
-
 \bibitem[Feyrer et~al., 2003]{Feyrer03}
 Feyrer F, Herbold B, Matern SA, Moyle PB. 2003.
 \newblock Dietary shifts in a stressed fish assemblage: Consequences of a
   bivalve invasion in the {S}an {F}rancisco {E}stuary.
 \newblock Environmental Biology of Fishes, 67(3):277--288.
+
+\bibitem[Glibert, 2010]{Glibert10}
+Glibert PM. 2010.
+\newblock Long-term changes in nutrient loading and stoichiometry and their
+  relationships with changes in the food web and dominant pelagic fish species
+  in the {S}an {F}ranciso {E}stuary, {C}alifornia.
+\newblock Reviews in Fisheries Science, 18(2):211--232.
 
 \bibitem[Glibert et~al., 2014]{Glibert14}
 Glibert PM, Dugdale RC, Wilkerson F, Parker AE, Alexander J, Antell E, Blaser
@@ -254,12 +235,6 @@ Lehman PW, Boyer G, Hall C, Waller S, Gehrts K. 2005.
 \newblock Distribution and toxicity of a new colonial \textit{{M}icrocystis
   aeruginosa} bloom in the {S}an {F}rancisco {B}ay {E}stuary, {C}alifornia.
 \newblock Hydrobiologia, 541:87--99.
-
-\bibitem[Lehman et~al., 2010]{Lehman10}
-Lehman PW, Teh SJ, Boyer GL, Nobriga ML, Bass E, Hogle C. 2010.
-\newblock Initial impacts of \textit{{M}icrocystis aeruginosa} blooms on the
-  aquatic food web in the {S}an {F}rancisco {E}stuary.
-\newblock Hydrobiologia, 637(1):229--248.
 
 \bibitem[{Mac Nally} et~al., 2010]{MacNally10}
 {Mac Nally} R, Thompson JR, Kimmerer WJ, Feyrer F, Newman KB, Sih A, Bennett
