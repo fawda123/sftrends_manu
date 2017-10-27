@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.18)  27 OCT 2017 15:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6350 64-bit) (preloaded format=pdflatex 2017.9.18)  27 OCT 2017 15:54
 entering extended mode
 **./sftrends_manu.tex
 (sftrends_manu.tex
@@ -540,13 +540,6 @@ Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
 LaTeX Info: Redefining \bm on input line 207.
 )
-(C:\Users\Marcus.SCCWRP2K\AppData\Roaming\MiKTeX\2.9\tex\latex\showlabels\showl
-abels.sty
-Package: showlabels 2015/12/08 v1.7
-
-Package: `showlabels' v1.7 <2015/12/08>
-\SL@labelposition=\count129
-)
 (C:\Users\Marcus.SCCWRP2K\AppData\Roaming\MiKTeX\2.9\tex\latex\upquote\upquote.
 sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
@@ -588,16 +581,16 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 (C:\Users\Marcus.SCCWRP2K\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count130
+\scratchcounter=\count129
 \scratchdimen=\dimen160
 \scratchbox=\box30
-\nofMPsegments=\count131
-\nofMParguments=\count132
+\nofMPsegments=\count130
+\nofMParguments=\count131
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count133
+\MPscratchCnt=\count132
 \MPscratchDim=\dimen161
-\MPnumerator=\count134
-\makeMPintoPDFobject=\count135
+\MPnumerator=\count133
+\makeMPintoPDFobject=\count134
 \everyMPtoPDFconversion=\toks26
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -654,7 +647,7 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count136
+\c@section@level=\count135
 )
 LaTeX Info: Redefining \ref on input line 128.
 LaTeX Info: Redefining \pageref on input line 128.
@@ -696,12 +689,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 156.
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 157.
-
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
 Package acronym Info: Label `acro:wrtds' newly defined as it shall be overridde
 n
 although it is yet undefined on input line 157.
@@ -715,8 +702,7 @@ Package acronym Info: Label `acro:chla' newly defined as it shall be overridden
 although it is yet undefined on input line 162.
  [3] [4]
 Package acronym Info: Label `acro:wrtds' overridden on input line 169.
- [5]
-[6]
+ [5] [6]
 Package acronym Info: Label `acro:din' newly defined as it shall be overridden
 although it is yet undefined on input line 183.
 Package acronym Info: Label `acro:wwtp' newly defined as it shall be overridden
@@ -725,50 +711,51 @@ although it is yet undefined on input line 183.
  [7] [8] [9] [10]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/it' tried instead on input line 221.
- [11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21]
-[22] [23] (sftrends_manu.bbl [24] [25] [26] [27] [28]) [29]
+
+[11] [12] [13] [14] [15] [16] [17] [18] [19] [20] [21] [22] [23]
+(sftrends_manu.bbl [24] [25] [26] [27] [28]) [29]
 
 pdfTeX warning: pdflatex.exe (file ./figs/delt_map.pdf): PDF inclusion: found P
 DF version <1.6>, but at most version <1.5> allowed
-<figs/delt_map.pdf, id=560, page=1, 657.96996pt x 527.71329pt>
+<figs/delt_map.pdf, id=559, page=1, 657.96996pt x 527.71329pt>
 File: figs/delt_map.pdf Graphic file (type pdf)
 
 <use figs/delt_map.pdf, page 1>
 Package pdftex.def Info: figs/delt_map.pdf, page1 used on input line 311.
 (pdftex.def)             Requested size: 375.80544pt x 301.41971pt.
 
-<figs/obsdat-1.pdf, id=569, 433.62pt x 542.025pt>
+<figs/obsdat-1.pdf, id=568, 433.62pt x 542.025pt>
 File: figs/obsdat-1.pdf Graphic file (type pdf)
  <use figs/obsdat-1.pdf>
 Package pdftex.def Info: figs/obsdat-1.pdf used on input line 318.
 (pdftex.def)             Requested size: 422.77664pt x 528.50119pt.
 
-<figs/prddat-1.pdf, id=572, 578.16pt x 578.16pt>
+<figs/prddat-1.pdf, id=571, 578.16pt x 578.16pt>
 File: figs/prddat-1.pdf Graphic file (type pdf)
  <use figs/prddat-1.pdf>
 Package pdftex.def Info: figs/prddat-1.pdf used on input line 329.
 (pdftex.def)             Requested size: 469.75502pt x 469.75385pt.
 
-<figs/trndcomp1.pdf, id=575, page=1, 650.43pt x 361.35pt>
+<figs/trndcomp1.pdf, id=574, page=1, 650.43pt x 361.35pt>
 File: figs/trndcomp1.pdf Graphic file (type pdf)
 
 <use figs/trndcomp1.pdf, page 1>
 Package pdftex.def Info: figs/trndcomp1.pdf, page1 used on input line 342.
 (pdftex.def)             Requested size: 469.75502pt x 260.98232pt.
 
-<figs/stock-1.pdf, id=580, 578.16pt x 216.81pt>
+<figs/stock-1.pdf, id=579, 578.16pt x 216.81pt>
 File: figs/stock-1.pdf Graphic file (type pdf)
  <use figs/stock-1.pdf>
 Package pdftex.def Info: figs/stock-1.pdf used on input line 349.
 (pdftex.def)             Requested size: 469.75502pt x 176.15768pt.
 
-<figs/p8trnds-1.pdf, id=581, 650.43pt x 578.16pt>
+<figs/p8trnds-1.pdf, id=580, 650.43pt x 578.16pt>
 File: figs/p8trnds-1.pdf Graphic file (type pdf)
  <use figs/p8trnds-1.pdf>
 Package pdftex.def Info: figs/p8trnds-1.pdf used on input line 360.
 (pdftex.def)             Requested size: 469.75502pt x 417.57172pt.
 
-<figs/clmchl-1.pdf, id=584, 578.16pt x 671.50874pt>
+<figs/clmchl-1.pdf, id=583, 578.16pt x 671.50874pt>
 File: figs/clmchl-1.pdf Graphic file (type pdf)
  <use figs/clmchl-1.pdf>
 Package pdftex.def Info: figs/clmchl-1.pdf used on input line 371.
@@ -780,14 +767,14 @@ Package pdftex.def Info: figs/clmchl-1.pdf used on input line 371.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 427.
  [36] [37] [38]
-<figs/trndcomp2.pdf, id=739, page=1, 650.43pt x 578.16pt>
+<figs/trndcomp2.pdf, id=738, page=1, 650.43pt x 578.16pt>
 File: figs/trndcomp2.pdf Graphic file (type pdf)
 
 <use figs/trndcomp2.pdf, page 1>
 Package pdftex.def Info: figs/trndcomp2.pdf, page1 used on input line 503.
 (pdftex.def)             Requested size: 469.75502pt x 417.57172pt.
 
-<figs/trndcomp3.pdf, id=742, page=1, 650.43pt x 578.16pt>
+<figs/trndcomp3.pdf, id=741, page=1, 650.43pt x 578.16pt>
 File: figs/trndcomp3.pdf Graphic file (type pdf)
 
 <use figs/trndcomp3.pdf, page 1>
@@ -821,26 +808,26 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 619.
  ) 
 Here is how much of TeX's memory you used:
- 12252 strings out of 493323
- 194435 string characters out of 3139036
- 327843 words of memory out of 3000000
- 15432 multiletter control sequences out of 15000+200000
- 34390 words of font info for 74 fonts, out of 3000000 for 9000
+ 12143 strings out of 493323
+ 192710 string characters out of 3139036
+ 325517 words of memory out of 3000000
+ 15332 multiletter control sequences out of 15000+200000
+ 33368 words of font info for 71 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,10n,50p,1925b,623s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,10n,48p,1925b,623s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Program Files/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
 pe1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
 /amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/ti
-mes/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sftrends_manu.pdf (42 pages, 2605927 bytes).
+s/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on sftrends_manu.pdf (42 pages, 2593180 bytes).
 PDF statistics:
- 854 PDF objects out of 1000 (max. 8388607)
+ 850 PDF objects out of 1000 (max. 8388607)
  148 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 
