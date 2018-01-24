@@ -13,6 +13,14 @@ Alpine AE, Cloern JE. 1992.
   phytoplankton biomass and production in an estuary.
 \newblock Limnology and Oceanography, 37(5):946--955.
 
+\bibitem[ASC, 2017]{ASC17}
+ASC. 2017.
+\newblock {Assessment of nutrient status and trends in the Delta in 2001-2016:
+  Effects of drought on ambient concentrations and trends. Prepared by the
+  Aquatic Science Center (ASC), T. Jabusch, P. Trowbridge, A. Wong, and M.
+  Heberger for the Delta Regional Monitoring Program}.
+\newblock Report v1.2.
+
 \bibitem[Beck, 2017]{Beck17b}
 Beck MW. 2017.
 \newblock {WRTDStidal: Weighted Regression for Water Quality Evaluation in
@@ -74,19 +82,6 @@ Cloern JE, Jassby AD. 2012.
   four decades of study in {S}an {F}rancisco {B}ay.
 \newblock Reviews of Geophysics, 50(4):1--33.
 
-\bibitem[Cloern et~al., 2007]{Cloern07}
-Cloern JE, Jassby AD, Thompson JK, Hieb KA. 2007.
-\newblock A cold phase of the {E}ast {P}acific triggers new phytoplankton
-  blooms in {S}an {F}rancisco {B}ay.
-\newblock Proceedings of the National Academy of Sciences of the United States
-  of America, 104(47):18561--18565.
-
-\bibitem[Cloern et~al., 2005]{Cloern05}
-Cloern JE, Schraga TS, Lopez CB, Knowles N, Labiosa RG, Dugdale R. 2005.
-\newblock Climate anomalies generate an exceptional dinoflagellate bloom in
-  {S}an {F}rancisco {B}ay.
-\newblock Geophysical Research Letters, 32(14):L14608.
-
 \bibitem[Cole and Cloern, 1984]{Cole84}
 Cole BE, Cloern JE. 1984.
 \newblock Significance of biomass and light availability to phytoplankton
@@ -99,10 +94,10 @@ Cornwell JC, Glibert PM, Owens MS. 2014.
   {D}elta.
 \newblock Estuaries and Coasts, 37(5):1120--1133.
 
-\bibitem[Dortch, 1990]{Dortch90}
-Dortch W. 1990.
-\newblock The interaction between ammonium and nitrate uptake in phytoplankton.
-\newblock Marine Ecology Progress Series, 61(1/2):183--201.
+\bibitem[Dahm et~al., 2016]{Dahm16}
+Dahm CN, Parker AE, Adelson AE, Christman MA, Bergamaschi BA. 2016.
+\newblock Nutrient dynamics of the {D}elta: Effects on primary producers.
+\newblock San Francisco Estuary and Watershed Science, 14(4):1--36.
 
 \bibitem[Dugdale et~al., 2007]{Dugdale07}
 Dugdale RC, Wilkerson FP, Hogue VE, Marchi A. 2007.
@@ -137,6 +132,12 @@ Harding LW, Gallegos CL, Perry ES, Miller WD, Adolf JE, Mallonee ME, Paerl HW.
 \newblock Long-term trends of nutrients and phytoplankton in {C}hesapeake
   {B}ay.
 \newblock Estuaries and Coasts, 39:664--681.
+
+\bibitem[Hestir et~al., 2013]{Hestir13}
+Hestir EL, Schoellhamer DH, Morgan-King T, Ustin SL. 2013.
+\newblock A step decrease in sediment concentration in a highly modifed tidal
+  river delta following the 1983 {E}l ni\~{n}o floods.
+\newblock Marine Geology, 345(1):304--313.
 
 \bibitem[Hirsch and {De Cicco}, 2014]{Hirsch14}
 Hirsch RM, {De Cicco} L. 2014.
@@ -236,6 +237,12 @@ Lehman PW, Boyer G, Hall C, Waller S, Gehrts K. 2005.
   aeruginosa} bloom in the {S}an {F}rancisco {B}ay {E}stuary, {C}alifornia.
 \newblock Hydrobiologia, 541:87--99.
 
+\bibitem[Lehman et~al., 2015]{Lehman15}
+Lehman PW, Kendall C, Guerin MA, Young MB, Silva SR, Boyer GL, Teh SJ. 2015.
+\newblock Characterization of the \textit{{M}icrocystis} bloom and its nitrogen
+  supply in {S}an {F}rancisco {E}stuary using stable isotopes.
+\newblock Estuaries and Coasts, 38(1):165--178.
+
 \bibitem[{Mac Nally} et~al., 2010]{MacNally10}
 {Mac Nally} R, Thompson JR, Kimmerer WJ, Feyrer F, Newman KB, Sih A, Bennett
   WA, Brown L, Fleishman E, Culberson SD, Castillo G. 2010.
@@ -302,6 +309,12 @@ Sakamoto M, Tanaka T. 1989.
   {M}ikawa {B}ay, {J}apan.
 \newblock Marine Biology, 101(2):265--271.
 
+\bibitem[Santos et~al., 2009]{Santos09}
+Santos MJ, Khanna S, Hestir EL, Andrew ME. 2009.
+\newblock Use of hyperspectral remote sensing to evaluate efficacy of aquatic
+  plant management.
+\newblock Invasive Plant Science and Management, 2(3):216--229.
+
 \bibitem[Schoellhamer, 2011]{Schoellhamer11}
 Schoellhamer DH. 2011.
 \newblock Sudden clearing of estuarine waters upon crossing the threshold from
@@ -315,26 +328,11 @@ Schultz P, Urban NR. 2008.
   nutrient release from sediments: A modeling study.
 \newblock Ecological Modelling, 210(1-2):1--14.
 
-\bibitem[Shellenbarger et~al., 2008]{Shellenbarger08}
-Shellenbarger GG, Schoellhamer DH, Morgan TL, Takekawa JY, Athearn ND,
-  Henderson KD. 2008.
-\newblock Dissolved oxygen in {G}uadalupe {S}lough and {P}ond {A3W}, {S}outh
-  {S}an {F}rancisco {B}ay, {C}alifornia, {A}ugust and {S}eptember 2007.
-\newblock Technical Report Open-File Report 2008-1097, US Geological Survey,
-  Reston, Virginia.
-
 \bibitem[Sprague et~al., 2011]{Sprague11}
 Sprague LA, Hirsch RM, Aulenbach BT. 2011.
 \newblock Nitrate in the {M}ississippi {R}iver and its tributaries, 1980 to
   2008: Are we making progress?
 \newblock Environmental Science and Technology, 45(17):7209--7216.
-
-\bibitem[Sutula et~al., 2017]{Sutula17}
-Sutula M, Kudela R, III JDH, Jr. LWH, Senn D, Cloern JE, Bricker S, Berg GM,
-  Beck MW. 2017.
-\newblock Novel analyses of long-term data provide a scientific basis for
-  chlorophyll-a thresholds in {S}an {F}rancisco {B}ay.
-\newblock Estuarine, Coastal and Shelf Science, 197:107--118.
 
 \bibitem[Thompson et~al., 2008]{Thompson08}
 Thompson JK, Koseff JR, Monismith SG, Lucas LV. 2008.
