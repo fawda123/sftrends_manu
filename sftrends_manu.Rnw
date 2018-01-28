@@ -7,23 +7,14 @@
 \usepackage{titlesec}
 \usepackage{multirow}
 \usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{verbatim}
-\usepackage{rotating}
-\usepackage{tabularx}
 \usepackage{outlines}
 \usepackage{lineno}
-\usepackage{array}
-\usepackage{times}
 \usepackage{cleveref}
 \usepackage{acronym}
 \usepackage[position=t]{subfig}
 \usepackage{paralist}
 \usepackage[noae]{Sweave}
 \usepackage{natbib}
-\usepackage{array}
-\usepackage{pdflscape}
-\usepackage{bm}
 % \usepackage[inline]{showlabels}
 \bibpunct{(}{)}{,}{a}{}{,}
 
