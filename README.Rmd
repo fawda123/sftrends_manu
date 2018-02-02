@@ -4,8 +4,12 @@ output:
   html_document:
     keep_md: yes
     highlight: tango
-author: "Marcus W. Beck, beck.marcus@epa.gov"
+author: "Marcus W. Beck, marcusb@sccwrp.org"
 ---
+
+[![DOI](https://zenodo.org/badge/59666523.svg)](https://zenodo.org/badge/latestdoi/59666523)
+
+Manuscript materials for trend analysis of nitrogen in SF Delta with WRTDS
 
 ### Files
 
@@ -27,8 +31,8 @@ Files were created in `sf_trends.RProj`
 
 `mods.RData` complete dataset for wrtds, including model results.
 
-`trnds_seasyr.RData` collection of three data frames for seasonal kendall on observed, fit, norm data, different annual and seasonal periods
-
 `stock_conc.RData` summarized effluent data from Stockton wwtp, mg/L
 
 `stock_load.RData` nutrient load data from Stockton, kg/day
+
+`trnds_seasyr.RData` collection of three data frames for seasonal kendall on observed, fit, norm data, different annual and seasonal periods
