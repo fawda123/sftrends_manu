@@ -504,7 +504,7 @@ We thank the staff of the San Francisco Estuary Institute and the Delta Regional
 \begin{figure}
 \centering
 \includegraphics[width=0.8\textwidth,page=1]{figs/delt_map.pdf}
-\caption{The \acl{sfe} and Delta region with monitoring stations used for analysis. The Delta drains the combined watersheds of the Sacramento and San Joaquin rivers (inset). The grey outline is the legal boundary of the Delta. All data were obtained from the \acl{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}, \cite{IEP13}). See \cref{tab:stdescrp} for station descriptions.}
+\caption{The \acl{sfe} and Delta region with monitoring stations used for analysis. The Delta drains the combined watersheds of the Sacramento and San Joaquin rivers (dark grey region in top right inset). The grey outline is the legal boundary of the Delta. All data were obtained from the \acl{iep} website (\url{http://water.ca.gov/bdma/meta/Discrete/data.cfm}, \cite{IEP13}). See \cref{tab:stdescrp} for station descriptions.}
 \label{fig:delt_map}   
 \end{figure}
 
