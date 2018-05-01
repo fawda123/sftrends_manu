@@ -135,7 +135,7 @@ Long-term monitoring data are powerful sources of information that can facilitat
 
 Formal methods for trend analysis are required to describe water quality changes that vary by space and time. As a practical approach for water quality evaluation, trend analysis of ecosystem response indicators often focuses on tracking the change in concentrations or loads of nutrients over many years. Response indicators can vary naturally with changing flow conditions and may also reflect long-term effects of management or policy changes. Similarly, nutrient trends that vary with hydrologic loading can vary as a function of utilization rates by primary producers or decomposition processes \citep{Sakamoto89,Schultz08,Harding16}.  Concentration of \ac{chla} as a measure of phytoplankton response to nutrient inputs can follow seasonal patterns with cyclical variation in temperature and light changes throughout each year, whereas annual trends can follow long-term variation in nutrient inputs to the system \citep{Cloern96,Cloern10}.  Describing the relationship of a water quality variable as changing (chemodynamic) or invariant (chemostatic) with flow can isolate components, such as nutrient inputs, for a more direct assessment of causal factors \citep{Wan17}.  
 
-The \ac{wrtds} approach was developed in this context and has been used to characterize decadal trends in river systems \citep{Hirsch10,Sprague11,Medalie12,Hirsch14,Pellerin14,Zhang16}.  The \ac{wrtds} method has been adapted for trend analysis in tidal waters, with a focus on \ac{chla} trends in Tampa Bay \citep{Beck15} and the Patuxent River Estuary \citep{Beck17}. Although the \ac{wrtds} method has been effectively applied to describe changes in freshwater systems, use in tidally influenced systems has not been as extensive.  Application of \ac{wrtds} to describe trends in estuaries could reveal new insights given the disproportionate effects of physical drivers, such as flow inputs and tidal exchange, on water quality. The effects of biological drivers may also be more apparent because hydrological effects can be removed by \ac{wrtds}.  As such, application of \ac{wrtds} models for trend analysis could facilitate a broader discusion on the need to focus beyond nutrients to develop integrated plans for water quality management. 
+The \ac{wrtds} approach was developed in this context and has been used to characterize decadal trends in river systems \citep{Hirsch10,Sprague11,Medalie12,Hirsch14,Pellerin14,Zhang16}.  The \ac{wrtds} method has more recently been adapted for trend analysis in tidal waters, with a limited focus on \ac{chla} trends in Tampa Bay \citep{Beck15} and the Patuxent River Estuary \citep{Beck17}. Although the \ac{wrtds} method has been effectively applied to describe changes in freshwater systems, use in tidally influenced systems has not been as extensive.  Application of \ac{wrtds} to describe trends in estuaries could reveal new insights given the disproportionate effects of physical drivers, such as flow inputs and tidal exchange, on water quality. The effects of biological drivers may also be more apparent because hydrological effects can be removed by \ac{wrtds}.  As such, application of \ac{wrtds} models for trend analysis could facilitate a broader discusion on the need to focus beyond nutrients to develop integrated plans for water quality management. 
 
 The goal of this study was to provide a comprehensive description of nutrient trends in the Delta and Suisun Bay over the last forty years.  This information can inform the  understanding of ecosystem response dynamics and potential causes of water quality change. The specific objectives were to \begin{inparaenum}[1\upshape)]  
 \item quantify and interpret trends over four decades at ten stations in the Delta and Suisun Bay, including annual, seasonal, and spatial changes in nitrogen forms and response to flow variation, and
@@ -149,7 +149,7 @@ The second objective evaluated two specific water quality stations to demonstrat
 
 The Delta region drains a 200 thousand km$^2$ watershed into the \ac{sfe}, which is the largest estuary on the Pacific coast of North America.  The watershed provides water to over 25 million people and irrigation for 18 thousand km$^2$ of agricultural land.  Water enters the \ac{sfe} through the Sacramento and San Joaquin rivers that have a combined inflow of approximately 28 km$^3$ per year, with the Sacramento accounting for 84\% of inflow to the Delta.  The \ac{sfe} system includes the Delta and subembayments of San Francisco Bay (\cref{fig:delt_map}).  Water dynamics in the \ac{sfe} and Delta are governed by inflows from the watershed, tidal exchange with the Pacific Ocean, and water withdrawals for municipal and agricultural use \citep{Jassby00}.  Seasonally, inflows from the watershed peak in the spring and early summer from snowmelt.  Long-term trends have shown that consumption, withdrawals, and export have steadily increased from 1960 to present, although climate effects have contributed to inter-annual variability \citep{Cloern12b}. Notable drought periods have occurred from 1976-1977, 1987-1992, and recently from 2013-2015 \citep{Cloern15}.
 
-Orthophosphate (PO$_4^{3-}$) and \ac{din} enter the Delta primarily through the Sacramento and San Joaquin rivers and from municipal \ac{wwtp} inputs.  Annual nutrient export from the Delta region has been estimated as approximately 30 thousand kg d$^{-1}$ of total nitrogen \citep[varying with flow,][]{Novick15}, with 90\% of ammonium (NH$_4^{+}$) originating solely from the Sacramento Regional \ac{wwtp} \citep{Jassby08}.  Although nitrogen and phosphorus inputs are considerable, primary production is relatively low and not nutrient-limited \citep{Jassby02,Kimmerer12}.
+Orthophosphate (PO$_4^{3-}$) and \ac{din} enter the Delta primarily through the Sacramento and San Joaquin rivers and from municipal \ac{wwtp} inputs.  Annual nutrient export from the Delta region has been estimated as approximately 30 thousand kg d$^{-1}$ of total nitrogen \citep[varying with flow,][]{Novick15}, with 90\% of ammonium (NH$_4^{+}$) originating solely from the Sacramento Regional County Treatment Facility (hereafter Sacramento \ac{wwtp}) \citep{Jassby08}.  Although nitrogen and phosphorus inputs are considerable, primary production is relatively low and not nutrient-limited \citep{Jassby02,Kimmerer12}.
 
 \subsection{Data sources}
 
@@ -212,7 +212,7 @@ Each case study is built around hypotheses that results from \ac{wrtds} models w
 
 \subsubsection{Effects of wastewater treatment}
 
-Significant efforts have been made in recent years to reduce nitrogen loading from regional \acp{wwtp} given the disproportionate contribution of nutrients relative to other sources  \citep{Cornwell14,Novick15}.  Several \acp{wwtp} in the Delta have recently been or are planned to be upgraded to include tertiary filtration and nitrification to convert biologically available ammonium to nitrate. The City of Stockton \ac{wwtp} was upgraded in 2006 and is immediately upstream of station P8 \citep{Jabusch16}, which provides a valuable opportunity to assess how nutrient or nutrient-related source controls and water management actions have changed ambient concentrations downstream. A decrease of ammonium concentrations at P8 after 2006 is expected as a result of upstream \ac{wwtp} upgrades, and water quality should exhibit \begin{inparaenum}[1\upshape)]
+Significant efforts have been made in recent years to reduce nitrogen loading from regional \acp{wwtp} given the disproportionate contribution of nutrients relative to other sources  \citep{Cornwell14,Novick15}.  Several \acp{wwtp} in the Delta have recently been or are planned to be upgraded to add nitrification to convert biologically available ammonium to nitrate. The City of Stockton \ac{wwtp} was upgraded in 2006 and is immediately upstream of station P8 \citep{Jabusch16}, which provides a valuable opportunity to assess how nutrient or nutrient-related source controls and water management actions have changed ambient concentrations downstream. A decrease of ammonium concentrations at P8 after 2006 is expected as a result of upstream \ac{wwtp} upgrades, and water quality should exhibit \begin{inparaenum}[1\upshape)]
 \item a shift in the ratio of the components of \ac{din} from the \ac{wwtp} before/after upgrade, and
 \item a flow-normalized annual trend at P8 to show a change concurrent with \ac{wwtp} upgrades.
 \end{inparaenum}
@@ -475,14 +475,25 @@ Differing magnitudes of nitrogen forms between stations as a function of source 
 % obs v flow norm trends
 Our results underscore the importance of considering flow effects in the evaluation of water quality trends. There were important differences in trends between observed and flow-normalized data. These differences ranged from a simple change in the magnitude and significance of a trend, to more problematic changes where the flow-normalized trend could demonstrate a complete reversal relative to the observed (e.g., \ac{din} trends for all Suisun stations from 1996-2013, \cref{fig:trndcomp1}). Differences in apparent trends underscore the importance of considering flow effects in the interpretation of environmental changes, particularly if trend evaluation is used to assess the effects of nutrients on ecosystem health or the effectiveness of past nutrient management actions. An alternative evaluation of flow in the Delta demonstrated that flow contributions from different sources vary considerably over time at each station \citep{Novick15}.  For example, flow at MD10 represents seasonally changing inputs from the Sacramento and San Joaquin rivers and other sources. For simplicity, our analysis considered only the dominant water source and used the total daily inflow estimates from either the Sacramento River or the San Joaquin River at any of the Delta sites. Given that substantial differences with flow-normalized results were apparent from relatively coarse estimates of flow contributions, more precise differences could be obtained by considering the influence of multiple flow components at each location. Output from the Dayflow software program \citep{IEP16} provides a complete mass balance of flow in the Delta that could be used to develop a more comprehensive description.  Our analysis is the first attempt to model nutrient dynamics related to flow in the entire Delta, such that additional work should focus on improving the characterization of flow signals at each station.
 
-Long-term trends in nutrient and phytoplankton concentations in Suisun Bay have also been the focus of intense study for many years \citep{Cloern83,Lehman92,Dugdale07,Jassby08,Glibert14}. Our results demonstrated an overall increase in ammonium from the late 1970s to 2000, with initial flow-normalized values of annual averages estimated as approximately 0.05 mg L$^-1$ for the Suisun stations in 1976 to a maximum ranging from 0.08 mg L$^{-1}$ (station D4) to above 0.1 mg L$^{-1}$ (D6) in 2000 (\cref{fig:prddat}).  Trends from 1996-2005 evaluated in \citep{Jassby08} showed a similar increase in ammonium.  However, a reversal of trends in recent years may also be occuring in Suisun Bay, as model estimates suggest either relatively constant concentrations or even a decrease at some stations beginning around 2000 (e.g., D6, D7, \cref{fig:trndcomp1}).  Combined with the shift towards a dominant spring peak in chloropyll growth (\cref{fig:clmchl}f), changing nitrogen ratios continue to be a concern for the management of production in the upper \ac{sfe}. 
+Long-term trends in nutrient and phytoplankton concentations in Suisun Bay have also been the focus of intense study for many years \citep{Cloern83,Lehman92,Dugdale07,Jassby08,Glibert14}. Our results demonstrated an overall increase in ammonium from the late 1970s to 2000, with initial flow-normalized values of annual averages estimated as approximately 0.05 mg L$^-1$ for the Suisun stations in 1976 to a maximum ranging from 0.08 mg L$^{-1}$ (station D4) to above 0.1 mg L$^{-1}$ (D6) in 2000 (\cref{fig:prddat}).  Trends from 1996-2005 evaluated in \citep{Jassby08} showed a similar increase in ammonium.  However, a reversal of trends in recent years may also be occuring in Suisun Bay, as model estimates suggest either relatively constant concentrations or even a decrease at some stations beginning around 2000 (e.g., D6, D7, \cref{fig:trndcomp1}).  At the same time, the modeled results show a shift towards a dominant spring peak in chloropyll growth (\cref{fig:clmchl}f).
 
 \subsection{Interpretation of case studies}
 
 Seasonal timings of water quality improvements and the link to flow changes are difficult to characterize from the observed time series. \ac{wrtds} models were used to characterize these changes at P8 and to develop additional hypotheses of factors that influence nutrient concentrations. A general conclusion is that ammonium reductions were concurrent with \ac{wwtp} upgrades, but the reduction was most apparent at low-flow in January. Estimated ammonium concentrations in July were low for all flow levels, which suggests either nitrogen inputs were low in the summer or nitrogen was available but uptake by primary consumers and bacterial processing were high. Seasonal patterns in the relationship between flow and nitrite/nitrate were not as dramatic as compared to ammonium, and in particular, low-flow events in July were associated with higher concentrations.  This could suggest that ammonium concentrations at P8 are driving phytoplankton production at low flow during warmer months, and not nitrite/nitrate given the higher estimated concentrations in July at low flow. As such, these simple observations provide quantitative support of cause and effect mechanisms of nutrient impacts on potentially adverse environmental conditions as they relate to nutrient-related source controls upstream.  Additional research could investigate these hypotheses to better describe mechanisms of change as a basis for more informed management.
 
 The results for Suisun Bay provide additional descriptions of change in production as it relates to flow, grazing, and nitrogen ratios.  In general, clam biomass was associated with a decrease in \ac{chla} concentration, as shown by others \citep{Alpine92,Thompson08}. Our results also suggested that diatoms were the dominant genera early in the time series, particularly in late summer, whereas the spring peak observed in later years represents a shift to an earlier seasonal maxima. This supports past research that showed a decrease in silica uptake by diatoms following invasion \citep{Cloern96,Kimmerer05}. A nontrivial portion of the \ac{din} increase could be related to the decrease in a major `sink', i.e., decreased \ac{din} uptake by phytoplankton due to top down grazing pressure from \textit{P. amurensis}.  Flow effects on phytoplankton production have also changed over time. In the absence of benthic grazing prior to invasion, \ac{chla} production was limited at low flow as less nutrients were exported from the Delta, stimulated as flow increases, and reduced at high flow as either nutrients or phytoplankton biomass are exported to the estuary (\cref{fig:clmchl}j). Recent years have shown a decrease in overall chlorophyll, with particularly low concentrations at low flow (high salinity).  As such, \ac{chla} production in early years is directly related to flow, whereas the relationship with flow in later years is indirect as increased flow reduces clam abundance and releases phytoplankton from benthic grazing pressure. These relationships have been suggested by others \citep{Cloern83,Alpine92,Parchaso02,Jassby08}, although the precise mechanisms demonstrated by \ac{wrtds} provide additonal quantitative evidence of factors that drive water quality in the Delta.
- 
+
+\subsection{Application of \ac{wrtds} to estuarine systems}
+
+Use of \ac{wrtds} to evaluate long-term trends in water quality has not been extensive in estuarine systems.  To date, \ac{wrtds} has only been applied to evaluate eutrophication trends in Tampa Bay, Florida \citep{Beck15} and the Patuxent River Estuary (Chesapeake Bay, \citealt{Beck17}). Unique lessons were learned from the application to these two systems, including \begin{inparaenum}[1\upshape)]  
+\item use of salinity as an adequate tracer of both tidal forcing and freshwater inputs on indicators of water quality, 
+\item inclusion of quantile models as an extension to evaluate differences in the lower and upper conditional distributions of water quality changes, and 
+\item the ability to hypothesize pollutant sources with changes in the response of water quality to flow over time. 
+\end{inparaenum}
+The application of \ac{wrtds} to monitoring data from the Delta is the first to apply the method to a large temperate estuary on the Pacific coast.  
+
+New challenges were encountered related to the geographic location and the unique characteristics of \ac{sfe} that furthered our understanding of how the method can be used for trend analysis in tidal waters.  The \ac{sfe} is a macrotidal system that has daily variation in water depth typical of coastal systems on the Pacific Coast (i.e., $>$ 1 m).  Previous applications of \ac{wrtds} in tidal waters were limited to systems with substantially smaller tidal amplitudes (i.e., $<$ 1 m), demonstrating that \ac{wrtds} can be applied in systems with a wide range of tidal influences.  This point is particularly relevant given that hydrologic factors are often key determinants of water quality changes in coastal systems, suggesting the method is robust in the presence of large tidal swings. The \ac{sfe} is also unique in that excess turbidity, rather than nutrients, is the dominant limiting factor of primary production.  This differs substantially from Tampa Bay and Chesapeake Bay, neither of which are light-limited from sedimentation.  Our case study in Suisun Bay provided a unique demonstration of \ac{wrtds} to describe chlorophyll dynamics as a function of multiple factors unrelated to nutrients by evaluating the effects of biological invasion on water quality and the complex interaction of flow on both. This result provided the first application of \ac{wrtds} in tidal waters to evaluate multiple factors that are included explicitly in the model (e.g, flow) and those that are not (e.g., biological forcing).  As such, \ac{wrtds} has the potential to inform the understanding of nutrient and phytoplankton dynamics in coastal systems that vary greatly in physical, chemical, and biological characteristics.    
+
 \subsection{Conclusions}
 
 As demonstrated by both case studies and the overall trends across all stations, water quality dynamics in the Delta are complex and driven by multiple factors that change through space and time. \ac{wrtds} models can facilitate descriptions of change by focusing on high-level forcing factors that explicitly account for annual, seasonal, and flow effects on trend interpretations.  We have demonstrated the potential for imprecise or inaccurate conclusions of trend tests that focus solely on observed data and emphasize that flow-normalized trends have more power to quantify change.  The results from \ac{wrtds} are also consistent with described trends of nutrient loads from point sources \citep[e.g., Sacramento \ac{wwtp} increases and exports to Suisun Bay,][]{Jassby08,Novick14}, demonstrating that these changes are not unexpected.  Consequently, we are not detracting from the potential implications of such increases. The important conclusion is that the physical/hydrological and biogeochemical factors that influence nutrient cycling and ambient concentrations in the Bay-Delta, and changes to those factors, are substantial enough that they can be comparable in magnitude to anthropogenic load increases or comparable to the effects of management actions to decrease nutrient levels. Therefore, methods that adjust for the effects of these factors are critical when studying long-term records to assess the impacts or effectiveness of load increases or management actions, respectively.
@@ -1374,13 +1385,13 @@ tab <- trnds_nrm %>%
   filter(cat %in% c('1976-1995', '1996-2013')) %>% 
   select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
   mutate(
-    med = round(med, 1), 
-    perchg = round(perchg, 1),
-    perchg = ifelse(
-      perchg < 0, 
-      paste0('(', perchg, ')' ), 
+    med = format(round(med, 1), nsmall = 1), 
+    perchg = format(round(perchg, 1), nsmall = 1),
+    perchg = gsub('^\\s+', '', perchg),
+    perchg = ifelse(grepl('\\-', perchg),
+      paste0('(', perchg, ')'),
       paste0('(\\textbf{', perchg, '})')
-      ), 
+      ),
     ztest = p_ast(ztest)
   ) %>% 
   unite('perchg', perchg, ztest, sep = '') %>% 
@@ -1422,13 +1433,13 @@ latex(
 totab <- rbind(no_bf, no_af, nh_bf, nh_af) %>% 
   select(-tau, -slope, -chitest) %>% 
   mutate(
-    med = round(med, 1), 
-    perchg = round(perchg, 1),
-    perchg = ifelse(
-      perchg < 0, 
-      perchg, 
-      paste0('\\textbf{', perchg, '}')
-      ), 
+    med = format(round(med, 1), nsmall = 1), 
+    perchg = format(round(perchg, 1), nsmall = 1),
+    perchg = gsub('^\\s+', '', perchg),
+    perchg = ifelse(grepl('\\-', perchg),
+      paste0('(', perchg, ')'),
+      paste0('(\\textbf{', perchg, '})')
+      ),
     ztest = p_ast(ztest)
   ) %>% 
   unite('perchg', perchg, ztest, sep = '') %>% 
@@ -1499,13 +1510,13 @@ tab <- trnds_nrm %>%
     ) %>% 
   select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
   mutate(
-    med = round(med, 1), 
-    perchg = round(perchg, 1),
-    perchg = ifelse(
-      perchg < 0, 
-      paste0('(', perchg, ')' ), 
+    med = format(round(med, 1), nsmall = 1), 
+    perchg = format(round(perchg, 1), nsmall = 1),
+    perchg = gsub('^\\s+', '', perchg),
+    perchg = ifelse(grepl('\\-', perchg),
+      paste0('(', perchg, ')'),
       paste0('(\\textbf{', perchg, '})')
-      ), 
+      ),
     ztest = p_ast(ztest)
   ) %>% 
   unite('perchg', perchg, ztest, sep = '') %>% 
@@ -1550,13 +1561,13 @@ tab <- trnds_nrm %>%
     ) %>% 
   select(Site_Code, resvar, cat, med, perchg, ztest) %>% 
   mutate(
-    med = round(med, 1), 
-    perchg = round(perchg, 1),
-    perchg = ifelse(
-      perchg < 0, 
-      paste0('(', perchg, ')' ), 
+    med = format(round(med, 1), nsmall = 1), 
+    perchg = format(round(perchg, 1), nsmall = 1),
+    perchg = gsub('^\\s+', '', perchg),
+    perchg = ifelse(grepl('\\-', perchg),
+      paste0('(', perchg, ')'),
       paste0('(\\textbf{', perchg, '})')
-      ), 
+      ),
     ztest = p_ast(ztest)
   ) %>% 
   unite('perchg', perchg, ztest, sep = '') %>% 
